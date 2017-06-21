@@ -3,6 +3,12 @@ body {
   padding-bottom: 20px;
 }
 
+h1 {
+  margin-top: .3em;
+  margin-bottom: .5em;
+  margin-right: 0;
+  margin-left: 0;
+}
 /***** Navbar ******/
 .navbar-inverse {
   background-color: #fff;
