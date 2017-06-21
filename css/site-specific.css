@@ -48,6 +48,11 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
 }
+@media screen and (min-width: 768px) {
+  .jumbotron {
+    padding-bottom: 30px;
+  }
+}
 
 /****** Sections *****/
 .section {
@@ -75,7 +80,17 @@ p {
   left: 0;
   visibility: hidden;
 }
-
+.section p > a {
+  color: #000;
+  text-decoration: underline;
+}
+.section h3 {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 300;
+}
+.section img {
+  padding-bottom: 20px;
+}
 /******* Sidebar *******/
 .sidebar.affix {
   position: static;
