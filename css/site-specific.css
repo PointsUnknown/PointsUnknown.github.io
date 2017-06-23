@@ -9,6 +9,12 @@ h1 {
   margin-right: 0;
   margin-left: 0;
 }
+
+.installation-instructions {
+  width: 70%;
+}
+
+
 /***** Navbar ******/
 .navbar-inverse {
   background-color: #fff;
