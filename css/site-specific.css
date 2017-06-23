@@ -103,6 +103,19 @@ p {
 .section img {
   padding-bottom: 20px;
 }
+.section ol {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 300;
+}
+.section ol > p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+.section ol > p > a {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
 /******* Sidebar *******/
 .sidebar.affix {
   position: static;
