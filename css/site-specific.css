@@ -65,6 +65,10 @@ h1 {
     padding-bottom: 30px;
   }
 }
+.jumbotron p > a {
+  color: #000;
+  text-decoration: underline;
+}
 
 /****** Sections *****/
 .section {

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../favicon.ico">
+  <title>Points Unknown</title>
+
+  <!-- Bootstrap -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="../css/site-specific.css" rel="stylesheet">
+
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500|Roboto:300,300i,400,400i" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="10">
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">Points Unknown</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <!-- <li class="active"><a href="#">Home</a></li> -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Courses <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="../journalism_fall2017.html">Journalism - Fall 2017</a></li>
+              <li><a href="#">Journalism - Spring 2018 (A)</a></li>
+              <li><a href="#">Journalism - Spring 2018 (B)</a></li>
+              <li><a href="#">GSAPP - Spring 2018</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tutorials <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="01_BasicLandUseMap.html">01 - Basic Land Use Map</a></li>
+              <li><a href="#">Tutorial 2</a></li>
+              <li><a href="#">Tutorial 3</a></li>
+              <li><a href="#">Tutorial 4</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Resources</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Tutorial 01 - Creating a Basic Land Use Map</h1>
+      <p>This tutorial will describe the necessary steps to create a basic flood zone map of Manhattan and export it as a PDF file in QGIS. If you haven't downloaded and installed the program, you can find the instructions <a href="00_InstallationInstructions.html">here</a>. You can also find QGIS's documentation <a href="http://www.qgis.org/en/docs/index.html">here</a>.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9" role="main">
+        <div class="section">
+          <span class="anchor" id="datasets"></span>
+          <h1 class="page-header">
+            Datasets
+          </h1>
+          <p>To create this map we will be using the following datasets:</p>
+          <ul>
+            <li><p>Boroughs - New York City boroughs ("Borough Boundaries (Clipped to Shoreline)", under "Borough Boundaries & Community Districts"). Originally downloaded from <a href="http://www1.nyc.gov/site/planning/data-maps/open-data/districts-download-metadata.page">here</a>.</p></li>
+            <li><p>MapPLUTO - Manhattan MapPLUTO file (version 16v2), containing all the lots in Manhattan and their attributes. The original PLUTO files can be downloaded <a href="http://www1.nyc.gov/site/planning/data-maps/open-data.page#pluto">here</a>.</p></li>
+            <li><p>Hydrography - New York hydrography. Originally downloaded <a href="https://data.cityofnewyork.us/Environment/Hydrography/drh3-e2fd">here</a>. Once you get to the NYC OpenData page, click <code>Export</code> and choose the <code>Shapefile</code> format.</p></li>
+            <li><p>Hurricane Evacuation Zones - representing varying threat levels of coastal flooding resulting from storm surge. Originally downloaded from <a href="https://data.cityofnewyork.us/Public-Safety/Hurricane-Evacuation-Zones/uihr-hn7s">here</a>. Once you get to the NYC OpenData page, click <code>Export</code> and choose the <code>Shapefile</code> format.
+            A brief note about this dataset from NYC OpenData: "Hurricane evacuation zones should not be confused with flood insurance risk zones, which are designated by FEMA and available in the form of Flood Insurance Rate Maps (FIRMs)."</p></li>
+            <li><p>Hydrography U.S. - United States hydrography. Originally downloaded from <a href="https://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2015/polygon">here</a>. When you get to the Bureau of Transportation Statistics page click on
+            the Hydrographic Features <code>ZIP</code> file.</p></li>
+            <li><p>States - U.S. State Boundaries. Originally downloaded from <a href="https://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2015/polygon">here</a>. When you get to the Bureau of Transportation Statistics page click on
+            the U.S. State Boundaries <code>ZIP</code> file.</p></li>
+          </ul>
+        </div>
+        <div class="section">
+          <span class="anchor" id="addingLayers"></span>
+          <h1 class="page-header">
+            Adding Layers
+          </h1>
+          <p>The first step in creating a basic map is to open QGIS and add the layers you downloaded.</p>
+          <ul>
+            <li><p>To add shapefiles click on the <code>Add Vector Layer</code> button.
+              Other types of data will be added using the other buttons,
+              but in this tutorial we will only be using vector data (shapefiles). Other types of data
+              include rasters, csv (comma separated values), and postGIS layers.</p></li>
+            <img class="img-responsive" src="tutorialImages/01_BasicMap/01_Adding_Layers.png" alt="thumb">
+            <li><p>Start by adding the Boroughs layer. The reason we start with this one is because
+              we know it has the right projection for New York City
+              (NAD_1983_StatePlane_New_York_Long_Island_FIPS_3104_Feet). Since map projects will
+              automatically take the projection of the first layer we add, by loading this layer first
+              we make sure we are working with the right one.</p>
+          </li>
+            <li><p>Make sure you select the files with the extension <code>.shp</code>. Remember that a shapefile is actually made up of 5 or 6 individual files with different extensions. Normally, these individual files are the following:</p>
+            <ul>
+              <li><p>.shp - The main file that stores the feature geometry (required).</p></li>
+              <li><p>.shx - The index file that stores the index of the feature geometry (required).</p></li>
+              <li><p>.dbf - The dBASE table that stores the attribute information of features (required).</p></li>
+              <li><p>.sbn and .sbx - The files that store the spatial index of features (these might get corrupted, see note at the end of this tutorial).</p></li>
+              <li><p>.prj - The file that stores the coordinate system information.</p></li>
+              <li><p>For more information on these extensions and others see <a href="http://webhelp.esri.com/arcgisdesktop/9.2/index.cfm?TopicName=Shapefile_file_extensions">this explanation by ESRI</a>.</p></li>
+            </ul>
+            </li>
+            <li><p>Once you've added all the layers you downloaded, you need to organize them in the layer panel. Remember that the layers will be drawn in the same order they appear in the panel: the top layer will be drawn last, on top of the other ones.</p></li>
+            <li><p>The final order of the layers should be something like this (from top to bottom):</p>
+              <ul>
+                <li><p>Boroughs</p></li>
+                <li><p>Hydrography</p></li>
+                <li><p>Hydrography U.S. (choose the <code>hydropol.shp</code> file.)</p></li>
+                <li><p>Hurricane Evacuation Zones</p></li>
+                <li><p>MNMapPLUTO</p></li>
+                <li><p>States</p></li>
+              </ul>
+            </li>
+            <li><p>These layers will probably come with different names but you can rename them by right-clicking on them in the Layers Panel and selecting
+            <code>Rename</code>.</p></li>
+            <li><p>If when you zoom in to one of the layers some of its features disappear see the <a href="#note">note</a> at the end of the tutorial.</p></li>
+          </ul>
+        </div>
+        <div class="section">
+          <span class="anchor" id="symbology"></span>
+          <h1 class="page-header">Symbology</h1>
+          <p>Symbology is one of the most important concepts in mapping.
+            At its most basic level, symbology stands for changing the color, line weight, size or outline of a layer.
+            However, and more importantly, it also means changing the appearance of a layer <em>based on one or multiple of its attributes</em>.
+           In this tutorial we will do both, simple color changes and more advanced symbologies based on attributes.
+           <br><br>
+           As you may have seen, QGIS assigns random colors to each of the layers you add. To change the appearance of each layer do the following:</p>
+          <ul>
+             <li><p>First, since we are interested in creating a flood zone map of Manhattan, you should zoom in into the MNMapPLUTO layer. To do this, right-click on the MNMapPLUTO layer and click <code>Zoom to Layer</code>. This is
+             also very useful when for some reason you've panned away from your layers and you can't find them on your map. Just right-click on any of them and select <code>Zoom to Layer</code> to go back to them.</p></li>
+             <img class="img-responsive" src="tutorialImages/01_BasicMap/02_Zoom_To_Layers.png" alt="thumb">
+            <li><p>There are multiple ways of changing the appearance of a layer. The easiest
+              (and simplest) is to double-click on the icon (point, line or polygon) next to the
+              layer name on the layer panel. This brings up the <code>Style</code> tab in the
+              <code>Layer Properties</code> panel. In there you can change the fill (color),
+              stroke weight and fill (outline) and the size of the icon (if using points or icons).</p></li>
+            <img class="img-responsive" src="tutorialImages/01_BasicMap/03_Style_Layer_Properties.png" alt="thumb">
+            <li><p>In this panel change the style for the following layers in the following ways (we will leave the Hurricane Evacuation Zones for the end):</p>
+            <ul>
+              <li><p>Boroughs:
+              <ul>
+                <li><p>Fill style: No Brush</p></li>
+                <li><p>Outline style: Solid Line</p></li>
+                <li><p>Outline width: 0.5</p></li>
+              </ul></p></li>
+              <li><p>Hydrography:
+              <ul>
+                <li><p>Fill: #e6e6e6 (HTML notation)</p></li>
+                <li><p>Outline style: No Pen</p></li>
+              </ul></p></li>
+              <li><p>Hydrography U.S.:
+                <ul>
+                  <li><p>Fill: #e6e6e6 (HTML notation)</p></li>
+                  <li><p>Outline style: No Pen</p></li>
+                </ul></p></li>
+              <li><p>MNMapPLUTO:
+              <ul>
+                <li><p>Fill: #a6a6a6 (HTML notation)</p></li>
+                <li><p>Outline style: No Pen</p></li>
+              </ul></p></li>
+              <li><p>State:
+              <ul>
+                <li><p>Fill: #ffffff (HTML notation)</p></li>
+                <li><p>Outline style: No Pen</p></li>
+              </ul></p></li>
+            </ul></li>
+            <li><p>To change the appearance of the background, select the <code>Project</code> menu, and in there select <code>Project Properties</code>. Then, in the <code>General</code> tab you can change the <code>Background color</code> to #e6e6e6 (HTML notation).</p></li>
+            <img class="img-responsive" src="tutorialImages/01_BasicMap/04_Project_Properties.png" alt="thumb">
+          </ul>
+        </div>
+        <div class="section">
+          <span class="anchor" id="note"></span>
+          <h1 class="page-header">Note</h1>
+          <p>If, after adding some dataset, you zoom in and some of the features disappear,
+            you probably need to rebuild the dataset's "Spatial Index". To do this right-click on
+            the layer, select <code>Properties</code> and go to <code>General</code>. Under
+            <code>Coordinate reference system</code> click on <code>Create spatial index</code>.
+            This should solve your problem. Sometimes, specially with the New York City PLUTO files,
+            the "Spatial Index" is tied to one of the attribute fields and when you zoom in only
+            the features with that specific attribute show up. "Spatial Index" are specially useful
+            when doing operations over large datasets, for example see this <a href="https://nathanw.net/2013/01/04/using-a-qgis-spatial-index-to-speed-up-your-code/">post</a>.</p>
+        </div>
+      </div>
+      <div class="col-md-3" role="complementary" id="myScrollspy">
+        <nav class="sidebar hidden-print hidden-sm hidden-xs" data-spy="affix" data-offset-top="420">
+          <ul class="nav sidenav">
+            <li>
+              <a href="#datasets">Datasets</a>
+            </li>
+            <li>
+              <a href="#addingLayers">Adding Layers</a>
+            </li>
+            <li><a href="#symbology">Symbology</a></li>
+            <li><a href="#note">Note</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="../js/bootstrap.min.js"></script>
+</body>
+</html>
