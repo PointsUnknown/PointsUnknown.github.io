@@ -54,7 +54,8 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tutorials <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="01_BasicLandUseMap.html">01 - Basic Land Use Map</a></li>
+              <li><a href="00_InstallationInstructions.html">00 - Installation Instructions</a></li>
+              <li><a href="01_BasicMap.html">01 - Basic Map</a></li>
               <li><a href="#">Tutorial 2</a></li>
               <li><a href="#">Tutorial 3</a></li>
               <li><a href="#">Tutorial 4</a></li>
@@ -68,8 +69,8 @@
   </nav>
   <div class="jumbotron">
     <div class="container">
-      <h1>Tutorial 01 - Creating a Basic Land Use Map</h1>
-      <p>This tutorial will describe the necessary steps to create a basic flood zone map of Manhattan and export it as a PDF file in QGIS. If you haven't downloaded and installed the program, you can find the instructions <a href="00_InstallationInstructions.html">here</a>. You can also find QGIS's documentation <a href="http://www.qgis.org/en/docs/index.html">here</a>.</p>
+      <h1>Tutorial 01 - Creating a Basic Flood Zone Map</h1>
+      <p>This tutorial will describe the necessary steps to create a basic flood zone map of New York and export it as a PDF file in QGIS. If you haven't downloaded and installed the program, you can find the instructions <a href="00_InstallationInstructions.html">here</a>. You can also find QGIS's documentation <a href="http://www.qgis.org/en/docs/index.html">here</a>.</p>
     </div>
   </div>
   <div class="container">
@@ -83,7 +84,10 @@
           <p>To create this map we will be using the following datasets:</p>
           <ul>
             <li><p>Boroughs - New York City boroughs ("Borough Boundaries (Clipped to Shoreline)", under "Borough Boundaries & Community Districts"). Originally downloaded from <a href="http://www1.nyc.gov/site/planning/data-maps/open-data/districts-download-metadata.page">here</a>.</p></li>
-            <li><p>MapPLUTO - Manhattan MapPLUTO file (version 16v2), containing all the lots in Manhattan and their attributes. The original PLUTO files can be downloaded <a href="http://www1.nyc.gov/site/planning/data-maps/open-data.page#pluto">here</a>.</p></li>
+            <li><p>MapPLUTO - Manhattan MapPLUTO file (version 16v2), containing all the lots in New York and their attributes.
+              The original PLUTO files can be downloaded <a href="http://www1.nyc.gov/site/planning/data-maps/open-data.page#pluto">here</a>. Make sure you
+            download the files for all 5 boroughs. For more information about the PLUTO files and what each of the fields means take a look at the useful
+          <a href="https://www1.nyc.gov/assets/planning/download/pdf/data-maps/open-data/pluto_datadictionary.pdf?r=16v2">PLUTO data dictionary</a>.</p></li>
             <li><p>Hydrography - New York hydrography. Originally downloaded <a href="https://data.cityofnewyork.us/Environment/Hydrography/drh3-e2fd">here</a>. Once you get to the NYC OpenData page, click <code>Export</code> and choose the <code>Shapefile</code> format.</p></li>
             <li><p>Hurricane Evacuation Zones - representing varying threat levels of coastal flooding resulting from storm surge. Originally downloaded from <a href="https://data.cityofnewyork.us/Public-Safety/Hurricane-Evacuation-Zones/uihr-hn7s">here</a>. Once you get to the NYC OpenData page, click <code>Export</code> and choose the <code>Shapefile</code> format.
             A brief note about this dataset from NYC OpenData: "Hurricane evacuation zones should not be confused with flood insurance risk zones, which are designated by FEMA and available in the form of Flood Insurance Rate Maps (FIRMs)."</p></li>
@@ -128,7 +132,7 @@
                 <li><p>Hydrography</p></li>
                 <li><p>Hydrography U.S. (choose the <code>hydropol.shp</code> file.)</p></li>
                 <li><p>Hurricane Evacuation Zones</p></li>
-                <li><p>MNMapPLUTO</p></li>
+                <li><p>MNMapPLUTO, QNMapPLUTO, BXMapPLUTO, BKMapPLUTO, SIMapPLUTO</p></li>
                 <li><p>States</p></li>
               </ul>
             </li>
@@ -139,7 +143,7 @@
         </div>
         <div class="section">
           <span class="anchor" id="symbology"></span>
-          <h1 class="page-header">Symbology</h1>
+          <h1 class="page-header">Basic Symbology</h1>
           <p>Symbology is one of the most important concepts in mapping.
             At its most basic level, symbology stands for changing the color, line weight, size or outline of a layer.
             However, and more importantly, it also means changing the appearance of a layer <em>based on one or multiple of its attributes</em>.
@@ -147,7 +151,7 @@
            <br><br>
            As you may have seen, QGIS assigns random colors to each of the layers you add. To change the appearance of each layer do the following:</p>
           <ul>
-             <li><p>First, since we are interested in creating a flood zone map of Manhattan, you should zoom in into the MNMapPLUTO layer. To do this, right-click on the MNMapPLUTO layer and click <code>Zoom to Layer</code>. This is
+             <li><p>First, since we are interested in creating a flood zone map of New York, you should zoom in into the one of the boroughs layer. To do this, right-click on one of the PLUTO layers and click <code>Zoom to Layer</code>. This is
              also very useful when for some reason you've panned away from your layers and you can't find them on your map. Just right-click on any of them and select <code>Zoom to Layer</code> to go back to them.</p></li>
              <img class="img-responsive" src="tutorialImages/01_BasicMap/02_Zoom_To_Layers.png" alt="thumb">
             <li><p>There are multiple ways of changing the appearance of a layer. The easiest
@@ -162,7 +166,7 @@
               <ul>
                 <li><p>Fill style: No Brush</p></li>
                 <li><p>Outline style: Solid Line</p></li>
-                <li><p>Outline width: 0.5</p></li>
+                <li><p>Outline width: 0.25</p></li>
               </ul></p></li>
               <li><p>Hydrography:
               <ul>
@@ -174,7 +178,7 @@
                   <li><p>Fill: #e6e6e6 (HTML notation)</p></li>
                   <li><p>Outline style: No Pen</p></li>
                 </ul></p></li>
-              <li><p>MNMapPLUTO:
+              <li><p>PLUTO:
               <ul>
                 <li><p>Fill: #a6a6a6 (HTML notation)</p></li>
                 <li><p>Outline style: No Pen</p></li>
@@ -187,6 +191,109 @@
             </ul></li>
             <li><p>To change the appearance of the background, select the <code>Project</code> menu, and in there select <code>Project Properties</code>. Then, in the <code>General</code> tab you can change the <code>Background color</code> to #e6e6e6 (HTML notation).</p></li>
             <img class="img-responsive" src="tutorialImages/01_BasicMap/04_Project_Properties.png" alt="thumb">
+          </ul>
+        </div>
+        <div class="section">
+          <span class="anchor" id="query"></span>
+          <h1 class="page-header">Definition Queries</h1>
+          <p>You will notice that as the map is, only the Bronx shows the Hurricane Evaluation Zones layer; the other boroughs are shaded in the same color that
+          we gave the water layers. This is because they are actually covered by the Hydrography U.S. layer. Contrary to what one might think, this layer includes
+          more than just water, it also includes islands, and since Manhattan, Queens, Brooklyn and Staten Island are in fact islands, they are included in this layer
+          and shaded as if they were water.<br><br>However, this layer also includes a field identifying those features that are actually land, and we can use that
+          field to filter out (hide) those features.</p>
+          <ul>
+            <li><p>First, to view the actual data associated with the features, right-click on the Hydrography U.S. layer and choose <code>Open Attribute Table</code>. Once <thead>
+              table opens you will see the following fields: <code>LANDCODE</code>, <code>DESCRIPT</code>, <code>NAVIGABLE</code>, <code>STFIPS</code>, and <code>STPOSTAL</code>.</p></li>
+            <img class="img-responsive" src="tutorialImages/01_BasicMap/05_AttributeTable.png" alt="thumb">
+            <li><p>The field <code>LANDCODE</code> is the one that will tell us whether a feature is land (<code>1</code>) or water (<code>0</code>).</p></li>
+            <li><p>So, to only show the features that have a <code>LANDCODE</code> value of <code>0</code> you need to create a <code>definition query</code>.
+            To do this, right-click on the Hydrography U.S. layer and choose <code>Properties</code>. In there, go to the <code>General</code> tab, and
+            at the bottom of the panel click on <code>Query Builder</code>.</p></li>
+            <li><p>In the query builder window you want to build an expression that says that only the fields with a <code>LANDCODE</code> value of <code>0</code>
+            should be shown. To do this, double click on <code>LANDCODE</code> in the <code>Fields</code> panel so that it appears below where it says
+            "Provide specific filter expression". Next, right there type <code>= 0</code>, so that the whole expression reads <code>"LANDCODE" = 0</code>.</p></li>
+            <img class="img-responsive" src="tutorialImages/01_BasicMap/06_DefinitionQuery.png" alt="thumb">
+            <li><p>Once you click <code>OK</code> on your definition query panel you should see the Hydrology U.S. features disappear from Manhattan, Queens, Brooklyn
+            and Queens and reveal the Hurricane Evacuation zones for these boroughs.</p></li>
+          </ul>
+        </div>
+        <div class="section">
+          <span class="anchor" id="categories"></span>
+          <h1 class="page-header">Classification by Categories</h1>
+          <p>Finally, we will symbolize the Hurricane Evacuation Zones layer. However, since we want to differentiate between the different zones, instead of
+          simply symbolizing the layer with one color, we will classify it based on different categories in its attribute table.</p>
+          <ul>
+            <li><p>First, right-click and open the layer's attribute table. There you will see a field called <code>hurricane</code> which contains a
+            code for each of the six zones. This is the code we will use to symbolize the different evacuation zones. Close the attribute table.</p></li>
+            <li><p>Just like for the other layers, right-click on the Hurricane Evacuation Zones layer and choose <code>Properties</code>. Go to the <code>Style</code>
+            tab. Here, however, choose <code>Categorized</code> instead of <code>Single symbol</code> in the drop-down menu at the top.</p></li>
+            <li><p>Next, choose the <code>hurricane</code> field in the <code>Column</code> option.</p></li>
+            <li><p>Click on <code>Classify</code> to classify the data and display the different values. Here, QGIS goes through all the values in the attribute
+            table for that particular field and assigns a color to each one of them. The default color assignment is random.</p></li>
+            <li><p>Change the <code>Color ramp</code> to one of the ones that has a gradient and click on the <code>Invert</code> option to assign the darkest
+            color to the lowest value.</p></li>
+            <li><p>Now, deactivate the <code>X</code> category, since this one is actually not an evacuation zone.</p></li>
+            <li><p>Finally, let's apply some transparency to the layer so you can see the blocks under the evacuation zones. To do this slide the <code>Layer transparency
+            </code> slider to 20%.</p></li>
+            <img src="tutorialImages/01_BasicMap/07_Classification.png" alt="thumb" class="img-responsive">
+            <li><p>Click <code>OK</code> to close the properties panel.</p></li>
+          </ul>
+        </div>
+        <div class="section">
+          <span class="anchor" id="print"></span>
+          <h1 class="page-header">Print Composer</h1>
+          <p>The Print Composer is where you will format your map for its final output.
+            Here you will specify the output size, you will add a legend, a scale bar, a north arrow (if needed) and any additional text
+            (titles, sources, explanations and credits). Although the Print Composer exists as its own window it will still be linked to the map
+            Project we have been working on.</p>
+          <ul>
+            <li><p>First, create a new Print Composer in <code>Project</code>, <code>New Print Composer</code>. Give it a custom name if you want,
+            although this is not necessary.</p></li>
+            <li><p>Once you are in the Print Composer you need to add a new map. Think of it as if you had a blank piece of paper and
+            you were adding a window onto the map you've been working on. That window is a link to your Project and if you change things in the Project
+            those changes will still be reflected in the Print Composer.</p></li>
+            <li><p>To add a new map, click on the button <code>Add new map</code> on the left-hand panel and draw a rectangle on the blank page.</p></li>
+            <img src="tutorialImages/01_BasicMap/08_AddNewMap.png" alt="thumb" class="img-responsive">
+            <li><p>Once you add the map you can adjust its size and position by dragging it from its corners.</p></li>
+            <li><p>You might notice that if you change the size of the map it doesn't necessarily update. To avoid this, on the right-hand panel, where it says
+            <code>Main properties</code>, click on <code>Update preview</code>. Or, you can also click on the drop-down menu where it says
+            <code>Cache</code> and change it to <code>Render</code> so that it is constantly updating. For this map, though, since we are working with pretty
+            large layers (ie. PLUTO) leave it on the <code>Cache</code> option.</p></li>
+            <img src="tutorialImages/01_BasicMap/09_UpdatePreview.png" alt="thumb" class="img-responsive">
+            <li><p>To move the content inside the Print Composer (as opposed to the whole page) use the <code>Move item content</code> tool on the left-hand
+            panel.</p></li>
+            <img src="tutorialImages/01_BasicMap/10_MoveItemContent.png" alt="thumb" class="img-responsive">
+            <li><p>Next, you need to center and zoom in the map on the area you want to focus on. For the purposes of this tutorial, we will
+            include the 5 boroughs. To do this, move the content of the map to this area and on the right-hand panel, under <code>Main properties</code>,
+            adjust your <code>Scale</code> to 230,000.</p></li>
+            <li><p>If any of the colors or line weights seem too big or two small or not correct, you can always go back to the Project and change them there.
+            When you return to your Print Composer you can update your preview and the changes will be reflected.</p></li>
+            <li><p>Add a scale bar by going to <code>Layout</code> <code>Add scalebar</code> and clicking on the map.</p></li>
+            <li><p>The default scale bar is too big and has some values left of the zero. To change this, go to the right-hand panel, in the top part make sure
+            you select the <code>scale bar</code>, and in the Segments section change the <code>Segments</code> to 'left 0'.</p></li>
+            <li><p>You can also adjust the <code>Height</code> of the scale bar to 2mm.</p></li>
+            <li><p>Under Fonts and colors change the values to:</p></li>
+            <ul>
+              <li><p>Font color: #4d4d4d</p></li>
+              <li><p>Fill color: #4d4d4d</p></li>
+              <li><p>Stroke color: #4d4d4d</p></li>
+            </ul>
+            <li><p>Inside the <code>Font</code> menu you can choose a different font and/or a smaller size.</p></li>
+            <li><p>To add a legend click on <code>Layout</code> <code>Add legend</code> and then click on the map. You will notice that QGIS automatically
+            puts an icon for every layer in the map. We only need the ones for the Hurricane Evacuation Zones, so we need to customize the legend:</p></li>
+            <ul>
+              <li><p>On the right-hand panel, under Legend items uncheck <code>Auto update</code> and then select the layers that you don't want in the
+              legend and remove them with the 'minus' button. Do the same thing inside the Hurricane Evaluation Zones layer with the categories you don't want to display.</p></li>
+              <li><p>Under <code>Main properties</code>, remove the 'Legend' in the <code>Title</code> field.</p></li>
+              <li><p>Also, further down, uncheck the <code>Background</code> option.</p></li>
+            </ul>
+            <li><p>Since we did not rotate the map we don't need to add a north arrow. If you rotate your map you <b>must</b> add a north arrow. If you wanted
+            to, you could add a north arrow by clicking on <code>Layout</code> <code>Add arrow</code>.</p></li>
+            <li><p>Finally, to add a title and a 'source' text, click on the <code>Add new label</code> button on the left-hand panel and click on the map.
+            Customize these labels by changing their color, size and location.</p></li>
+            <li><p>The last step is to export the map as a .pdf file. Use the <code>Export as PDF</code> button on the top toolbar and save your map.</p></li>
+            <li><p>Your final map should look something like this:</p></li>
+            <img src="tutorialImages/01_BasicMap/11_FinalMap.png" alt="thumb" class="img-responsive">
           </ul>
         </div>
         <div class="section">
@@ -211,7 +318,10 @@
             <li>
               <a href="#addingLayers">Adding Layers</a>
             </li>
-            <li><a href="#symbology">Symbology</a></li>
+            <li><a href="#symbology">Basic Symbology</a></li>
+            <li><a href="#query">Definition Queries</a></li>
+            <li><a href="#categories">Classification by Categories</a></li>
+            <li><a href="#print">Print Composer</a></li>
             <li><a href="#note">Note</a></li>
           </ul>
         </nav>
