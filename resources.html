@@ -62,33 +62,68 @@
             </ul>
           </li>
           <li><a href="resources.html">Resources</a></li>
-          <li><a href="about.html">About</a></li>
+          <li class="active"><a href="about.html">About</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
   </nav>
   <div class="jumbotron">
     <div class="container">
-      <h1>Points Unknown</h1>
-      <p>Spatial training, paired with journalism, can serve as the missing “integrator” of data and the real world—providing lessons that travel beyond the boroughs of New York. The commoditization of spatial visualization tools can extend journalistic practice, helping reporters better understand and tell stories. These same tools expose the invisible spaces, forces and environments that architecture, urban design and planning students must engage, navigate and learn to represent as part of their spatial toolkit.</p>
+      <h1>Resources</h1>
+      <p>Here you will find a list of GIS and mapping resources, including data, tutorials, books, and blogs. Although this is by no means a complete or comprehensive list we hope it will provide guidance, ideas, inspiration, and help you in your mapping work.</p>
     </div>
   </div>
   <div class="container">
     <div class="row">
       <div class="col-md-9" role="main">
         <div class="section">
-          <span class="anchor" id="courses"></span>
+          <span class="anchor" id="data"></span>
           <h1 class="page-header">
-            Workshops and Courses
+            Data Sources
           </h1>
-          <p><a href="journalism_fall2017.html">Points Unknown - Journalism Fall 2017</a>: An introduction to mapping, spatial data analysis and representation for journalism students.
-          </p>
-          <p><a href="#">Points Unknown - GSAPP 2018</a>: An introduction to mapping, spatial data analysis and representation for journalism students.
-          </p>
-          <p><a href="#">Points Unknown - Journalism Spring 2018 (A)</a>: An introduction to mapping, spatial data analysis and representation for journalism students.
-          </p>
-          <p><a href="#">Points Unknown - Journalism Spring 2018 (B)</a>: An introduction to mapping, spatial data analysis and representation for journalism students.
-          </p>
+          <p>Data resources at Columbia University:</p>
+          <ul>
+            <li><p><a href="http://library.columbia.edu/locations/dssc.html">Digital Social Science Center (DSSC)</a>: in Lehman Library is the chief GIS Data Library for the overall University. They purchase and maintain their own collection of data, including historical datasets for New York City, and have Data Librarians who are able to help students in both finding and working with geospatial data. The DSSC is located in Lehman Library in the School of International and Public Affairs (SIPA) at 118th Street and Amsterdam, and is open to all Columbia Students with a valid ID. Please refer to their website for hours.
+            </p></li>
+            <li><p><a href="https://geodata.library.columbia.edu/">GeoData@Columbia</a>: hosted by the DSSC, this portal provides access to geographic data from the leading universities of the world.
+            </p></li>
+            <li><p><a href="http://sedac.ciesin.columbia.edu/">SEDAC / CIESIN</a>: The Center for International Earth Science Information Network (CIESIN) is a center within the Earth Institute at Columbia University. CIESIN works at the intersection of the social, natural, and information sciences, and specializes in on-line data and information management, spatial data integration and training, and interdisciplinary research related to human interactions in the environment. Along with NASA they produce the <a href="http://sedac.ciesin.columbia.edu/data/collection/gpw-v4">Gridded Population of the World</a> dataset, which models the distribution of human population (counts and densities) on a continuous global surface. This is probably the most complete and accurate global population dataset in the world.</p></li>
+          </ul>
+          <p>New York City data:</p>
+          <ul>
+            <li><p><a href="https://opendata.cityofnewyork.us/">NYC Open Data Portal</a>:
+              <ul>
+                <li><p><a href="https://data.cityofnewyork.us/Housing-Development/Building-Footprints/nqwf-w8eh">Building footprints</a></p></li>
+                <li><p><a href="https://data.cityofnewyork.us/Transportation/NYC-Planimetrics/wt4d-p43d/data">NYC Planimetrics</a>: A comprehensive database including boardwalks, building footprints, cooling towers, curbs, elevation data, hydro structures, hydrography, medians, open spaces, parks, parking lots, pavement edges, plazas, railroads, railroad structures, retaining walls, roadbeds, shorelines, sidewalks, sidewalk centerlines, swimming pools, transport structures, under construction.</p></li>
+                <li><p><a href="https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9/data">311 complaints</a></p></li>
+                <li><p><a href="https://data.cityofnewyork.us/Public-Safety/Hurricane-Evacuation-Zones/uihr-hn7s/data">Hurricane evacuation zones</a></p></li>
+                <li><p><a href="https://data.cityofnewyork.us/Environment/Hydrography/drh3-e2fd">Hydrography</a></p></li>
+              </ul>
+            </p></li>
+            <li><p><a href="http://www1.nyc.gov/site/planning/data-maps/open-data.page">BYTES of the BIG APPLE</a>: datasets by the NYC Department of City Planning including the following:</p>
+            <ul>
+              <li><p>PLUTO: building lots, including data for zoning, special purpose districts, land use, built and lot areas, year built, etc.</p></li>
+              <li><p>NYC GIS Zoning Features: zoning districts, special purpose districts, special purpose district subdistricts, limited height districts, commercial overlay zones, and zoning map amendments.</p></li>
+              <li><p>LION: A single line street base map representing the city's streets and other linear geographic features such as shorelines, surface rail lines and boardwalks, along with feature names and address ranges for each addressable street segment.</p></li>
+              <li><p>Administrative and Political Districts: including boroughs, community districts, political and election districts and school, fire, health and police areas.</p></li>
+              <li><p>Neighborhood tabulation areas</p></li>
+              <li><p>FRESH Food Stores Zoning Boundaries</p></li>
+              <li><p>Inclusionary Housing</p></li>
+              <li><p>Sidewalk Cafes</p></li>
+              <li><p>NYC Public Accessible Waterfront</p></li>
+              <li><p>NYCDP Manhattan Bike Counts</p></li>
+              <li><p>Hurricane evacuation zones</p></li>
+              <li><p>Other</p></li>
+            </ul></li>
+            <li><p><a href="http://www1.nyc.gov/site/doitt/initiatives/3d-building.page">NYC 3D Building Model</a></p></li>
+            <li><p><a href="https://www.citibikenyc.com/system-data">Citibike</a> data, including stations and trips.</p></li>
+            <li><p><a href="http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml">Taxi and Limousine Commission</a>: yellow and green taxi trip and some "for-hire" vehicle data (Uber, Lyft, etc). Note, this "for-hire" data is very limited and should not be considered representative.</p></li>
+            <li><p>MTA:</p>
+            <ul>
+              <li><p><a href="http://web.mta.info/developers/turnstile.html">Subway turnstile data</a></p></li>
+              <li><p><a href="https://data.cityofnewyork.us/Transportation/Subway-Stations/arq3-7z49/data">Subway stations</a></p></li>
+            </ul></li>
+          </ul>
         </div>
         <div class="section">
           <span class="anchor" id="collaboratory"></span>
@@ -138,7 +173,7 @@
         <nav class="sidebar hidden-print hidden-sm hidden-xs" data-spy="affix" data-offset-top="420">
           <ul class="nav sidenav">
             <li>
-              <a href="#courses">Workshops and Courses</a>
+              <a href="#data">Data Sources</a>
             </li>
             <li>
               <a href="#collaboratory">Collaboratory Grant</a>
