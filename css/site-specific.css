@@ -96,6 +96,15 @@ p {
   left: 0;
   visibility: hidden;
 }
+.subsection .anchor {
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: -55px;
+  left: 0;
+  visibility: hidden;
+}
 .section p > a {
   color: #000;
   text-decoration: underline;
@@ -118,6 +127,11 @@ p {
 .section ol > p > a {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
+}
+
+/******* Subsection *******/
+.subsection {
+  position: relative;
 }
 
 /******* Sidebar *******/
@@ -173,7 +187,7 @@ p {
   padding-bottom: 1px;
   padding-left: 30px;
   font-size: 12px;
-  font-weight: normal;
+  font-weight: 300;
 }
 .sidebar .nav .nav > li > a:hover,
 .sidebar .nav .nav > li > a:focus {
