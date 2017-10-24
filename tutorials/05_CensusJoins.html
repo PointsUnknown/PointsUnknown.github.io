@@ -83,7 +83,7 @@
           </h1>
           <p>To create this map we will be using the following datasets for analysis:</p>
           <ul>
-            <li><p>American Community Survey - Age. Download from the <a href="https://factfinder.census.gov"> U.S. Census Bureau FactFinder site</a>. When you get to the Advanced Search page in FactFinder, filter 'Geographic Type' to <code>Block Group - 150</code>, State <code>New York</code>, and all Block Groups for Counties <code>Bronx, Kings, New York, Queens, and Richmond</code>. Then filter by 'Topic', and select <code>Age</code> followed by <code>Age &amp; Sex</code>. This will provide you with a list of datasets. Select dataset <code>B01001</code> from the 2015 ACS 5-year survey</p></li>
+            <li><p>American Community Survey - Age &amp; Sex (B01001). Download from the <a href="https://factfinder.census.gov"> U.S. Census Bureau FactFinder site</a>. When you get to the Advanced Search page in FactFinder, filter 'Geographic Type' to <code>Block Group - 150</code>, State <code>New York</code>, and all Block Groups for Counties <code>Bronx, Kings, New York, Queens, and Richmond</code>. Then filter by 'Topic', and select <code>Age</code> followed by <code>Age &amp; Sex</code>. This will provide you with a list of datasets. Select dataset <code>B01001</code> from the 2015 ACS 5-year survey.</p></li>
             <li><p>Hurricane Evacuation Zones - representing varying threat levels of coastal flooding resulting from storm surge. Download from <a href="https://data.cityofnewyork.us/Public-Safety/Hurricane-Evacuation-Zones/uihr-hn7s">NYC OpenData</a>. Once you get to the NYC OpenData page, click <code>Export</code> and choose the <code>Shapefile</code> format.
             A brief note about this dataset from NYC OpenData: "Hurricane evacuation zones should not be confused with flood insurance risk zones, which are designated by FEMA and available in the form of Flood Insurance Rate Maps (FIRMs)."</p></li>
             <li><p>Census Block Groups - New York State census block groups. Download from <a href="https://www.census.gov/cgi-bin/geo/shapefiles/index.php">U.S. Census Bureau - Tiger/Line Shapefiles</a>. Select <code>2017</code> and <code>Block Groups</code>, and click <code>Submit</code>. Then, select <code>New York</code> as the state and click <code>Download</code>.</p></li>
@@ -94,16 +94,13 @@
             <li><p>Hydrography - New York City hydrography. Download from <a href="https://data.cityofnewyork.us/Environment/Hydrography/drh3-e2fd">NYC OpenData</a>. Once you get to the NYC OpenData page, click <code>Export</code> and choose the <code>Shapefile</code> format.</p></li>
             <li><p>Hydrography U.S. - United States hydrography. Download from the <a href="https://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2015/polygon">Bureau of Transportation Statistics</a>. When you get to the Bureau of Transportation Statistics page click on the Hydrographic Features <code>ZIP</code> file.</p></li>
             <li><p>States - U.S. State Boundaries. Download from the <a href="https://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2015/polygon"> Bureau of Transportation Statistics</a>. When you get to the Bureau of Transportation Statistics page click on the U.S. State Boundaries <code>ZIP</code> file.</p></li>
-            <li><p>MapPLUTO - Manhattan MapPLUTO file (version 16v2), containing all the lots in New York and their attributes. The original PLUTO files can be downloaded from <a href="http://www1.nyc.gov/site/planning/data-maps/open-data.page#pluto">NYC Planning - Open Data</a>. Make sure you
-            download the files for all 5 boroughs. For more information about the PLUTO files and what each of the fields means take a look at the useful
-            <a href="https://www1.nyc.gov/assets/planning/download/pdf/data-maps/open-data/pluto_datadictionary.pdf?r=16v2">PLUTO data dictionary</a>.</p></li>
           </ul>
         </div>
         <div class="section">
           <span class="anchor" id="aboutCensusData"></span>
           <h1 class="page-header">About the Census</h1>
-          <p>For the U.S., census data is used as a key dataset in understanding the health and progress of our society. It provides metrics about our society and is used to normalize other data for identifying and measuring issues in our economy, environment, and society. This tutorial will explain the proper method for querying and downloading census data, preparing the data for qGIS, and joining and analyzing the data.</p>
-          <p>For reference, the U.S. Census has two main surveys, the Decennial Census and the American Community Survey. The <a href="https://www.census.gov/history/www/programs/demographic/decennial_census.html">Decennial Census</a> is the major census survey, which is carried out every 10 years and attemps to count every person in the country. It has two major disadvantages: one, it only happens every 10 years, so for the years in between, like where we are now, the last census might be too outdated and the next one too far away; and two, because it is not using any sampling techniques, it often under-represents minorities.</p>
+          <p>For the U.S., census data is used as a key dataset in understanding the health and progress of our society. It provides metrics about our society and is used to normalize other data for identifying and measuring issues in our economy, environment, and society. This tutorial will explain the proper method for querying and downloading census data; preparing the data for qGIS; and joining, analyzing, and styling the data.</p>
+          <p>For reference, the U.S. Census has two main surveys, the Decennial Census and the American Community Survey. The <a href="https://www.census.gov/history/www/programs/demographic/decennial_census.html">Decennial Census</a> is the major census survey, which is carried out every 10 years and attemps to count every person in the country. It has two major disadvantages: one, it only happens every 10 years, so for the years in between the last census might be too outdated and the next one too far away; and two, because it is not using any sampling techniques, it often under-represents minorities.</p>
           <p>The second main survey is called the <a href="https://www.census.gov/history/www/programs/demographic/american_community_survey.html">American Community Survey (ACS)</a> and happens continuously. Its questionnaire is sent to 295,000 addresses monthly and it gathers data on topics such as ancestry, educational attainment, income, language proficiency, migration, disability, employment, and housing characteristics. Its results come in 3 forms: 1-year estimates, 3-year estimates and 5-year estimates. The 1-year estimates are the most current but the least reliable. On the contrary, the 5-year estimates are not as current but are much more reliable. F</p>
         </div>
         <div class="section">
@@ -112,7 +109,7 @@
           <p>The first step will be to download the 'empty' geography files for our unit of analysis (by 'empty' I mean without any census attributes, apart from unique identifiers). However, before doing this we should actually decide what unit of analysis we will use.</p>
           <p>The <a href="https://www.census.gov/programs-surveys/acs/">American Community Survey</a>, which is the statistical survey we will be using, provides data at multiple geographic levels, all the way from the whole country to the block group (which in Manhattan can be anywhere between 1 and 4 city blocks). Some of the other geographic units of analysis include regions, states, counties and metropolitan statistical areas. However, not all the data comes at every geographical level, so in general, we will try to find the smallest unit of analysis available for our dataset. In our case, that will be the block group level.</p>
           <p>Because our data is available at the block group level, we will download TIGER/Line Shapefiles for that geographical level. Download at <a href="https://www.census.gov/cgi-bin/geo/shapefiles/index.php">U.S. Census Bureau - Tiger/Line Shapefiles</a>. Select <code>2017</code> and <code>Block Groups</code>, and click <code>Submit</code>. Then, select <code>New York</code> as the state and click <code>Download</code>.</p>
-          <p>Now we will fetch our data for analysis. Since we will be building a map to find the amount of our population that is both vulnerable (17 &amp; Under AND 65 &amp; older), we will need to find a dataset at the block group level that has age. We will need to download this for all New York City counties.<ul>
+          <p>Now we will fetch our data for analysis. Since we will be building a map to find the amount of our population that is both vulnerable (17 &amp; Under AND 65 &amp; older), we will need to find a dataset at the block group level that has age and population. We will need to download this for all New York City counties.<ul>
           <li><p>Once you are on the American FactFinder website, click on the <code>ADVANCED SEARCH</code> tab. Here we will search for the data at multiple levels:</p>
           <ul>
             <li>Geography: block groups (150) for New York City counties</li>
@@ -120,14 +117,14 @@
             <li>Topic: Age &amp; Sex: Age</li>
           </ul>
           <p>This set of criteria will quickly produce the Sex by Age dataset (B01001), which we will download and alter prior to importing into QGIS. Your final filter should should look like this:</p>
-          <img class="img-responsive" src="tutorialImages/05_CensusJoins/01_AFF.jpeg" alt="thumb">
+          <img class="img-responsive" src="tutorialImages/05_CensusJoins/01_AFF.jpg" alt="thumb">
         </div>
         <div class="section">
           <span class="anchor" id="preppingData"></span>
           <h1 class="page-header">Prepping Census Data for QGIS</h1>
           <p>In order to bring this census data into QGIS we need to re-format the table, so that it is correctly read by the program and we can join it to its geographic boundaries. This is a two step process: first, we will format the actual table in Excel, Google Spreadsheet or a simple text editor and, second, we will create a .csvt file, which will tell QGIS the exact format for each of the fields in the table.</p>
 
-          <p>Again, as with many things GIS, there are multiple ways of formatting the data. In our case we could do it using Excel, Google Documents (Spreadsheet) or even a simple text editor. Here, though, I will show you how to do it both through Excel. If you know how to do it in Excel you should be able to figure out how to re-format the data using a Google Docs Spreadsheet.</p>
+          <p>Again, as with many things GIS, there are multiple ways of formatting the data. In our case we could do it using Excel, Google Documents (Spreadsheet) or even a simple text editor. Here, though, I will show you how to do it through Excel. If you know how to do it in Excel you should be able to figure out how to re-format the data using a Google Docs Spreadsheet.</p>
 
           <p>The great advantage of using Excel (or Google Docs) is that if you need to, you can add and <strong>calculate</strong> new fields into your data; for example, in our case, you would be able to calculate the total count of vulnerable children and elderly and add that as a field (you could also do that inside QGIS). However, if you were to do that in a text editor, you would need to manually calculate the value for every single row. On the other hand, doing the re-formating through a simple text editor means that you can control the format of the data much more and that you won't have any problems with Excel auto-converting your data into other types, for example, from text into numbers or vice versa.</p>
 
@@ -149,7 +146,10 @@
 
           <li><p>First, delete all the margin of error columns. Just right-click on the column and say <code>Delete</code>.</p></li>
 
+          <li><p>Next, we will create a new column for Vulnerable Populations which will be the sum of all columns comprised of Females 17 and under or 65 and older, and males with the same characteristics. After calculating the sum, you can delete all other columns.</p></li>
+
           <li><p>Now, rename the fields in the following way:</p></li>
+
             <ul>
               <li>GeoID</li>
               <li>GeoID2</li>
@@ -157,6 +157,7 @@
               <li>TotPop</li>
               <li>VulPop</li>
             </ul>
+            <br>
 
           <li><p>The names don't necessarily need to be like these ones. There's no standard way of naming these fields. The only thing I would recommend is to name them as close as possible to something you can actually read, so that you and the other people who use these files can easily understand what they mean. In the end, that is what metadata is there for, to tell you exactly what each of the fields means.</p></li>
 
@@ -170,6 +171,8 @@
           <ul>
           <li><p>After exporting your CSV, you will need to create a .csvt file. This file will tell QGIS exactly what type of data each of the fields is in. The different types of data your fields can take are:</p></li>
 
+          <ul>
+
           <li><p>String - Represents text</p></li>
 
           <li><p>Integer - Represents whole numbers</p></li>
@@ -182,7 +185,9 @@
 
           <li><p>DateTime - Date and time in the format YYYY-MM-DD HH:MM:SS+nn</p></li>
 
-          <li><p>So, for every column we need to specify what type the data is in.</p></li>
+        </ul>
+
+        <p>So, for every column we need to specify what type the data is in.</p>
 
           <li><p>In your text editor, open a new file.</p></li>
 
@@ -213,8 +218,6 @@
             <li><p>Organize your layers so that you have the hurricane evacuation zones on top, then TIGER/Line Block Groups, then boroughs. For now you can turn off the Boroughs layer.</p></li>
             <img class="img-responsive" src="tutorialImages/05_CensusJoins/05_Layers.jpeg" alt="thumb">
             <li><p>Next you will import your cleaned ACS dataset. To do so, click on <code>Add Deliminated Tex Layer</code> (Represented by a comma icon).</p></li>
-            <li><p>Remember to create a definition query for the Hydrology U.S. layer to display only the water features (for a recap on how to do this see the <a href="01_BasicMap.html#query">Definition Queries</a> section of Tutorial 01).</p></li>
-            <li><p>Now, to add the CSV file we downloaded, click on the <code>Add Delimited Text Layer</code> button on the top toolbar.</p></li>
             <li><p>In the menu that comes up, look for your .csv (B01001) file. Once you've selected your file QGIS will automatically select some presets. You should have the following options selected:</p></li>
             <ul>
               <li><p>File format: <code>CSV (comma separated values)</code> - this is the format our data is in: each value is separated by a comma.</p></li>
@@ -241,8 +244,8 @@
                 </ul>
                 <li><p>Once you export your layer (and it's automatically added to your map) you can group your old layer and uncheck it to hide it from the presentaiton</p></li>
               </ul>
+              <p>Now, we are ready to run analysis against the hurricane evacuation zones.</p>
             </ul>
-            Now, we are ready to run analysis against the hurricane evacuation zones.</p></li>
           </div>
           <div class="section">
             <span class="anchor" id="geoprocessing"></span>
