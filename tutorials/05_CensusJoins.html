@@ -46,23 +46,27 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Courses <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="../journalism_fall2017.html">Journalism - Fall 2017</a></li>
-              <li><a href="#">Journalism - Spring 2018 (A)</a></li>
-              <li><a href="#">Journalism - Spring 2018 (B)</a></li>
-              <li><a href="#">GSAPP - Spring 2018</a></li>
+              <li><a href="#">Journalism - Spring 2018 (A) (Coming Soon)</a></li>
+              <li><a href="#">Journalism - Spring 2018 (B) (Coming Soon)</a></li>
+              <li><a href="#">GSAPP - Spring 2018 (Coming Soon)</a></li>
             </ul>
           </li>
-          <li class="dropdown">
+          <li class="dropdown active">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tutorials <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="00_InstallationInstructions.html">00 - Installation Instructions</a></li>
               <li><a href="01_BasicMap.html">01 - Basic Map</a></li>
-              <li><a href="02_AnnotationLayer.html">02 - Annotation Layer</a></li>
-              <li><a href="#">Tutorial 3</a></li>
-              <li class="active"><a href="05_CensusJoins">05 - Census Data and Joins</a></li>
+              <li><a href="#">02 - Styling in Illustrator (Coming Soon)</a></li>
+              <li><a href="03_AnnotationLayer.html">03 - Annotation Layers</a></li>
+              <li><a href="04_PointData.html">04 - Working with Point Data</a></li>
+              <li><a href="05_CensusJoins.html">05 - Census Data</a></li>
+              <li><a href="#">06 - Digital Elevation Models (Coming Soon)</a></li>
+              <li><a href="#">07 - Working with Landsat (Coming Soon)</a></li>
+              <li><a href="#">08 - Change Maps (Coming Soon)</a></li>
             </ul>
           </li>
+          <li><a href="../apply.html">Apply</a></li>
           <li><a href="../resources.html">Resources</a></li>
-          <li><a href="../about.html">About</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
@@ -95,6 +99,7 @@
             <li><p>Hydrography U.S. - United States hydrography. Download from the <a href="https://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2015/polygon">Bureau of Transportation Statistics</a>. When you get to the Bureau of Transportation Statistics page click on the Hydrographic Features <code>ZIP</code> file.</p></li>
             <li><p>States - U.S. State Boundaries. Download from the <a href="https://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2015/polygon"> Bureau of Transportation Statistics</a>. When you get to the Bureau of Transportation Statistics page click on the U.S. State Boundaries <code>ZIP</code> file.</p></li>
           </ul>
+          <p>A packaged file with the census and block group data can be found <a href="http://brwn.co/L2D">here</a>.</p>
         </div>
         <div class="section">
           <span class="anchor" id="aboutCensusData"></span>
@@ -112,9 +117,9 @@
           <p>Now we will fetch our data for analysis. Since we will be building a map to find the amount of our population that is both vulnerable (17 &amp; Under AND 65 &amp; older), we will need to find a dataset at the block group level that has age and population. We will need to download this for all New York City counties.<ul>
           <li><p>Once you are on the American FactFinder website, click on the <code>ADVANCED SEARCH</code> tab. Here we will search for the data at multiple levels:</p>
           <ul>
-            <li>Geography: block groups (150) for New York City counties</li>
-            <li>Dataset: American Community Survey (ACS) 2015 5-year estimates</li>
-            <li>Topic: Age &amp; Sex: Age</li>
+            <li><p>Geography: block groups (150) for New York City counties</p></li>
+            <li><p>Dataset: American Community Survey (ACS) 2015 5-year estimates</p></li>
+            <li><p>Topic: Age &amp; Sex: Age</p></li>
           </ul>
           <p>This set of criteria will quickly produce the Sex by Age dataset (B01001), which we will download and alter prior to importing into QGIS. Your final filter should should look like this:</p>
           <img class="img-responsive" src="tutorialImages/05_CensusJoins/01_AFF.jpg" alt="thumb">
@@ -151,11 +156,11 @@
           <li><p>Now, rename the fields in the following way:</p></li>
 
             <ul>
-              <li>GeoID</li>
-              <li>GeoID2</li>
-              <li>GeoDesc</li>
-              <li>TotPop</li>
-              <li>VulPop</li>
+              <li><p>GeoID</p></li>
+              <li><p>GeoID2</p></li>
+              <li><p>GeoDesc</p></li>
+              <li><p>TotPop</p></li>
+              <li><p>VulPop</p></li>
             </ul>
             <br>
 
@@ -277,10 +282,10 @@
               <li><p>To begin styling, recreate the map generated in the <a href="01_BasicMap.html" alt="Basic Map Tutorial">first tutorial</a>, excluding the PLUTO datasets.</p></li>
               <li><p>Next, turn back on your old Block Group dataset that has block groups geography and population. In your 'Style' Properties, set the <code>Fill</code> to 'No Brush' and <code>Transparency</code> to 50%.</p></li>
               <li><p>Next, let's style the new Vulnerable Population dataset. Like the Hurricane Evacuation Zones, set the Style type to graduated, mode to 'Natural Breaks - Jenks' and clean the classification to the following breaks:</p><ul>
-              <li>0-174</li>
-              <li>175-450</li>
-              <li>450-875</li>
-              <li>875+</li>
+              <li><p>0-174</p></li>
+              <li><p>175-450</p></li>
+              <li><p>450-875</p></li>
+              <li><p>875+</p></li>
             </ul>
           </li><li><p>It is important to understand that there are a variety of modes to make breaks in the classification of data.<ul>
               <li><p><strong>Equal Interval classification: </strong>In this mode, the width of each class is set to be the same. For example, if input values ranged between 1 and 100 and four classes were desired, then the class ranges would be 1-25, 26-50, 51-76, and 76-100 so that there are 25 values in each class.</p></li>
