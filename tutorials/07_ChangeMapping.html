@@ -334,18 +334,33 @@
           <div class="section">
             <span class="anchor" id="measure"></span>
               <h1 class="page-header">Measure Change</h1>
-              <p>In order to visualize and calculate surface areas that got developed between 1987 and 2017, we first need to perform <b>Image Classification</b> (including conversion to reflectance, clipping, and multispectral visualization) for 2017 imagery. Repeat the steps above for the <code>LC08_L1TP_025039_20170321_20170329_01_T1</code> scene (21-MAR-17), with one important exception:
+              <p>In order to visualize and calculate surface areas that got developed between 1987 and 2017, we first need to perform <b>Image Classification</b> (including conversion to reflectance, clipping, and multispectral visualization) for 2017 imagery. <b>Create a blank document for 2017 classification and repeat the steps above for the <code>LC08_L1TP_025039_20170321_20170329_01_T1</code> scene (21-MAR-17), with one important exception:</b>
               <br /><br />
               <b>Landsat 8's sensor (Operatioanl Land Imager) includes a new coastal/aerosol band (band1) and slightly different band order (refer to the table at the top of the page). Thus, in order to produce equivalent color composites for 2017 using SCP (3-2-1, 4-3-2, and 6-5-3), Band 1 will be removed during preprocessing (conversion to reflectance), while Band 6 will be included.</b>
               <br /><br />
-              Also, consider starting a blank document for 2017. 
+              Once you're done with 2017 reclassification, remove all layers from your image except <b>2017_reclass</b>. Add <b>1987_reclass</b> raster that you've generated previously to your scene for comparison.
             </p>
+            <img class="img-responsive" src="tutorialImages/07_ChangeMapping/35_2017figure-ground.png" alt="thumb">
+            <p>
+              Next, navigate to menu item <code>Raster > Raster calculator</code>.
+            </p>
+            <img class="img-responsive" src="tutorialImages/07_ChangeMapping/36_RasterCalc1.png" width="30%" alt="thumb">
+            <ul>
+              <li><p>Double-click <code>2017_reclass.tif@1</code></p></li>
+              <li><p>Click <code> - </code></p></li>
+              <li><p>Double-click <code>1987_reclass.tif@1</code></p></li>
+              <li><p>Your formula should look like this : <code>"2017_reclass.tif@1" - "1987_reclass@1"</code></p></li>
+              <img class="img-responsive" src="tutorialImages/07_ChangeMapping/37_RasterCalc2.png" alt="thumb">
+              <li><p>Save raster as "Change.tif"</p></li>
+              <li><p>A new raster should be added to the scene with the folowing values:</p></li>
+              <ul>
+                <li><p><code>-1</code> change from developed to non-developed (1-2)</p></li>
+                <li><p><code>0</code> no change (either 2-2, or 1-1)</p></li>
+                <li><p><code>1</code> change from non-developed to developed (2-1)</p></li>               
+              </ul>
+            </ul>
           </div>
-          <div class="section">
-            <span class="anchor" id="note"></span>
-            <h1 class="page-header">Note</h1>
-            <p>If, after adding some dataset...</p>
-            </div>
+
           </div>
           <div class="col-md-3" role="complementary" id="myScrollspy">
             <nav class="sidebar hidden-print hidden-sm hidden-xs" data-spy="affix" data-offset-top="420">
@@ -360,7 +375,7 @@
                 <li><a href="#classification">Image Classification</a></li>
                 <li><a href="#reclassify">Developed Figure-Ground</a></li>
                 <li><a href="#measure">Measure Change</a></li>
-                <li><a href="#note">Note</a></li>
+
               </ul>
             </nav>
           </div>
