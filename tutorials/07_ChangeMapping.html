@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../favicon.ico">
+  <title>Points Unknown</title>
+
+  <!-- Bootstrap -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="../css/site-specific.css" rel="stylesheet">
+
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500|Roboto:300,300i,400,400i" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="10">
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">Points Unknown</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <!-- <li class="active"><a href="#">Home</a></li> -->
+          <li><a href="../index.html">About</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Courses <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="../journalism_fall2017.html">Journalism - Fall 2017</a></li>
+              <li><a href="#">Journalism - Spring 2018 (A) (Coming Soon)</a></li>
+              <li><a href="#">Journalism - Spring 2018 (B) (Coming Soon)</a></li>
+              <li><a href="#">GSAPP - Spring 2018 (Coming Soon)</a></li>
+            </ul>
+          </li>
+          <li class="dropdown active">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tutorials <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="00_InstallationInstructions.html">00 - Installation Instructions</a></li>
+              <li class="active"><a href="01_BasicMap.html">01 - Basic Map</a></li>
+              <li><a href="#">02 - Styling in Illustrator (Coming Soon)</a></li>
+              <li><a href="03_AnnotationLayer.html">03 - Annotation Layers</a></li>
+              <li><a href="#">04 - Working with Point Data (Coming Soon)</a></li>
+              <li><a href="#">05 - Census Data (Coming Soon)</a></li>
+              <li><a href="#">06 - Digital Elevation Models (Coming Soon)</a></li>
+              <li><a href="#">07 - Working with Landsat (Coming Soon)</a></li>
+              <li><a href="#">08 - Change Maps (Coming Soon)</a></li>
+            </ul>
+          </li>
+          <li><a href="../apply.html">Apply</a></li>
+          <li><a href="../resources.html">Resources</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Tutorial 07 - Change Mapping Using Landsat Imagery</h1>
+      <p>This tutorial will guide you through step-by-step process of visualizing land cover changes using false-color imagery from <a href="https://landsat.usgs.gov/">Landsat</a>. As a case study, we will represent and measure the loss of wetlands in Houston, TX, between 1987 and 2017.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9" role="main">
+        <div class="section">
+          <span class="anchor" id="datasets"></span>
+          <h1 class="page-header">
+            Downloading Landsat Data
+          </h1>
+          <p>For easier download, Landsat imagery is organized in tiles (or <i>scenes</i>). Each scene is approximatelty 115 miles long and 115 miles wide. There are number of ways to access and download Landsat imagery. We will use the most common tool – <a href="https://earthexplorer.usgs.gov/">USGS Earth Explorer</a> – one of largest databases of remotely sensed data. Landsat data products will have the following download options:</p>
+          <ul>
+            <li><p>Level-1 Product: Full resolution (.tif) individual band files</p></li>
+            <li><p>LandsatLook Images: Full resolution (.jpg) composite images</p></li>
+          </ul>
+          <p>We will download Level-1 product and create composite images in QGIS. In order to work with Level-1 data, it is necessary to have a basic familiarity with multispectral imagery, and with Landsat sensors specifications. A multispectral (or multiband) imagery refers to image data that captures light within specific wavelength ranges across the electromagnetic spectrum. More specifically, it is a collection of several monochrome images, each of them taken with a sensor sensitive to a different wavelength. Individual images are referred to as <i>bands</i>. Landsat 5, for example, produces seven band images representing different wavelengths: three in visible wavelengths, four in infrared. In this exercise, we will use data from Landsat 5 and Landsat 8 sensors:</p>
+          <img class="img-responsive" src="tutorialImages/07_ChangeMapping/01_LandsatBandsTable.png" alt="thumb">
+          <p>In your web browser, go to <a href="https://earthexplorer.usgs.gov/">Earth Explorer</a>. First, you’ll have to create an account with USGS. In the top-right corner, click the “Register” button. Once you’ve created your account, sign in. In order to download data, here are the four steps you’ll need to follow:</p>
+          <ol>
+            <li><p>Set your area of interest in the “Search Criteria” tab:</p></li>
+            <ul>
+              <li><p>Zoom to desired area on the map (Houston) and generate your region of interest by clicking on a map.</p></li>
+              <li><p>Set the Date Range for satellite images (you are comparing Houston between 1987 and 2017, so you will have to repeat this, and all the following steps twice). First, to download data for 1987, set the Date Range to “Search from: 01/01/1987 to 09/30/1987.”</p></li>
+              <img class="img-responsive" src="tutorialImages/07_ChangeMapping/02_EarthExplorerSearch.PNG" alt="thumb">
+            </ul>
+            <li><p>Select your data to download in the “Data Sets” tab:</p></li>
+            <ul>
+              <li><p>
+                The Data Sets tab answers the question “what data are you looking for?” In order to select the data, you need to know the <a href="https://landsat.usgs.gov/landsat-missions-timeline">basic history of the Landsat mission.</a> Landsat 5 has been in orbit from March 1984 till January 2013, so we will search for Landsat 5 TM Level-1 Product:</p></li>
+                <li>
+                  <p>
+                    Navigate to <code>Landsat > Collection 1 Level-1</code> and select <code>Landsat 4-5 TM Level-1</code>
+                  </p>
+                </li>
+                <img class="img-responsive" src="tutorialImages/07_ChangeMapping/03_EarthExplorerData.PNG" alt="thumb">
+              </ul>
+              <li>
+                <p>
+                  Filter your data in the “Additional Criteria” tab:
+                </p>
+              </li>
+              <ul>
+                <li>
+                  <p>
+                    We need a cloudless image in order to be able to classify land use. Set the Land Cloud Cover to <code>Less than 10%</code>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Set the Spacecraft Identifier to <code>Landsat 5</code>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Set the Day/Night indicator to <code>Day</code>.
+                  </p>
+                </li>
+              </ul>
+              <li>
+                <p>
+                  Review and download Landsat imagery in the “Results” tab:
+                </p>
+              </li>
+              <ul>
+                <li>
+                  <p>
+                    Before downloading data, it’s good to check the footprint (by clicking on a footprint icon) in order to see the extent of the scene.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    You can also preview the data, which can be good to see exactly where clouds are in the image.
+                  </p>
+                </li>
+                <img class="img-responsive" src="tutorialImages/07_ChangeMapping/04_EarthExplorerResults.PNG" alt="thumb">
+                <li>
+                  <p>
+                    Notice that the scenes are organized in paths and rows. <b>We will use <code>Path: 25</code>, <code>Row: 39</code> imagery acquired on <code>04-APR-87</code> for our analysis.</b>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Download Level-1 GeoTIFF Product.
+                  </p>
+                </li>
+                <img class="img-responsive" src="tutorialImages/07_ChangeMapping/05_EarthExplorerDownload.PNG" width="50%" alt="thumb">
+              </ul>
+            </ol>
+            <p>
+              Next, we need to acquire imagery from 2017: Repeat steps 1-4, setting the Date Rage from <code>01/01/2017</code> to <code>09/30/2017</code> in the Search Criteria tab, and selecting <code>Landsat 8 OLI/TIRS C1 Level-1</code> in the Data Sets tab. Under Additional Criteria, set the Land Cloud Cover again to <code>Less than 10%</code>, and Day/Night indicator to <code>Day</code>. After examining results, download <code><b>Path: 25</b></code>, <code><b>Row: 39</b></code> scene from <code><b>21-MAR-17</b></code>.
+              <br /><br />
+              TIP: Knowing the path and row of your scene in advance helps defining the Area of Interest. Under Search Criteria, you have an option to click on the Path/Row tab and set the Path to “25” and Row to “39” to limit your results to this particular Landsat scene. Also, you can use the <a href="https://landsat.usgs.gov/wrs-2-pathrow-latitudelongitude-converter">WRS-2 Path/Row to Latitude/Longitude Converter</a> to identify the closest Landsat path and row from any given coordinates.
+              <br /><br />
+              Unzip the data you’ve downloaded and place it in the your Change Mapping workspace. Take a moment to observe its contents. Notice that there are individual image files for each band, along with the metadata (file with the “MTL” suffix is the metadata file of the whole scene).
+            </p>
+          </div>
+          <div class="section">
+            <span class="anchor" id="plugin"></span>
+            <h1 class="page-header">
+              Semi-Automatic Classification Plugin
+            </h1>
+            <p>In order to work with the acquired imagery, we will use the Semi-Automatic Classification Plugin (SCP). SCP is a free and open source plugin for QGIS that allows for raster processing of remote sensing images. Detailed documetation, installation instructions, and tutorials can be found <a href="http://semiautomaticclassificationmanual-v5.readthedocs.io/en/latest/">here.</a>
+            <br><br>
+            Launch QGIS and navigate to menu item <code>Plugins > Manage and Install Plugins</code>.</p>
+            <img class="img-responsive" src="tutorialImages/07_ChangeMapping/06_Plugins.png" alt="thumb">
+            <p>
+              Under "All," search for "Semi-Automatic Classification Plugin" and click <code>Install Plugin</code>.
+            </p>
+            <img class="img-responsive" src="tutorialImages/07_ChangeMapping/07_InstallPlugin.png" alt="thumb">
+            <p>
+              Now that the plugin is installed, you should see an SCP dock and a toolbar added to QGIS.
+            </p>
+            <img class="img-responsive" src="tutorialImages/07_ChangeMapping/08_SCPInterface.png" alt="thumb">
+          </div>
+          <div class="section">
+            <span class="anchor" id="multispectral"></span>
+            <h1 class="page-header">Multispectral Visualization</h1>
+            <p>Before we load the imagery, we will perform a conversion from radiance to reflectance (<a href="http://www.harrisgeospatial.com/Support/SelfHelpTools/HelpArticles/HelpArticles-Detail/TabId/2718/ArtMID/10220/ArticleID/19247/3377.aspx">click here</a> to read about the difference between radiance and reflectance).</p>
+            <br><br>
+            <ul>
+              <li><p>Click on the <code>Preprocessing Tool</code> on the SCP Toolbar and select "Landsat".</p></li>
+              <li><p>Set the Directory containing Landsat Bands to "LT05_L1TP_025039_19870404_20161003_01_T1" and click <code>Choose</code>. All the parameters from the metadata file should automatically load into the dialogue box.</p></li>
+              <li><p>Check the <code>Apply DOS1 atmospheric correction</code> box and the <code>Create Band set</code> box.</p></li>
+              <li><p>Remove the <b>Band 6</b> from the list by selecting <code>LT05_L1TP_025039_19870404_20161003_01_T1_B6.TIF</code> ans clicking on the <b>"-"</b> button.</p></li>
+              <li><p>Click <code>Run</code>. A window should pop-up prompting you to select a directory to store reflectance rasters. Create a new forder "1987_REF" and click <code>Save</code>. The conversion should take few minutes to complete.</p></li>
+              <img class="img-responsive" src="tutorialImages/07_ChangeMapping/09_Preprocessing.png" alt="thumb">
+            </ul>
+            <h3>Clip Rasters</h3>
+            <p>
+              Our focus in this exercise is the mapping land cover change in the sprawling suburbs of Houston. Performing raster processing operations on the entire Landsat tile would therefore be cumbersome and praciacally useless, so the next step is to define and clip all rasters to a particular study area.
+            </p>
+            <ul>
+              <li><p>Navigate to menu item <code>Plugins > Manage and Install Plugins...</code></p></li>
+              <li><p>Under <b>"All"</b>, search for <b>"Rectangles Ovals Digitizing"</b> and click <code>Install Plugin</code>.</p></li>
+              <img class="img-responsive" src="tutorialImages/07_ChangeMapping/10_RectanglesOvals.png" alt="thumb">
+              <li><p>Right-click on any toolbar and make sure that <b>"Digitizing Toolbar"</b> and <b>"Rectangles, ovals digitizing tools"</b> are both added to your interface.</p></li>
+              <img class="img-responsive" src="tutorialImages/07_ChangeMapping/11_Toolbars.png" width="40%" alt="thumb">
+              <li><p>Click <code>New Shapefile Layer</code> in the Manage Layers Toolbar. Select the type of shapefile you wish to create, which in this example is <code>Polygon</code>.</p></li>
+              <li><p>Select the appropriate projection for your shapefile which for Houston is the <code>Project CRS (EPSG:32625 - WGS 84 / UTM zone 15N)</code>.</p></li>
+              <li><p>Click <code>OK</code> and save the shapefile as <b>"study_area"</b> in your working directory.</p></li>
+              <img class="img-responsive" src="tutorialImages/07_ChangeMapping/12_NewShapefileLayer.png" width="50%" alt="thumb">
+              <li><p>Zoom-in to the northwest Houston:</p></li>
+              <img class="img-responsive" src="tutorialImages/07_ChangeMapping/14_Northwest.png" alt="thumb">
+              <li><p>Right-click <b>"study_area"</b> in the Layers Panel and click <code>Toggle Editing</code>  to turn on editing mode.</p></li>
+              <img class="img-responsive" src="tutorialImages/07_ChangeMapping/13_ToggleEditing.png" width="50%" alt="thumb">
+              <li><p>In the Rectangles Ovals Digitizing toolbar click on <code>Rectangle by extent</code>. Click and drag over the imagery to draw the rectangle of your study area.</p></li>
+              <img class="img-responsive" src="tutorialImages/07_ChangeMapping/15_RectangleByExtent.png" width="50%" alt="thumb">
+              <li><p>If you're satisflied with your study area, click on <code>Save Layer Edits</code> in the Digitizing Toolbar and toggle off editing. Alternatively, click on <code>Current Edits > Rollback for Selected Layer(s)</code> and draw the rectangle again.</p></li>
+              <img class="img-responsive" src="tutorialImages/07_ChangeMapping/16_SaveEdits.png" width="50%" alt="thumb">
+              <li><p>Finally, we will clip the imagery to the desred study area. Click <code>Preprocessing</code> icon on the SCP Toolbar and navigate to <code>Clip multiple rasters</code> tab.</p></li>
+              <li><p>Select all Landsat bands. Check <code>Use shapefile for clipping</code> and choose <b>"study_area"</b> as your clipping mask (if necessary, click <code>Refresh list</code> before selecting imagery and shapefile for clipping).</p></li>
+              <img class="img-responsive" src="tutorialImages/07_ChangeMapping/17_ClipRasters.png" alt="thumb">
+              <li><p>Click <code>Run</code> and save new rasters in your working directory (TIP: Create a new folder specifically for clipped imagery)</p></li>
+              <li><p>When done, remove original rasters from the scene.</p></li>
+              <img class="img-responsive" src="tutorialImages/07_ChangeMapping/18_ClippedRastersScene.png" alt="thumb">
+            </ul>
+            <h3>Color Composites</h3>
+            <p>
+              A natural or true-color image combines actual measurements of red, green, and blue light. The Landsat 5 bands needed to create a True Color Composite are therefore <b>Band 3: Red, Band 2: Green, Band 1: Blue</b> (refer to the table at the top of the page). To set the bands to its corresponding channels, your Band set RGB composite should be set to <code>3-2-1</code>.
+            </p>
+              <img class="img-responsive" src="tutorialImages/07_ChangeMapping/19_3-2-1.png" width="40%" alt="thumb">
+            <p>
+              True color composites resemble most closely to how we experience the world from ground perspective. On the other hand, false-color composites, which incorporate wavelengths of light invisible to humans, may look deceiving, but they can reveal fascinating information and are much more useful in conducting analysis. One of the most common false color composite is the so-called <i>Color Infrared</i>, which uses Near Infrared Band (NIR) as Red, Red Band as Green, and Green Band as Blue. This is a traditional band combination useful in seeing changes in plant health. Plants reflect NIR and green light and absorb red. Because they reflect more NIR than green, plant-covered land appears deep red.
+              <br /><br />
+              To display a Near Infrared composite, set the RGB color composite to <code>4-3-2</code>.
+            </p>
+            <img class="img-responsive" src="tutorialImages/07_ChangeMapping/20_4-3-2_img.png" alt="thumb">
+            <p>
+              Another common composite is so-called <i>False Color Urban</i> which, as the name suggests, is useful in visualizing urban environments. False color urban uses <b>both SWIR bands, and red band</b>. This will be a useful combination for our analysis.
+              <br /><br />
+              To display a False Color Urban composite, manually enter <code>6-5-3</code> in the RGB color composite list.
+            </p>
+            <img class="img-responsive" src="tutorialImages/07_ChangeMapping/21_6-5-3_img.png" alt="thumb">
+          </div>
+          <div class="section">
+            <span class="anchor" id="classification"></span>
+            <h1 class="page-header">Image Classification</h1>
+            <p>
+            To classify the image, we will use a <b>Supervised Classification</b> technique. Supervised classification is based on the idea that a user can select sample pixels in an image that are representative of specific classes and then direct the image processing software to use these training samples as references for the classification of all other pixels in the image. Training samples are selected based on the knowledge of the user.
+            <br /><br />
+            According to the <a href="https://viewer.nationalmap.gov/advanced-viewer/">National Land Cover Database (NLCD) 1992</a> (which is a Landsat-based, 30-meter resolution land cover database for the whole country), our study area was at the time classified into multiple categories such as High Intensity Residential, Commercial/Industrial/Transportation, Pasture/Hay, Woody Wetlands, Emergent Herbaceous Wetlands, Crops, Mixed Forest, etc.
+            <br /><br />
+            Classifying image into such classes is beyond the scope of this tutorial. Also, using official NLCD classes is not pertinent for the story that focuses on rampant real-estate developmet in the past 30 years. We will instead classify image into following simplified classes:
+            </p>
+            <ol>
+              <li><p>Vegetation</p></li>
+              <li><p>Bare Soil</p></li>
+              <li><p>Water (if aplicable)</p></li>
+              <li><p>Develped</p></li>
+            </ol>
+            <br />
+            <h3>Create Training Samples</h3>
+            <p>
+              In the SCP Dock, click on the <code>Create a new training input</code> button and save it as "1987_training" in your working directory. Make sure that the <code><< band set >></code> is selected as input image for classification.
+            </p>
+            <img class="img-responsive" src="tutorialImages/07_ChangeMapping/22_SCPDock.png" width="40%" alt="thumb">
+            <p>
+              Next, we need to define the so-called <b>ROIs</b> (Regons of Interest), or samples of classes:
+            </p>
+            <ul>
+              <li><p>Click on the <code>Activate ROI pointer</code> button. ROI pointer uses region-growing algorithm to select pixels of similar spectral values.</p></li>
+              <img class="img-responsive" src="tutorialImages/07_ChangeMapping/23_ROIpointer.png" width="40%" alt="thumb">
+              <li><p>Pan around the image to find a good bright green vegetation sample area and then click on it. All the similar pixels nearby should be selected.</p></li>
+              <img class="img-responsive" src="tutorialImages/07_ChangeMapping/24_VegetationROI.png" width="40%" alt="thumb">
+              <li><p>Change the <code>Dist</code> (spectral distance) parameter, and click <code>Redo the ROI at the same point</code> button to select larger (or smaller) ROIs.</p></li>
+              <li><p>When satisfied with the ROI, click on <b>Classification Dock</b> (located on the the SCP Dock) and scroll down to the <b>ROI creation</b> tab. Set the <b>"MC ID"</b> (macroclass ID) to <code>1</code> and <b>"MC Info"</b> to <code>Vegetation.</code></p></li>
+              <li><p>Set the <b>"C ID"</b> to <code>1</code> and <b> C Info</b> to <code>vegetation1</code> and save it to the ROI signature list by clicking on <code>Save temporary ROI to training input</code>. button</p></li>
+              <img class="img-responsive" src="tutorialImages/07_ChangeMapping/25_VegROIcreation.png" width="40%" alt="thumb">
+              <li><p>Create another vegetation ROI by selecting dark green pixels. Again, set the <b>"MC ID"</b> to <code>1</code> and <b>"MC Info"</b> to <code>Vegetation</code>. Set the <b>"C ID"</b> to <code>2</code> and <b>"C Info"</b> to <code>vegetation2</code> and save it to the ROI signature list.</p></li>
+              <li><p>If you notice and water bodies in your scene, create a new macroclass ROI by clicking over it. Set the new <b>"MC ID"</b> to <code>2</code> and <b>"MC Info"</b> to <code>Water</code>. Set the <b>"C ID"</b> to <code>3</code> and <b>"C Info"</b> to <code>water</code> and save it to the ROI signature list.</p></li>
+              <li><p>Next, create a new macroclass ROI by clicking over white/yellow (Bare Soil) region on the image. Set the <b>"MC ID"</b> to <code>3</code> and <b>"MC Info"</b> to <code>Bare Soil</code>. Set the <b>"C ID"</b> to <code>4</code> and <b>"C Info"</b> to <code>bare</code> and save it to the ROI signature list.</p></li>
+              <li><p>Finally, create a new macroclass ROI by clicking over purple (residential) region on the image. Set the <b>"MC ID"</b> to <code>4</code> and <b>"MC Info"</b> to <code>Developed</code>. Set the <b>"C ID"</b> to <code>5</code> and <b>"C Info"</b> to <code>built-up1</code> and save it to the ROI signature list.</p></li>
+              <img class="img-responsive" src="tutorialImages/07_ChangeMapping/26_DevROIcreation.png" alt="thumb">
+              <li><p>Repeat the step one one two more times by selecting more purple regions and saving new classes e.g. <code>built-up2, built-up3 etc.</code>under <b>MC ID: 4</b></p></li>
+              <li><p>When you're done with collecting samples, open <b>"Macroclasses"</b> tab and assign colors to macroclasses by double-clicking "Color" field.</p></li>
+              <img class="img-responsive" src="tutorialImages/07_ChangeMapping/27_Macroclasses.png" width="50%" alt="thumb">
+              </ul>
+              <h3>Preview Classification</h3>
+              <p>
+                Before we create a new classified raster of the scene, it's useful to create a classification preview in order to assess the quality of collected samples. In SCP dock, navigate to <b>"Classification Algorithm"</b> tab and check <code>MC ID</code> tab. Set the algorithm to <code>Maximum Likelihood.</code>
+              </p>
+              <img class="img-responsive" src="tutorialImages/07_ChangeMapping/28_MaximumLikelihood.png" width="50%" alt="thumb">
+              <p>
+                In SCP toolbar, click on <code>Activate classification preview pointer</code>. Click anwhere on  the image to create a preview. A new, temporary raster will be added to the scene.
+              </p>
+                <img class="img-responsive" src="tutorialImages/07_ChangeMapping/29_Preview1.png" width="50%" alt="thumb">
+                <img class="img-responsive" src="tutorialImages/07_ChangeMapping/30_Preview2.png" width="50%" alt="thumb">
+                <h3>Classify Image</h3>
+                <p>
+                  If you are satisfied with the preview and you think the ROIs you collected are sufficient to create a good classification, navigate to <b>"Classification Output"</b> tab and click the <code>Run</code> button to save a classification raster.
+                  <br /><br />
+                  A new classified raster will be added to the scene.
+                </p>
+                <img class="img-responsive" src="tutorialImages/07_ChangeMapping/31_cls_1987.png" alt="thumb">
+          </div>
+          <div class="section">
+            <span class="anchor" id="reclassify"></span>
+            <h1 class="page-header">Developed Figure-Ground</h1>
+            <p>
+              Next we will generate a figure-ground map for the class <b>"Developed"</b> from the previously generated classified raster. The resulting map will be a binary <b>Developed / Non-developed</b> raster where all classes except the built-up ground (water, vegetation, bare soil) will be merged together. Figure-ground maps such as this are useful in representing changes in only one land cover category.
+            </p>
+            <ul>
+              <li><p>Click on the <code>Postprocessing</code> button in the SCP Toolbar. An SCP postprocessing dialogue box will pop up.</p></li>
+              <li><p>Set the input classification to the classified rasted you've just generated (in my case it's "1987_cls.tif") and click on <code>Calculate unique values</code>.</p></li>
+              <li><p>Values <code>1.0, 2.0, 3.0, 4.0</code> (for vegetation, water, bare soil, and developed, respectively) should automatically populate the list of old values.</p></li>
+              <li><p>Set the new values to <code>1</code> for <b>non-Developed (1.0, 2.0, 3.0)</b> and <code>2</code> for <b>developed (4.0)</b>.</p></li>
+              <li><p>Under Symbology, <b>uncheck</b> the <code>Use code from Signature list</code> box.</p></li>
+              <img class="img-responsive" src="tutorialImages/07_ChangeMapping/32_reclassify.png" alt="thumb">
+              <li><p>Click <code>Run</code> and save the new raster as <b>"1987_figure-ground"</b>. A new raster will be added to the scene.</p></li>
+              <li><p>In the Layers Panel, right-click on new raster and choose <b>"Properties"</b>.</p></li>
+              <li><p>Under <b>Style</b>, set the <b>Color gradient</b> to <code>White to black</code> (in order for Developed to be displayed as black, and Non-developed as white). Click <code>OK</code>.</p></li>
+              <img class="img-responsive" src="tutorialImages/07_ChangeMapping/33_properties.png" alt="thumb">
+              <img class="img-responsive" src="tutorialImages/07_ChangeMapping/34_figure-ground.png" alt="thumb">
+            </ul>
+          </div>
+          <div class="section">
+            <span class="anchor" id="measure"></span>
+              <h1 class="page-header">Measure Change</h1>
+              <p>In order to visualize and calculate surface areas that got developed between 1987 and 2017, we first need to perform <b>Image Classification</b> (including conversion to reflectance, clipping, and multispectral visualization) for 2017 imagery. Repeat the steps above for the <code>LC08_L1TP_025039_20170321_20170329_01_T1</code> scene (21-MAR-17), with one important exception:
+              <br /><br />
+              <b>Landsat 8's sensor (Operatioanl Land Imager) includes a new coastal/aerosol band (band1) and slightly different band order (refer to the table at the top of the page). Thus, in order to produce equivalent color composites for 2017 using SCP (3-2-1, 4-3-2, and 6-5-3), Band 1 will be removed during preprocessing (conversion to reflectance), while Band 6 will be included.</b>
+              <br /><br />
+              Also, consider starting a blank document for 2017. 
+            </p>
+          </div>
+          <div class="section">
+            <span class="anchor" id="note"></span>
+            <h1 class="page-header">Note</h1>
+            <p>If, after adding some dataset...</p>
+            </div>
+          </div>
+          <div class="col-md-3" role="complementary" id="myScrollspy">
+            <nav class="sidebar hidden-print hidden-sm hidden-xs" data-spy="affix" data-offset-top="420">
+              <ul class="nav sidenav">
+                <li>
+                  <a href="#datasets">Downloading Landsat Data</a>
+                </li>
+                <li>
+                  <a href="#plugin">Semi-Automatic Classification Plugin</a>
+                </li>
+                <li><a href="#multispectral">Multispectral Visualization</a></li>
+                <li><a href="#classification">Image Classification</a></li>
+                <li><a href="#reclassify">Developed Figure-Ground</a></li>
+                <li><a href="#measure">Measure Change</a></li>
+                <li><a href="#note">Note</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="../js/bootstrap.min.js"></script>
+    </body>
+    </html>
