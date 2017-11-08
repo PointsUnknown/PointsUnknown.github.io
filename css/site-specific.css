@@ -228,3 +228,7 @@ p {
     width: 263px;
   }
 }
+td, th {
+  padding-right: 10px;
+  line-height: 1;
+}
