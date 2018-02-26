@@ -200,7 +200,7 @@
               <li><p>Set the Directory containing Landsat Bands to "LT05_L1TP_025039_19870404_20161003_01_T1" and click <code>Choose</code>. All the parameters from the metadata file should automatically load into the dialogue box.</p></li>
               <li><p>Check the <code>Apply DOS1 atmospheric correction</code> box.</p></li>
               <li><p>Remove the <b>Band 6</b> from the list by selecting <code>LT05_L1TP_025039_19870404_20161003_01_T1_B6.TIF</code> ans clicking on the <b>"-"</b> button.</p></li>
-              <li><p>Click <code>Run</code>. A window should pop-up prompting you to select a directory to store reflectance rasters. Create a new forder "1987_REF" and click <code>Save</code>. The conversion should take few minutes to complete.</p></li>
+              <li><p>Click <code>Run</code>. A window should pop-up prompting you to select a directory to store reflectance rasters. Create a new folder "1987_REF" and click <code>Save</code>. The conversion should take few minutes to complete.</p></li>
               <img class="img-responsive" src="tutorialImages/07_ChangeMapping/09_Preprocessing.png" alt="thumb">
             </ul>
             <h3>Clip Rasters</h3>
@@ -223,7 +223,10 @@
               <img class="img-responsive" src="tutorialImages/07_ChangeMapping/13_ToggleEditing.png" width="50%" alt="thumb">
               <li><p>In the Rectangles Ovals Digitizing toolbar click on <code>Rectangle by extent</code>. Click and drag over the imagery to draw the rectangle of your study area.</p></li>
               <img class="img-responsive" src="tutorialImages/07_ChangeMapping/15_RectangleByExtent.png" width="50%" alt="thumb">
-              <li><p>If you're satisflied with your study area, click on <code>Save Layer Edits</code> in the Digitizing Toolbar and toggle off editing. Alternatively, click on <code>Current Edits > Rollback for Selected Layer(s)</code> and draw the rectangle again.</p></li>
+              </p>
+                <img class="img-responsive" src="tutorialImages/07_ChangeMapping/00_study.png" alt="thumb">
+              <p>
+              <li><p>If you're satisfied with your study area, click on <code>Save Layer Edits</code> in the Digitizing Toolbar and toggle off editing. Alternatively, click on <code>Current Edits > Rollback for Selected Layer(s)</code> and draw the rectangle again.</p></li>
               <img class="img-responsive" src="tutorialImages/07_ChangeMapping/16_SaveEdits.png" width="50%" alt="thumb">
               <li><p>Finally, we will clip the imagery to the desred study area. Click <code>Preprocessing</code> icon on the SCP Toolbar and navigate to <code>Clip multiple rasters</code> tab.</p></li>
               <li><p>Select all Landsat bands. Check <code>Use shapefile for clipping</code> and choose <b>"study_area"</b> as your clipping mask (if necessary, click <code>Refresh list</code> before selecting imagery and shapefile for clipping).</p></li>
@@ -232,6 +235,13 @@
               <li><p>When done, remove original rasters from the scene.</p></li>
               <img class="img-responsive" src="tutorialImages/07_ChangeMapping/18_ClippedRastersScene.png" alt="thumb">
             </ul>
+            <h3>Create Band Set</h3>
+            <p>
+              Now we need to create a band set to begin classifying our color composites. To do so, go back to your pre-processing menu within the Semi-Automatic Classification Plugin and select <code>Band Set</code> to create a bandset. Hit refresh to load the clipped layers and select all, adding them to the band set definition tab at the bottom of your option menu. Then select <code>Create virtual raster of band set</code> and click <code>Run</code>. Now you'll have a virtual band set to work with.
+            </p>
+            </p>
+              <img class="img-responsive" src="tutorialImages/07_ChangeMapping/00_band.png" alt="thumb">
+            <p>
             <h3>Color Composites</h3>
             <p>
               A natural or true-color image combines actual measurements of red, green, and blue light. The Landsat 5 bands needed to create a True Color Composite are therefore <b>Band 3: Red, Band 2: Green, Band 1: Blue</b> (refer to the table at the top of the page). To set the bands to its corresponding channels, your Band set RGB composite should be set to <code>3-2-1</code>.
@@ -336,7 +346,7 @@
               <h1 class="page-header">Measure Change</h1>
               <p>In order to visualize and calculate surface areas that got developed between 1987 and 2017, we first need to perform <b>Image Classification</b> (including conversion to reflectance, clipping, and multispectral visualization) for 2017 imagery. <b>Create a blank document for 2017 classification and repeat the steps above for the <code>LC08_L1TP_025039_20170321_20170329_01_T1</code> scene (21-MAR-17), with one important exception:</b>
               <br /><br />
-              <b>Landsat 8's sensor (Operatioanl Land Imager) includes a new coastal/aerosol band (band1) and slightly different band order (refer to the table at the top of the page). Thus, in order to produce equivalent color composites for 2017 using SCP (3-2-1, 4-3-2, and 6-5-3), Band 1 will be removed during preprocessing (conversion to reflectance), while Band 6 will be included.</b>
+              <b>Landsat 8's sensor (Operatioanl Land Imager) includes a new coastal/aerosol band (band1) and slightly different band order (refer to the table at the top of the page). Thus, in order to produce equivalent color composites for 2017 using SCP (3-2-1, 4-3-2, and 6-5-3), Band 1 and Bands 8-11 will be removed during preprocessing (conversion to reflectance), while Band 6 will be included.</b>
               <br /><br />
               Once you're done with 2017 reclassification, remove all layers from your image except <b>2017_reclass</b>. Add <b>1987_reclass</b> raster that you've generated previously to your scene for comparison.
             </p>
