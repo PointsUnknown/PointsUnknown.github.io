@@ -369,8 +369,21 @@
                 <li><p><code>1</code> change from non-developed to developed (2-1)</p></li>
               </ul>
             </ul>
+            <div class="section">
+              <span class="anchor" id="measure"></span>
+                <h1 class="page-header">Measure Change, Part 2</h1>
+                <ul>
+                <li><p>Now that you've generated a new shape file highlighting measured change in your scene, you need to convert your raster file into a vector file so that you can perform calculations on your measurements. To do so, go to <code>Raster</code> in your menu bar and unfold the <code>Conversion</code> menu. Here, select <code>Polygonize (Raster to Vector)</code>.</li>
+                <img class="img-responsive" src="tutorialImages/07_ChangeMapping/00_change1.png" alt="thumb">
+                <li><p>You'll then be prompted to save your shape file. Be sure to save it in the proper projection <code>Project CRS (EPSG:32615 - WGS 84 / UTM zone 15N)</code>.</p></li>
+                <img class="img-responsive" src="tutorialImages/07_ChangeMapping/00_change2.png" alt="thumb">
+                <li><p>Once you've generated a vector file from your data, go into your attribute table, go into the field calculator, and create a new field for Area using the command <code>$area</code>. We've done this in the previous two tutorials.</p></li>
+                <li><p>Next, we will perform styling and analysis that we used in our tutorial on <a href="0505_CensusJoins.html" alt="Census Joins">Census Joins</a>. To calculate the sum of area within each defined category, we need to perform basic statistical anaylsis. In QGIS, select <code>Toolbox</code> from the <code>Processing</code> tab in the overhead menu. Once selected, a new tab will appear on the right (the processing toolkit). In the processing toolkit, expand the 'QGIS Geoalgorithms' > 'Vector Table Tools' item and select <code>Statistics by Categories</code>.</p></li>
+                <li><p>For <code>Input vector layer</code>, select the layer you just created for measured change (Vector). We want the sum of the area for each category: Perveous -> Developed, No Change, Developed -> Perveous. Therefore, select 'area' for the <code>Field to calculate statistics on</code>. Lastly, we want the sums by type, so please choose 'DN' from the <code>Field with categories</code>. This will generate a new table showing the total area of each category (in the native unit of the projection).</p></li>
+                <li><p>Lastly, we will style this using categorical styling based on the categories we defined (Perveous -> Developed, No Change, Developed -> Perveous). This will output something similar to below, highlighting areas of development, no change, or reclamation of perveous land.</p></li>
+                <img class="img-responsive" src="tutorialImages/07_ChangeMapping/00_change3.png" alt="thumb">
+              </div>
           </div>
-
           </div>
           <div class="col-md-3" role="complementary" id="myScrollspy">
             <nav class="sidebar hidden-print hidden-sm hidden-xs" data-spy="affix" data-offset-top="420">
