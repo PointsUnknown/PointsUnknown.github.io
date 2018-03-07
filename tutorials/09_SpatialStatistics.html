@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108699112-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-108699112-1');
+  </script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../favicon.ico">
+  <title>Points Unknown</title>
+
+  <!-- Bootstrap -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="../css/site-specific.css" rel="stylesheet">
+
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500|Roboto:300,300i,400,400i" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="10">
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">Points Unknown</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <!-- <li class="active"><a href="#">Home</a></li> -->
+          <li><a href="../index.html">About</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Courses <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="../journalism_fall2017.html">Journalism - Fall 2017</a></li>
+              <li><a href="../journalism_spring2018a.html">Journalism - Spring 2018 (A)</a></li>
+              <li><a href="../journalism_spring2018b.html">Journalism - Spring 2018 (B)</a></li>
+              <li><a href="../gsapp_spring2018.html">GSAPP - Spring 2018</a></li>
+            </ul>
+          </li>
+          <li class="dropdown active">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tutorials <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="00_InstallationInstructions.html">00 - Installation Instructions</a></li>
+              <li><a href="01_BasicMap.html">01 - Basic Map</a></li>
+              <li><a href="#">02 - Styling in Illustrator (Coming Soon)</a></li>
+              <li><a href="03_AnnotationLayer.html">03 - Annotation Layers</a></li>
+              <li><a href="04_PointData.html">04 - Working with Point Data</a></li>
+              <li><a href="05_CensusJoins.html">05 - Census Data</a></li>
+              <li><a href="#">06 - Digital Elevation Models (Coming Soon)</a></li>
+              <li><a href="07_ChangeMapping.html">07 - Change Mapping</a></li>
+              <li><a href="08_Geocoding.html">08 - Geocoding</a></li>
+              <li><a href="09_SpatialStatistics.html">09 - Spatial Statistics</a></li>
+            </ul>
+          </li>
+          <li><a href="../apply.html">Apply</a></li>
+          <li><a href="../resources.html">Resources</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Tutorial 09 - Spatial Statistics</h1>
+      <p>This tutorial will guide you through the necessary steps to analyze geographic data in ArcGIS using spatial statistics. However, keep in mind that spatial statistics is a broad and extensive field and this tutorial will only give you a general introduction to its tools and concepts.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9" role="main">
+        <div class="section">
+          <span class="anchor" id="datasets"></span>
+          <h1 class="page-header">
+            Datasets
+          </h1>
+          <p>To create this map we will be using the following datasets:</p>
+          <ul>
+            <li><p>Boroughs - New York City boroughs. Download from <a href="http://www1.nyc.gov/site/planning/data-maps/open-data/districts-download-metadata.page">NYC Planning - Open Data</a>. Choose "Borough Boundaries (Clipped to Shoreline)", under "Borough Boundaries &amp; Community Districts".</p></li>
+            <li><p>MapPLUTO - Manhattan MapPLUTO file (version 16v2), containing all the lots in New York and their attributes. The original PLUTO files can be downloaded from <a href="http://www1.nyc.gov/site/planning/data-maps/open-data.page#pluto">NYC Planning - Open Data</a>. Make sure you
+            download the files for all 5 boroughs. For more information about the PLUTO files and what each of the fields means take a look at the useful
+            <a href="https://www1.nyc.gov/assets/planning/download/pdf/data-maps/open-data/pluto_datadictionary.pdf?r=16v2">PLUTO data dictionary</a>.</p></li>
+            <li><p>311 noise complaints in the Bronx for October 2015, 2016, and 2017. Download from <a href="https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9">NYC OpenData</a>.</p></li>
+            <li><p>Hydrography - New York City hydrography. Download from <a href="https://data.cityofnewyork.us/Environment/Hydrography/drh3-e2fd">NYC Open Data</a>. Once you get to the NYC OpenData page, click <code>Export</code> and choose the <code>Shapefile</code> format.</p></li>
+            <li><p>Hydrography U.S. - United States hydrography. Download from the <a href="https://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2015/polygon">Bureau of Transportation Statistics</a>. When you get to the Bureau of Transportation Statistics page click on the Hydrographic Features <code>ZIP</code> file.</p></li>
+            <li><p>States - U.S. State Boundaries. Download from the <a href="https://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2015/polygon"> Bureau of Transportation Statistics</a>. When you get to the Bureau of Transportation Statistics page click on the U.S. State Boundaries <code>ZIP</code> file.</p></li>
+            <li><p>NYC Planimetrics - Dataset containing features such as roadbed, curbs, parks, pavement edge, sidewalks. Download from <a href="https://data.cityofnewyork.us/Transportation/NYC-Planimetrics/wt4d-p43d/data">NYC OpenData</a>.</p></li>
+          </ul>
+          <p>A packaged file of the above data can be found at <a href="http://brwn.co/L1D" alt="Lesson 1 Data" download>brwn.co/L1D</a>.</p>
+        </div>
+        <div class="section">
+          <span class="anchor" id="geographicDistribution"></span>
+          <h1 class="page-header">
+            Measuring Geographic Distribution
+          </h1>
+          <p>The first and easiest way to analyze the spatial distribution of your data is to measure its centers, standard distances, and standard deviational ellipses. These first measurements will give you an idea of how your data is distributed in space and wether or not there might be any patterns or clustering.</p>
+          <ul>
+            <li><p>Centers:</p></li>
+            <ul>
+              <li><p>There are three types of centers you can calculate in ArcGIS, the <i>Mean Center</i>, the <i>Median Center</i>, and the <i>Central Feature</i>. All of them are calculated using the <code>Measuring Geographic Distributions</code> tools within the <code>Spatial Statistics Tools</code> in the main <code>ArcToolbox</code>.</p></li>
+              <li><p>The <i>Central Feature</i> tool will identify the feature with the lowest total distance to all other features in your dataset. As opposed to the two other types of center, this one selects an existing feature in your dataset. This type of measurement is particularly useful if you need to select an existing feature. The two other center measurements work by creating new points.</p></li>
+              <li><p>The <i>Median Center</i> tool will find the coordinate pair (x,y) that is the closest to all other features. As opposed to the <i>Mean Center</i>, outlier features will not have such a large effect on the <i>Median Center</i>. This type of measurement will produce a new feature.</p></li>
+              <li><p>Finally, the <i>Mean Center</i> will be calculated by finding the average of all the x-coordinates and the average of all y-coordinates. If you have any outliers, it is recommended you do not use this measurement. Instead you should use the <i>Median Center</i>.</p></li>
+              <li><p>Both the <i>Mean Center</i> and the <i>Median Center</i> can be calculated using a weight based on a specific field in your data.</p></li>
+              <li><p>To exemplify measuring the center of our dataset, let's calculate the <i>Mean Center</i> of our three noise complaint layers and see if there has been any major shift throughout our study period:</p></li>
+              <ul>
+                <li><p>Using the <code>ArcToolbox</code> open the <code>Spatial Statistics Tools</code> and the <code>Measuring Geographic Distributions</code> and double-click on the <code>Median Center</code> tool.</p></li>
+                <li><p>Fill in the menu to create the <i>Mean Center</i> for each of the years.</p></li>
+                <img class="img-responsive" src="tutorialImages/09_SpatialStatistics/01_MeanCenterMenu.png" alt="Mean Center menu">
+                <li><p>Once you finish calculating the <i>Mean Center</i> for the three years zoom in and take a look at their distribution. From their proximity we can infer that the general distribution of noise complaints in for October in the Bronx hasn't changed that much in the years between 2015 and 2017.</p></li>
+                <img class="img-responsive" src="tutorialImages/09_SpatialStatistics/02_MeanCenter.png" alt="Mean Center result">
+              </ul>
+            </ul>
+            <li><p>Standard Distance:</p></li>
+            <ul>
+              <li><p>Another way of analyzing the geographic distribution of a dataset is to measure the dispersion of the features around their center. This value is measured by calculating the average distance of the features to the <i>Mean Center</i> and how much those distances vary from the average.</p></li>
+              <li><p>To perform this calculation use the <code>Standard Distance</code> tool located in the <code>Measuring Geographic Distributions</code> toolbox in the <code>Spatial Statistics Tools</code>.</p></li>
+              <li><p>This tool will let you calculate the standard distance at 1, 2 and 3 standard deviations.</p></li>
+              <li><p>If you wish, you can also weight this calculation using a specific field in the data.</p></li>
+              <li><p>Note that this tool does not indicate the presence of clustering or specifically identifies any clusters. There are other specific tools for that.</p></li>
+            </ul>
+            <li><p>Standard Deviational Ellipses:</p></li>
+            <ul>
+              <li><p>The <i>Standard Deviational Ellipse</i> or <i>Directional Distribution</i>, as it is also called, works in a very similar manner as the <i>Standard Distance</i>, however it measures the distribution in the x and y axis independently and thus measures the distribution as well as the directionality of this distribution.</p></li>
+              <li><p>To perform this calculation use the <code>Directional Distribution</code> tool located in the <code>Measuring Geographic Distributions</code> toolbox in the <code>Spatial Statistics Tools</code>.</p></li>
+              <li><p>As with the <i>Standard Distance</i> calculation, this tool also allows you to measure the directional distribution at 1, 2 and 3 standard deviations and to use a field in the dataset as a weight in the calculation.</p></li>
+              <li><p>If we apply this calculation on our datasets we will see that the directionality stays pretty much the same while the dispersion moves a bit southwards for 2016 and a bit northwards for 2015. However, all three distributions are stay very close to each other.</p></li>
+              <img class="img-responsive" src="tutorialImages/09_SpatialStatistics/03_DirectionalDeviation.png" alt="Directional deviation ellipses">
+            </ul>
+          </ul>
+        </div>
+        <div class="section">
+          <span class="anchor" id="clustering"></span>
+          <h1 class="page-header">Is the Data Clustered, Dispersed, or Randomly Distributed?</h1>
+          <p>To figure out if there are any <i>significant</i> patterns in the data you should begin by testing wether or not your data is clustered, dispersed, or randomly distributed. The idea here is to measure the probability that the distribution of your data is just due to randomness. If the results of your analysis show that it is highly unlikely that the distribution of your data was the result of randomness, it is safe to assume that there is something more at play here and you should pursue your analysis.</p>
+          <ul>
+            <li><p>Average Nearest Neighbor:</p></li>
+            <ul>
+              <li><p>The first way to analyze distribution is to measure the average distance to the nearest neighbor. This analysis will measure the distance from every feature to its nearest neighbor and then compare it to the distance in a randomly generated distribution. A significant difference between the two scenarios will point towards clustering or dispersion in your data.</p></li>
+              <li><p>To perform this calculation use the <code>Average Nearest Neighbor</code> tool located in the <code>Analyzing Patterns</code> toolbox in the <code>Spatial Statistics Tools</code>.</p></li>
+              <li><p>To illustrate this type of analysis let's use the <code>Average Nearest Neighbor</code> tool on the 2017 noise complaint data.</p></li>
+              <li><p>One crucial thing to take into account here is that the <code>Nearest Neighbor</code> calculation will vary dependent on the area on which it is performed. For more accurate results make sure to add the exact area measurement for the area on which you will perform this calculation. In this case, the area for the Bronx is 1186815932.04 (square feet).</p></li>
+              <li><p>In addition, make sure you check the option to <code>Generate Report</code>. This will give you a detail view of the results.</p></li>
+              <img class="img-responsive" src="tutorialImages/09_SpatialStatistics/04_NearestNeighborMenu.png" alt="Nearest neighbor tool menu">
+              <li><p>Once you run the tool, look for the location where ArcGIS is saving the report in the result window and open the report with your internet browser. It should look something like this:</p></li>
+              <img class="img-responsive" src="tutorialImages/09_SpatialStatistics/05_NearestNeighborReport.png" alt="Nearest neighbor report">
+              <li><p>The <code>Average Nearest Neighbor</code> report tells us that the data is clustered and it gives us a z-score of -117.08 and a p-value of 0.0000000. This means that the probability of our data being distributed like this due to randomness is very very small, and that we can say with 99.9% confidence that the distribution is not random.</p></li>
+              <li><p>This tool, however, does not tell you where the clusters are, it is just a <i>global</i> measurement of distribution.</p></li>
+            </ul>
+            <li><p>Getis-Ord General G:</p></li>
+            <ul>
+              <li><p>Sometimes in addition to analyzing the location of your data, you also want to take into account the value of one of its attributes to figure out if high or low values are clustered or dispersed, or if they are randomly located. To do this use the <code>Getis-Ord General G</code> tool. This measurement assumes that features in your dataset are related to each other based on their location and on a common attribute.</p></li>
+              <li><p>Because our noise complaint data doesn't have any value attribute, we must first join it to the block groups, counting the number of occurrences in each of them, before performing the statistical analysis.</p></li>
+              <li><p>Go ahead and perform a spatial join between the noise complaints for 2017 and the Bronx block groups.</p></li>
+              <li><p>Once the join is done create a simple cloropleth to quickly visualize the data. As you can see, it is not clear from the map whether or not high or low values cluster:</p></li>
+              <img class="img-responsive" src="tutorialImages/09_SpatialStatistics/06_SpatialJoin.png" alt="Result of the spatial join">
+              <li><p>Now we can perform the <code>Getis-Ord General G</code> analysis. The tool is called <code>High/Low Clustering (Getis-Ord General G)</code> and is located in the <code>Analyzing Patterns</code> toolbox in the <code>Spatial Statistics Tools</code>. Make sure you select the <code>Count_</code> field as the <code>Input Field</code> and that you check the option to <code>Generate Report</code>.</p></li>
+              <li><p>Once the analysis is done, open the report on your browser. As you can see, the high values are clustered and there is less than 1% chance this distribution could be the result of random chance.</p></li>
+              <img class="img-responsive" src="tutorialImages/09_SpatialStatistics/07_GetisOrdResults.png" alt="Report of the Getis-Ord analysis">
+              <li><p>If you wanted to be more precise or to get a better understanding of the clustering or dispersion patterns you could also perfomr the <code>Getis-Ord General G</code> analysis at different threshold distances. In the tool menu, you can input a specific amount to test the distribution at that particular distance. Doing this multiple times at different distances and comparing z-scores and G indices would tell you at what distance the clustering or dispersion is the strongest.</p></li>
+            </ul>
+            <li><p>Ripley's K Function:</p></li>
+            <ul>
+              <li><p>If you want to determine more accurately at what distance the clustering or dispersion is the strongest, you should use the <code>Ripley's K</code> tool. This analysis works similarly to the <code>Nearest Neighbor</code>, but instead of comparing the distance from every point to its nearest neighbor, it compares the distance from every point to all its neighboring features.</p></li>
+              <li><p>In addition, the <code>Ripley's K Function</code> measures the clustering or dispersion at multiple distance intervals and thus can provide a better understanding of at what distance the clustering or dispersion is the strongest.</p></li>
+              <li><p>Also, the <code>Ripley's K Function</code> can generate multiple permutations of the comparison randomly generated sample, which will give your result a more robust confidence interval.</p></li>
+              <li><p>To perform this calculation use the <code>Multi-Distance Spatial Cluster Analysis (Ripleys K Function)</code> tool located in the <code>Analyzing Patterns</code> toolbox in the <code>Spatial Statistics Tools</code>.</p></li>
+            </ul>
+            <li><p>Spatial Autocorrelation (Monran's I):</p></li>
+            <ul>
+              <li><p>Spatial autocorrelation represents the idea that similar values are correlated in space. A typical example of spatial autocorrelation is the clustering of high-value properties. In other words the high value of a particular property tends to be correlated to the high values of surrounding properties.</p></li>
+              <li><p>The <code>Moran's I</code> function, which measures spatial autocorrelation, identifies clusters by looking at the values as well as the location of the features.</p></li>
+              <li><p>To perform <code>Moran's I</code> analysis it is best to have your features aggregated. Similar to what we did with the count of noise complaints by block group, this time we will create a grid of squares and count the number of complaints per square, in order to perform the spatial autocorrelation analysis.</p></li>
+              <li><p>Once we run the analysis, <code>Moran's I</code> will look at the relationship between the value of each feature and the value of its surrounding features, and compare that to the relationship between the value of each feature and the value of the rest of the features (not just the neighboring ones). A significant difference will indicate clustering or dispersion.</p></li>
+              <li><p>Note that the size of the geographic unit of measurement, in this case the grid that we will create, will greatly affect the result of the analysis. It is crucial to create a grid that will have cells with at least one point, but also provide a good range of values throughout the study area.</p></li>
+              <li><p>To create the grid use the <code>Create Fishnet</code> tool located in the <code>Sampling</code> toolbox in the <code>Data Management Tools</code>.</p></li>
+              <li><p>In the <code>Create Fishnet</code> menu make sure you use the Bronx Block Groups as the <code>Template Extent</code>, that you set your cell size to 500 x 500, and that you choose <code>Polygon</code> as the <code>Geometry Type</code>. Also, there's no need to generate <code>Create Label Points</code>.</p></li>
+              <img class="img-responsive" src="tutorialImages/09_SpatialStatistics/08_FishnetMenu.png" alt="Menu of create a fishnet">
+              <li><p>Because we don't have data for areas outside the Bronx, once you've created your fishnet, go ahead and select only the grid cells that intersect with the Bronx and export them as their own layer.</p></li>
+              <li><p>Now go ahead and join the Bronx grid cells to it the noise complaints for 2017. Create a simple cloropleth to verify the join:</p></li>
+              <img class="img-responsive" src="tutorialImages/09_SpatialStatistics/09_FishnetResult.png" alt="Result of fishnet join">
+              <li><p>Finally, perform the <code>Spatial Autocorrelation (Moran's I)</code> analysis, located in the <code>Analyzing Patterns</code> toolbox in <code>Spatial Statistics Tools</code>.</p></li>
+              <li><p>As with other statistics you can set a threshold distance and generate a report. To get more detailed results you might want to repeat this analysis using different threshold distances and different conceptualization of spatial relationships, depending on the nature of your data.</p></li>
+              <img class="img-responsive" src="tutorialImages/09_SpatialStatistics/10_MoransReport.png" alt="Report of Moran's I">
+              <li><p>As you can see in the text, the results of Moran's I point towards a clustering of grids with high values. We can say that there's is less than 1% chance that this configuration is due to random chance.</p></li>
+            </ul>
+          </ul>
+        </div>
+        <div class="section">
+          <span class="anchor" id="IDclusters"></span>
+          <h1 class="page-header">Identifying Clusters</h1>
+          <p>The previous statistical metrics were useful in analyzing overall patterns. The told us if our data was overall clustered or dispersed, or randomly distributed. However, even though they noted the presence of clustering, they did not help us in locating those clusters. The <code>Cluster and Outlier Analysis (Anselin Local Moran's I)</code> tool, and the <code>Hot Spot Analysis (Getis-Ord Gi*)</code> will be the ones to use when wanting to identify and map those clusters. These are <i>local</i> metrics of clustering, as opposed to the previous ones which were <i>global</i>.</p>
+          <ul>
+            <li><p>In this tutorial we will use the <code>Hot Spot Analysis (Getis-Ord Gi*)</code> tool. This tool compares the values of each feature to the values of neighboring features within a specific distance and produces a graphical output with clustering metrics.</p></li>
+            <li><p>To perform the analysis just use the <code>Hot Spot Analysis (Getis-Ord Gi*)</code> tool located in the <code>Mapping Clusters</code> toolbox in the <code>Spatial Statistics Tools</code>.</p></li>
+            <li><p>Note that changing the <code>Distance Band or Threshold Distance</code> option will affect your results. Smaller distances will generate smaller clusters, and vice versa. When left blank, ArcMap will automatically calculate a threshold distance and apply it to the calculation.</p></li>
+            <li><p>The result of this analysis produces a new shapefile with the following data:</p></li>
+              <ul>
+                <li><p>Count_ (based on the previous dataset)</p></li>
+                <li><p>GiZScore, representing the specific z-score for that polygon.</p></li>
+                <li><p>GiPValue, representing the p-value for that specific polygon.</p></li>
+                <li><p>Gi_Bin, representing the category in which this polygon falls. These categories are:</p></li>
+                <ul>
+                  <li><p>Cold Spot - 99% Confidence</p></li>
+                  <li><p>Cold Spot - 95% Confidence</p></li>
+                  <li><p>Cold Spot - 90% Confidence</p></li>
+                  <li><p>Not Significant</p></li>
+                  <li><p>Hot Spot - 90% Confidence</p></li>
+                  <li><p>Hot Spot - 95% Confidence</p></li>
+                  <li><p>Hot Spot - 99% Confidence</p></li>
+                </ul>
+              </ul>
+            <li><p>And the new shapefile will be automatially symbolized to represent these categories.</p></li>
+            <li><p>Your final map should look something like this:</p></li>
+            <img class="img-responsive" src="tutorialImages/09_SpatialStatistics/SpatialStatsWorkingMap-01.svg" alt="Final map">
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-3" role="complementary" id="myScrollspy">
+        <nav class="sidebar hidden-print hidden-sm hidden-xs" data-spy="affix" data-offset-top="420">
+          <ul class="nav sidenav">
+            <li>
+              <a href="#datasets">Datasets</a>
+            </li>
+            <li>
+              <a href="#geographicDistribution">Measuring Geographic Distribution</a>
+            </li>
+            <li><a href="#clustering">Clusters, Dispersion, or Randomness</a></li>
+            <li><a href="#IDclusters">Identifying Clusters</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="../js/bootstrap.min.js"></script>
+</body>
+</html>
