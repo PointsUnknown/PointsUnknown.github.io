@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108699112-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-108699112-1');
+  </script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../favicon.ico">
+  <title>Points Unknown</title>
+
+  <!-- Bootstrap -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="../css/site-specific.css" rel="stylesheet">
+
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500|Roboto:300,300i,400,400i" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="10">
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">Points Unknown</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <!-- <li class="active"><a href="#">Home</a></li> -->
+          <li><a href="../index.html">About</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Courses <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="../journalism_fall2017.html">Journalism - Fall 2017</a></li>
+              <li><a href="../journalism_spring2018a.html">Journalism - Spring 2018 (A)</a></li>
+              <li><a href="../journalism_spring2018b.html">Journalism - Spring 2018 (B)</a></li>
+              <li><a href="../gsapp_spring2018.html">GSAPP - Spring 2018</a></li>
+            </ul>
+          </li>
+          <li class="dropdown active">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tutorials <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="00_InstallationInstructions.html">00 - Installation Instructions</a></li>
+              <li><a href="01_BasicMap.html">01 - Basic Map</a></li>
+              <li><a href="02_AnnotationLayer.html">02 - Annotation Layers</a></li>
+              <li><a href="03_PointData.html">03 - Working with Point Data</a></li>
+              <li><a href="04_CensusJoins.html">04 - Working with Census Data</a></li>
+              <li><a href="05_ChangeMapping.html">05 - Change Mapping</a></li>
+              <li><a href="06_Geocoding.html">06 - Geocoding</a></li>
+              <li><a href="07_SpatialStatistics.html">07 - Spatial Statistics</a></li>
+              <li><a href="08_MCDA.html">08 - Multi-Criteria Decision Analysis</a></li>
+            </ul>
+          </li>
+          <li><a href="../apply.html">Apply</a></li>
+          <li><a href="../resources.html">Resources</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Tutorial 08 - Multi-criteria Decision Analysis</h1>
+      <p>This tutorial will introduce you to basic principles, methods, applications of GIS-based Multi-criteria Decision Analysis (MCDA) by identifying and rating locations in our study area as more or less suitable for a particular use or development.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9" role="main">
+        <div class="section">
+          <span class="anchor" id="datasets"></span>
+          <h1 class="page-header">
+            Defining the Goal and Criteria of the Analysis
+          </h1>
+          <p>The goal of the MCDA can be stated as a problem or as question to be answered. For example: <em>Show me the most and the least suitable locations in Brooklyn for adding new Citibike stations.</em></p>
+          <p>What makes a location suitable for something? Usually, it’s a combination of factors. Defining the criteria for what makes a place suitable is the core of MDCA. In this example, we will use the following criteria/layers:</p>
+          <ol>
+            <li><p>Existing citibike stations: we will prioritize areas that are near the the existing network.</p></li>
+            <li><p>Density of the residential units constructed in the past 5 years: we will prioritize areas with higher density over areas of lower density.</p></li>
+            <li><p>Subway stations: we will prioritize areas closer to the subway stations.</p></li>
+            <li><p>Bike lanes: we will prioritize areas closer to the bike routes.</p></li>
+          </ol>
+          <p>The data for this exercise can be downloaded from NYC Open Data and MapPLUTO. The packaged file of the above data can be downloaded below</p>
+        </div>
+        <div class="section">
+          <span class="anchor" id="datasets"></span>
+          <h1 class="page-header">
+            Datasets
+          </h1>
+          <p>To create this map we will be using the following datasets:</p>
+          <ul>
+            <li><p>Borough of Brooklyn - from New York City boroughs. Download from <a href="https://data.cityofnewyork.us/City-Government/Borough-Boundaries/tqmj-j8zm?category=City-Government&view_name=Borough-Boundaries">NYC Open Data – Department of City Planning</a>. Choose "Export", under "Borough Boundaries &amp; Community Districts".</p></li>
+            <li><p>Citibike stations. Data available from Citibike in <a
+              href="https://feeds.citibikenyc.com/stations/stations.json">JSON format.</a> A point feature shapefile for the stations can be found in the package below.</p></li>
+            <li><p>MapPLUTO - Brooklyn MapPLUTO file (version 17v1), containing all the lots in Brooklyn and their attributes. The original PLUTO files can be downloaded from <a href="http://www1.nyc.gov/site/planning/data-maps/open-data.page#pluto">NYC Planning - Open Data</a>. Make sure you
+            download the file for the borough of Brooklyn. For more information about the PLUTO files and what each of the fields means take a look at the useful
+            <a href="https://www1.nyc.gov/assets/planning/download/pdf/data-maps/open-data/pluto_datadictionary.pdf?r=16v2">PLUTO data dictionary</a>.</p></li>
+            <li><p>MTA Subway Station Locations. Download from <a href="https://data.cityofnewyork.us/Transportation/Subway-Stations/arq3-7z49Opens" alt="NYC Subway Stations">NYC Open Data - Metropolitan Transportation Authority (MTA)</a>. Choose "Export", under "Subway Stations", and download in Shapefile format.</p></li>
+            <li><p>Locations of bike lanes and routes throughout the City - from New York City boroughs. Download from <a href="https://data.cityofnewyork.us/Transportation/Bike-Routes/7vsa-caz7">NYC Open Data – Department of Transportation</a>. Choose "Export", under "Bike Routes", and download in Shapefile format.</p></li>
+          </ul>
+          <p>A packaged file of the above data can be found in a downloadable package - <a href="https://brown-institute-assets.s3.amazonaws.com/Objects/MCDA_DATA.zip" alt="Lesson 1 Data" download>brwn.co/mcda</a>. Original data assets (listed above) are located in the directory <em>00_Original</em>. In addition, we've provided output files for each of the steps below, under <em>01_Outputs</em>. Throughout the tutorial, we will reference which files were created and at which steps.</p>
+        </div>
+        <div class="section">
+          <span class="anchor" id="prepareInputs"></span>
+          <h1 class="page-header">
+            Preparing Input Layers
+          </h1>
+          <p>Launch ArcMap and save project as “MCDA_citibike_BK.” Load the following layers:</p>
+            <ul>
+              <li><p>Border of the Borough of Brooklyn (for geographic reference)</p></li>
+              <li><p>Citibike Stations</p></li>
+              <li><p>Brooklyn PLUTO dataset</p></li>
+              <li><p>MTA subway stations</p></li>
+              <li><p>Locations of bike lanes and routes throughout the City</p></li>
+            </ul><br>
+            <div class="subsection">
+              <span class="anchor" id="preprocessing"></span>
+            <h3>Preprocessing: Clipping Layers to Brooklyn and Defining the Geoprocessing Extent</h3>
+          <p>Navigate to <code>Selection</code> > <code>Select by Location</code>  and set the <strong>Target Layer</strong> to <code>Citibike_Stations.</code> Set the <strong>Source Layer</strong> to <code>BK_Borough</code> and select the features from target layer that <code>are within the source layer feature</code>. Export selected features by right-clicking on target layer in <strong>TOC</strong> snd clicking through <code>Data</code> > <code>Export Data...</code> Make sure you export only the selected features.</p><br>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/01_Select.PNG" alt="Select features by Brooklyn"><br>
+          <p>Repeat the same step for subway stations and bike lanes as target layers. Now you should have Citibike Stations, MTA Subway Stations and Bike Lanes/Routes clipped to the borough boundary of Brooklyn. When complete, remove the original feature classes.</p><br>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/02_BK.PNG" alt="BK Clipped"><br>
+          <p>Before we create our input layers, we need to make sure they will be perfectly aligned. We can do that by defining a geoprocessing extent for all operations.</p>
+          <p>To define the geoprocessing extent, navigate to the <code>Geoprocessing</code> on the top of your toolbar, and select <code>Environments</code>. In the <strong>Environments Workspace</strong>, expand the <code>Processing Extent</code> toolbar and set your Extent to <code>Same as layer BK_borough</code></p><br>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/03_Extent.PNG" alt="BK Clipped" width="70%"><br>
+        </div>
+        <div class="subsection">
+          <span class="anchor" id="criterion1"></span>
+          <h3>Criterion I: Citibike Stations</h3>
+          <h5>Average Nearest Neighbor  |  Buffer  |  Euclidean Distance</h5>
+          <p>As Citibike is rolled out across neighborhoods and boroughs, a primary requirement for new station placement is nearness to pre-existing stations and network density. When expanding the network, Citibike rolls out collections of stations across an area at once. For this exercise, we will be avoiding densifying pre-existing networks of stations, while at the same time prioritizing distance to the existing network. The way we will accomplish this is by calculating the average nearest neighbor for all stations in Brooklyn, and use that distance to create a buffer area around each station that will be excluded from consideration.</p>
+          <p>Navigate to <code>Geoprocessing</code> in your toolbar and select <code>ArcToolbox</code>. This will open a new tab within your workspace. In this tab, expand the <code>Spatial Statistics Tools</code> item, and expand its child <code>Analyzing Patterns</code>. We will use the <code>Average Nearest Neighbor</code> tool.</p><br>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/04_NN-input.PNG" alt="Average Nearest Neighbor" width="70%"><br>
+          <p>To calculate a nearest neighbor index, use the settings below</p>
+            <ul>
+              <li><p>Set <code>Input Feature class</code> to <strong>citibike_stations_BK</strong></p></li>
+              <li><p>Set <code>Distance method</code> to <strong>EUCLIDEAN_DISTANCE</strong></p></li>
+              <li><p>Do not generate report</p></li>
+              <li><p>Navigate to <code>Geoprocessing</code> in your toolbar and select <code>Results</code>. Take a moment to observe the results, looking specifically at the Nearest Neighbor Expected/Observed values. Both indexes cluster around <em>800 feet</em>, so we will use this value as our buffer.</p></li>
+            </ul>
+          </p><br>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/05_NN-results.PNG" alt="Average Nearest Neighbor Results" width="40%"><br>
+          <p>Now that the nearest neighbor index has been calculated, we will create a buffer based upon the results (Nearest Neighbor Expected and Nearest Neighbor Observed values). Navigate to <code>Geoprocessing</code> in your toolbar and select <code>Buffer</code>. This tool will create buffer polygons around input features to a specified distance (800 feet). To generate the buffer, use the settings below:</p><br>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/06_Buffer-tool.PNG" alt="Buffer Tool" width="70%"><br>
+          <ul>
+            <li><p>Set <code>Input Features</code> to <strong>citibike_stations_BK</strong></p></li>
+            <li><p>Set <code>Output Feature Class</code> to <strong>.....shp</strong></p></li>
+            <li><p>Set <code>Distance</code> to <strong>800 Feet</strong> and <code>Dissolve Type</code> to <strong>ALL</strong></p></li>
+          </ul><br>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/07_Buffer-result.PNG" alt="Buffer Tool"><br>
+          <p>To finalize preparing the Citibike Station input layer, we need to generate a distance raster, utilizing the Euclidean Distance. Navigate to <code>Geoprocessing</code> in your toolbar and select <code>ArcToolbox</code>. This will open a new tab within your workspace. In this tab, expand the <code>Spatial Analyst Tools</code> item, and expand its child <code>Distance</code>. We will use the <code>Euclidean Distance</code> tool.</p><br>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/11_Criterion1_EuclDist-tool.PNG" alt="Buffer Tool" width="70%"><br>
+          <ul>
+            <li><p>Set <code>Input Feature Source Data</code> to <strong>citibike_buffer800ft</strong> (the buffer file you just created).</p></li>
+            <li><p>Set <code>Output Distance Raster</code> to <strong>citibike_distance.tif</strong>. Be sure to write out the .tif extension to define the file type properly.</p></li>
+            <li><p>Set <code>Output Cell Size</code> to <strong>20 ft</strong> and select <code>OK</code>.</p></li>
+          </ul><br>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/12_Criterion1_EuclDist-result.PNG" alt="Buffer Tool" width="70%"><br>
+          <p>We are now ready to work with the Citibike criterion to generate a decision layer for analysis.</p>
+          </div>
+          <div class="subsection">
+            <span class="anchor" id="criterion2"></span>
+          <h3>Criterion II: Recent Residential Analysis</h3>
+          <h5>Select by Attribute  |  Kernal Density</h5>
+          <p>In addition to considering the existing Citibike network, we will also incorporate recent residential development in our decision analysis. To do so, we will rely on PLUTO data to select residential construction completed within the last 5 years (build date > 2013). To get started, we need to select buildings that fit these characteristics.</p>
+          <p>Navigate to <code>Selection</code> in your toolbar and select <code>Select by Attributes</code>. This will open tabular view of your data.</p><br>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/08_Select_recent_residential.PNG" alt="Buffer Tool" width="40%"><br>
+          <ul>
+            <li><p>Set input<code>Layer</code> to <strong>BKMapPLUTO</strong>.</p></li>
+            <li><p>In the equation field of the workspace, we need to highlight buildings that have 1 or more residential units, as well as build dates that equal 2013 or greater. To do so, enter <code>”YearBuilt" >= 2013 AND "UnitsRes" >= 1</code> and select <code>OK</code>.</p></li>
+            <li><p>Once you see a highlighted selection of data on your map, right-click on the <strong>BKMapPLUTO</strong> layer and select <code>Data</code> > <code>Export Data</code>. </p></li>
+            <li><p>With <strong>Selected Features</strong> set as your <code>Export</code> option, navigate to an output folder that you would like to house the exported shapefile and select <code>OK</code>.</p></li>
+            <li><p>Once this updated PLUTO shapefile has been added to your layers panel, you can remove the original Brooklyn MapPLUTO layer.</p></li>
+          </ul>
+          <p>With an updated PLUTO layer highlighting only buildings that have 1 or more residential units that also were built on or after 2013, we will perform kernel density calculations. This process will produce the ratio of the number of observations to an area using a density function. In this case we will be dividing the number of residential units built in the last 5 years in Brooklyn by an area defined as that encompassed by a radius from the center of each raster cell in the output raster dataset. To begin, navigate to <code>Geoprocessing</code> in your toolbar and select <code>ArcToolbox</code>. This will open a new tab within your workspace. In this tab, expand the <code>Spatial Analyst Tools</code> item, and expand its child <code>Density</code>. We will use the <code>Kernel Density</code> tool.</p><br>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/09_Kernel-tool.PNG" alt="Buffer Tool" width="60%"><br>
+            <ul>
+              <li><p>In the <code>Input Point</code> field, select <strong>BK_PLUTO_res_from2013_points</strong> (the shapefile generated in the previous step).</p></li>
+              <li><p>Set the <code>Population</code> input field to <strong>UnitsRes</strong>.</p></li>
+              <li><p>Set the <code>Search Radius</code> to <strong>2,640 feet (half-mile)</strong>.</p></li>
+              <li><p>Set the <code>Area Units</code> to <strong>Acres</strong>.</p></li>
+              <li><p>Save the <code>Output Raster</code> to <strong>Save as “kernel_dens_residential_halfmile.tif”</strong> and select <code>OK</code>.</p></li>
+            </ul><br>
+            <img class="img-responsive" src="tutorialImages/10_MCDA/10_Kernel-result.PNG" alt="Buffer Tool" width="70%"><br>
+            <p>We are now ready to work with the Residential criterion to generate a decision layer for analysis.</p>
+        </div>
+          <div class="subsection">
+            <span class="anchor" id="criterion3"></span>
+          <h3>Criterion III: Subway Stations</h3>
+          <h5>Euclidean Distance</h5>
+          <p>To preparing the Subway Station locations for analysis, we need to generate a distance raster, utilizing the Euclidean Distance. Navigate to <code>Geoprocessing</code> in your toolbar and select <code>ArcToolbox</code>. This will open a new tab within your workspace. In this tab, expand the <code>Spatial Analyst Tools</code> item, and expand its child <code>Distance</code>. We will use the <code>Euclidean Distance</code> tool.</p>
+          <ul>
+            <li><p>Set <code>Input Feature Source Data</code> to <strong>MTA_SubwayStations_BK</strong> (the layer you generated of Subway Stations found within the Brooklyn Borough boundary).</p></li>
+            <li><p>Set <code>Output Distance Raster</code> to <strong>subway_distance.tif</strong>. Be sure to write out the .tif extension to define the file type properly.</p></li>
+            <li><p>Set <code>Output Cell Size</code> to <strong>20 ft</strong> and select <code>OK</code>.</p></li>
+          </ul>
+          <p>We are now ready to work with the Subway Station criterion to generate a decision layer for analysis.</p>
+        </div>
+        <div class="subsection">
+            <span class="anchor" id="criterion4"></span>
+          <h3>Criterion IV: Bike Lanes/Routes</h3>
+          <h5>Euclidean Distance</h5>
+          <p>To preparing the Bike Lanes/Routes locations for analysis, we need to generate a distance raster, utilizing the Euclidean Distance. Navigate to <code>Geoprocessing</code> in your toolbar and select <code>ArcToolbox</code>. This will open a new tab within your workspace. In this tab, expand the <code>Spatial Analyst Tools</code> item, and expand its child <code>Distance</code>. We will use the <code>Euclidean Distance</code> tool.</p>
+          <ul>
+            <li><p>Set <code>Input Feature Source Data</code> to <strong>DOT_BikeLanes_BK</strong> (the layer you generated of bike lanes/routes found within the Brooklyn Borough boundary).</p></li>
+            <li><p>Set <code>Output Distance Raster</code> to <strong>bikelanes_distance.tif</strong>. Be sure to write out the .tif extension to define the file type properly.</p></li>
+            <li><p>Set <code>Output Cell Size</code> to <strong>20 ft</strong> and select <code>OK</code>.</p></li>
+          </ul>
+          <p>We are now ready to work with the Bike Lanes/Routes criterion to generate a decision layer for analysis.</p>
+        </div>
+        <div class="subsection">
+            <span class="anchor" id="createDL"></span>
+          <h3>Create Decision Layers</h3>
+          <p>Now that distance rasters have been generated, the output no longer fits neatly into the Brooklyn Borough boudnary. Therefore, we will run <code>Extract by Mask</code> to extracts cells from a raster within a mask defined by an input polygon shapefile feature class (Brooklyn boundary layer).</p>
+          <p>Navigate to <code>Geoprocessing</code> in your toolbar and select <code>ArcToolbox</code>. This will open a new tab within your workspace. In this tab, expand the <code>Spatial Analyst Tools</code> item, and expand its child <code>Extraction</code>. We will use the tool <code>Extract by Mask</code>.</p><br>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/13_ExtractByMask-tool.PNG" alt="Buffer Tool" width="70%"><br>
+          <ul>
+            <li><p>Set <code>Input Raster</code> to <strong>citibike_distance.tif</strong>.</p></li>
+            <li><p>Set <code>Feature Mask</code> to <strong>BK_Borough</strong>.</p></li>
+            <li><p>Set <code>Output Distance Raster</code> to <strong>citibike_stations_BK_distance_clip.tif</strong>. Be sure to write out the .tif extension to define the file type properly. Once everything is setup, select <code>OK</code>.</p></li>
+          </ul><br>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/14_ExtractByMask-result.PNG" alt="Buffer Tool" width="70%"><br>
+          <p>Repeat this step for each of the decision layers (subway stations, new residential units, and bike lanes/routes), and remove the non-clipped layers from your Table of Contents.</p><br>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/15_ToC_inputs.PNG" alt="Buffer Tool" width="40%"><br>
+        </div>
+        </div>
+        <div class="section">
+          <span class="anchor" id="reclassification"></span>
+          <h1 class="page-header">Reclassification</h1>
+          <p>The reclassification function reclassifies or changes cell values in a raster to alternative values, based on user input. We will use Reclassify tool on all four input rasters in order to create a common scale of values between them. More specifically, we will reclassify input rasters by value ranges into five new classes, assigning “5” to the most suitable areas, and “1” to the least suitable area for citibike expansion in each input raster.</p>
+          <p>Navigate to <code>Geoprocessing</code> in your toolbar and select <code>ArcToolbox</code>. This will open a new tab within your workspace. In this tab, expand the <code>Spatial Analyst Tools</code> item, and expand its child <code>Reclass</code>. We will use the tool <code>Reclassify</code>.</p><br>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/16_Reclassify-tool.PNG" alt="Reclassification Tool" width="80%"><br>
+          <ul>
+            <li><p>Set <code>Input Raster</code> to <strong>subway_stations_BK_distance_clip.tif</strong></p></li>
+            <li><p>Click on <code>Classify</code>, and set the <code>Classification Method</code> to <strong>Manual</strong></p></li>
+            <li><p>For the classes, we will split the values of citibike stations, subway stations, and bike lanes/routes by quarter-mile increments. For recent residential units, we will use the <code>Classification Method</code> <strong>Quintiles</strong>. Quarter-mile increment entries are shown below.</p><ul>
+              <li><p>1320</p></li>
+              <li><p>2640</p></li>
+              <li><p>3960</p></li>
+              <li><p>5280</p></li>
+              <li><p>Leave as is <em>(automatically generated from the MAX value)</em></p></li>
+            </ul></li>
+            <li><p>Set the <code>Output</code> as <strong>DL_subwayStations.tif</strong></p></li>
+            <li><p>Select OK</p></li>
+          </ul>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/17_Reclassify-result.PNG" alt="Reclassification Output" width="70%"><br>
+          <p>Repeat this reclassification for each of your remaining inputs (Citibike Stations, Bike Lanes/Routes, and Recent Residential Activity). As stated above, we will use the <strong>Manual</strong> <code>Classification Method</code> for Citibike Stations, Bike Lanes/Routes and Subway Stations (done in first example) based upon quarter-mile increments. For recent residential units, use the <code>Classification Method</code> <strong>Quintiles</strong> which will automatically generate. The reason we use the <code>Quintiles</code> is because we don't have any external factors that could influence our classification, so we will classify internally. For example, with subway stations, we would want to classify based upon how quickly one could walk to the subway (quarter-mile increments).</p>
+          <p><strong>Bike Lanes/Routes</strong></p>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/16_Reclassify-tool-bikelanes.PNG" alt="Reclassification Output" width="75%">
+          <p><strong>Citibike Stations</strong></p>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/16_Reclassify-tool-citibike.PNG" alt="Reclassification Output" width="75%">
+          <p><strong>Subway Stations</strong></p>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/16_Reclassify-tool-subway.PNG" alt="Reclassification Output" width="75%">
+          <p><strong>Residential Development</strong></p>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/16_Reclassify-tool-residential.PNG" alt="Reclassification Output" width="75%">
+          <p>Above are examples of each of the input tools. Now we are ready to add our values to produce a decision map.</p>
+        </div>
+        <div class="section">
+          <span class="anchor" id="decisionMap"></span>
+          <h1 class="page-header">Decision Mapping for Analysis</h1>
+          <p>In the final step of this exercise, we will combine our decision layers to represent a final decision map that will highlight where opportune areas for Citibike expansion. This is the simplest step of the entire process, as we are simply using our raster calculator to add our decision layers. There are a variety of ways we can do this addition, weighting certain inputs above others. For this example, we are simply going to weight each input equally. To begin, navigate to <code>Geoprocessing</code> in your toolbar and select <code>ArcToolbox</code>. This will open a new tab within your workspace. In this tab, expand the <code>Spatial Analyst Tools</code> item, and expand its child <code>Map Algebra</code>. We will use the tool <code>Raster Calculator</code>.</p><br>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/18_RasterCalculator-tool.PNG" alt="Raster Calculator Tool" width="75%">
+          <ul>
+            <li><p>In the raster calculator, enter <code>"DL_bikeLanes.tif" + "DL_citibikeStations.tif" + "DL_ResDensity.tif" + "DL_subwayStations.tif"</code>.</p></li>
+            <li><p>For <code>Ouput</code> <strong>DecisionMap.tif</strong> and select <code>OK</code>.</p></li>
+          </ul><br>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/19_RasterCalculator-result.PNG" alt="Raster Calculator Tool" width="75%"><br>
+          <p>The initial output of our <code>Raster Calculator</code> will be unreadable but with some simple styling, we can create our first decision map. Right click on the newly generated layer <strong>DecisionMap.tif</strong> and click on <code>Symbology</code>. In this setting, we will select a new color ramp highlighting the spots for development in dark purple.</p><br>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/20_SymbologySetting.PNG" alt="Symbology" width="75%"><br>
+          <p>With some simple neighborhood outlines, we now have our first legible decision map that tells us which neighborhoods are best suited for the expansion of the Citibike network. From this analysis, we can identify that Prospect Park - Lefferts Garden, Crown Heights (North), and Bushwick (South) are the leading candidates. Remember that there are various inputs that could be taken into consideration were we to perform this analysis for Citibike. In addition, we've calculated this map based upon equal weighting of the selected inputs. One could imagine that prioritizing distance to Subway Stations (<code>"DL_bikeLanes.tif" + "DL_citibikeStations.tif" + "DL_ResDensity.tif" + ("DL_subwayStations.tif"*2)</code>), for example, might lead to a better designation for expansion.</p><br>
+          <img class="img-responsive" src="tutorialImages/10_MCDA/21_StyledMap.PNG" alt="Decision Map" width="75%"><br>
+        </div>
+      </div>
+      <div class="col-md-3" role="complementary" id="myScrollspy">
+        <nav class="sidebar hidden-print hidden-sm hidden-xs" data-spy="affix" data-offset-top="420">
+          <ul class="nav sidenav">
+            <li>
+              <a href="#datasets">Datasets</a>
+            </li>
+            <li>
+              <a href="#prepareInputs">Preparing Input Layers</a>
+              <ul class="nav">
+                <li><a href="#preprocessing">Pre-Processing</a></li>
+                <li><a href="#criterion1">Criterion I: Citibike Stations</a></li>
+                <li><a href="#criterion2">Criterion II: Recent Residential Development</a></li>
+                <li><a href="#criterion3">Criterion III: Subway Stations </a></li>
+                <li><a href="#criterion4">Criterion IV: Bike Lanes</a></li>
+                <li><a href="#createDL">Create Decision Layers</a></li>
+            </ul>
+            <li><a href="#reclassification">Reclassification</a></li>
+            <li><a href="#decisionMap">Decision Mapping for Analysis</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="../js/bootstrap.min.js"></script>
+</body>
+</html>
