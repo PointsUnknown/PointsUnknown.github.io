@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108699112-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-108699112-1');
+  </script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../favicon.ico">
+  <title>Points Unknown</title>
+
+  <!-- Bootstrap -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="../css/site-specific.css" rel="stylesheet">
+
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500|Roboto:300,300i,400,400i" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="10">
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">Points Unknown</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <!-- <li class="active"><a href="#">Home</a></li> -->
+          <li><a href="../index.html">About</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Courses <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="../journalism_fall2017.html">Journalism - Fall 2017</a></li>
+              <li><a href="../journalism_spring2018a.html">Journalism - Spring 2018 (A)</a></li>
+              <li><a href="../journalism_spring2018b.html">Journalism - Spring 2018 (B)</a></li>
+              <li><a href="../gsapp_spring2018.html">GSAPP - Spring 2018</a></li>
+            </ul>
+          </li>
+          <li class="dropdown active">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tutorials <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="00_InstallationInstructions.html">00 - Installation Instructions</a></li>
+              <li><a href="01_BasicMap.html">01 - Basic Map</a></li>
+              <li><a href="02_AnnotationLayer.html">02 - Annotation Layers</a></li>
+              <li><a href="03_PointData.html">03 - Working with Point Data</a></li>
+              <li><a href="04_CensusJoins.html">04 - Working with Census Data</a></li>
+              <li><a href="05_ChangeMapping.html">05 - Change Mapping</a></li>
+              <li><a href="06_Geocoding.html">06 - Geocoding</a></li>
+              <li><a href="07_SpatialStatistics.html">07 - Spatial Statistics</a></li>
+              <li><a href="08_MCDA.html">08 - Multi-Criteria Decision Analysis</a></li>
+              <li><a href="08_NetworkAnalysis.html">09 - Network Analysis</a></li>
+            </ul>
+          </li>
+          <li><a href="../apply.html">Apply</a></li>
+          <li><a href="../resources.html">Resources</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Tutorial 09 - Network Analysis</h1>
+      <p></p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9" role="main">
+        <div class="section">
+          <span class="anchor" id="datasets"></span>
+          <h1 class="page-header">
+            Network Analysis: Service Area and Route Analysis
+          </h1>
+          <p>In the previous exercise, we explored Multi-Criteria Decision Analysis to identify where to expand the Citibike network in Brooklyn. In this exercise, we will move into network analysis, looking at the placement of public libraries across Brooklyn. Specifically, we will highlight the walking distances to each library, as well as highlight libraries that are over 1/2 mile from a subway station.</p>
+        </div>
+        <div class="section">
+          <span class="anchor" id="datasets"></span>
+          <h1 class="page-header">
+            Datasets
+          </h1>
+          <p>To create this map we will be using the following datasets:</p>
+          <ul>
+            <li><p>Borough of Brooklyn - from New York City boroughs. Download from <a href="https://data.cityofnewyork.us/City-Government/Borough-Boundaries/tqmj-j8zm?category=City-Government&view_name=Borough-Boundaries">NYC Open Data – Department of City Planning</a>. Choose "Export", under "Borough Boundaries &amp; Community Districts".</p></li>
+            <li><p>Brooklyn Public Library Branch Locations. Data available from Brooklyn Public Libraries in <a
+              href="https://www.bklynlibrary.org/locations/json">JSON format.</a> A point feature csv for the dataset can be found in the data packet below.</p></li>
+            <li><p>LION Single Line Street Base Map. Data available from NYC Department of Planning. <a href="https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-lion.page">NYC Planning - Open Data</a>. For more information about the LION files and what each of the fields means take a look at the useful
+            <a href="https://www1.nyc.gov/assets/planning/download/pdf/data-maps/open-data/lion_metadata.pdf?r=18a">LION data dictionary</a>.</p></li>
+            <li><p>MTA Subway Station Locations. Download from <a href="https://data.cityofnewyork.us/Transportation/Subway-Stations/arq3-7z49Opens" alt="NYC Subway Stations">NYC Open Data - Metropolitan Transportation Authority (MTA)</a>. Choose "Export", under "Subway Stations", and download in Shapefile format.</p></li>
+          </ul>
+          <p>A packaged file of the above data can be found in a downloadable package - <a href="https://brown-institute-assets.s3.amazonaws.com/Objects/networkanalysis.zip" alt="Lesson 9 Data" download>brwn.co/networkanalysis</a>. Original data assets (listed above) are located in the directory.
+        </div>
+        <div class="section">
+          <span class="anchor" id="preprocessing"></span>
+          <h1 class="page-header">
+            Preprocessing
+          </h1>
+          <p>Launch ArcMap and save project as “Network_Analysis_BK.” Load the following layers:</p>
+            <ul>
+              <li><p>Border of the Borough of Brooklyn (for geographic reference)</p></li>
+              <li><p>LION dataset</p></li>
+              <li><p>MTA subway stations</p></li>
+              <li><p>Brooklyn Public Library Locations.<br>
+                <em>For Brooklyn Public Libraries, you'll need to import the csv in the CRS WGS 1984. If you don't set the CRS upon import, your libraries will not appear within the Brooklyn boundary.</em></p></li>
+            </ul><br>
+            <div class="subsection">
+              <span class="anchor" id="preprocessing-clip"></span>
+            <h3>Preprocessing: Clipping Layers to Brooklyn</h3>
+            <p>To begin, we want to make sure that all of the datasets we will be using are clipped to the shoreline of Brooklyn. This will prevent any mistakes when adding data to the geodatabase, as well as lighten the computation required to perform some of the analysis.</p>
+            <p><strong>Limiting to Brooklyn Borough Boundary</strong>:<br> To quickly limit your project to the Brooklyn Borough Boundary, add the dataset and select the <code>Select Features</code> tool from your menubar. Once selected, click on Brooklyn and an outline should appear around the borough. Now, simply right-click on the layer and navigate to <code>Data</code> > <code>Export Data</code> and export a shapefile to a folder within your active directory.</p>
+            <img class="img-responsive" src="tutorialImages/11_NetworkAnalysis/00_BKBB.PNG" alt="BK Clipped" width="70%"><br>
+            <p><strong>Clipping MTA Subway Stations</strong>:<br> To clip the MTA Subway Stations to the Brooklyn Boundary, import your MTA dataset and navigate to <code>Geoprocessing</code> > <code>Clip</code> in your menu bar. Set the <code>Input Features</code> to <strong>MTA Subway Stations</strong> and <code>Clip Features</code> to the shapefile you just created (<strong>Brooklyn Borough Boundary)</strong> and select save.</p>
+            <img class="img-responsive" src="tutorialImages/11_NetworkAnalysis/01_BKSubway.PNG" alt="BK Clipped" width="70%"><br>
+            <p>Once you've setup your clipped files, your workspace should look similar to below:</p><br>
+            <img class="img-responsive" src="tutorialImages/11_NetworkAnalysis/03_Setup.PNG" alt="BK Clipped" width="90%"><br>
+        </div>
+        <div class="subsection">
+          <span class="anchor" id="preprocessing-gdb"></span>
+          <h3>Preprocessing: Creating GeoDatabase</h3>
+          <p>Unfold your <code>Catalog</code> menu bar on the right hand side of your window and on the top select the  <code>Connect to Folder</code> icon. Navigate to your working drive and select ok. We will give our DB the name <strong>BKLibraryAnalysis.gdb</strong>. Next, within your geodatabase, we will create a new <code>Feature Dataset</code>. To do so, right click on your newly generated geodatabase and select <code>New</code> > <code>Feature Dataset</code>. Give it a similar name and save it to your directory.
+        </div>
+        <div class="subsection">
+          <span class="anchor" id="preprocessing-lion"></span>
+          <h3>Preprocessing: Selecting from LION</h3>
+          <p>Within the LION Dataset, we only want to use roads that are found within Brooklyn and have pedestrian walkways. To do so, enter the following filter within the <code>Selection</code> > <code>Select by Attributes</code> menu. In the query builder, enter <code>FeatureTyp <> 'F' AND RBoro = 3 AND TrafDir <> '0' AND NonPed <> 'V'</code>. A detailed writeup on each of these fields can be found in the metadata (link above). Once you have your items selected, navigate to <code>Data</code> > <code>Export Data</code> and export a <code>File and Personal Geodatabase feature classes</code> file into the newly generated <code>Feature Dataset</code>. Make sure that you navigate into this directory, as opposed to the geodatabase directory.</p>
+          <br>
+          <img class="img-responsive" src="tutorialImages/11_NetworkAnalysis/02_BKLION.PNG" alt="BK Clipped"><br>
+        </div>
+        <div class="subsection">
+          <span class="anchor" id="preprocessing-fd"></span>
+          <h3>Preprocessing: Creating Feature Dataset</h3>
+          <p>Now, you should import your remaining features (libraries, subway stations, and the borough boundary) to the <code>Feature Dataset</code> by navigating to <code>Import</code> > <code>Feature Class (Multiple)</code>. Select each of your layers and select <code>OK</code>. Now remove all old layers.</p><br>
+          <img class="img-responsive" src="tutorialImages/11_NetworkAnalysis/04_SETUP2.PNG" alt="BK Clipped"><br>
+        </div>
+        <div class="subsection">
+          <span class="anchor" id="preprocessing-nd"></span>
+          <h3>Preprocessing: Creating Network Dataset</h3>
+          <p>Now we will prepare a network dataset. Right click on your <code>Feature Dataset</code> and navigate to <code>New</code> > <code>Create Network Dataset</code> and follow the steps below:</p>
+          <ul>
+            <li><p>On the landing page, the default name (<strong>BKLibraryAnalysis_ND</strong>) is fine. Select the most up-to-date version. In our instance, this is <strong>10.1</strong><p></li>
+            <li><p>On the second page, select only the <strong>BKLION</strong> dataset.</p></li>
+            <li><p>On the third page, indicate that you would like to turn this into a network dataset (<em>selected by default</em>).</p></li>
+            <li><p>Under connectivity, leave the settings as is.</p></li>
+            <li><p>On the fifth page, you'll be asked about how you'd like to model the elevation of your dataset. Select <code>None</code>.</p></li>
+            <li><p>On the sixth page, you'll be asked about attributes of your network. Since we are building a network from the LION dataset, we will be provided with two rows: <strong>Length &amp; Road Class</strong>. Remove <strong>Road Class</strong>, as we won't be using this for our network build.</p></li>
+            <li><p>On the seventh page, we will bypass these settings, as we won't be assigning a travel mode (measuring by length).</p></li>
+            <li><p>On the eight page, we will be asked to establish driving directions. Again, this is not the purpose of our network, so we will select <code>No</code>.</p></li>
+            <li><p>We will then be asked if we want to build a <code>Service Area Index</code>. Check the box.</p></li>
+            <li><p>Select <code>Finish</code> and ArcMap will begin building the network. Once created, it will prompt you if you'd like to Build the network. Select <code>Yes</code>. You'll again be prompted to whether or not you'd like to add all feature classes to the map. Select <code>Yes</code>.</p></li>
+          </ul>
+          <p>You've now generated your first network dataset.</p><br>
+          <img class="img-responsive" src="tutorialImages/11_NetworkAnalysis/05_SETUP3.PNG" alt="BK Clipped"><br>
+        </div>
+        <div class="section">
+          <span class="anchor" id="serviceareas"></span>
+          <h3>Service Areas</h3>
+          <p>We will now generate a service area for the LION Database. Navigate to <code>Geoprocessing</code> > <code>ArcToolbox</code>. In the ArcToolbox, expand <code>Network Analyst Tools</code>, open its child <code>Analysis</code> and select <code>Make Service Area Layer</code>. Use the inputs below</p>
+          <ul>
+            <li><p>Set your <code>Input Layer</code> to your newly generated Input Analysis Network (BKLibraryAnalysis_ND).</p></li>
+            <li><p>Give the output name <code>LibraryServiceArea</code>.</p></li>
+            <li><p>Leave the Impedance Attribute set to <strong>Length</strong> and set the <code>Travel To or From</code> to <code>Travel To</code>.</p></li>
+            <li><p>Next, we will set our walking distance to the library in eighth-mile intervals. Therefore, enter <code>660 1320 1980 2640</code>.<p></li>
+            <li><p>Lastly, expand the <code>Polygon Generation Options</code> and change the <code>Polygon Type</code> to <strong>Detailed Polys</code>.</p></li>
+            </ul><br>
+            <img class="img-responsive" src="tutorialImages/11_NetworkAnalysis/06_Network.PNG" alt="BK Clipped"><br>
+            <p>Once you select <code>OK</code>, you might be confused as to why nothing on the surface has changed. We first need to add the features from which the distance will be visualized. To do so, navigate again to <code>Geoprocessing</code> > <code>ArcToolbox</code>. In the ArcToolbox, expand <code>Network Analyst Tools</code>, open its child <code>Analysis</code> and select <code>Add Locations</code>.</p>
+            <ul>
+              <li><p>For <code>Input Network</code>, select <strong>LibraryServiceArea</strong></p></li>
+              <li><p>For <code>Input Locations</code>, select <strong>NYPL - Brooklyn</strong>, running your service area analysis around the Brooklyn Public Library locations.</p></li>
+              <li><p>All other features can remain the same. Simply select <code>OK</code>.</p></li>
+            </ul><br>
+            <img class="img-responsive" src="tutorialImages/11_NetworkAnalysis/07_Locations.PNG" alt="BK Clipped"><br>
+            <p>Lastly, to actually visualize the analysis, right click on your network layer and select <code>Solve</code>.</p><br>
+            <img class="img-responsive" src="tutorialImages/11_NetworkAnalysis/08_ServiceArea.PNG" alt="BK Clipped"><br>
+          </div>
+          <div class="section">
+            <span class="anchor" id="rasterize"></span>
+          <h3>Rasterizing for Multi-criteria Decision Analysis</h3>
+          <p><em>Coming Soon</em></p>
+        </div>
+          <div class="section">
+            <span class="anchor" id="routes"></span>
+          <h3>Route Analysis</h3>
+          <p>The last thing we'd like to accomplish from this exerise is highlight libraries that are beyond 1/2 mile from the nearest subway stops. This will require us to generate walking routes from libraries to the nearest subway and selecting those that are greater than 2460 feet away. To do so, add your <code>Network Analyst </code> tool to your interface by navigating to <code>Customize</code> > <code>Toolbars</code> > <code>Network Analyst Tool</code>. Once added, select <code>Network Analyst</code> from the menu and select <code>New Closest Facility</code>. A new window should appear to the left of your layers panel with the title <strong>Network Analyst</code>.</p>
+            <ul>
+              <li><p>Right click on <code>Facilities</code>, navigate to <code>Load Locations</code>, and in the prompt, select your <strong>Subway Station</strong> layer.</p></li>
+              <li><p>Right click on <code>Incidents</code>, navigate to <code>Load Locations</code>, and in the prompt, select your <strong>New York Public Libraries</strong> layer.</p></li>
+              <li><p>In your layers panel, right click on <code>Closest Facility</code> and select <code>Solve</code>. Now you've generated the quickest walking routes from each Library branch to the closest subway.</p></li>
+            </ul>
+            <p>Now, we want to highlight libraries located over 1/2 mile from the nearest subway station. To do so, we will need to join our Routes layet with our NYPL layer. Right click on the NYPL layer and select <code>Joins</code>. We will do a join based on spatial location, generating a new layer with Libraries and walking distances.</p><br>
+            <img class="img-responsive" src="tutorialImages/11_NetworkAnalysis/09_Joins.PNG" alt="BK Clipped" width="50%"><br>
+            <p>After a simple select by attribute and a bit of styling, we have a map highlighting the 13 NYPL branches in Brooklyn located over 1/2 mile from a subway station, as well as 1/8mile increments around each library branch.</p>
+            <img class="img-responsive" src="tutorialImages/11_NetworkAnalysis/10_Product.PNG" alt="BK Clipped"><br>
+        </div>
+      </div>
+    </div>
+      <div class="col-md-3" role="complementary" id="myScrollspy">
+        <nav class="sidebar hidden-print hidden-sm hidden-xs" data-spy="affix" data-offset-top="420">
+          <ul class="nav sidenav">
+            <li>
+              <a href="#datasets">Datasets</a>
+            </li>
+            <li>
+              <a href="#prepareInputs">Preparing Input Layers</a>
+              <ul class="nav">
+                <li><a href="#preprocessing">Pre-Processing</a></li>
+                <li><a href="#preprocessing-clip">Preprocessing: Clipping Layers to Brooklyn</a></li>
+                <li><a href="#preprocessing-gdb">Preprocessing: Creating GeoDatabase</a></li>
+                <li><a href="#preprocessing-lion">Preprocessing: Selecting from LION</a></li>
+                <li><a href="#preprocessing-fd">Preprocessing: Creating Feature Dataset</a></li>
+                <li><a href="#preprocessing-nd">Preprocessing: Creating Network Dataset</a></li>
+            </ul>
+            <li><a href="#serviceareas">Service Areas</a></li>
+            <li><a href="#rasterize">Rasterizing for MCDA</a></li>
+            <li><a href="#routes">Route Analysis</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="../js/bootstrap.min.js"></script>
+</body>
+</html>
