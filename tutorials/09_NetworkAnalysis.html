@@ -199,7 +199,20 @@
           <div class="section">
             <span class="anchor" id="rasterize"></span>
           <h3>Rasterizing for Multi-criteria Decision Analysis</h3>
-          <p><em>Coming Soon</em></p>
+          <p>In the tutorial on Multi-Criteria Decision Analysis, we've used <strong>Euclidian Distance</strong> to find areas that are equally distant from points of interest. Euclidean distance is measured along a straight-line, ignoring other geographic features. In Network Analysis, we use <strong>Service Areas</strong> to find areas that are equally distant from a point of interest <strong>along all available paths in a network</strong> (in our case a pedestrian network). Thus, in certain instances it may be more beneficial to use Service Areas instead of Euclidean Distance as a decision layer in MCDA.</p>
+          <p>In order to create a decision layer from Service Areas, we need to convert Service Area polygons to Raster dataset, and then reclassify the resulting raster accordingly (in this example, we will prioritize areas closer to libraries):</p>
+          <ul>
+            <li><p>In the ArcToolbox, expand <code>Conversion Tools</code>, open <code>To Raster</code> and select <code>Feature to Raster</code>.</p></li>    <li><p>Set Input features to <strong>Service Area\Polygons</strong>, and set the cell size to 20 (feet).
+            <li><p>Click on <code>Environments...</code> and set the the processing extent to <strong>Same as Brooklyn Borough Boundary.</p></li>
+            <li><p>Save output as <strong>Lib_ServiceAreas_raster</strong> in your StreetLib GeoDatabase.</p></li>
+              <img class="img-responsive" src="tutorialImages/11_NetworkAnalysis/11_ToRaster.PNG" alt="BK Clipped">
+            <li><p>In the ArcToolbox, expand <code>Spatial Analyst Tools</code>, open <code>Reclass</code> toolbox and select <code>Reclassify</code>.</p></li>
+            <li><p>Set Input raster to <strong>Lib_ServiceAreas_raster</strong> and set new values in the reclassification table.</p></li>
+            <img class="img-responsive" src="tutorialImages/11_NetworkAnalysis/12_Reclassify.PNG" alt="BK Clipped">
+            <li><p>We now have a new raster compatible with the decision layers from MCDA tutorial. Note that we've prioritized areas closer to the libraries in this example.</p></li>
+            <img class="img-responsive" src="tutorialImages/11_NetworkAnalysis/13_DecisionLayer.PNG" alt="BK Clipped">
+          </ul>
+
         </div>
           <div class="section">
             <span class="anchor" id="routes"></span>
