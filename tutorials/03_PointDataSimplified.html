@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108699112-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-108699112-1');
+  </script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../favicon.ico">
+  <title>Points Unknown</title>
+
+  <!-- Bootstrap -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="../css/site-specific.css" rel="stylesheet">
+
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500|Roboto:300,300i,400,400i" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="10">
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">Points Unknown</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <!-- <li class="active"><a href="#">Home</a></li> -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Courses <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="../journalism_fall2017.html">Journalism - Fall 2017</a></li>
+              <li><a href="../journalism_spring2018a.html">Journalism - Spring 2018 (A)</a></li>
+              <li><a href="../journalism_spring2018b.html">Journalism - Spring 2018 (B)</a></li>
+              <li><a href="../gsapp_spring2018.html">GSAPP - Spring 2018</a></li>
+            </ul>
+          </li>
+          <li class="dropdown active">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tutorials <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="00_InstallationInstructions.html">00 - Installation Instructions</a></li>
+              <li><a href="01_BasicMap.html">01 - Basic Map</a></li>
+              <li><a href="02_AnnotationLayer.html">02 - Annotation Layers</a></li>
+              <li><a href="03_PointData.html">03 - Working with Point Data</a></li>
+              <li><a href="04_CensusJoins.html">04 - Working with Census Data</a></li>
+              <li><a href="05_ChangeMapping.html">05 - Change Mapping</a></li>
+              <li><a href="06_Geocoding.html">06 - Geocoding</a></li>
+              <li><a href="07_SpatialStatistics.html">07 - Spatial Statistics</a></li>
+              <li><a href="08_MCDA.html">08 - Multi-Criteria Decision Analysis</a></li>
+              <li><a href="09_NetworkAnalysis.html">09 - Network Analysis</a></li>
+            </ul>
+          </li>
+          <li><a href="../apply.html">Apply</a></li>
+          <li><a href="../resources.html">Resources</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Tutorial 03 - Working With Point Data (Simplified)</h1>
+      <p>Using 311 data from New York City, this tutorial will show you how to load point data into QGIS and create a quantitative map of this data. There are three basic steps in this process: first, select, filter and download 311 data; second, load the 311 data to a map in QGIS; and third, classify the data so that it is correctly displayed on the map. In addition, this tutorial will also describe how to join the 311 data to another spatial dataset (census block groups) in order to aggregate it and display it based on its geographical location.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9" role="main">
+        <div class="section">
+          <span class="anchor" id="datasets"></span>
+          <h1 class="page-header">
+            Datasets
+          </h1>
+          <p>To create this map we will be using the following datasets:</p>
+          <ul>
+            <li><p>Boroughs - New York City boroughs. Download from <a href="http://www1.nyc.gov/site/planning/data-maps/open-data/districts-download-metadata.page">NYC Planning - Open Data</a>. Choose "Borough Boundaries (Clipped to Shoreline)", under "Borough Boundaries &amp; Community Districts".</p></li>
+            <li><p>Census Block Groups - New York State census block groups. Download from <a href="https://www.census.gov/cgi-bin/geo/shapefiles/index.php">U.S. Census Bureau - Tiger/Line Shapefiles</a>. Select <code>2016</code> and <code>Block Groups</code>, and click <code>Submit</code>. Then, select <code>New York</code> as the state and click <code>Download</code>.</p></li>
+            <li><p>Hydrography - New York City hydrography. Download from <a href="https://data.cityofnewyork.us/Environment/Hydrography/drh3-e2fd">NYC OpenData</a>. Once you get to the NYC OpenData page, click <code>Export</code> and choose the <code>Shapefile</code> format.</p></li>
+            <li><p>Hydrography U.S. - United States hydrography. Download from the <a href="https://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2015/polygon">Bureau of Transportation Statistics</a>. When you get to the Bureau of Transportation Statistics page click on the Hydrographic Features <code>ZIP</code> file.</p></li>
+            <li><p>States - U.S. State Boundaries. Download from the <a href="https://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2015/polygon"> Bureau of Transportation Statistics</a>. When you get to the Bureau of Transportation Statistics page click on the U.S. State Boundaries <code>ZIP</code> file.</p></li>
+          </ul>
+          <p>A packaged file with the 311 and block group data can be found <a href="http://brwn.co/pd-simple">here</a>.</p>
+        </div>
+        <div class="section">
+          <span class="anchor" id="about311data"></span>
+          <h1 class="page-header">About 311 Data</h1>
+          <p>The main dataset we will be using in this tutorial is based on 311 data. For those of you who don't know, 311 is a service provided by the city of New York where people can call in (dialing 311) and submit complaints or ask questions about living in the city (the service also accepts complaints online). Some of the most popular complaints filed through 311 are about parking, noise, garbage, rodents, dead or damaged trees, air quality, construction permits, graffiti, homelessness, street conditions, taxis and water quality. There are other categories and each one of these has it's own subcategories. Furthermore, each entry in the dataset comes with the following fields (amongst others):</p>
+          <ul>
+            <li><p>Created date</p></li>
+            <li><p>Closed date</p></li>
+            <li><p>Agency</p></li>
+            <li><p>Complaint type</p></li>
+            <li><p>Descriptor</p></li>
+            <li><p>Location type</p></li>
+            <li><p>Incident zip code</p></li>
+            <li><p>Incident address</p></li>
+            <li><p>Street name</p></li>
+            <li><p>City</p></li>
+            <li><p>Landmark</p></li>
+            <li><p>Facility type</p></li>
+            <li><p>Status</p></li>
+            <li><p>Due date</p></li>
+            <li><p>Resolution description</p></li>
+            <li><p>Community board</p></li>
+            <li><p>X and Y coordinates</p></li>
+            <li><p>Latitude and longitude</p></li>
+          </ul>
+          <p>As you can see, the dataset is very interesting and a great resource for anyone studying New York. <b>Nevertheless, a word of caution is necessary</b>: many people use this dataset to describe and analyze conditions in New York; however, the 311 data doesn't describe the city, it describes the complaints people file, it is not about the city, it is about the complaints, and even though the complaints might tell us something about the city, the distinction is crucial. Every dataset has its own biases and the 311 dataset has very strong ones: it collects data ONLY about the people who complain and ONLY about what they choose to complain about. Again, this dataset is much more about the complaints and the people who complain than about the conditions in the city. There is no 1 to 1 relationship between the 311 complaints and the conditions in the ground. That being said, though, it is still a great resource and very fun to play with. You can find out more about the 311 service <a href="http://www1.nyc.gov/311/">here</a>.</p>
+        </div>
+        <div class="section">
+          <span class="anchor" id="download311"></span>
+          <h1 class="page-header">Filtering and Downloading 311 Data</h1>
+          <ul>
+            <li><p>The first step in this tutorial is to select, filter and download the 311 data. The <a href="https://opendata.cityofnewyork.us/">NYC OpenData portal</a> is a great resource for data related to New York City and it provides an easy way of accessing 311 data. In it's search bar type <code>311</code> and it should take you to a list of datasets related to 311 data. The one we are looking for is called <code>311 Service Requests from 2010 to Present</code>. Once you click there , select <code>View Data</code> from the <code>Explore Data</code> dropdown menu.</p></li>
+            <li><p>Once you've accessed the dataset you will see something like this:</p></li>
+            <img class="img-responsive" src="tutorialImages/04_PointData/01_311_Dataset.png" alt="thumb">
+            <li><p>Here, we need to filter the database to download only the complaints related to the sewer system for 2016. You could attempt to download records for a longer period of time, but the files might be too large. To filter the data do the following:</p></li>
+            <ul>
+              <li><p>On the right-hand panel, where it says "Filter", create a small query using the drop-down menus. Where it says <code>Unique Key</code>, change it to <code>Complaint Type</code>. Keep the <code>is</code> and then type in "Sewer" in the space below (The query should read "Complaint type is sewer". Make sure there is a check-mark next to the word "sewer". You will see how the dataset is filtered and you only get the complaints of type "Sewer".</p></li>
+              <li><p>Next, click on <code>Add a New Filter Condition</code> and create another query that reads <code>Created Date</code> <code>is between</code> "01/1/2016 12:00:00 AM" and "1/1/2017 12:00:00 AM". You should now see the data only for "Sewer" complaints created in 2016.</p></li>
+              <li><p>You should see something like this:</p></li>
+            </ul>
+            <img class="img-responsive" src="tutorialImages/04_PointData/02_311Filter.png" alt="thumb">
+            <ul>
+              <li><p>Finally, click on the <code>Export</code> button at the top right-hand corner of the site and choose the <code>CSV</code> (comma separated values) format. Your file should start downloading then.</p></li>
+              <li><p>If you open your .csv file in Excel you will see that there are about 33,000 records and that they have both X and Y coordinates and Latitude and Longitude. In the next steps we will use these fields to add the 311 data to a QGIS map.</p></li>
+            </ul>
+          </ul>
+        </div>
+        <div class="section">
+          <span class="anchor" id="addingData"></span>
+          <h1 class="page-header">Adding Point Data to QGIS</h1>
+          <ul>
+            <li><p>First, open a new map in QGIS and add the following layers (links at the <a href="#datasets">beginning of this tutorial</a>). Remember to add the boroughs first so that the map takes on the right projection.</p></li>
+            <ul>
+              <li><p>Boroughs</p></li>
+              <li><p>Hydrography</p></li>
+              <li><p>Hydrography U.S.</p></li>
+              <li><p>States</p></li>
+            </ul>
+            <li><p>Organize your layers so that you have the water for New York City on top, then boroughs, then the water for the U.S. and finally the states.</p></li>
+            <li><p>Remember to create a definition query for the Hydrology U.S. layer to display only the water features (for a recap on how to do this see the <a href="01_BasicMap.html#query">Definition Queries</a> section of Tutorial 01).</p></li>
+            <li><p>Now, to add the CSV file we downloaded, click on the <code>Add Delimited Text Layer</code> button on the top toolbar. If your icon isn't displaying, it is due to your version of QGIS. In this case, navigate to <code>Layer</code> > <code>Add Layer</code> > <code>Add Delimited Text Layer</code>.</p></li>
+            <img class="img-responsive" src="tutorialImages/04_PointData/03_AddCSV.png" alt="thumb">
+            <li><p>In the menu that comes up, look for your .csv (311 data) file. Once you've selected your file QGIS will automatically select some presets. You should have the following options selected:</p></li>
+            <ul>
+              <li><p>File format: <code>CSV (comma separated values)</code> - this is the format our data is in: each value is separated by a comma.</p></li>
+              <li><p>Record options: <code>First record has field names</code> - the first row of our file contains the field names.</p></li>
+              <li><p>Geometry definition: <code>Point coordinates</code> - our data has latitude and longitude data.</p></li>
+              <li><p>X field: <code>Longitude</code> and Y field: <code>Latitude</code> - these are the columns in our dataset that contain our location coordinates</p></li>
+              <li><p>Your menu should look something like this:</p></li>
+            </ul>
+            <img class="img-responsive" src="tutorialImages/04_PointData/04_ImportMenu.png" alt="thumb">
+            <li><p>Once you click <code>OK</code> you might get a warning that says that x number of records were discarded because they didn't have geometry definitions. Click <code>Close</code>. There might be some records in the dataset that we downloaded that for some reason didn't include location data.</p></li>
+            <li><p>Next, QGIS will ask you to select a coordinate reference system (map projection) for this layer. Since we are adding this data based on the latitude and longitude information (decimal degrees, as opposed to feet) we need to select the <code>WGS 84</code>, which is the coordinate system that will correctly interpret this data. You will find it under <code>Geographic Coordinate Systems</code>. You will find more information on this coordinate system <a href="https://en.wikipedia.org/wiki/World_Geodetic_System">here</a>. Once you select the correct coordinate system, your points will appear on the map. If you don't see your points, it might be because they were added underneath one of the other layers. Make sure the new points layers is on top of the other ones.</p></li>
+            <li><p>Even though your points are already on the map, this is just a temporary layer. If you remove the layer, you will need to go through the whole importing process to add them again. To avoid this, we need to export the layer as a shapefile.</p></li>
+            <ul>
+              <li><p>Now you should have all the records that have latitude and longitude selected and we can proceed to export them as a shapefile.</p></li>
+              <li><p>Close the attribute table, right-click on the 311 layer and select <code>Save As...</code></p></li>
+              <li><p>In the following menu choose:</p></li>
+              <ul>
+                <li><p>Format: <code>ESRI Shapefile</code> - this is the same format of our other layers.</p></li>
+                <li><p>Save as: choose the appropriate location and name for your file.</p></li>
+                <li><p>CRS: <code>EPSG:102718 - NAD_1983_StatePlane_New_York_Long_Island_FIPS_3104_Feet</code> - this is the coordinate system we are working with and we want this layer to have the same one.</p></li>
+                <li><p>Uncheck <code>Skip attribute creation</code> - you still want to retain the attributes associated with each point.</p></li>
+                <li><p>Check <code>Add saved file to map</code> - so that once you export the layer, the layer is added to your map.</p></li>
+              </ul>
+              <li><p>Once you export your layer (and it's automatically added to your map) you can remove the original one by right-clicking and choosing <code>Remove</code>.</p></li>
+            </ul>
+          </ul>
+        </div>
+        <div class="section">
+          <span class="anchor" id="quantitative"></span>
+          <h1 class="page-header">Creating a Quantitative Map of 311 Sewage Complaints</h1>
+          <p>Finally, we will select a subset of the 311 data and join it to New York City's census block groups, creating a map that displays the number of complaints per block group. This is very useful if, for example, you want to identify what parts of the city receive the highest number of sewer backup complaints.<br><br>However, when performing statistical analysis with these kinds of maps you have should be aware of the <a href="https://en.wikipedia.org/wiki/Modifiable_areal_unit_problem">modifiable areal unit problem</a>: basically, the problem is that we are arbitrarily choosing to aggregate the complaints by census block groups, but we could also aggregate them by neighborhood or community district, which could very well yield different results. In addition, some block groups are larger than others, or more densely populated, and thus, probably generate more complaints. Therefore, a better version of this map would display <i>complaints per person</i> instead of just total number of complaints. However, for the sake of brevity we will just do complaints per block group.</p>
+          <ul>
+            <li><p>First, let's create a subset of the 311 data with only "Sewer Backup" complaints.</p></li>
+            <ul>
+              <li><p>Open the attribute table by right-clicking on the 311 data layer and selecting <code>Open Attribute Table</code>.</p></li>
+              <li><p>In the attribute table go to the <code>Select features using and expression</code> window.</p></li>
+              <li><p>There, write the expression <code>"Descriptor"  =  'Sewer Backup (Use Comments) (SA)'</code> to select only the complaints related to sewage backup. You should have around 12,277 complaints selected.</p></li>
+              <li><p>Exit the attribute table</p>.</li>
+              <li><p>Now, export those selected complaints as its own shapefile by right-clicking on the layer and choosing <code>Save As...</code>.</p></li>
+              <li><p>Once you've exported the selected complaints and added them to your map, remove the layer with all the 311 complaints.</p></li>
+            </ul>
+            <li><p>Now we are ready to join the complaint data to the census block groups:</p></li>
+            <ul>
+              <li><p>To join point into the polygons that contain them click on <code>Vector</code>, <code>Analysis Tools</code>, <code>Count points in polygon...</code>.</p></li>
+            </ul>
+            <img class="img-responsive" src="tutorialImages/04_PointData/08_CountPoints.png" alt="thumb">
+            <ul>
+              <li><p>In the <code>Count points in polygon...</code> menu choose the following options:</p></li>
+              <ul>
+                <li><p>Polygons: Block group layer.</p></li>
+                <li><p>Points: Complaints layer.</p></li>
+                <li><p>Count field name: the default (NUMPOINTS) is fine.</p></li>
+              </ul>
+              <li><p>Click <code>Run</code>.</p></li>
+              <li><p>After the operation runs, you should get a new layer called <code>Count</code>. To verify that everything worked open its attribute table and scroll to the last field, called <code>NUMPOINTS</code>. It should contain some zeros but it should also contain some other values. If it just contains zeros something went wrong, most probably you were using layers with different coordinate reference systems. If this happens, try verifying the coordinate reference systems in the <code>Properties</code> tab of the layers and if indeed they are different, try re-exporting one of them to make them match.</p></li>
+              <li><p>Finally, once you have your new layer with the count, you have to export it as a new shapefile.</p></li>
+            </ul>
+            <li><p>The last step is to symbolize the values in this new layer and create the map:</p></li>
+            <ul>
+              <li><p>First, in order to just symbolize the block groups that have one or more complaints you should create a definition query to show only these ones:</p></li>
+              <ul>
+                <li><p>Right-click on the layer and in the <code>Properties</code> option go to the <code>Source</code> tab and click on the <code>Provide Feature Filter</code> button.</p></li>
+                <li><p>Here, write the following expression: <code>"NUMPOINTS" > 0</code>. This will ensure that only the block groups with one or more complaints are visisble.</p></li>
+              </ul>
+            </ul>
+            <img class="img-responsive" src="tutorialImages/04_PointData/09_DefinitionQuery.png" alt="thumb">
+            <ul>
+              <li><p>Now, to symbolize by quantity right-click on the layer and choose <code>Properties</code>.</p></li>
+              <li><p>In the <code>Style</code> dropdown menu choose <code>Graduated</code>.</p></li>
+              <li><p>In the <code>Column</code> dropdown menu choose the <code>NUMPOINTS</code> field to symbolize and click on the <code>Classify</code> button to load the values.</p></li>
+              <li><p>You will notice that QGIS automatically classifies the values into 5 categories. Also, if you look at the <code>Mode</code> dropdown menu below the classification you will see that the software uses an <code>Equal Interval</code> method for this classification. However, if you click <code>OK</code> and look at the resulting map you will notice that most block groups fall within the first group, the one that goes from 0 - 10.60 and that very few are fall in the other groups. In fact, it seems like there are a handful of block groups with more than 40 complaints (some of them in Queens), which are skewing the whole classification method upwards. An ideal classification method should instead display the full internal variation within the dataset.</p></li>
+              <li><p>To change classification method go back to the properties and change the classification mode to <code>Natural Breaks (Jenks)</code> which deals better with datasets that are not normally distributed. You can find out more about this classification method <a href="https://en.wikipedia.org/wiki/Jenks_natural_breaks_optimization">here</a>.</p></li>
+              <li><p>You can change your color ramp or the individual colors or strokes of each of the classes. You can also change the number of classes the data is divided into but note that normally, we can only really differentiate between 5 or 6 classes.</p></li>
+            </ul>
+            <img class="img-responsive" src="tutorialImages/04_PointData/10_Classification.png" alt="thumb">
+            <ul>
+              <li><p>Once you are done with the classification, click <code>OK</code> to apply it to the layer and see your results on the map.</p></li>
+            </ul>
+            <li><p>Once you are finished with this go ahead and adjust colors, strokes and layer order. And finally, create a print composer <a href="http://pointsunknown.nyc/tutorials/01_BasicMap.html#print" alt="Creating a Basic Map">(see tutorial 1)</a>, add a legend, title, explanation, source and a scale bar, and export your map as a PDF file. Your final map should look something like this:</p></li>
+            <img class="img-responsive" src="tutorialImages/04_PointData/11_FinalMap.png" alt="thumb">
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-3" role="complementary" id="myScrollspy">
+        <nav class="sidebar hidden-print hidden-sm hidden-xs" data-spy="affix" data-offset-top="420">
+          <ul class="nav sidenav">
+            <li><a href="#datasets">Datasets</a></li>
+            <li><a href="#about311data">About 311 Data</a></li>
+            <li><a href="#download311">Filtering and Downloading 311 Data</a></li>
+            <li><a href="#addingData">Adding Point Data to QGIS</a></li>
+            <li><a href="#quantitative">Creating Quantitative Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="../js/bootstrap.min.js"></script>
+</body>
+</html>
