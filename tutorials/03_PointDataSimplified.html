@@ -95,7 +95,7 @@
           <h1 class="page-header">
             Datasets
           </h1>
-          <p>To create this map we will be using the following datasets:</p>
+          <p>To create this map we will be using the datasets below. A simple and complete download package of the data can be found at <a href="http://brwn.co/pd-simple">brwn.co/pd-simple</a>.</p>
           <ul>
             <li><p>Boroughs - New York City boroughs. Download from <a href="http://www1.nyc.gov/site/planning/data-maps/open-data/districts-download-metadata.page">NYC Planning - Open Data</a>. Choose "Borough Boundaries (Clipped to Shoreline)", under "Borough Boundaries &amp; Community Districts".</p></li>
             <li><p>Census Block Groups - New York State census block groups. Download from <a href="https://www.census.gov/cgi-bin/geo/shapefiles/index.php">U.S. Census Bureau - Tiger/Line Shapefiles</a>. Select <code>2016</code> and <code>Block Groups</code>, and click <code>Submit</code>. Then, select <code>New York</code> as the state and click <code>Download</code>.</p></li>
@@ -103,7 +103,6 @@
             <li><p>Hydrography U.S. - United States hydrography. Download from the <a href="https://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2015/polygon">Bureau of Transportation Statistics</a>. When you get to the Bureau of Transportation Statistics page click on the Hydrographic Features <code>ZIP</code> file.</p></li>
             <li><p>States - U.S. State Boundaries. Download from the <a href="https://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2015/polygon"> Bureau of Transportation Statistics</a>. When you get to the Bureau of Transportation Statistics page click on the U.S. State Boundaries <code>ZIP</code> file.</p></li>
           </ul>
-          <p>A packaged file with the 311 and block group data can be found <a href="http://brwn.co/pd-simple">here</a>.</p>
         </div>
         <div class="section">
           <span class="anchor" id="about311data"></span>
@@ -133,9 +132,9 @@
         </div>
         <div class="section">
           <span class="anchor" id="download311"></span>
-          <h1 class="page-header">Filtering and Downloading 311 Data</h1>
+          <h1 class="page-header">Accessing 311 Data</h1>
           <ul>
-            <li><p>The first step in this tutorial is to select, filter and download the 311 data. The <a href="https://opendata.cityofnewyork.us/">NYC OpenData portal</a> is a great resource for data related to New York City and it provides an easy way of accessing 311 data. In it's search bar type <code>311</code> and it should take you to a list of datasets related to 311 data. The one we are looking for is called <code>311 Service Requests from 2010 to Present</code>. Once you click there , select <code>View Data</code> from the <code>Explore Data</code> dropdown menu.</p></li>
+            <li><p>This tutorial includes filtered data, but for reference, here is how we got the data. The <a href="https://opendata.cityofnewyork.us/">NYC OpenData portal</a> is a great resource for data related to New York City and it provides an easy way of accessing 311 data. In it's search bar type <code>311</code> and it should take you to a list of datasets related to 311 data. The one we are looking for is called <code>311 Service Requests from 2010 to Present</code>. Once you click there , select <code>View Data</code> from the <code>Explore Data</code> dropdown menu.</p></li>
             <li><p>Once you've accessed the dataset you will see something like this:</p></li>
             <img class="img-responsive" src="tutorialImages/04_PointData/01_311_Dataset.png" alt="thumb">
             <li><p>Here, we need to filter the database to download only the complaints related to the sewer system for 2016. You could attempt to download records for a longer period of time, but the files might be too large. To filter the data do the following:</p></li>
@@ -149,6 +148,93 @@
               <li><p>Finally, click on the <code>Export</code> button at the top right-hand corner of the site and choose the <code>CSV</code> (comma separated values) format. Your file should start downloading then.</p></li>
               <li><p>If you open your .csv file in Excel you will see that there are about 33,000 records and that they have both X and Y coordinates and Latitude and Longitude. In the next steps we will use these fields to add the 311 data to a QGIS map.</p></li>
             </ul>
+          </ul>
+        </div>
+        <div class="section">
+          <span class="anchor" id="addingLayers"></span>
+          <h1 class="page-header">
+            Adding Layers
+          </h1>
+          <p>The first step in creating a basic map is to open QGIS and add the layers you downloaded.</p>
+          <ul>
+            <li><p>To add shapefiles click on the <code>Add Vector Layer</code> button.
+              Other types of data will be added using the other buttons,
+              but in this tutorial we will only be using vector data (shapefiles). Other types of data
+              include rasters, csv (comma separated values), and postGIS layers.</p></li>
+            <img class="img-responsive" src="tutorialImages/01_BasicMap/01_Adding_Layers.png" alt="thumb">
+            <li><p>Start by adding the Boroughs layer. The reason we start with this one is because
+              we know it has the right projection for New York City
+              (NAD_1983_StatePlane_New_York_Long_Island_FIPS_3104_Feet). Since map projects will
+              automatically take the projection of the first layer we add, by loading this layer first
+              we make sure we are working with the right one.</p>
+          </li>
+            <li><p>Make sure you select the files with the extension <code>.shp</code>. Remember that a shapefile is actually made up of 5 or 6 individual files with different extensions. Normally, these individual files are the following:</p>
+            <ul>
+              <li><p>.shp - The main file that stores the feature geometry (required).</p></li>
+              <li><p>.shx - The index file that stores the index of the feature geometry (required).</p></li>
+              <li><p>.dbf - The dBASE table that stores the attribute information of features (required).</p></li>
+              <li><p>.sbn and .sbx - The files that store the spatial index of features (these might get corrupted, see note at the end of this tutorial).</p></li>
+              <li><p>.prj - The file that stores the coordinate system information.</p></li>
+              <li><p>For more information on these extensions and others see <a href="http://webhelp.esri.com/arcgisdesktop/9.2/index.cfm?TopicName=Shapefile_file_extensions">this explanation by ESRI</a>.</p></li>
+            </ul>
+            </li>
+            <li><p>Once you've added all the layers you downloaded, you need to organize them in the layer panel. Remember that the layers will be drawn in the same order they appear in the panel: the top layer will be drawn last, on top of the other ones.</p></li>
+            <li><p>The final order of the layers should be something like this (from top to bottom):</p>
+              <ul>
+                <li><p>Census Block Groups</p></li>
+                <li><p>Boroughs</p></li>
+                <li><p>Hydrography</p></li>
+                <li><p>Hydrography U.S. (choose the <code>hydropol.shp</code> file.)</p></li>
+                <li><p>States</p></li>
+              </ul>
+            </li>
+            <li><p>These layers will probably come with different names but you can rename them by right-clicking on them in the Layers Panel and selecting
+            <code>Rename</code>.</p></li>
+            <li><p>If when you zoom in to one of the layers some of its features disappear see the <a href="#note">note</a> at the end of the tutorial.</p></li>
+          </ul>
+        </div>
+        <div class="section">
+          <span class="anchor" id="symbology"></span>
+          <h1 class="page-header">Basic Symbology</h1>
+          <p>Symbology is one of the most important concepts in mapping.
+            At its most basic level, symbology stands for changing the color, line weight, size or outline of a layer.
+            However, and more importantly, it also means changing the appearance of a layer <em>based on one or multiple of its attributes</em>.
+           In this tutorial we will do both, simple color changes and more advanced symbologies based on attributes.
+           <br><br>
+           As you may have seen, QGIS assigns random colors to each of the layers you add. To change the appearance of each layer do the following:</p>
+          <ul>
+            <li><p>There are multiple ways of changing the appearance of a layer. The easiest
+              (and simplest) is to double-click on the icon (point, line or polygon) next to the
+              layer name on the layer panel. This brings up the <code>Style</code> tab in the
+              <code>Layer Properties</code> panel. In there you can change the fill (color),
+              stroke weight and fill (outline) and the size of the icon (if using points or icons).</p></li>
+            <img class="img-responsive" src="tutorialImages/01_BasicMap/03_Style_Layer_Properties.png" alt="thumb">
+            <li><p>In this panel change the style for the following layers in the following ways (we will leave the Census Block Groups for the end):</p>
+            <ul>
+              <li><p>Boroughs:
+              <ul>
+                <li><p>Fill style: No Brush</p></li>
+                <li><p>Outline style: Solid Line</p></li>
+                <li><p>Outline width: 0.25</p></li>
+              </ul></p></li>
+              <li><p>Hydrography:
+              <ul>
+                <li><p>Fill: #e6e6e6 (HTML notation)</p></li>
+                <li><p>Outline style: No Pen</p></li>
+              </ul></p></li>
+              <li><p>Hydrography U.S.:
+                <ul>
+                  <li><p>Fill: #e6e6e6 (HTML notation)</p></li>
+                  <li><p>Outline style: No Pen</p></li>
+                </ul></p></li>
+              <li><p>State:
+              <ul>
+                <li><p>Fill: #ffffff (HTML notation)</p></li>
+                <li><p>Outline style: No Pen</p></li>
+              </ul></p></li>
+            </ul></li>
+            <li><p>To change the appearance of the background, select the <code>Project</code> menu, and in there select <code>Project Properties</code>. Then, in the <code>General</code> tab you can change the <code>Background color</code> to #e6e6e6 (HTML notation).</p></li>
+            <img class="img-responsive" src="tutorialImages/01_BasicMap/04_Project_Properties.png" alt="thumb">
           </ul>
         </div>
         <div class="section">
@@ -180,7 +266,7 @@
             <li><p>Even though your points are already on the map, this is just a temporary layer. If you remove the layer, you will need to go through the whole importing process to add them again. To avoid this, we need to export the layer as a shapefile.</p></li>
             <ul>
               <li><p>Now you should have all the records that have latitude and longitude selected and we can proceed to export them as a shapefile.</p></li>
-              <li><p>Close the attribute table, right-click on the 311 layer and select <code>Save As...</code></p></li>
+              <li><p>Close the attribute table, right-click on the 311 layer and select <code>Export</code> > <code>Save Feature As</code>.</p></li>
               <li><p>In the following menu choose:</p></li>
               <ul>
                 <li><p>Format: <code>ESRI Shapefile</code> - this is the same format of our other layers.</p></li>
@@ -204,7 +290,7 @@
               <li><p>In the attribute table go to the <code>Select features using and expression</code> window.</p></li>
               <li><p>There, write the expression <code>"Descriptor"  =  'Sewer Backup (Use Comments) (SA)'</code> to select only the complaints related to sewage backup. You should have around 12,277 complaints selected.</p></li>
               <li><p>Exit the attribute table</p>.</li>
-              <li><p>Now, export those selected complaints as its own shapefile by right-clicking on the layer and choosing <code>Save As...</code>.</p></li>
+              <li><p>Now, export those selected complaints as its own shapefile by right-clicking on the layer and choosing <code>Export</code> > <code>Save Feature As...</code>.</p></li>
               <li><p>Once you've exported the selected complaints and added them to your map, remove the layer with all the 311 complaints.</p></li>
             </ul>
             <li><p>Now we are ready to join the complaint data to the census block groups:</p></li>
@@ -227,7 +313,7 @@
             <ul>
               <li><p>First, in order to just symbolize the block groups that have one or more complaints you should create a definition query to show only these ones:</p></li>
               <ul>
-                <li><p>Right-click on the layer and in the <code>Properties</code> option go to the <code>Source</code> tab and click on the <code>Provide Feature Filter</code> button.</p></li>
+                <li><p>Right-click on the layer and in the <code>Properties</code> option go to the <code>Source</code> tab and under the <code>Provide Feature Filter</code> area, locate the <code>Query Builder</code> button and select it.</p></li>
                 <li><p>Here, write the following expression: <code>"NUMPOINTS" > 0</code>. This will ensure that only the block groups with one or more complaints are visisble.</p></li>
               </ul>
             </ul>
@@ -244,9 +330,76 @@
             <ul>
               <li><p>Once you are done with the classification, click <code>OK</code> to apply it to the layer and see your results on the map.</p></li>
             </ul>
-            <li><p>Once you are finished with this go ahead and adjust colors, strokes and layer order. And finally, create a print composer <a href="http://pointsunknown.nyc/tutorials/01_BasicMap.html#print" alt="Creating a Basic Map">(see tutorial 1)</a>, add a legend, title, explanation, source and a scale bar, and export your map as a PDF file. Your final map should look something like this:</p></li>
+            <li><p>Once you are finished with this go ahead and adjust colors, strokes and layer order. And finally, create a print composer (below) where you can add a legend, title, explanation, source and a scale bar, and export your map as a PDF file. Your final map should look something like this:</p></li>
             <img class="img-responsive" src="tutorialImages/04_PointData/11_FinalMap.png" alt="thumb">
           </ul>
+        </div>
+        <div class="section">
+          <span class="anchor" id="print"></span>
+          <h1 class="page-header">Print Composer</h1>
+          <p>The Print Composer is where you will format your map for its final output.
+            Here you will specify the output size, you will add a legend, a scale bar, a north arrow (if needed) and any additional text
+            (titles, sources, explanations and credits). Although the Print Composer exists as its own window it will still be linked to the map
+            Project we have been working on.</p>
+          <ul>
+            <li><p>First, create a new Print Composer in <code>Project</code>, <code>New Print Composer</code>. Give it a custom name if you want,
+            although this is not necessary.</p></li>
+            <li><p>Once you are in the Print Composer you need to add a new map. Think of it as if you had a blank piece of paper and
+            you were adding a window onto the map you've been working on. That window is a link to your Project and if you change things in the Project
+            those changes will still be reflected in the Print Composer.</p></li>
+            <li><p>To add a new map, click on the button <code>Add new map</code> on the left-hand panel and draw a rectangle on the blank page.</p></li>
+            <img src="tutorialImages/01_BasicMap/08_AddNewMap.png" alt="thumb" class="img-responsive">
+            <li><p>Once you add the map you can adjust its size and position by dragging it from its corners.</p></li>
+            <li><p>You might notice that if you change the size of the map it doesn't necessarily update. To avoid this, on the right-hand panel, where it says
+            <code>Main properties</code>, click on <code>Update preview</code>. Or, you can also click on the drop-down menu where it says
+            <code>Cache</code> and change it to <code>Render</code> so that it is constantly updating. For this map, though, since we are working with pretty
+            large layers (ie. PLUTO) leave it on the <code>Cache</code> option.</p></li>
+            <img src="tutorialImages/01_BasicMap/09_UpdatePreview.png" alt="thumb" class="img-responsive">
+            <li><p>To move the content inside the Print Composer (as opposed to the whole page) use the <code>Move item content</code> tool on the left-hand
+            panel.</p></li>
+            <img src="tutorialImages/01_BasicMap/10_MoveItemContent.png" alt="thumb" class="img-responsive">
+            <li><p>Next, you need to center and zoom in the map on the area you want to focus on. For the purposes of this tutorial, we will
+            include the 5 boroughs. To do this, move the content of the map to this area and on the right-hand panel, under <code>Main properties</code>,
+            adjust your <code>Scale</code> to 230,000.</p></li>
+            <li><p>If any of the colors or line weights seem too big or two small or not correct, you can always go back to the Project and change them there.
+            When you return to your Print Composer you can update your preview and the changes will be reflected.</p></li>
+            <li><p>Add a scale bar by going to <code>Layout</code> <code>Add scalebar</code> and clicking on the map.</p></li>
+            <li><p>The default scale bar is too big and has some values left of the zero. To change this, go to the right-hand panel, in the top part make sure
+            you select the <code>scale bar</code>, and in the Segments section change the <code>Segments</code> to 'left 0'.</p></li>
+            <li><p>You can also adjust the <code>Height</code> of the scale bar to 2mm.</p></li>
+            <li><p>Under Fonts and colors change the values to:</p></li>
+            <ul>
+              <li><p>Font color: #4d4d4d</p></li>
+              <li><p>Fill color: #4d4d4d</p></li>
+              <li><p>Stroke color: #4d4d4d</p></li>
+            </ul>
+            <li><p>Inside the <code>Font</code> menu you can choose a different font and/or a smaller size.</p></li>
+            <li><p>To add a legend click on <code>Layout</code> <code>Add legend</code> and then click on the map. You will notice that QGIS automatically
+            puts an icon for every layer in the map. We only need the ones for the Backup Sewer Complaints, so we need to customize the legend:</p></li>
+            <ul>
+              <li><p>On the right-hand panel, under Legend items uncheck <code>Auto update</code> and then select the layers that you don't want in the
+              legend and remove them with the 'minus' button. Do the same thing inside the Backup Sewer Complaint layer and remove the categories you don't want to display (if any).</p></li>
+              <li><p>Under <code>Main properties</code>, remove the 'Legend' in the <code>Title</code> field.</p></li>
+              <li><p>Also, further down, uncheck the <code>Background</code> option.</p></li>
+            </ul>
+            <li><p>Since we did not rotate the map we don't need to add a north arrow. If you rotate your map you <b>must</b> add a north arrow. If you wanted
+            to, you could add a north arrow by clicking on <code>Layout</code> <code>Add arrow</code>.</p></li>
+            <li><p>Finally, to add a title and a 'source' text, click on the <code>Add new label</code> button on the left-hand panel and click on the map.
+            Customize these labels by changing their color, size and location.</p></li>
+            <li><p>The last step is to export the map as a .pdf file. Use the <code>Export as PDF</code> button on the top toolbar and save your map.</p></li>
+          </ul>
+        </div>
+        <div class="section">
+          <span class="anchor" id="note"></span>
+          <h1 class="page-header">Note</h1>
+          <p>If, after adding some dataset, you zoom in and some of the features disappear,
+            you probably need to rebuild the dataset's "Spatial Index". To do this right-click on
+            the layer, select <code>Properties</code> and go to <code>General</code>. Under
+            <code>Coordinate reference system</code> click on <code>Create spatial index</code>.
+            This should solve your problem. Sometimes, specially with the New York City PLUTO files,
+            the "Spatial Index" is tied to one of the attribute fields and when you zoom in only
+            the features with that specific attribute show up. "Spatial Index" are specially useful
+            when doing operations over large datasets, for example see this <a href="https://nathanw.net/2013/01/04/using-a-qgis-spatial-index-to-speed-up-your-code/">post</a>.</p>
         </div>
       </div>
       <div class="col-md-3" role="complementary" id="myScrollspy">
@@ -254,9 +407,13 @@
           <ul class="nav sidenav">
             <li><a href="#datasets">Datasets</a></li>
             <li><a href="#about311data">About 311 Data</a></li>
-            <li><a href="#download311">Filtering and Downloading 311 Data</a></li>
+            <li><a href="#download311">Accessing 311 Data</a></li>
+            <li><a href="#addingLayers">Adding Layers</a></li>
+            <li><a href="#symbology">Basic Symbology</a></li>
             <li><a href="#addingData">Adding Point Data to QGIS</a></li>
             <li><a href="#quantitative">Creating Quantitative Map</a></li>
+            <li><a href="#print">Print Composer</a></li>
+
           </ul>
         </nav>
       </div>
