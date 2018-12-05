@@ -13,6 +13,10 @@ h1 {
   width: 70%;
 }
 
+.dropdown li, h4{
+  margin-left: 5%;  
+}
+
 /***** Navbar ******/
 .navbar-inverse {
   background-color: #fff;
