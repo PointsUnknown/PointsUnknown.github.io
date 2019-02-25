@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108699112-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-108699112-1');
+  </script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../favicon.ico">
+  <title>Points Unknown</title>
+
+  <!-- Bootstrap -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="../css/site-specific.css" rel="stylesheet">
+
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500|Roboto:300,300i,400,400i" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="10">
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">Points Unknown</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <!-- <li class="active"><a href="#">Home</a></li> -->
+          <li><a href="../index.html">About</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Courses <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="../gsapp_spring2019.html">GSAPP - Spring 2019</a></li>
+              <li><a href="../journalism_spring2019a.html">Journalism - Spring 2019 (A)</a></li>
+              <li><a href="../journalism_spring2019b.html">Journalism - Spring 2019 (B)</a></li>
+              <li><a href="../gsapp_spring2018.html">GSAPP - Spring 2018</a></li>
+              <li><a href="../journalism_spring2018a.html">Journalism - Spring 2018 (A)</a></li>
+              <li><a href="../journalism_spring2018b.html">Journalism - Spring 2018 (B)</a></li>
+              <li><a href="../journalism_fall2017.html">Journalism - Fall 2017</a></li>
+            </ul>
+          </li>
+          <li class="dropdown active">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tutorials <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><h4>QGIS 2</h4>
+              <li><a href="00_InstallationInstructions.html">00 - Installation Instructions</a></li>
+              <li><a href="01_BasicMap.html">01 - Basic Map</a></li>
+              <li><a href="02_AnnotationLayer.html">02 - Annotation Layers</a></li>
+              <li><a href="03_PointData.html">03 - Working with Point Data</a></li>
+              <li><a href="04_CensusJoins.html">04 - Working with Census Data</a></li>
+              <li><a href="05_ChangeMapping.html">05 - Change Mapping</a></li>
+              <li><a href="06_Geocoding.html">06 - Geocoding</a></li>
+              <li><h4>QGIS 3</h4>
+              <li><a href="00_Q3_InstallationInstructions.html">00 - Installation Instructions (QGIS 3.x)</a></li>
+              <li><a href="01_Q3_BasicMaps.html">01 - Basic Maps (QGIS 3.x)</a></li>
+              <li><a href="02_Q3_JoinsCensus.html">02 - Joins and Census Data (QGIS 3.x)</a></li>
+              <li class="active"><a href="03_Q3_Geocoding.html">03 - Geocoding and Joining Point Data (QGIS 3.x)</a></li>
+              <li><h4>ARCGIS</h4>
+              <li><a href="07_SpatialStatistics.html">07 - Spatial Statistics</a></li>
+              <li><a href="08_MCDA.html">08 - Multi-Criteria Decision Analysis</a></li>
+              <li><a href="09_NetworkAnalysis.html">09 - Network Analysis</a></li>
+              <li><h4>Web Mapping</h4>
+              <li><a href=""><em>Coming Soon</em></a></li>
+            </ul>
+          </li>
+          <li><a href="../enroll.html">Enroll</a></li>
+          <li><a href="../resources.html">Resources</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Tutorial 03 - Geocoding and Joining Point Data</h1>
+      <p>This tutorial will guide you through the necessary steps to bring in a csv file with address data into QGIS and geocode it, generating a point shapefile. In addition, you will learn how to join point data to polygons aggregating it at a larger geographic level.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9" role="main">
+        <div class="section">
+          <span class="anchor" id="datasets"></span>
+          <h1 class="page-header">
+            Datasets
+          </h1>
+          <p>In this tutorial will be using the following datasets:</p>
+          <ul>
+            <li><p>311 Service Requests - Water Leaks. Download from <a href="https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9/data">NYC OpenData</a>. See the <a href="#download311">downloading and preping</a> section below for more information on how to filter and download this dataset.</p></li>
+            <li><p>American Community Survey - Table S0101 (AGE AND SEX). Download from the <a href="https://factfinder.census.gov"> U.S. Census Bureau FactFinder site</a>. See <a href="02_Q3_JoinsCensus.html">Tutorial 02 - Census Data & Joins</a> for more information on how to download, prep, and join census data to polygons shapefiles.</p></li>
+            <li><p>Census Tracts - New York State 2017 census tracts. Download from <a href="https://www.census.gov/cgi-bin/geo/shapefiles/index.php">U.S. Census Bureau - Tiger/Line Shapefiles</a>. Select <code>2017</code> and <code>Census Tracts</code>, and click <code>Submit</code>. Then, select <code>New York</code> as the state and click <code>Download</code>.</p></li>
+            <li><p>Boroughs - New York City boroughs. Download from <a href="http://www1.nyc.gov/site/planning/data-maps/open-data/districts-download-metadata.page">NYC Planning - Open Data</a>. Choose "Borough Boundaries (Clipped to Shoreline)", under "Borough Boundaries &amp; Community Districts".</p></li>
+            <li><p>Hydrography - New York City hydrography. Download from <a href="https://data.cityofnewyork.us/Environment/Hydrography/drh3-e2fd">NYC Open Data</a>. Once you get to the NYC OpenData page, click <code>Export</code> and choose the <code>Shapefile</code> format.</p></li>
+            <li><p>United States Hydrographic Polygons. Download from the <a href="https://geodata.library.columbia.edu/catalog/sde-columbia-ntad_2013_hydropol">Columbia University Libraries Geodata portal</a>. Download the <code>Original Shapefile</code>.</p></li>
+            <li><p>United States State Boundaries. Download from the <a href="http://osav-usdot.opendata.arcgis.com/datasets/c6717a90c9fe4f1986ba40789cbe124f_0">U.S. Department of Transportation</a>. Download the <code>Shapefile</code>.</p></li>
+          </ul>
+          <p>A packaged file with the census and block group data can be found <a href="http://brwn.co/mapdata3">here</a>.</p>
+        </div>
+        <div class="section">
+          <span class="anchor" id="about311data"></span>
+          <h1 class="page-header">About 311 Data</h1>
+          <p>The main dataset we will be using in this tutorial is based on 311 data. 311 is a service provided by the city of New York where people can call in (dialing 311) and submit complaints or ask questions about living in the city (the service also accepts complaints online). Some of the most popular complaints filed through 311 are about parking, noise, garbage, rodents, dead or damaged trees, air quality, construction permits, graffiti, homelessness, street conditions, taxis and water quality. There are other categories and each one of these has its own subcategories. Furthermore, each entry in the dataset comes with the following fields (amongst others):</p>
+          <ul>
+            <li><p>Created date</p></li>
+            <li><p>Closed date</p></li>
+            <li><p>Agency</p></li>
+            <li><p>Complaint type</p></li>
+            <li><p>Descriptor</p></li>
+            <li><p>Location type</p></li>
+            <li><p>Incident zip code</p></li>
+            <li><p>Incident address</p></li>
+            <li><p>Street name</p></li>
+            <li><p>City</p></li>
+            <li><p>Landmark</p></li>
+            <li><p>Facility type</p></li>
+            <li><p>Status</p></li>
+            <li><p>Due date</p></li>
+            <li><p>Resolution description</p></li>
+            <li><p>Community board</p></li>
+            <li><p>X and Y coordinates</p></li>
+            <li><p>Latitude and longitude</p></li>
+          </ul>
+          <p>The dataset is very interesting and a great resource for anyone studying New York. <b>Nevertheless, a word of caution is necessary</b>: many people use this dataset to describe and analyze conditions in New York; however, the 311 data does not describe the city, it describes the complaints people file, it is not about the city, it is about the complaints, and even though the complaints might tell us something about the city, the distinction is crucial. Every dataset has its own biases and the 311 dataset has very strong ones: it collects data ONLY about the people who complain and ONLY about what they choose to complain about; it doesn't say anything about the people who do not complain or the things people don't complain about. There is no 1 to 1 relationship between the 311 complaints and the conditions in the ground. That being said, though, it is still a great resource. You can find out more about the 311 service <a href="http://www1.nyc.gov/311/">here</a>.</p>
+        </div>
+        <div class="section">
+          <span class="anchor" id="download311"></span>
+          <h1 class="page-header">Filtering, Downloading, and Preping 311 Data</h1>
+          <ul>
+            <li><p>The first step in this tutorial is to select, filter and download the 311 data. The <a href="https://opendata.cityofnewyork.us/">NYC OpenData portal</a> is a great resource for data related to New York City and it provides an easy way of accessing 311 data. In it's search bar type <code>311</code> and it should take you to a list of datasets related to 311 data. The one we are looking for is called <code>311 Service Requests from 2010 to Present</code>. Once you click there, select <code>View Data</code>.</p></li>
+            <li><p>Once you've accessed the dataset you will see something like this:</p></li>
+            <img class="img-responsive" src="tutorialImages/04_PointData/01_311_Dataset_Q3.png" alt="thumb">
+            <li><p>Here, we need to filter the database to download only the complaints related to water leaks in the Bronx for the last three months of 2018. To filter the data do the following:</p></li>
+            <ul>
+              <li><p>On the right-hand panel, where it says "Filter", create a small query using the drop-down menus. Where it says <code>Unique Key</code>, change it to <code>Complaint Type</code>. Keep the <code>is</code> and then type in <code>Water Leak</code> in the space below.</p></li>
+              <li><p>Next, click on <code>Add a New Filter Condition</code> and create another query that reads <code>Created Date</code> <code>is between</code> <code>10/01/2018 12:00:00 AM</code> and <code>01/01/2019 12:00:00 AM</code>.</p></li>
+              <li><p>Finally, add another filter condition that reads <code>City</code> <code>is</code> <code>Bronx</code>.</p></li>
+              <li><p>You should see something like this:</p></li>
+              <img class="img-responsive" src="tutorialImages/04_PointData/02_311Filter_Q3.png" alt="thumb">
+              <li><p>Finally, click on the <code>Export</code> button at the top right-hand corner of the site and choose the <code>CSV</code> (comma separated values) format. Your file should start downloading then.</p></li>
+            </ul>
+            <li><p>Now open your .csv file in Excel. You should have around 3,320 records. If you explore this file you will notice that it contains both X and Y data (X Coordinate, Y Coordinate), as well as Latitude and Longitude. This means that if we wanted we could just import this table, as is, into QGIS and get points from just those fields, without going through the geocoding process. However, since the purpose of this tutorial is to show you how to geocode based on address data, we will ignore those fields and use instead the address data also present in this file. For more information on how to add data with geographic coordinates to QGIS see <a href="03_PointData.html">this tutorial</a>.</p></li>
+            <li><p>In order to geocode we need to have the following fields: address, city, state, and country. Sometimes having the zipcode also helps. Looking at this data you'll notice we already have the address (<code>Incident Address</code>) and the city (<code>City</code>). We are only missing state and country, which is easy to create since we know that all the locations on this file are in the Bronx. Go ahead and create two new columns called <code>State</code> and <code>Country</code> and fill them with <code>New York</code> (for the state) and <code>United States</code> (for the country).</p></li>
+            <li><p>Finally, save your file as <code>Windows Comma Separated (.csv)</code>.</p></li>
+            <li><p>Before moving forward a <b>note of caution</b>: the actual geocoding operation in QGIS takes some time. In our recent tests, it took us almost one hour to geocode a file this size. If you just want to learn how to geocode we strongly encourage you to select only 100 or 200 rows and save them as a separate file to use for geocoding. In the <a href="http://brwn.co/mapdata3">data package</a> for this tutorial we are inlcuding the point shapefile which we produced by geocoding the original large file.</p></li>
+          </ul>
+        </div>
+        <div class="section">
+          <span class="anchor" id="geocoding"></span>
+          <h1 class="page-header">Geocoding</h1>
+          <p>The actual geocoding process is very straight forward. Just take into account that since the geocoding plugin uses an external service (GoogleMaps or OpenStreetMap API) the more points you have, the more time it will take; similarly there are limits as to how many points you can submit for geocoding. If you need to geocode more than 2,000 points it is probably worth it doing it through a Python script that directly queries one of those APIs.</p>
+          <ul>
+            <li><p>First, you will need to install the <code>MMQGIS</code> plugin, which includes a geocoding service.</p></li>
+            <li><p>To install this plugin go to <code>Plugins</code> <code>Manage and Install Plugins...</code> and search for <code>MMQGIS</code>. Once you find it, click <code>Install plugin</code>.</p></li>
+            <img class="img-responsive" src="tutorialImages/04_PointData/12_MMQGIS_Q3.png" alt="thumb">
+            <li><p>Once the plugin is installed, open a new map and you should see a new top-level menu called <code>MMQGIS</code>.</p></li>
+            <li><p>Next add the <code>Boroughs</code> shapefile. This is not necessary but it will help us verify the results of the geocoding.</p></li>
+            <li><p>Finally, open the geocoding window by clicking on <code>MMQGIS</code> and selecting <code>Geocode</code> and <code>Geocode CSV with Google/OpenStreetMap</code>.</p></li>
+            <li><p>Select the file we prepared. Remember, if you are just doing this to learn, choose a file with no more than 200 addresses; anything larger than that might take a long time. Set the address field to <code>Incident Address</code>, the city filed as <code>City</code>, the state field as <code>State</code> and the country field as <code>Country</code>.</p></li>
+            <li><p>Set the web service to <code>OpenStreetMap / Nominatim</code>. And select the output file location and the location for the csv file with the addresses that were not located.</p></li>
+            <img class="img-responsive" src="tutorialImages/04_PointData/13_GeocodingMenu_Q3.png" alt="thumb">
+            <li><p>Once you are ready click <code>OK</code>. It will take a while because the plugin takes into account the limits of the API and delays the request accordingly. For 200 or so requests it should take between 5 and 10 minutes.</p></li>
+            <li><p>Once the geocoding process finishes you should have a new layer in your map with your geocoded points. This layer will still have all the data present in the base file. In addition, you should also have on your computer a file with the records that were the service was unable to geocode.</p></li>
+            <img class="img-responsive" src="tutorialImages/04_PointData/14_GeocodedPoints_Q3.png" alt="thumb">
+          </ul>
+        </div>
+        <div class="section">
+          <span class="anchor" id="additionalOptions"></span>
+          <h1 class="page-header">Additional Geocoding Options</h1>
+          <ul>
+            <li><p>Often you might need to geocode more than two or three hundred records. In these cases you should probably use your own Google Maps Geocoding API key. However, remember that even if you use your own key, Google still has a limit of 50 requests per minute and a total of 2,500 requests per day.</p></li>
+            <li><p>To obtain a key you should use a Google account to access the <a href="https://developers.google.com/">Google Developer Console</a>. Once you sign in, you should create a <code>New Project</code> and for that project go to <code>Enable APIs and Services</code>.</p></li>
+            <li><p>Once there search for "geocoding" and once you find it, enable the <code>Geocoding API</code> for this project. Note that Google has changed its fee structure and now <b>charges for geocoding</b>. At the moment of writing this tutorial Google offers $200 montly credit for free, but once you pass that limit you will be charged for geocoding. More information on their pricing can be found <a href="https://cloud.google.com/maps-platform/pricing/sheet/">here</a>.</p></li>
+            <li><p>Once you've enabled the API, click on the main menu of the Google APIs and navigate to <code>Credentials</code> on your new project. There, click on the <code>Create Credentials</code> button and create your API key. This is the key that you will be able to use in the MMQGIS geocoder with the <code>Google Maps Web Service</code>.</p></li>
+          </ul>
+        </div>
+        <div class="section">
+          <span class="anchor" id="joiningPointData"></span>
+          <h1 class="page-header">Joining Point Data</h1>
+          <p>Once you have your point data in QGIS, it is a pretty straight forward process to join it to a polygon shapefile. For this tutorial, we will be joining the water leaks data to census tracts polygons with population data. This will allow us to create a map of number of water leaks complaints per person in the Bronx.</p>
+          <ul>
+            <li><p>First, in addition to your points and the boroughs, add the census data shapefile from the last <a href="02_Q3_JoinsCensus.html">tutorial</a>.</p></li>
+            <li><p>Next, select <code>Vector</code> / <code>Analysis Tools</code> / <code>Count Points in Polygon...</code>. Here choose the census data as the <code>Polygons</code> and your points shapefile as the <code>Points</code>.</p></li>
+            <li><p>Leave the <code>Weight</code> and <code>Class</code> fields blank and change the <code>Count field name</code> to <code>Count</code>.</p></li>
+            <img class="img-responsive" src="tutorialImages/04_PointData/15_PointsInPolygon_Q3.png" alt="thumb">
+            <li><p>Click <code>Run</code> and when it's done, click <code>Close</code>. You should have a new layer, and if you open its attribute table you should see the <code>Count</code> field at the end. Note that this is just a <b>temporary</b> layer. If you close QGIS this layer will dissapear. If you want to preserve it, you should export it as a new shapefile.</p></li>
+            <li><p>Now that you have a count of the points in each polygon, you can go ahead an symbolize the layer based on the count, divided by the number of people living in each census tract. For this map it might be better to use complaints per 1,000 residents as the chosen metric.</p></li>
+            <li><p>Finally, add some of the other layers we have been using and compose your final map.</p></li>
+            <img class="img-responsive" src="tutorialImages/04_PointData/16_FinalMap_Q3.png" alt="thumb">
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-3" role="complementary" id="myScrollspy">
+        <nav class="sidebar hidden-print hidden-sm hidden-xs" data-spy="affix" data-offset-top="420">
+          <ul class="nav sidenav">
+            <li><a href="#datasets">Datasets</a></li>
+            <li><a href="#about311data">About 311 Data</a></li>
+            <li><a href="#download311">Filtering, Downloading, and Preping 311 Data</a></li>
+            <li><a href="#geocoding">Geocoding</a></li>
+            <li><a href="#additionalOptions">Additional Geocoding Options</a></li>
+            <li><a href="#joiningPointData">Joining Point Data</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="../js/bootstrap.min.js"></script>
+</body>
+</html>
