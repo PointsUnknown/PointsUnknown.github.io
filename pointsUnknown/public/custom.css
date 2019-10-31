@@ -29,3 +29,12 @@ a:hover {
 a:active {
     font-weight: 600;
 }
+
+code {
+    color: #c7254e;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 300;
+    background-color: #f9f2f4;
+    border-style: none;
+    border-radius: 4px;
+}
