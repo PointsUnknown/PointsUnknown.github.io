@@ -1,0 +1,16 @@
+<header class="bg-white fixed w-100 pv3 bb b--light-silver">
+    <nav class="f6 tracked mw7 center ph4 robotoMono">
+        <a class="link dib fw4" href="{{ site.url }}" title="PointsUnknown">Points Unknown</a>
+        {% for item in site.data.navigation %}
+        <a href="{{ item.link }}" {% if item.link == page.url %} class="active link dib ml3 fr" {% else %} class="link dib ml3 fr" {% endif %}>
+            {{ item.name }}
+        </a>
+        {% endfor %}
+        <!-- {% for site in site.pages %}
+        <a class="link dib ml3 fr" href="{{ site.url }}">{{ site.title }}</a>
+        {{ site.pages | json }}
+        {% endfor %} -->
+        <!-- <a class="link dib ml3 fr" href="#" title="Tutorials">Tutorials</a>
+      <a class="link dib fr" href="#" title="Courses">Courses</a> -->
+    </nav>
+</header>

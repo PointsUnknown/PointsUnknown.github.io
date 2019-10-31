@@ -1,0 +1,31 @@
+.robotoMono {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 300;
+}
+
+.roboto {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+h1 {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 300;
+    padding-top: 1em;
+}
+h3 {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 300;
+    padding-top: 1em;
+}
+
+a, a:visited {
+    color: black;
+    text-decoration: underline;
+}
+a:hover {
+    color: red;
+}
+a:active {
+    font-weight: 600;
+}
