@@ -1,0 +1,42 @@
+.robotoMono {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 300;
+}
+
+.roboto {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+h1 {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 300;
+    padding-top: 1em;
+}
+h2 {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 300;
+    padding-top: 1em;
+}
+h3 {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 300;
+    padding-top: 1em;
+}
+
+a, a:visited {
+    color: black;
+    text-decoration: underline;
+}
+a:hover {
+    color: red;
+}
+
+code {
+    color: #c7254e;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 300;
+    background-color: #f9f2f4;
+    border-style: none;
+    border-radius: 4px;
+}

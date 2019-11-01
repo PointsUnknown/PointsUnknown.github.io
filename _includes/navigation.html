@@ -1,0 +1,10 @@
+<header class="bg-white fixed w-100 pv3 bb b--light-silver">
+    <nav class="f6 tracked mw7 center ph4 robotoMono">
+        <a class="link dib fw4" href="{{ site.url }}" title="PointsUnknown">Points Unknown</a>
+        {% for item in site.data.navigation %}
+        <a href="{{ item.link }}" class="link dib ml3 fr">
+            {{ item.name }}
+        </a>
+        {% endfor %}
+    </nav>
+</header>

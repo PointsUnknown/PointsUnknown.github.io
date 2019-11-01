@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<div class="">
+    <div class="robotoMono f1 mb3 mt4">
+        {{ page.title }}
+    </div>
+    <div class="roboto f5">
+        {% assign navigation_posts = site.posts | sort: 'navigation_weight' %}
+        {% for post in navigation_posts %}
+        <div class="mb3">
+            <p><a class="link black hover-red underline" href="{{ BASE_PATH }}{{ post.url }}">
+                {{ post.title }}
+            </a>: {{ post.description}} {% for category in post.category %}<code>{{ category }}</code> {% endfor %}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
