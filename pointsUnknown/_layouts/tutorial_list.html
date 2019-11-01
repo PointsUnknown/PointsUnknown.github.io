@@ -9,9 +9,9 @@ layout: default
         {% assign navigation_posts = site.posts | sort: 'navigation_weight' %}
         {% for post in navigation_posts %}
         <div class="mb3">
-            <a class="link black hover-red underline" href="{{ BASE_PATH }}{{ post.url }}">
+            <p><a class="link black hover-red underline" href="{{ BASE_PATH }}{{ post.url }}">
                 {{ post.title }}
-            </a>: {{ post.description}}<br>
+            </a>: {{ post.description}} {% for category in post.category %}<code>{{ category }}</code> {% endfor %}</p>
         </div>
         {% endfor %}
     </div>

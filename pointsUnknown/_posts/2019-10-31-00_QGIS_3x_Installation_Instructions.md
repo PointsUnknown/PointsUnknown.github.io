@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Installation Instructions QGIS 3.x
-categories: qgis
-navigation_weight: 2
+title: 00 - Installation Instructions for QGIS, Google Earth Pro, and Illustrator
+category: [QGIS, Google Earth Pro, Illustrator]
+navigation_weight: 1
 description: This tutorial will describe the necessary steps to install the software used in the tutorials that follow, as well as throughout the various Points Unknown courses.
 ---
 # Overview
