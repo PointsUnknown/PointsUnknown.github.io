@@ -5,7 +5,6 @@
 layout: home
 title: Resources
 ---
-
 Here you will find a list of GIS and mapping resources, including data, tutorials, books, and blogs. Although this is by no means a complete or comprehensive list we hope it will provide guidance, ideas, inspiration, and help you in your mapping work.
 
 # Data Sources
