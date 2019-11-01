@@ -36,7 +36,13 @@ This tutorial will walk you through the installation of the following pieces of 
 
     ![QGIS 1](/assets/tutorial_images/00_Installation/QGIS_01.png)
 
-* Locate and open the `qgis-macos-pr.dmg` file to install QGIS and all its components. Previously, installing QGIS meant you also had to install multiple other programs, including Python. However, with this latest update, all the necessary components have been included in the main package and there is nothing else to do.
+* Locate and open the `qgis-macos-pr.dmg` file to install QGIS and all its components.
+
+* Drag the `QGIS3.10.app` to your `Applications` folder.
+
+* Previously, installing QGIS meant you also had to install multiple other programs, including Python. However, with this latest update, all the necessary components have been included in the main package and there is nothing else to do.
+
+* *Note*: if you get a message that says QGIS can't be opened because Apple cannot check it for malicious software, click on `Show in Finder` and then right-click on the QGIS3.10.app icon and click `Open` in the subsequent menu.
 
 # Installing Adobe Illustrator on a Mac
 
