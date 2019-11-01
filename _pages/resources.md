@@ -3,7 +3,8 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
-title: Resources
+title: Points Unknown - Resources
+permalink: /resources/
 ---
 Here you will find a list of GIS and mapping resources, including data, tutorials, books, and blogs. Although this is by no means a complete or comprehensive list we hope it will provide guidance, ideas, inspiration, and help you in your mapping work.
 
