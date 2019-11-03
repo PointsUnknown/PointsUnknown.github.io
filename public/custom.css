@@ -40,3 +40,10 @@ code {
     border-style: none;
     border-radius: 4px;
 }
+pre {
+    background-color: #f6f8fa;
+    border-style: none;
+}
+.highlighter-rouge .highlight {
+    background-color: #f6f8fa;
+}

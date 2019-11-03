@@ -7,3 +7,8 @@ This is the repository for the [Points Unknown Website](https://pointsunknown.ny
 ### Todos
 TODO: Add link to tutorial "how to add point data" in geocoding tutorial
 TODO: Add google anlytics code
+TODO: Format for mobile
+TODO: Change background of code block
+
+### Notes
+* This might be a good dataset to scrape and geocode: [Spill Incidents & Site Remediation New York State](https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm)
