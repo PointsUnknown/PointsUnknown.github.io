@@ -1,35 +1,3 @@
-<footer class="site-footer h-card">
-  <data class="u-url" href="{{ "/" | relative_url }}"></data>
-
-  <div class="wrapper">
-
-    <h2 class="footer-heading">{{ site.title | escape }}</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">
-            {%- if site.author -%}
-              {{ site.author | escape }}
-            {%- else -%}
-              {{ site.title | escape }}
-            {%- endif -%}
-            </li>
-            {%- if site.email -%}
-            <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-            {%- endif -%}
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-2">
-        {%- include social.html -%}
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{- site.description | escape -}}</p>
-      </div>
-    </div>
-
-  </div>
-
-</footer>
+<div class="bt b--light-silver pv3 mw7 w-100 center">
+  <p class="f7 tracked tc ph4 robotoMono">Made with <a href="https://jekyllrb.com/">Jekyll</a> & <a href="http://tachyons.io/">Tachyons</a> | Source at <a href="https://github.com/PointsUnknown/PointsUnknown.github.io">github.com/pointsunknown</a> | <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a></p>
+</div>
