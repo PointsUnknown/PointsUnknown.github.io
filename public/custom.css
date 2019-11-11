@@ -50,3 +50,12 @@ pre code {
     background-color: #f6f8fa;;
     color: black;
 }
+
+@media (max-width: 600px){
+    img {
+        max-width: 100%;
+    }
+    table {
+        max-width: 100%;
+    }
+}
