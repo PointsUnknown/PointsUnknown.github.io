@@ -1,9 +1,10 @@
 ---
 layout: post
-title: 05 - Creating an Annotated 3D Scene
+title: 06 - Creating an Annotated 3D Scene
 category: [Google Earth Pro, Illustrator]
 navigation_weight: 6
 description: This tutorial will describe the necessary steps to create an annotated map using Google Earth 3D imagery and Adobe Illustrator.
+active: true
 ---
 # Introduction
 To create maps that help contextualize a scene, news rooms often appeal to annotation layers added atop 3d earth imagery. In this tutorial, we will use Google Earth Pro and Adobe Illustrator to recreate a graphic used by the NYTimes for the Chelsea Bombing. The full article can be found at [Article Link](https://nyti.ms/2mBBmGk) and the image we are recreating is:  

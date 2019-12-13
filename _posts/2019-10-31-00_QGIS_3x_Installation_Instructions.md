@@ -2,8 +2,9 @@
 layout: post
 title: 00 - Installation Instructions for QGIS, Google Earth Pro, and Illustrator
 category: [QGIS, Google Earth Pro, Illustrator]
-navigation_weight: 1
+navigation_weight: 0
 description: This tutorial will describe the necessary steps to install the software used in the tutorials that follow, as well as throughout the various Points Unknown courses.
+active: true
 ---
 # Overview
 This tutorial will walk you through the installation of the following pieces of software:

@@ -1,9 +1,10 @@
 ---
 layout: post
-title:  03 - Geocoding and Joining Point Data
+title:  04 - Geocoding Point Data
 category: QGIS
 navigation_weight: 4
 description: This tutorial will guide you through the necessary steps to bring in a csv file with address data into QGIS and geocode it, generating a point shapefile. In addition, you will learn how to join point data to polygons aggregating it at a larger geographic level.
+active: true
 ---
 # Datasets
 In this tutorial will be using the following datasets:

@@ -1,9 +1,10 @@
 ---
 layout: post
-title:  04 - Spatial Analysis
+title:  05 - Spatial Analysis
 category: QGIS
 navigation_weight: 5
 description: This tutorial will provide instruction on how to create a 10-minute walking buffer from each accessible subway station, and will then reanalyze a choropleth map from a previous session, emphasizing areas of the city that are outside this buffer. The result will be a more accurate picture of areas the MTA should address through accessibility enhancements.
+active: true
 ---
 This tutorial is based on [reporting/mapping by Jugal Patel](https://nyti.ms/2E3AW6t) of the *New York Times* (shown below) using data from the US Census Bureau and Openrouteservice.org. For the purposes of this tutorial, we will provide an alternative to Openrouteservice, as its functionality is limited. We will also provide additional analysis, estimating a proportional population found within each blockgroup outside (or partially outside) the 10-minute walking buffer.
 

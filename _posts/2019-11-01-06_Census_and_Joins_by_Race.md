@@ -1,9 +1,10 @@
 ---
 layout: post
-title:  06 - Working with Census Data and Creating a Race Map of NYC
+title:  02 - Working with Census Data and Creating a Race Map of NYC
 category: QGIS
-navigation_weight: 7
+navigation_weight: 2
 description: This tutorial will guide you through the process of downloading census data and joining it to its corresponding shapefile to create a race map of New York City. In the process you will learn how to join by attributes, how to perform field calculations within QGIS, and how to create categorical as well as quantitative maps.
+active: true
 ---
 # Datasets
 In this tutorial we will be using the following datasets:

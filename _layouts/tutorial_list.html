@@ -8,11 +8,13 @@ layout: default
     <div class="roboto f5">
         {% assign navigation_posts = site.posts | sort: 'navigation_weight' %}
         {% for post in navigation_posts %}
+        {% if post.active == true %}
         <div class="mb3">
             <p><a class="link black hover-red underline" href="{{ BASE_PATH }}{{ post.url }}">
                 {{ post.title }}
             </a>: {{ post.description}} {% for category in post.category %}<code>{{ category }}</code> {% endfor %}</p>
         </div>
+        {% endif %}
         {% endfor %}
     </div>
 </div>

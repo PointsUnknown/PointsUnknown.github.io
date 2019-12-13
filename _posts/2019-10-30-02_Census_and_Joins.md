@@ -2,8 +2,9 @@
 layout: post
 title:  02 - Census Data and Joins
 category: QGIS
-navigation_weight: 3
+navigation_weight: 2
 description: This tutorial will guide you through the process of downloading census data and joining it to its corresponding shapefile.
+active: false
 ---
 # Datasets
 To create these maps we will be using the following datasets:

@@ -1,9 +1,10 @@
 ---
 layout: post
-title:  07 - Point Data and Joins by Location
+title:  03 - Point Data and Joins by Location
 category: QGIS
-navigation_weight: 8
+navigation_weight: 3
 description: This tutorial will guide you through the necessary steps to bring in a csv file with geographic coordinates into QGIS and generate a point shapefile. In addition, you will learn how to join point data to polygons aggregating it at a larger geographic level.
+active: true
 ---
 # Datasets
 In this tutorial will be using the following datasets:
