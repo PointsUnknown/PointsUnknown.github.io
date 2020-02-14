@@ -251,7 +251,7 @@ The second map we will create will show the heights of the buildings in this sam
     
   ![thumb](/assets/tutorial_images/01_BasicMap/16_Histogram_Q3.png)*   
 
-* go back to the `Classes` tab and change the classification method to `Natural Breaks (Jenks)`. You might get a warning saying that this method could take a long time. If you have a large dataset you should be careful. However, the dataset that we are using is small enough. Once the classification is done, go to the `Histogram` tab. You can see how QGIS has now created different buckets and most of the shorter buildings are spread amongst the two first buckets. The Natural Breaks (Jenks) methods attempts to minimize the difference within groups while maximizing the difference between groups. Many datasets will be best classified using this method.
+* Go back to the `Classes` tab and change the classification method to `Natural Breaks (Jenks)`. You might get a warning saying that this method could take a long time. If you have a large dataset you should be careful. However, the dataset that we are using is small enough. Once the classification is done, go to the `Histogram` tab. You can see how QGIS has now created different buckets and most of the shorter buildings are spread amongst the two first buckets. The Natural Breaks (Jenks) methods attempts to minimize the difference within groups while maximizing the difference between groups. Many datasets will be best classified using this method.
     
   ![thumb](/assets/tutorial_images/01_BasicMap/17_Histogram_Q3.png)
 
