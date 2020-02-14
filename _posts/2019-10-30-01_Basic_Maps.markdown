@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  01 - Creating a Basics Maps
+title:  01 - Creating Basics Maps
 category: QGIS
 navigation_weight: 1
 description: "This tutorial will guide you through the necessary steps to create two basic maps: a land use map, and a building height map."
