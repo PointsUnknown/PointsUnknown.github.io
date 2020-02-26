@@ -28,6 +28,7 @@ url: https://pointsunknown.nyc/
 theme: minima
 plugins:
   - jekyll-feed
+  - jemoji
 
 # Required if you want to move pages into a a separate directory
 include: ['_pages']
