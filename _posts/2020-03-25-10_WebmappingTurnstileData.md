@@ -38,7 +38,7 @@ This tutorial uses the following datasets:
 
 * Note that the MTA turnstile data is notoriously difficult to work with. The downloaded files were parsed and combined in Python (and Pandas). The combined dataset was then merged with the geocoded station dataset, also in Python. The resulting dataset was finally exported as a GeoJSON file.
 
-A packaged file turnstile data can be found [here](https://brown-institute-assets.s3.amazonaws.com/Objects/pointsunknown/turnstileData.zip).
+A packaged file turnstile data can be found [here](https://brown-institute-assets.s3.amazonaws.com/Objects/pointsunknown/tutorial_09_data.zip).
 
 # Final Data Structure
 The final dataset contains the following fields:
