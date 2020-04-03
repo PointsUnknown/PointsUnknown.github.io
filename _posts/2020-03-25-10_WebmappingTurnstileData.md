@@ -709,10 +709,10 @@ body {
 * `map.js`:
 
 ~~~ js
-mapboxgl.accessToken = 'pk.eyJ1IjoiamZzMjExOCIsImEiOiJjazg4NjBkejUwMm5lM2RuNTJicnk3bWVuIn0._PhJFaLfb65E2aa-TxI1eQ';
+mapboxgl.accessToken = 'Your access token here';
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/jfs2118/ck884wjqs1bac1joalftvebdv',
+    style: 'Your Mapbox style URL here',
     zoom: 10,
     center: [-74, 40.725],
     maxZoom: 15,
