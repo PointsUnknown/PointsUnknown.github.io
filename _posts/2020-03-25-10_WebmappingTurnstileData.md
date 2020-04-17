@@ -210,7 +210,7 @@ One thing to note before proceeding is that for this part of the tutorial, and f
 
 **Liver Server Extension (VS Studio Code):**
 
-* The easiest way to run a localhost is to use VS Studio Code as your text editor and install the [Live Server] extension. Once you've installed this extension, just go to your `index.html` file in VS Studio Code and click on the `Go Live` button at the bottom left hand corner of your editor.
+* The easiest way to run a localhost is to use VS Studio Code as your text editor and install the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension. Once you've installed this extension, just go to your `index.html` file in VS Studio Code and click on the `Go Live` button at the bottom left hand corner of your editor.
 
 **Through Python and the Terminal (MacOS):**
 
