@@ -27,6 +27,8 @@ Mapbox's storytelling template relies heavily on two other JavaScript libraries:
 
 * To see the full documentation on Mapbox's storytelling template visit their [Github repository](https://github.com/mapbox/storytelling).
 
+* Finally, here's a link to a template that's not discussed here but will allow your map to follow an animated path: [scrolly-drive](https://www.formerspatial.com/scrolly-drive).
+
 # Initial Setup
 
 We will start this tutorial from where we finished the last one on [mapping change in subway usage during the first two weeks of the COVID-19 crisis](https://pointsunknown.nyc/web%20mapping/mapbox/2020/03/25/10_WebmappingTurnstileData.html).

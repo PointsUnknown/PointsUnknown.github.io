@@ -1053,7 +1053,8 @@ After all of these changes are made, the map should look like this:
 
 # Final Code (Styled)
 
-### html
+### index.html
+
 ~~~ html
 <html>
 <head>
@@ -1092,7 +1093,8 @@ After all of these changes are made, the map should look like this:
 </html>
 ~~~
 
-### css
+### styles.css
+
 ~~~ css
 body {
 	margin: 0;
@@ -1240,8 +1242,9 @@ body {
 }
 ~~~
 
-### js
-~~~ js
+### map.js
+
+``` js
 mapboxgl.accessToken = '[ENTER KEY FROM MAPBOX]';
 var map = new mapboxgl.Map({
     container: 'map',
@@ -1368,3 +1371,4 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
     var layers = document.getElementById('menu');
     layers.appendChild(link);
 }
+```
