@@ -649,9 +649,9 @@ Your map should look something like this:
 
 ![Income symbology](/assets/tutorial_images/17_WebmappingTurnstile/15_IncomeSymbology.png)
 
-# Final Code
+# Current Code
 
-The final code for this interactive map is as follows:
+If you'd like to stop at this stage, the final code for this interactive map is as follows:
 
 * `index.html`:
 
@@ -802,3 +802,569 @@ map.on('mouseleave', 'turnstileData', function () {
     map.getCanvas().style.cursor = '';
 });
 ~~~
+
+# Adding a Title, Legend, and Layer Buttons
+
+The map is in a great stage, but lacks context and functionality. What follows will allow you to add a title and description to your map, a legend with details about the two visualization languages being used, as well as a button allowing the user to toggle on/off turnstile and income data layers. To begin, we will add the button menu allowing for the user to turn on/off layers. To do so, we need to add a couple lines to the CSS/HTML files, as well as some lines of code to the javascript file.
+
+* To begin, we will add some lines of code in our js file which creates link elements that make visible and invisible the data layers already established in our map (income and turnstile). To begin, I'll rename our layer ids to:
+~~~ js
+'id': 'MTA Station Data',
+~~~
+and
+~~~ js
+'id': 'Household Income Data',
+~~~
+These id changes should replace all previous references to 0
+~~~ js
+'id': 'medianIncome',
+~~~
+and
+~~~ js
+'id': 'turnstileData',
+~~~
+Note that this is a quick fix and should not be a naming convention used if building a production map or a map with a dynamic menu.
+
+* Next, we need to create a variable that contains each layer id. We will also add click functionality that interacts with the visibility of each layer. This code looks like the following:
+
+~~~ js
+
+var toggleableLayerIds = ['MTA Station Data', 'Household Income Data'];
+
+
+for (var i = 0; i < toggleableLayerIds.length; i++) {
+    var id = toggleableLayerIds[i];
+
+    var link = document.createElement('a');
+    link.href = '#';
+    link.className = 'active';
+    link.textContent = id;
+
+    link.onclick = function(e) {
+        var clickedLayer = this.textContent;
+        e.preventDefault();
+        e.stopPropagation();
+
+        var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+
+        if (visibility === 'visible') {
+            map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+            this.className = '';
+        } else {
+            this.className = 'active';
+            map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+        }
+    };
+
+    var layers = document.getElementById('menu');
+    layers.appendChild(link);
+}
+~~~
+
+That's it for the additions to the javascript file. In the index.html file, we need to the navigation link to the body. To do so, add the following line of HTML
+
+~~~ html
+<nav id="menu"></nav>
+~~~
+
+And finally, we need to style the menu. Below is some simple styling that places the menu in the bottom right section of the page and offers simple hover and click styling (in black, white, and gray).
+~~~ css
+#menu {
+	background: #fff;
+	position: absolute;
+	z-index: 1;
+	bottom: 30px;
+	right: 3em;
+	border-radius: 3px;
+	width: 120px;
+	border: 1px solid rgba(0, 0, 0, 0.4);
+	font-family: 'Open Sans', sans-serif;
+}
+#menu a {
+	font-size: 13px;
+	color: #404040;
+	display: block;
+	margin: 0;
+	padding: 0;
+	padding: 10px;
+	text-decoration: none;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+	text-align: center;
+}
+#menu a:last-child {
+	border: none;
+}
+#menu a:hover {
+	background-color: #f8f8f8;
+	color: #000000;
+}
+#menu a.active {
+	background-color: #404040;
+	color: #ffffff;
+}
+#menu a.active:hover {
+	background: #000000;
+}
+~~~
+
+While we're in the css file, we can also make some quick additions to make the map fullscreen. To do so, replace the body and #map css entries with the following:
+~~~ css
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#map {
+	width: 100%;
+	height: 100%;
+	margin: 0 0;
+}
+~~~
+
+Finally, we will add our title and legend. To do so, we will start in our index.html file and add in some html so that we can know what we're styling. In the html file, swap out the existing body with this:
+
+~~~ html
+<body>
+    <nav id="menu"></nav>
+    <div id='map'></div>
+    <div id='title' class="title">
+        <h1>The Geographical Distribution of Subway<br> Usage Decrease Due to COVID-19</h1>
+        <p>This map documents changes in ridership by subway station between March 6 and March 20th, as measured through turnstile usage. The data is provided by the New York City Metro Transit Authority. To contextualize station locations across the five boroughs, an additional layer (Median Household Income) has been added. This data is block group-level estimates provided by the American Community Survey of the U.S. Census Bureau.</p>
+        <hr>
+        <div id="turnstile-legend" class="legend2">
+            <h4>Drop in Ridership</h4>
+            <p><em>Click on stations for detailed turnstile usage</em></p>
+            <div><span style="background-color: #fef0d3"></span>&#8594;<span style="background-color: #ff4400; height:20px; width:20px"></span> < 50% decrease to > 90% decrease</div>
+        </div>
+        <div id="income-legend" class="legend">
+            <h4>Median Household Income</h4>
+            <div><span style="background-color: #00a2ca"></span>$150,000 +</div>
+            <div><span style="background-color: #33b5d5"></span>$100,000 - $150,000</div>
+            <div><span style="background-color: #66c7e0"></span>$75,000 - $100,000</div>
+            <div><span style="background-color: #99daea"></span>$50,000 - $75,000</div>
+            <div><span style="background-color: #ccedf5"></span>$20,000 - $50,000</div>
+            <div><span style="background-color: #ffffff"></span>Less than $20,000</div>
+        </div>
+    </div>
+    <script type='text/javascript' src="map.js"></script>
+</body>
+~~~
+
+Here you can see that we've added a header (title), some description text, a line break (hr), and two legends: one for the ridership data, and one for the household income data. For this, we will use inline styling which is generally frowned upon. That said, we only have a couple items to style and it would require a lot of CSS to do it in the stylesheet. That said, there is still styling that needs to happen to make the title and text appear (and look nice). In the css file, we will do this by adding styles for our first and second legend, as well as the title area. The additions can be made using the following CSS:
+
+* For the title, we will add the following:
+
+~~~ css
+.title {
+	background-color: #fff;
+	opacity: 70%;
+	border-radius: 1em;
+	top: 5em;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+	font: .8em/.9em 'Open Sans', sans-serif;
+	line-height: 2.5em;
+	padding: 1em 2em 0em;
+	position: absolute;
+	max-width: 25%;
+	margin: 0em 5em;
+	z-index: 100;
+}
+.title h1{
+	opacity: 100%;
+}
+.title p {
+	line-height: 1.5em;
+	opacity: 100%;
+}
+.title div span {
+	border-radius: 50%;
+	display: inline-block;
+	height: 10px;
+	margin-left: 5px;
+	width: 10px;
+}
+.title hr {
+	border-top: .2em dashed #404040;
+	border-bottom: 0em;
+	margin-top: .75em;
+	margin-bottom: .75em;
+}
+~~~
+* For the turnstile legend (.legend), we will add the following styles:
+~~~ css
+.legend {
+	font: 1em/1.5em 'Open Sans', sans-serif;
+	padding: 1em 1em 2em 1em;
+	position: relative;
+	right: 10px;
+	z-index: 100;
+	opacity: 100%;
+}
+.legend h4 {
+	margin: 0 0 10px;
+	opacity: 100%
+}
+.legend div span {
+	border-radius: 0%;
+	display: inline-block;
+	height: 10px;
+	margin-top: 0px;
+	margin-right: 20px;
+	width: 10px;
+}
+~~~
+* And for the household income legend (legend2), we will add the following:
+~~~ css
+.legend2 {
+	font: 1em/1.5em 'Open Sans', sans-serif;
+	padding: 1em 1em 1em 1em;
+	position: relative;
+	right: 10px;
+	z-index: 100;
+	opacity: 100%
+}
+.legend2 h4 {
+	margin: 0 0 0px;
+	opacity: 100%
+}
+.legend2 p {
+	padding-top: 0px;
+	margin-top: 0px;
+}
+.legend2 div span {
+	border-radius: 50%;
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+	margin: auto;
+	display: inline-block;
+	height: 5px;
+	margin-top: 0px;
+	margin-right: 10px;
+	margin-left: 10px;
+	width: 5px;
+	opacity: 100%
+}
+~~~
+
+After all of these changes are made, the map should look like this:
+
+![Styled map](/assets/tutorial_images/17_WebmappingTurnstile/16_StyledMap.png)
+
+# Final Code (Styled)
+
+### html
+~~~ html
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Subway Usage During the Covid-19 Outbreak</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav id="menu"></nav>
+    <div id='map'></div>
+    <div id='title' class="title">
+        <h1>The Geographical Distribution of Subway<br> Usage Decrease Due to COVID-19</h1>
+        <p>This map documents changes in ridership by subway station between March 6 and March 20th, as measured through turnstile usage. The data is provided by the New York City Metro Transit Authority. To contextualize station locations across the five boroughs, an additional layer (Median Household Income) has been added. This data is block group-level estimates provided by the American Community Survey of the U.S. Census Bureau.</p>
+        <hr>
+        <div id="turnstile-legend" class="legend2">
+            <h4>Drop in Ridership</h4>
+            <p><em>Click on stations for detailed turnstile usage</em></p>
+            <div><span style="background-color: #fef0d3"></span>&#8594;<span style="background-color: #ff4400; height:20px; width:20px"></span> < 50% decrease to > 90% decrease</div>
+        </div>
+        <div id="income-legend" class="legend">
+            <h4>Median Household Income</h4>
+            <div><span style="background-color: #00a2ca"></span>$150,000 +</div>
+            <div><span style="background-color: #33b5d5"></span>$100,000 - $150,000</div>
+            <div><span style="background-color: #66c7e0"></span>$75,000 - $100,000</div>
+            <div><span style="background-color: #99daea"></span>$50,000 - $75,000</div>
+            <div><span style="background-color: #ccedf5"></span>$20,000 - $50,000</div>
+            <div><span style="background-color: #ffffff"></span>Less than $20,000</div>
+        </div>
+    </div>
+    <script type='text/javascript' src="map.js"></script>
+</body>
+</html>
+~~~
+
+### css
+~~~ css
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#map {
+	width: 100%;
+	height: 100%;
+	margin: 0 0;
+}
+.mapboxgl-popup-content h4 {
+	font-weight: 500;
+	font-size: 0.9em;
+	border-width: 0px 0px 0.5px 0px;
+	border-style: solid;
+	border-color: rgb(80, 80, 80);
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+.mapboxgl-popup-content p {
+	font-weight: 300;
+	margin-top: 0.3em;
+	margin-bottom: 0em;
+}
+#menu {
+	background: #fff;
+	position: absolute;
+	z-index: 1;
+	bottom: 30px;
+	right: 3em;
+	border-radius: 3px;
+	width: 120px;
+	border: 1px solid rgba(0, 0, 0, 0.4);
+	font-family: 'Open Sans', sans-serif;
+}
+#menu a {
+	font-size: 13px;
+	color: #404040;
+	display: block;
+	margin: 0;
+	padding: 0;
+	padding: 10px;
+	text-decoration: none;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+	text-align: center;
+}
+#menu a:last-child {
+	border: none;
+}
+#menu a:hover {
+	background-color: #f8f8f8;
+	color: #000000;
+}
+#menu a.active {
+	background-color: #404040;
+	color: #ffffff;
+}
+#menu a.active:hover {
+	background: #000000;
+}
+.title {
+	background-color: #fff;
+	opacity: 70%;
+	border-radius: 1em;
+	top: 5em;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+	font: .8em/.9em 'Open Sans', sans-serif;
+	line-height: 2.5em;
+	padding: 1em 2em 0em;
+	position: absolute;
+	max-width: 25%;
+	margin: 0em 5em;
+	z-index: 100;
+}
+.title h1{
+	opacity: 100%;
+}
+.title p {
+	line-height: 1.5em;
+	opacity: 100%;
+}
+.title div span {
+	border-radius: 50%;
+	display: inline-block;
+	height: 10px;
+	margin-left: 5px;
+	width: 10px;
+}
+.title hr {
+	border-top: .2em dashed #404040;
+	border-bottom: 0em;
+	margin-top: .75em;
+	margin-bottom: .75em;
+}
+.legend {
+	font: 1em/1.5em 'Open Sans', sans-serif;
+	padding: 1em 1em 2em 1em;
+	position: relative;
+	right: 10px;
+	z-index: 100;
+	opacity: 100%;
+}
+.legend h4 {
+	margin: 0 0 10px;
+	opacity: 100%
+}
+.legend div span {
+	border-radius: 0%;
+	display: inline-block;
+	height: 10px;
+	margin-top: 0px;
+	margin-right: 20px;
+	width: 10px;
+}
+.legend2 {
+	font: 1em/1.5em 'Open Sans', sans-serif;
+	padding: 1em 1em 1em 1em;
+	position: relative;
+	right: 10px;
+	z-index: 100;
+	opacity: 100%
+}
+.legend2 h4 {
+	margin: 0 0 0px;
+	opacity: 100%
+}
+.legend2 p {
+	padding-top: 0px;
+	margin-top: 0px;
+}
+.legend2 div span {
+	border-radius: 50%;
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+	margin: auto;
+	display: inline-block;
+	height: 5px;
+	margin-top: 0px;
+	margin-right: 10px;
+	margin-left: 10px;
+	width: 5px;
+	opacity: 100%
+}
+~~~
+
+### js
+~~~ js
+mapboxgl.accessToken = '[ENTER KEY FROM MAPBOX]';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: '[ENTER STYLE LINK FROM MAPBOX]',
+    zoom: 10,
+    center: [-74, 40.725],
+    maxZoom: 15,
+    minZoom: 8,
+    maxBounds: [
+        [-74.45, 40.45],
+        [-73.55, 41]
+    ]
+});
+
+map.on('load', function() {
+    // This is the function that finds the first symbol layer
+    var layers = map.getStyle().layers;
+    var firstSymbolId;
+    for (var i = 0; i < layers.length; i++) {
+        if (layers[i].type === 'symbol') {
+            firstSymbolId = layers[i].id;
+            break;
+        }
+    }
+
+    map.addLayer({
+        'id': 'MTA Station Data',
+        'type': 'circle',
+        'source': {
+            'type': 'geojson',
+            'data': 'data/turnstileData.geojson'
+        },
+        'paint': {
+            'circle-color': ['interpolate', ['linear'],
+                ['get', 'ENTRIES_DIFF'], -1, '#ff4400', -0.7, '#ffba31', -0.4, '#ffffff'
+            ],
+            'circle-stroke-color': '#4d4d4d',
+            'circle-stroke-width': 0.5,
+            'circle-radius': ['interpolate', ['exponential', 2],
+                ['zoom'],
+                10, ['interpolate', ['linear'],
+                    ['get', 'ENTRIES_DIFF'], -1, 10, -0.4, 1
+                ],
+                15, ['interpolate', ['linear'],
+                    ['get', 'ENTRIES_DIFF'], -1, 25, -0.4, 12
+                ]
+            ],
+        }
+    }, firstSymbolId); // Here's where we tell Mapbox where to slot this new layer
+
+    map.addLayer({
+        'id': 'Household Income Data',
+        'type': 'fill',
+        'source': {
+            'type': 'geojson',
+            'data': 'data/medianIncome.geojson'
+        },
+        'paint': {
+            'fill-color': ['step', ['get', 'MHHI'],
+                '#ffffff',
+                20000, '#ccedf5',
+                50000, '#99daea',
+                75000, '#66c7e0',
+                100000, '#33b5d5',
+                150000, '#00a2ca'
+            ],
+            'fill-opacity': ['case', ['==', ['get', 'MHHI'], null], 0, 0.65]
+        }
+    }, 'waterway-shadow');
+});
+
+// Create the popup
+map.on('click', 'MTA Station Data', function(e) {
+    var entriesDiff = e.features[0].properties.ENTRIES_DIFF;
+    var entries_06 = e.features[0].properties.ENTRIES_06;
+    var entries_20 = e.features[0].properties.ENTRIES_20;
+    var stationName = e.features[0].properties.stationName;
+    new mapboxgl.Popup()
+        .setLngLat(e.lngLat)
+        .setHTML('<h4>' + stationName + '</h4>' +
+            '<p><b>Friday, March 6th:</b> ' + entries_06 + ' entries<br>' +
+            '<b>Friday, March 20th:</b> ' + entries_20 + ' entries<br>' +
+            '<b>Change:</b> ' + Math.round(entriesDiff * 1000) / 10 + '%</p>')
+        .addTo(map);
+});
+// Change the cursor to a pointer when the mouse is over the turnstileData layer.
+map.on('mouseenter', 'MTA Station Data', function() {
+    map.getCanvas().style.cursor = 'pointer';
+});
+// Change it back to a pointer when it leaves.
+map.on('mouseleave', 'MTA Station Data', function() {
+    map.getCanvas().style.cursor = '';
+});
+
+// add menu
+
+var toggleableLayerIds = ['MTA Station Data', 'Household Income Data'];
+
+
+for (var i = 0; i < toggleableLayerIds.length; i++) {
+    var id = toggleableLayerIds[i];
+
+    var link = document.createElement('a');
+    link.href = '#';
+    link.className = 'active';
+    link.textContent = id;
+
+    link.onclick = function(e) {
+        var clickedLayer = this.textContent;
+        e.preventDefault();
+        e.stopPropagation();
+
+        var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+
+        if (visibility === 'visible') {
+            map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+            this.className = '';
+        } else {
+            this.className = 'active';
+            map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+        }
+    };
+
+    var layers = document.getElementById('menu');
+    layers.appendChild(link);
+}
