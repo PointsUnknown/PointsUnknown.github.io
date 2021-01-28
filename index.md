@@ -13,11 +13,15 @@ Points Unknown will train journalism and architecture students in GIS and mappin
 # Courses
 **Current and Upcoming**
 
-Points Unknown - Journalism Fall 2019: An introduction to mapping, representation, satellite imagery analysis, and web-mapping for M.A., M.S., Dual-Degree, and Ph.D. journalism students. Monday mornings, November 4 to November 25, 10am to 1pm.
+Points Unknown - Journalism Summer 2021: An introduction to mapping, representation, satellite imagery analysis, and web-mapping for M.A., M.S., Dual-Degree, and Ph.D. journalism students. Thursday mornings, April 8 to April 29, 9am to 11am.
+
+Points Unknown - GSAPP Spring 2021: Introduction to mapping, spatial data analysis, and aspects of journalistic practice (including interviewing and storytelling) for GSAPP students. Spring semester, 12 weeks.
+
+**Previous**
 
 Points Unknown - GSAPP Spring 2020: Introduction to mapping, spatial data analysis, and aspects of journalistic practice (including interviewing and storytelling) for GSAPP students. Spring semester, 16 weeks.
 
-**Previous**
+Points Unknown - Journalism Fall 2019: An introduction to mapping, representation, satellite imagery analysis, and web-mapping for M.A., M.S., Dual-Degree, and Ph.D. journalism students. Monday mornings, November 4 to November 25, 10am to 1pm.
 
 Points Unknown - GSAPP Spring 2019: Introduction to mapping, spatial data analysis, and aspects of journalistic practice (including interviewing and storytelling) for GSAPP students. Spring semester, 16 weeks.
 
@@ -31,7 +35,7 @@ Points Unknown - Journalism Spring 2018 (A): Introduction to mapping, spatial da
 
 Points Unknown - Journalism Spring 2018 (B): An introduction to mapping, spatial data analysis, and representation for M.A., M.S., Dual-Degree, and Ph.D. journalism students. Five evenings in the second half of the semester.
 
-Points Unknown - Journalism Fall 2017: Introduction to mapping, spatial data analysis, and representation for M.A., M.S., Dual-Degree, and Ph.D. journalism students. Thursday evenings, October 16 to November 16, 6:00 to 9:00 pm. 
+Points Unknown - Journalism Fall 2017: Introduction to mapping, spatial data analysis, and representation for M.A., M.S., Dual-Degree, and Ph.D. journalism students. Thursday evenings, October 16 to November 16, 6:00 to 9:00 pm.
 
 # Instructors & Advisors
 **Grga Basic** is an Associate Research Scholar at the [Center for Resilient Cities and Landscapes (CRCL)](https://crcl.columbia.edu/) and Adjunct Assistant Professor at the Columbia Graduate School of Architecture, Planning and Preservation. His work and research focus on critical, narrative, and investigative cartography. He joined CRCL in 2018, coming from the [Center for Spatial Research](https://c4sr.columbia.edu/). At CRCL, Grga acts as a mapping expert, developing and overseeing spatial analysis and cartographic representations for all Resilience Accelerator projects.
