@@ -1,34 +1,52 @@
 ---
 layout: post
-title:  01 - Creating Basics Maps
+title:  01 - Creating Basics Maps (Covid-19)
 category: QGIS
-navigation_weight: 1
-description: "This tutorial will guide you through the necessary steps to create two basic maps: a land use map, and a building height map."
+navigation_weight: 1.5
+description: "This tutorial will guide you through the necessary steps to create an incident-rate Covid-19 map of US counties."
 active: true
 ---
 *Note: If you haven't downloaded and installed the program, you can find the instructions [here]({% post_url 2019-10-31-00_QGIS_3x_Installation_Instructions %}). You can also find QGIS's documentation [here](http://www.qgis.org/en/docs/index.html).*
 
 # Datasets
-To create these maps we will be using the following datasets:
-* Boroughs - New York City boroughs. Download from [NYC Planning - Open Data](http://www1.nyc.gov/site/planning/data-maps/open-data/districts-download-metadata.page). Choose "Borough Boundaries (Clipped to Shoreline)", under "Borough Boundaries & Community Districts".
 
-* MapPLUTO - New York City MapPLUTO file (latest version), containing all the lots in New York and their attributes. The original PLUTO files can be downloaded from [NYC Planning - Open Data](https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-pluto-mappluto.page). For more information about the PLUTO files and what each of the fields means take a look at the useful PLUTO data dictionary (in the same link).
+To create these maps we will be using the following three datasets:
 
-* Hydrography - New York City hydrography. Download from [NYC Open Data](https://data.cityofnewyork.us/Environment/Hydrography/drh3-e2fd). Once you get to the NYC OpenData page, click `Export` and choose the `Shapefile` format.
+* US Counties 1:500,000 (clipped to shoreline). Download from [US Census Bureau](https://www2.census.gov/geo/tiger/GENZ2019/shp/cb_2019_us_county_500k.zip).
 
-* Planimetric - New York City planimetric data. Download from [NYC Open Data](https://data.cityofnewyork.us/Transportation/NYC-Planimetrics/wt4d-p43d). This is a pretty large dataset. It includes geographical data for boardwalks, curbs, medians, parks, open space, railroad, and roadbed, amongst others. This dataset comes in the form of a `geodatabase`. Download the zip file.
-    
-* Building footprints - New York City's building footprints. Download from [NYC Open Data](https://data.cityofnewyork.us/Housing-Development/Building-Footprints/nqwf-w8eh). Once you get to the NYC OpenData page, click `Export` and choose the `Shapefile` format.
+* US Counties 1:20,000,000 (clipped to shoreline). Download from [US Census Bureau](https://www2.census.gov/geo/tiger/GENZ2019/shp/cb_2019_us_county_20m.zip).
 
-* NTAs - New York City's neighborhood tabulation areas. Download from [NYC Planning - Open Data](https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-nynta.page). These are not the traditional NYC neighborhoods. These areas "were created to project populations at a small area level, from 2000 to 2030 for PlaNYC, the long-term sustainability plan for New York City... This criterion resulted in combinations of neighborhoods that probably would not occur if one were solely designating boundaries of historical neighborhoods. Moreover, the neighborhood names associated with the neighborhood tabulation areas are not intended to be definitive." Once you get to the NYC Planning Open Data page, download the `shapefile` format.
+* Covid-19 cases. Download from [John Hopkins University - CSSE Covid-19 Daily Reports](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_daily_reports)
 
 A packaged file of the above data can be found at [brwn.co/L1D](http://brwn.co/map1data). Note that this package may contain partial datasets meant for this tutorial. To get the full datasets please refer to the links above.
 
 # Adding Layers
-The first step in creating a basic map is to open QGIS and add the layers you downloaded.
-* To add shapefiles click on the `Add Vector Layer` button. Other types of data will be added using the other buttons, but in this tutorial we will only be using vector data (shapefiles). Other types of data include rasters, csv (comma separated values), and postGIS layers.
-    
+
+The first step in creating a basic map is to open QGIS and add the layers you downloaded:
+
+* To add shapefiles click on the `Add Vector Layer` button. Other types of data, including rasters, csv (comma separated values) and postGIS, will be added using the other buttons.
+
   ![thumb](/assets/tutorial_images/01_BasicMap/01_Adding_Layers_Q3.png)
+
+* Start by adding the `US Counties (500k)` file. Depending on the [settings of your QGIS](https://gis.stackexchange.com/questions/384591/deciding-whether-to-select-transformation-in-qgis), the program will either load the file automatically and change your project's `CRS` (coordinate reference system) based on the `CRS` of the file you just added, or ask you to `Select a Transformation` for your file. If you do get the prompt to select the transformation, we suggest you choose the default transformation. Unless you know exactly what transformation you want to use, your best bet is probably to go with the one QGIS is suggesting. In any case, at any point you can change the project's `CRS` to fit your needs.
+
+* Once you've chosen the transformation (if prompted) close the window where you selected the vector file to add.
+
+* Next, let's change the project's `CRS` to the standard US projection:
+
+  * Click on the button that says `EPSG` at the bottom-right corner of the map. This will bring up the `Project Properties` panel with the `CRS` tab open.
+
+  * In the `Filter` prompt, type `USA Albers Equal Area`. This will bring up a couple of options in the `Predefined Coordinate Reference Systems` section. Choose the `USA_Contiguous_Albers_Equal_Area_Conic_USGS_version` and click `OK`. This will change the way the map looks, but it won't alter the data itself or what you can do with it.
+
+  * Before:
+
+  ![Default CRS](/assets/tutorial_images/01A_BasicMap/WGSProjection.png)
+
+  * After:
+
+  ![USA Contiguous Albers Equal Area Conic](/assets/tutorial_images/01A_BasicMap/AlbersProjection.png)
+
+  * Start by clicking `Cancel` on the window that is asking you to select the transformation. And then `Close` the window where you selected the vector layer to add.
 
 * Start by adding the Boroughs layer. The reason we start with this one is because we know it has the right projection for New York City (NAD\_1983\_StatePlane\_New\_York\_Long\_Island\_FIPS\_3104\_Feet). Since map projects will automatically take the projection of the first layer we add, by loading this layer first we make sure we are working with the right one.
 
