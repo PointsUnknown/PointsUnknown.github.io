@@ -108,6 +108,19 @@ Next, let's add the Covid-19 dataset. This is a `csv` (comma separated values) f
 
 * To verify that the data was correctly read, right-click on the Covid-19 data table and choose `Properties`. Then navigate to the `Fields` tab. There you should see the different fields with the right `Type` associated with them: `QString` for `FIPS` and `double` for `Incident_Rate`.
 
+# Joining the Two Datasets
+
+The most important thing to do before we can join the two datasets is to verify that the two columns we will use to create the join (`GEOID` and `FIPS`) match each other. However, if you open the attribute table of the US counties dataset (by right-clicking on the layer and selecting `Open Attribute Table`) you will see that the `GEOID` column always have 5 digits (sometimes the first digit is a leading zero), whereas the `FIPS` column sometimes has 4 and sometimes 5 digits.
+
+Therefore, the first thing we need to do is to add a leading zero to the `FIPS` column in the Covid-19 dataset:
+
+* First, open the Covid-19 dataset `Attribute Table`.
+* At the top, click on the `Open field calculator` button (the small abacus).
+* Next, in the `Output field name` option, type `GEOID`.
+* Change the `Output field type` to `Text (string)`.
+* And then in the `Expression` box type `lpad("FIPS",5,'0')`. This invokes the `left pad` function, taking the values from the `FIPS` column, and making sure they always have `5` digits, adding a `0` at the left if necessary.
+
+![Left pad function](/assets/tutorial_images/01A_BasicMap/LeftPadFunction.png)
 
 
 # Basic Symbology
