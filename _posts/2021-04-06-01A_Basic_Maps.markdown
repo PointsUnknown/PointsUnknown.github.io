@@ -150,131 +150,53 @@ Now that the two fields are in the same format, we can actually create the join:
 
 Symbology is one of the most important concepts in mapping. At its most basic level, symbology stands for changing the color, line weight, size or outline of a layer. However, and more importantly, it also means changing the appearance of a layer *based on one or multiple of its attributes*. In this tutorial we will classify and symbolize the data based on the values found in the `Covid_Incidence_Rate` field.
 
-# Classification by Values
-The second map we will create will show the heights of the buildings in this same area. However, since what we are showing now are continious numerical values, we will use a graduated classification method, as opposed to a categorized one. In addition, this time we will use the building footprint layer instead of the lots one.
+* Double-click on the US counties layer and go to the `Symbology` tab.
 
-* Return to your map project and deactivate your Lots layer and activate your BuildingFootprints one.
+* Since the value we are using for the symbology is a continuous one, instead of a categorical one, click on the dropdown menu at the top and select `Graduated`.
 
-* Now open the attribute table of the BuildingFootprints layer. You will notice a field called `heightroof`. This is the one we will symbolize on this map.
+* Next, click on the dropdown menu for the `Value` field and select the one we wish to symbolize: `Covid_Incident_Rate`.
 
-* Open the BuildingFootprints properties and in the `Sybology` tab choose `Graduated`. In the `Column` field choose `heightroof` and hit the `Classify` button in the bottom.
+* Select the color ramp you will use by clicking on the dropdown menu next to the `Color ramp` field. We have chosen the `YlOrRd` (yellow - orange - red), found in the `All Color Ramps` sub-menu inside the `Color Ramp` dropdown menu.
 
-* You will notice that QGIS creates 5 classes. This default classification method is called `Equal Interval`. Before you hit `OK` click on the `Symbol` button and set the `Stroke style` to `No Pen`. This way you'll be able to see the results of the classification method much better.
+* Now click on the `Classify` button at the bottom of the page.
 
-  ![thumb](/assets/tutorial_images/01_BasicMap/15_EqualIntervals_Q3.png)
+* You will notice that QGIS creates 5 classes. This default classification method is called `Equal Interval`. Before you hit `OK` click on the `Symbol` button, highlight the `Simple Fill` symbol (underneath the `Fill` symbol) and set the `Stroke style` to `No Pen`. This way you'll be able to see the results of the classification method much better.
 
-* Once you hit `OK` you will notice that with this classification method the tallest buildings appear red but the majority of other buildings are all grouped into the lowest group and are all white.
+  ![Equal interval classification](/assets/tutorial_images/01A_BasicMap/EqualInterval.png)
 
-* Open the `Symbology` panel again and click on the `Histogram` tab. Click on `Load Values`. Here, you can clearly see how this classification method is creating the buckets for your data. As you can see, most of the values are somewhere below 100, and they are all grouped into a single bucket.
+* Once you hit `OK` you will notice that with this classification method the counties with the highest Covid-19 incidence rates appear red, but that the majority of other counties are all grouped into the two lowest groups.
 
-  ![thumb](/assets/tutorial_images/01_BasicMap/16_Histogram_Q3.png)*   
+* Open the `Symbology` panel again and click on the `Histogram` tab. Click on `Load Values`. Here, you can clearly see how this classification method is creating the buckets for your data. As you can see, most of the values are somewhere below 14,000, and they are all grouped into just two buckets, whereas the top three buckets contain very few counties.
 
-* Go back to the `Classes` tab and change the classification method to `Natural Breaks (Jenks)`. You might get a warning saying that this method could take a long time. If you have a large dataset you should be careful. However, the dataset that we are using is small enough. Once the classification is done, go to the `Histogram` tab. You can see how QGIS has now created different buckets and most of the shorter buildings are spread amongst the two first buckets. The Natural Breaks (Jenks) methods attempts to minimize the difference within groups while maximizing the difference between groups. Many datasets will be best classified using this method.
+  ![Equal interval histogram](/assets/tutorial_images/01A_BasicMap/Histogram.png)
 
-  ![thumb](/assets/tutorial_images/01_BasicMap/17_Histogram_Q3.png)
+* Go back to the `Classes` tab and change the classification method to `Natural Breaks (Jenks)`. You might get a warning saying that this method could take a long time. If you have a large dataset you should be careful. However, the dataset that we are using is small enough. Once the classification is done, go to the `Histogram` tab. You can see how QGIS has now changed how it separated the data and most of the counties with lower incident rates are spread between the first three buckets. The Natural Breaks (Jenks) methods attempts to minimize the difference within groups while maximizing the difference between groups. Many datasets will be best classified using this method.
+
+  ![Natural breaks histogram](/assets/tutorial_images/01A_BasicMap/HistogramNatural.png)
+
+* Click `OK` so you see how the map is now much more nuanced and rich. You still see the counties with the highest rates but there is differentiation among the ones with lower rates too.
 
 * Other methods of classification include Quantiles and Standard Deviations. Go ahead and explore them and see how they change our perception of the data on the map.
 
-* Finally, choose the Natural Breaks (Jenks) method and change the `Color ramp` to `Magma`. Once you've done this, right-click on the color scale and choose `Invert color scale`.
+* Finally, choose the Natural Breaks (Jenks) method. To add a bit more detail to the map, increase the number of classes to `7`. This will add a few more buckets. However, note that increasing the number of classes by more than 8 doesn't yield that much benefit as our eyes can't really differentiate that well between too many shades of similar colors.
 
 * The last step is to adjust a bit the values to make them easier to understand. Double-click on each row and change the value to the following:
 
-    * 0-50
+  * 0 - 5000
 
-    * 50-100
-
-    * 100-250
-
-    * 250-800
-
-    * 800-1408
-
-  ![thumb](/assets/tutorial_images/01_BasicMap/18_Classification_Q3.png)
-
-*  Click `OK` to close the properties panel.do both, simple color changes and more advanced symbologies based on attributes.  
+  * 5000 - 7500
   
-As you may have seen, QGIS assigns random colors to each of the layers you add. To change the appearance of each layer do the following:
+  * 7500 - 10000
 
-* First, since we are interested in creating a land use map of a part of New York, you should zoom in into our target area. To do this, right-click on the Lots layer and click `Zoom to Layer`. This is also very useful when for some reason you've panned away from your layers and you can't find them on your map. Just right-click on any of them and select `Zoom to Layer` to go back to them.
+  * 10000 - 12500
 
-* Second, let's deactivate the layers we won't be using for now, so that we don't see them in the map. These are the building footprints layer and the neighborhood tabulation areas one.
+  * 12500 - 15000
 
-  ![thumb](/assets/tutorial_images/01_BasicMap/02_Zoom_To_Layers_Q3.png)
+  * 15000 - 20000
 
-* There are multiple ways of changing the appearance of a layer. The easiest (and simplest) is to double-click on the icon (point, line or polygon) next to the layer name, or on the actual layer name on the layer panel. This brings up the `Layer Properties` panel. There, select the `Symbology` tab. In there you can change the fill (color), stroke weight and fill (outline) and the size of the icon (if using points or icons).
+  * 20000 - 35390 (or whatever the maximum value is)
 
-  ![thumb](/assets/tutorial_images/01_BasicMap/03_Style_Layer_Properties.png)
-
-* In this panel change the style for the following layers in the following ways:
-
-    * Roadbed:
-
-        * Fill color: #ffffff (HTML notation)
-
-        * Fill style: Solid
-
-        * Outline style: No pen
-
-    * Hydrography:
-
-        * Fill color: #d4e9ed (HTML notation)
-
-        * Fill style: Solid
-
-        * Outline style: No Pen
-
-    * Boroughs:
-
-        * Fill color: #ececec (HTML notation)
-
-        * Fill style: Solid
-
-        * Outline style: No Pen
-
-* To change the appearance of the background, select the `Project` menu, and in there select `Project Properties`. Then, in the `General` tab you can change the `Background color` to #d4e9ed (HTML notation) to match the water layer.
-
-  ![thumb](/assets/tutorial_images/01_BasicMap/04_Project_Properties_Q3.png)
-
-# Classification by Categories
-Finally, we will symbolize the PLUTO (Lots) layer. However, since we want to differentiate between the different land use types, instead of simply symbolizing all the features in the layer with the same color, we will classify it based on different categories in its attribute table.
-
-* First, right-click and open the layer's attribute table. There you will see a field called `LandUse` which contains a code for each of the 11 land use types (more information on the land use field, and on all the fields in this dataset, can be found in the PLUTO Data Dictionary). This is the code we will use to symbolize the layer. Close the attribute table.
-
-* Just like for the other layers, right-click on the Lots layer and choose `Properties`. Go to the `Symbology` tab. Here, however, choose `Categorized` instead of `Single symbol` in the drop-down menu at the top.
-
-* Next, choose the `LandUse` field in the `Column` option.
-
-* Click on `Classify` to classify the data and display the different values. Here, QGIS goes through all the values in the attribute table for that particular field and assigns a color to each one of them. The default color assignment is random.
-
-* Land use maps have a standard set of colors so we have to go into each type and manually change the color. Double click on each symbol and adjust them according to the following list:
-
-    * 01 (One & Two Family Buildings): #fffebc
-
-    * 02 (Multi-Family Walk-Up Buildings): #f3ab3d
-
-    * 03 (Multi-Family Elevator Buildings): #9e7025
-
-    * 04 (Mixed Residential & Commercial Buildings): #ef9c6f
-
-    * 05 (Commercial & Office Buildings): #d64139
-
-    * 06 (Industrial & Manufacturing): #a060c3
-
-    * 07 (Transportation & Utility): #f7cffc
-
-    * 08 (Public Facilities & Institutions): #3b70f6
-
-    * 09 (Open Space & Outdoor Recreation): #81af79
-
-    * 10 (Parking Facilities): #ababab
-
-    * 11 (Vacant Land): #2c2c2c
-
-* In addition, add the land use type name in the `Legend` column.
-
-* Finally, to change the outline for all the categories, click on the `Symbol, Change...` button and set the stroke color to #999999 and the stroke width to 0.1 millimeter.
-
-  ![thumb](/assets/tutorial_images/01_BasicMap/07_Classification_Q3.png)
+  ![Classification adjusted](/assets/tutorial_images/01A_BasicMap/Classification.png)
 
 * Click `OK` to close the properties panel.
 
