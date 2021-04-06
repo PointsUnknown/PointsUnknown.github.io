@@ -115,15 +115,39 @@ The most important thing to do before we can join the two datasets is to verify 
 Therefore, the first thing we need to do is to add a leading zero to the `FIPS` column in the Covid-19 dataset:
 
 * First, open the Covid-19 dataset `Attribute Table`.
+
 * At the top, click on the `Open field calculator` button (the small abacus).
+
 * Next, in the `Output field name` option, type `GEOID`.
+
 * Change the `Output field type` to `Text (string)`.
+
 * And then in the `Expression` box type `lpad("FIPS",5,'0')`. This invokes the `left pad` function, taking the values from the `FIPS` column, and making sure they always have `5` digits, adding a `0` at the left if necessary.
 
 ![Left pad function](/assets/tutorial_images/01A_BasicMap/LeftPadFunction.png)
 
+* Click `OK`. If you now move to the left hand side of the Covid-19 `Attribute Table` you should see the new column (called `GEOID`) and it should always have 5 digits (sometimes with a leading zero). *Note that many rows won't have either `GEOID` or a `FIPS` code. This is because in addition to data for US counties that dataset also contains data for the rest of the world.*
+
+Now that the two fields are in the same format, we can actually create the join:
+
+* Right-click on the US counties layer and choose `Properties`. Then navigate to the `Joins` tab.
+
+* There, click on the green plus (+) sign at the bottom of the window.
+
+* Select the Covid-19 data as the `Join layer` and `GEOID` as the `Join field`. And select `GEOID` as the `Target field`.
+
+* To make field names shorter check the `Custom field name prefix` and type `Covid_` in the field below.
+
+* Your join menu should look something like this:
+
+  ![Join menu](/assets/tutorial_images/01A_BasicMap/JoinOptions.png)
+
+* Click `OK` and `OK` again to close the `Properties` panel.
+
+* To verify that the join happened correctly, open the attribute table of the US county layer and scroll to the left. There you should see the new fields (labeled `Covid_...`) with data in them.
 
 # Basic Symbology
+
 Symbology is one of the most important concepts in mapping. At its most basic level, symbology stands for changing the color, line weight, size or outline of a layer. However, and more importantly, it also means changing the appearance of a layer _based on one or multiple of its attributes_. In this tutorial we will do both, simple color changes and more advanced symbologies based on attributes.  
   
 As you may have seen, QGIS assigns random colors to each of the layers you add. To change the appearance of each layer do the following:
