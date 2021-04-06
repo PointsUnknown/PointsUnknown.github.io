@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  01 - Creating Basics Maps (Covid-19)
+title:  01A - Creating Basics Maps (Covid-19)
 category: QGIS
 navigation_weight: 1.5
 description: "This tutorial will guide you through the necessary steps to create an incident-rate Covid-19 map of US counties."
@@ -12,11 +12,9 @@ active: true
 
 To create these maps we will be using the following three datasets:
 
-* US Counties 1:500,000 (clipped to shoreline). Download from [US Census Bureau](https://www2.census.gov/geo/tiger/GENZ2019/shp/cb_2019_us_county_500k.zip).
-
 * US Counties 1:20,000,000 (clipped to shoreline). Download from [US Census Bureau](https://www2.census.gov/geo/tiger/GENZ2019/shp/cb_2019_us_county_20m.zip).
 
-* Covid-19 cases. Download from [John Hopkins University - CSSE Covid-19 Daily Reports](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_daily_reports)
+* Covid-19 cases. Download from [John Hopkins University - CSSE Covid-19 Daily Reports](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_daily_reports). Download the most recent file.
 
 A packaged file of the above data can be found at [brwn.co/L1D](http://brwn.co/map1data). Note that this package may contain partial datasets meant for this tutorial. To get the full datasets please refer to the links above.
 
@@ -28,7 +26,23 @@ The first step in creating a basic map is to open QGIS and add the layers you do
 
   ![thumb](/assets/tutorial_images/01_BasicMap/01_Adding_Layers_Q3.png)
 
-* Start by adding the `US Counties (500k)` file. Depending on the [settings of your QGIS](https://gis.stackexchange.com/questions/384591/deciding-whether-to-select-transformation-in-qgis), the program will either load the file automatically and change your project's `CRS` (coordinate reference system) based on the `CRS` of the file you just added, or ask you to `Select a Transformation` for your file. If you do get the prompt to select the transformation, we suggest you choose the default transformation. Unless you know exactly what transformation you want to use, your best bet is probably to go with the one QGIS is suggesting. In any case, at any point you can change the project's `CRS` to fit your needs.
+* Start by adding the `US Counties (20m)` file.
+
+* Under `Soruce`, click on the three dots and make sure you select the file with the extension `.shp`. Remember that a shapefile is actually made up of 5 or 6 individual files with different extensions. Normally, these individual files are the following:
+
+  * `.shp` - The main file that stores the feature geometry (required).
+
+  * `.shx` - The index file that stores the index of the feature geometry (required).
+
+  * `.dbf` - The dBASE table that stores the attribute information of features (required).
+
+  * `.sbn` and `.sbx` - The files that store the spatial index of features (these might get corrupted, see note at the end of this tutorial).
+
+  * `.prj` - The file that stores the coordinate system information.
+
+  * For more information on these extensions and others see [this explanation by ESRI](http://webhelp.esri.com/arcgisdesktop/9.2/index.cfm?TopicName=Shapefile_file_extensions).
+
+* Depending on the [settings of your QGIS](https://gis.stackexchange.com/questions/384591/deciding-whether-to-select-transformation-in-qgis), the program will either load the file automatically and change your project's `CRS` (coordinate reference system) based on the `CRS` of the file you just added, or ask you to `Select a Transformation` for your file. If you do get the prompt to select the transformation, we suggest you choose the default transformation. Unless you know exactly what transformation you want to use, your best bet is probably to go with the one QGIS is suggesting. In any case, at any point you can change the project's `CRS` to fit your needs.
 
 * Once you've chosen the transformation (if prompted) close the window where you selected the vector file to add.
 
@@ -38,57 +52,49 @@ The first step in creating a basic map is to open QGIS and add the layers you do
 
   * In the `Filter` prompt, type `USA Albers Equal Area`. This will bring up a couple of options in the `Predefined Coordinate Reference Systems` section. Choose the `USA_Contiguous_Albers_Equal_Area_Conic_USGS_version` and click `OK`. This will change the way the map looks, but it won't alter the data itself or what you can do with it.
 
-  * Before:
+* Before:
 
   ![Default CRS](/assets/tutorial_images/01A_BasicMap/WGSProjection.png)
 
-  * After:
+* After:
 
   ![USA Contiguous Albers Equal Area Conic](/assets/tutorial_images/01A_BasicMap/AlbersProjection.png)
 
-  * Start by clicking `Cancel` on the window that is asking you to select the transformation. And then `Close` the window where you selected the vector layer to add.
+# Adding a CSV File
 
-* Start by adding the Boroughs layer. The reason we start with this one is because we know it has the right projection for New York City (NAD\_1983\_StatePlane\_New\_York\_Long\_Island\_FIPS\_3104\_Feet). Since map projects will automatically take the projection of the first layer we add, by loading this layer first we make sure we are working with the right one.
+Next, let's add the Covid-19 dataset. This is a `csv` (comma separated values) file, with no geographic information: it doesn't contain coordinates or geometry. Instead, every row represents a county and is identified with a `FIPS` (Federal Information Processing Standards) code. We will join the Covid-19 data to the US counties, by matching the `FIPS` code to the `GEOID` code that's already in the counties file.
 
-* Under `Soruce`, click on the three dots and make sure you select the file with the extension `.shp`. Remember that a shapefile is actually made up of 5 or 6 individual files with different extensions. Normally, these individual files are the following:
+* First, we need to create a "metadata" file that will tell QGIS exactly how to read the `csv` file. In QGIS this file is called a `csvt` and it contains the type of data for each column in the `csv` file. The different types of data your fields can take are:
 
-    * `.shp` - The main file that stores the feature geometry (required).
+  * String - Represents text
 
-    * `.shx` - The index file that stores the index of the feature geometry (required).
+  * Integer - Represents whole numbers
 
-    * `.dbf` - The dBASE table that stores the attribute information of features (required).
+  * Real - Represents both negative and positive numbers, with decimal points
 
-    * `.sbn` and `.sbx` - The files that store the spatial index of features (these might get corrupted, see note at the end of this tutorial).
+  * Date - Date in the format YYYY-MM-DD
 
-    * `.prj` - The file that stores the coordinate system information.
+  * Time - Time in the format HH:MM:SS+nn
 
-    * For more information on these extensions and others see [this explanation by ESRI](http://webhelp.esri.com/arcgisdesktop/9.2/index.cfm?TopicName=Shapefile_file_extensions).
+  * DateTime - Date and time in the format YYYY-MM-DD HH:MM:SS+nn
 
-* To double check your map took the right projection, take a look at the bottom right corner of your computer and verify that it says `EPSG:2263`, which is the "European Petroleum Survey Group" code for the NAD\_1983\_StatePlane\_New\_York\_Long\_Island\_FIPS\_3104\_Feet projection.
+* For every column in our `csv` file we need to specify what type the data is in:
 
-* Go ahead and add the rest of the files you downloaded, except for the planimetric data.
+  * In your text editor (Sublime, Atom, or VS Code), open a new file.
 
-* For this one, you need to choose `Directory` under `Source Type`, and under `Type` choose `OpenFileGDB`. Choose the folder, not individual files inside it. And once you hit `Add`, QGIS will prompt you to select one or multiple layers to add. Here, select and add the one called `Roadbed`.
+  * On the new file write (all in one line):
 
-* Once you've added all the layers you downloaded, you need to organize them in the layer panel. Remember that the layers will be drawn in the same order they appear in the panel: the top layer will be drawn last, on top of the other ones.
+    ``` 
+    "Date","String","String","String","Integer","Integer","Integer","Integer","Integer","Integer"
+    ```
 
-* The final order of the layers should be something like this (from top to bottom):
+  * Note that every item is in double quotes and separated by a comma. Also, even though some columns look like numbers in the original `csv` file (like the `FIPS` code), they should actually be treated as text (and maintain their leading zeros). Since we are using this field to join the Covid-19 data to the US counties, it is very important that it comes in in the right format. If we have one file with text and another with integers or real numbers, the QGIS won’t be able to match them.
 
-  * Building Footprints
+* If you are working on Mac’s TextEdit you need to format your file as ‘Plain Text’. To do this click on Format and then Make Plain Text. This will change your file from an .rtf to a simple .txt.
 
-  * Roadbed
+* Save your file with the same name as the `csv` file it is "annotating" but with a different extension. It is important to do this so that QGIS understands that this `csvt` file corresponds to the other `csv` file. In both Windows Notepad and in Mac TextEdit you need to manually type the extension (`.csvt`) and in TextEdit you need to un-check the option that says ‘If no extension is provided, use .txt’.
 
-  * MapPLUTO
-
-  * Hydrography
-
-  * Neighborhood Tabulation Areas
-
-  * Boroughs
-
-* These layers will probably come with different names but you can rename them by right-clicking on them in the Layers Panel and selecting `Rename`.
-
-* If when you zoom in to one of the layers some of its features disappear see the **note** at the end of the tutorial.
+* This file should be saved as `us-counties.csvt`.
 
 # Basic Symbology
 Symbology is one of the most important concepts in mapping. At its most basic level, symbology stands for changing the color, line weight, size or outline of a layer. However, and more importantly, it also means changing the appearance of a layer _based on one or multiple of its attributes_. In this tutorial we will do both, simple color changes and more advanced symbologies based on attributes.  
