@@ -148,7 +148,50 @@ Now that the two fields are in the same format, we can actually create the join:
 
 # Basic Symbology
 
-Symbology is one of the most important concepts in mapping. At its most basic level, symbology stands for changing the color, line weight, size or outline of a layer. However, and more importantly, it also means changing the appearance of a layer _based on one or multiple of its attributes_. In this tutorial we will do both, simple color changes and more advanced symbologies based on attributes.  
+Symbology is one of the most important concepts in mapping. At its most basic level, symbology stands for changing the color, line weight, size or outline of a layer. However, and more importantly, it also means changing the appearance of a layer *based on one or multiple of its attributes*. In this tutorial we will classify and symbolize the data based on the values found in the `Covid_Incidence_Rate` field.
+
+# Classification by Values
+The second map we will create will show the heights of the buildings in this same area. However, since what we are showing now are continious numerical values, we will use a graduated classification method, as opposed to a categorized one. In addition, this time we will use the building footprint layer instead of the lots one.
+
+* Return to your map project and deactivate your Lots layer and activate your BuildingFootprints one.
+
+* Now open the attribute table of the BuildingFootprints layer. You will notice a field called `heightroof`. This is the one we will symbolize on this map.
+
+* Open the BuildingFootprints properties and in the `Sybology` tab choose `Graduated`. In the `Column` field choose `heightroof` and hit the `Classify` button in the bottom.
+
+* You will notice that QGIS creates 5 classes. This default classification method is called `Equal Interval`. Before you hit `OK` click on the `Symbol` button and set the `Stroke style` to `No Pen`. This way you'll be able to see the results of the classification method much better.
+
+  ![thumb](/assets/tutorial_images/01_BasicMap/15_EqualIntervals_Q3.png)
+
+* Once you hit `OK` you will notice that with this classification method the tallest buildings appear red but the majority of other buildings are all grouped into the lowest group and are all white.
+
+* Open the `Symbology` panel again and click on the `Histogram` tab. Click on `Load Values`. Here, you can clearly see how this classification method is creating the buckets for your data. As you can see, most of the values are somewhere below 100, and they are all grouped into a single bucket.
+
+  ![thumb](/assets/tutorial_images/01_BasicMap/16_Histogram_Q3.png)*   
+
+* Go back to the `Classes` tab and change the classification method to `Natural Breaks (Jenks)`. You might get a warning saying that this method could take a long time. If you have a large dataset you should be careful. However, the dataset that we are using is small enough. Once the classification is done, go to the `Histogram` tab. You can see how QGIS has now created different buckets and most of the shorter buildings are spread amongst the two first buckets. The Natural Breaks (Jenks) methods attempts to minimize the difference within groups while maximizing the difference between groups. Many datasets will be best classified using this method.
+
+  ![thumb](/assets/tutorial_images/01_BasicMap/17_Histogram_Q3.png)
+
+* Other methods of classification include Quantiles and Standard Deviations. Go ahead and explore them and see how they change our perception of the data on the map.
+
+* Finally, choose the Natural Breaks (Jenks) method and change the `Color ramp` to `Magma`. Once you've done this, right-click on the color scale and choose `Invert color scale`.
+
+* The last step is to adjust a bit the values to make them easier to understand. Double-click on each row and change the value to the following:
+
+    * 0-50
+
+    * 50-100
+
+    * 100-250
+
+    * 250-800
+
+    * 800-1408
+
+  ![thumb](/assets/tutorial_images/01_BasicMap/18_Classification_Q3.png)
+
+*  Click `OK` to close the properties panel.do both, simple color changes and more advanced symbologies based on attributes.  
   
 As you may have seen, QGIS assigns random colors to each of the layers you add. To change the appearance of each layer do the following:
 
