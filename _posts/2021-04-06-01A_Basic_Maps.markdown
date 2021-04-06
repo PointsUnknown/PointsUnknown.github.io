@@ -14,13 +14,15 @@ To create these maps we will be using the following three datasets:
 
 * US Counties 1:20,000,000 (clipped to shoreline). Download from [US Census Bureau](https://www2.census.gov/geo/tiger/GENZ2019/shp/cb_2019_us_county_20m.zip).
 
+* US States 1:20,000,000 (clipped to shoreline). Download from [US Census Bureau](https://www2.census.gov/geo/tiger/GENZ2019/shp/cb_2019_us_state_20m.zip)
+
 * Covid-19 cases. Download from [John Hopkins University - CSSE Covid-19 Daily Reports](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_daily_reports). Download the most recent file.
 
 A packaged file of the above data can be found at [brwn.co/L1D](http://brwn.co/map1data). Note that this package may contain partial datasets meant for this tutorial. To get the full datasets please refer to the links above.
 
 # Adding Layers
 
-The first step in creating a basic map is to open QGIS and add the layers you downloaded:
+The first step in creating a basic map is to open QGIS and add the counties and state layers you downloaded:
 
 * To add shapefiles click on the `Add Vector Layer` button. Other types of data, including rasters, csv (comma separated values) and postGIS, will be added using the other buttons.
 
@@ -59,6 +61,26 @@ The first step in creating a basic map is to open QGIS and add the layers you do
 * After:
 
   ![USA Contiguous Albers Equal Area Conic](/assets/tutorial_images/01A_BasicMap/AlbersProjection.png)
+
+* Now add the US states layer.
+
+* After you've added the US states layer you can re-arrange your layers. In the layer panel drag the US states layer above the US counties layer.
+
+* Finally, so that you can actually see both layers at the same time let's quickly change the symbology of the US states layer:
+  
+  * Double-click on the US states layer and go to the `Symbology` tab.
+  
+  * There, highlight the `Simple Fill` symbol, under the `Fill` symbol.
+  
+  * As `Fill style` choose `No brush`.
+  
+  * For `Stroke color` choose white (`#ffffff` in `HTML notation).
+  
+  * And for `Stroke width` choose `1.0` (with `points` as the unit).
+  
+  ![States style](/assets/tutorial_images/01A_BasicMap/StatesStyle.png)
+
+* You should now see the states as a white outline and the counties underneath.
 
 # Adding a CSV File
 
