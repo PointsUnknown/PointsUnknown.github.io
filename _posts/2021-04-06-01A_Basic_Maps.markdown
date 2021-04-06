@@ -96,6 +96,20 @@ Next, let's add the Covid-19 dataset. This is a `csv` (comma separated values) f
 
 * This file should be saved as `us-counties.csvt`.
 
+* Once you have created the `csvt` file you are ready to import the `csv` file:
+
+  * Click on the `Add Delimited Text Layer` button (the comma with the + sign) and select the `csv` file. Remember, the `csvt` file should be located in the same folder where he `csv` file is and should have the same name (the only difference being the extension).
+
+  * Make sure the file format is `CSV` and that under `Geometry Definition` you select `No geometry (attribute only table)`. If we were importing a `csv` file with coordinates or geometry we would select one of the other two options.
+
+  ![Import csv options](/assets/tutorial_images/01A_BasicMap/ImportCSVMenu.png)
+
+  * Hit `Add` and then `Close`. You should now see the `csv` file in the layers menu.
+
+* To verify that the data was correctly read, right-click on the Covid-19 data table and choose `Properties`. Then navigate to the `Fields` tab. There you should see the different fields with the right `Type` associated with them: `QString` for `FIPS` and `double` for `Incident_Rate`.
+
+
+
 # Basic Symbology
 Symbology is one of the most important concepts in mapping. At its most basic level, symbology stands for changing the color, line weight, size or outline of a layer. However, and more importantly, it also means changing the appearance of a layer _based on one or multiple of its attributes_. In this tutorial we will do both, simple color changes and more advanced symbologies based on attributes.  
   
