@@ -76,7 +76,7 @@ The first step in creating a basic map is to open QGIS and add the counties and 
   
   * For `Stroke color` choose white (`#ffffff` in `HTML notation).
   
-  * And for `Stroke width` choose `1.0` (with `points` as the unit).
+  * And for `Stroke width` choose `0.5` (with `points` as the unit).
   
   ![States style](/assets/tutorial_images/01A_BasicMap/StatesStyle.png)
 
@@ -222,69 +222,65 @@ Symbology is one of the most important concepts in mapping. At its most basic le
 
 * Click `OK` to close the properties panel.
 
-
 # Adding Labels
-We will use the Neighborhood Tabulation Areas layer to add some labels to our map.
 
-* First, activate it by clicking on the checkbox next to its name on the Layers panel. Next, double-click on it to open its properties.
+We will use the US states layer to add some labels to our map.
 
-* Under `Symbology` choose `No symbols`.
+* First, double-click on it to open its properties.
 
-* Under the `Labels` tab choose `Single labels`. And under `Label with` choose the "ntaname" column.
+* Under the `Labels` tab choose `Single labels`. And under `Value` choose the `NAME` column.
 
-  ![thumg](/assets/tutorial_images/01_BasicMap/12_Labels_Q3.png)
+* Under `Text`, select the appropriate font. In our case we are using `Avenir`
 
-* If you click `OK` you will notice that some of the labels say something like "park-cemetery-etc". In order to not display these labels we will create a "rule based" label expression. Go back to the layer's properties and in the `Labels` tab, choose `Rule-based labeling` instead of `Single labels`. Here we will write a short rule to ignore those labels that begin with "park-cemetery".
-
-* Here, double click on the "+" sign at the bottom of the panel to add a rule. Then, next to the `Filter` option, type the following rule: `"ntaname" not like 'park-cemetery%'`. Finally, below make sure in the `Label with` field you select "ntaname".
-
-  ![thumg](/assets/tutorial_images/01_BasicMap/13_Labels_Q3.png)
-  
-* Finally, to make sure the text is more visible, add a white `Buffer` around it.
-
-  ![thumg](/assets/tutorial_images/01_BasicMap/14_Labels_Q3.png)
+![Label menu](/assets/tutorial_images/01A_BasicMap/Labels.png)
 
 * Click `OK` to close the properties panel.
 
+# Print Layout
 
-# Print Composer
+The `Print Layout` (formerly known as `Print Composer`) is where you will format your map for its final output. Here you will specify the output size, you will add a legend, a scale bar (if needed), a north arrow (if needed) and any additional text (titles, sources, explanations and credits). Although the `Print Layout` exists as its own window it will still be linked to the map `Project` we have been working on.
 
-The Print Composer is where you will format your map for its final output. Here you will specify the output size, you will add a legend, a scale bar, a north arrow (if needed) and any additional text (titles, sources, explanations and credits). Although the Print Composer exists as its own window it will still be linked to the map Project we have been working on.
-* First, create a new Print Composer in `Project`, `New Print Layout`. Give it a custom name if you want, although this is not necessary.
+* First, create a new `Print Layout` in `Project`, `New Print Layout`. Give it a custom name if you want, although this is not necessary.
   
-* Once you are in the Print Composer you need to add a new map. Think of it as if you had a blank piece of paper and you were adding a window onto the map you've been working on. That window is a link to your Project and if you change things in the Project those changes will still be reflected in the Print Composer.
+* Once you are in the `Print Layout` you need to add a new map. Think of it as if you had a blank piece of paper and you were adding a window onto the map you've been working on. That window is a link to your `Project` and if you change things in the `Project` those changes will still be reflected in the `Print Layout`.
 
 * To add a new map, click on the button `Add new map` on the left-hand panel and draw a rectangle on the blank page.
 
-  ![thumb](/assets/tutorial_images/01_BasicMap/08_AddNewMap.png)
+  ![Add new map button](/assets/tutorial_images/01_BasicMap/08_AddNewMap.png)
   
 * Once you add the map you can adjust its size and position by dragging it from its corners.
 
 * You might notice that if you change the size of the map it doesn't necessarily update. To avoid this, on the right-hand panel, where it says `Main properties`, click on `Update preview`.
 
-* To move the content inside the Print Composer (as opposed to the whole page) use the `Move item content` tool on the left-hand panel.
+* To move the content inside the `Print Layout` (as opposed to the whole page) use the `Move item content` tool on the left-hand panel.
 
-  ![thumb](/assets/tutorial_images/01_BasicMap/10_MoveItemContent_Q3.png)
+* Next, you need to center and zoom in the map on the area you want to focus on. After you've centered the map adjust the scale by typing the desired value (`18000000`) on the right-hand panel, under `Main properties` / `Scale`.
 
-* Next, you need to center and zoom in the map on the area you want to focus on. For the purposes of this tutorial, we will center around downtown Manhattan and downtown Brooklyn. To do this, move the content of the map to this area and on the right-hand panel, under `Main properties`, adjust your `Scale` to 28,000.
+* If any of the colors or line weights seem too big or two small or not correct, you can always go back to the `Project` and change them there. When you return to your Print Layout you can update your preview and the changes will be reflected.
 
-* If any of the colors or line weights seem too big or two small or not correct, you can always go back to the Project and change them there. When you return to your Print Composer you can update your preview and the changes will be reflected.
+  * Currently, the label font seems too large. Go back to the `Project` and set it to `8` points.
 
-* Add a scale bar by going to `Add Item` `Add scale bar` and clicking on the map.
+  * Once you return to the `Print Layout` click on the `Update Map Preview` button on the right-hand panel (the circle arrows) to refresh the map and see the changes.
 
-* The default scale bar is too big. To change this, go to the right-hand panel, in the top part make sure you select the `Scale bar`, and adjust its properties in the `Main Properties` panel. You can also adjust its units, its colors and even its font.
+* Since this is a national map not made for measurements we don't really need a scale bar or a north arrow. If you were to add them you would do so by clicking on their buttons on the left-hand panel and placing them on the map.
 
-* To add a legend click on `Add Item` `Add legend` and then click on the map. You will notice that QGIS automatically generates a line in the legend for every layer in the map. We only need the land use ones, so we need to customize the legend:
+* To add a legend click on `Add Item` `Add legend` and then click on the map. You will notice that QGIS automatically generates a line in the legend for every layer in the map. We only need the Covid-19 one, so we need to customize the legend:
 
-* On the right-hand panel, under Legend items uncheck `Auto update` and then select the layers that you don't want in the legend and remove them with the 'minus' button. Do the same thing inside the Lots layer with the categories you don't want to display.
+  * On the right-hand panel, under Legend items uncheck `Auto update` and then select the layers that you don't want in the legend and remove them with the 'minus' button.
 
-* Also, further down, uncheck the `Background` option.
+  * To hide the title of the layer right-click on it on the right-hand panel and select `Hidden`.
 
-* Under `Spacing` change the `Symbol space` to 0.00mm.
+  * Next, let's customize the actual values in the layer. Double-click on each value (on the right hand panel) and type the correctly formatted value. For most entries we suggest just adding the comma separators. For the last entry you can add a greater than (>) sign.
 
-* And under `Fonts` change the `Item font` to 8.
+  * Under `Fonts` change the `Item font` to `Avenir` with a size of `9` points.
 
-* Since we did not rotate the map we don't need to add a north arrow. If you rotate your map you **must** add a north arrow. If you wanted to, you could add a north arrow by clicking on `Add Item` `Add arrow`.
+  * Under `Symbol` change the `Symbol width` to `4.0 mm`.
+
+  * And under `Spacing` change the `Legend title` / `Space below` to `0.00 mm`, the `Space between symbols` to `2.00 mm` and the `Symbol label space` to `1.5 mm`.
+
+  * Finally, to make the background of the legend transparent go further down and uncheck the `Background` option.
+
+* Since we did not rotate the map we don't need to add a north arrow. If you rotate your map you **should** add a north arrow. If you wanted to, you could add a north arrow by clicking on `Add Item` `Add arrow`.
 
 * Finally, to add a title and a 'source' text, click on the `Add new label` button on the left-hand panel and click on the map. Customize these labels by changing their color, size and location.
 
@@ -292,77 +288,4 @@ The Print Composer is where you will format your map for its final output. Here 
 
 * Your final map should look something like this:
 
-  ![thumb](/assets/tutorial_images/01_BasicMap/11_FinalMap_Q3.png)
-
-# Classification by Values
-The second map we will create will show the heights of the buildings in this same area. However, since what we are showing now are continious numerical values, we will use a graduated classification method, as opposed to a categorized one. In addition, this time we will use the building footprint layer instead of the lots one.
-
-* Return to your map project and deactivate your Lots layer and activate your BuildingFootprints one.
-
-* Now open the attribute table of the BuildingFootprints layer. You will notice a field called `heightroof`. This is the one we will symbolize on this map.
-
-* Open the BuildingFootprints properties and in the `Sybology` tab choose `Graduated`. In the `Column` field choose `heightroof` and hit the `Classify` button in the bottom.
-
-* You will notice that QGIS creates 5 classes. This default classification method is called `Equal Interval`. Before you hit `OK` click on the `Symbol` button and set the `Stroke style` to `No Pen`. This way you'll be able to see the results of the classification method much better.
-
-  ![thumb](/assets/tutorial_images/01_BasicMap/15_EqualIntervals_Q3.png)
-
-* Once you hit `OK` you will notice that with this classification method the tallest buildings appear red but the majority of other buildings are all grouped into the lowest group and are all white.
-
-* Open the `Symbology` panel again and click on the `Histogram` tab. Click on `Load Values`. Here, you can clearly see how this classification method is creating the buckets for your data. As you can see, most of the values are somewhere below 100, and they are all grouped into a single bucket.
-
-  ![thumb](/assets/tutorial_images/01_BasicMap/16_Histogram_Q3.png)*   
-
-* Go back to the `Classes` tab and change the classification method to `Natural Breaks (Jenks)`. You might get a warning saying that this method could take a long time. If you have a large dataset you should be careful. However, the dataset that we are using is small enough. Once the classification is done, go to the `Histogram` tab. You can see how QGIS has now created different buckets and most of the shorter buildings are spread amongst the two first buckets. The Natural Breaks (Jenks) methods attempts to minimize the difference within groups while maximizing the difference between groups. Many datasets will be best classified using this method.
-
-  ![thumb](/assets/tutorial_images/01_BasicMap/17_Histogram_Q3.png)
-
-* Other methods of classification include Quantiles and Standard Deviations. Go ahead and explore them and see how they change our perception of the data on the map.
-
-* Finally, choose the Natural Breaks (Jenks) method and change the `Color ramp` to `Magma`. Once you've done this, right-click on the color scale and choose `Invert color scale`.
-
-* The last step is to adjust a bit the values to make them easier to understand. Double-click on each row and change the value to the following:
-
-    * 0-50
-
-    * 50-100
-
-    * 100-250
-
-    * 250-800
-
-    * 800-1408
-
-  ![thumb](/assets/tutorial_images/01_BasicMap/18_Classification_Q3.png)
-
-*  Click `OK` to close the properties panel.
-
-# Definition Queries
-Now, let's say that you want to add a layer showing the parks, just to give our map a bit more context. We could take the Lots layer, symbolize it by land use again, and make all other land use types, except for parks, transparent. But there's an easier way. We can write query to only show those features where the field land use equals the one we want.
-
-* From the previous map we already know that we can use the `LandUse` field in the Lots layer to select the parks. The corresponding value is '09'. So first, activate the Lots layer again by clicking ont he checkbox next to it in the layers panel and then double-click on the layer to go to its `Properties`.
-
-* In the `Properties` window go to the `Source` tab and there click on the `Query Builder` button.
-
-* Now in the scroll through the fields and double-click on the `LandUse` on. You will see it populate the `Provide specific filter expression` window.
-
-* Next, either type or click on the "=" sign, and then click on the `All` button. This will bring up a list of all the different values in that field.
-
-* As you can see, all the LandUse values are there. Double-click on "09" to make it appear in the `Provide specific filter expression` window. Now the full expression should read `"LandUse" = '09'`.
-
-* You could also directly type in the expression but just be careful with the use of single and double quotations. Single quotation marks denote a `String` (a piece of text), and double quotations denote a field.
-
-  ![thumb](/assets/tutorial_images/01_BasicMap/06_DefinitionQuery_Q3.png)
-
-* Once you do this you will see that only the parks and open spaces are visible from the Lots layer.
-
-* The last thing to do is to give the features in this layer a color that denotes parks but that doesn't distract too much from what we are trying to show - the heights of the buildings. To do this go to the Lots layer `Properties` and in the `Symbology` tab choose `Single symbol`. Give this symbol a fill color of #d5ebd6.
-  
-* Finally, return to the `Print Composer` and add all the necessary elements to your map: legend, scale bar, title, and source.
-
-* Your final map should look something like this:
-
-![thumb](/assets/tutorial_images/01_BasicMap/19_FinalMap_Q3.png)
-
-# Note
-If, after adding some dataset, you zoom in and some of the features disappear, you probably need to rebuild the dataset's "Spatial Index". To do this right-click on the layer, select `Properties` and go to `Source`. Under `Geometry and Coordinate reference system` click on `Create Spatial Index`. This should solve your problem. Sometimes, specially with the New York City PLUTO files, the "Spatial Index" is tied to one of the attribute fields and when you zoom in only the features with that specific attribute show up. "Spatial Index" are specially useful when doing operations over large datasets, for example see this [post](https://nathanw.net/2013/01/04/using-a-qgis-spatial-index-to-speed-up-your-code/).
+  ![thumb](/assets/tutorial_images/01A_BasicMap/FinalMap.png)
