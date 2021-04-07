@@ -18,7 +18,7 @@ To create these maps we will be using the following three datasets:
 
 * Covid-19 cases. Download from [John Hopkins University - CSSE Covid-19 Daily Reports](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_daily_reports). Download the most recent file.
 
-A packaged file of the above data can be found at [brwn.co/L1D](http://brwn.co/map1data). Note that this package may contain partial datasets meant for this tutorial. To get the full datasets please refer to the links above.
+A packaged file of the above data can be found [here](https://brown-institute-assets.s3.amazonaws.com/Objects/pointsunknown/01A_BasicMap.zip). Note that this package may contain partial datasets meant for this tutorial. To get the full datasets please refer to the links above.
 
 # Adding Layers
 
