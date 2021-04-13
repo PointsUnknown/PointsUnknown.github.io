@@ -2,7 +2,7 @@
 layout: post
 title:  02A - Mapping Census and Covid Data
 category: QGIS
-navigation_weight: 1.5
+navigation_weight: 2.5
 description: "This tutorial will guide you through the necessary steps to create graduated cylinder maps of Covid rates at Colleges, and compare it against population data from the Census/American Community Survey."
 active: true
 ---
