@@ -72,67 +72,56 @@ Once selected, save selected features by right-clicking on the *LION* layer and 
 
 ## Select the accessible subway stations
 
-The next step is filtering out Subway and Staten Island Railway stations that are enhanced for the mobility impaired. To do so, open the attribute table for the `SubwayStations` layer and select only the accessible stations. Like the previous operations, use the `Select features using an expression` option found via the attribute table and enter ` "ADA" = 1 or "ADA" = 2`. Once selected, save a new ESRI Shapefile using the selected features. Remember that a coherent naming convention is important, as we've already generated 5 new layers. For example, `AccessibleMTAStations` would be an accurate description of this layer.
+The next step is filtering out Subway and Staten Island Railway stations that are enhanced for the mobility impaired. To do so, open the attribute table for the `SubwayStations` layer and select only the accessible stations. Like the previous operations, use the `Select features using an expression` option found via the attribute table and enter `"ADA" = 1 or "ADA" = 2`. Once selected, save a new ESRI Shapefile using the selected features. Remember that a coherent naming convention is important, as we've already generated 5 new layers. For example, `AccessibleMTAStations` would be an accurate description of this layer.
 
 Now we are ready to run some analysis on our data.
 
 # Performing Network Analysis
+
 For this tutorial, we are attempting to identify census tracts that have high populations of individuals who are unable to use stairs or access subway stations without the assistance of an elevator or wheelchair accessibility. In addition to this population, we are including all minors under the age of 5 in our analysis, as they're reliant on similar accessibility features for public services. To highlight these areas, we need to begin by identifying the buffer zones, or the road networks found within a 10-minute walk of the accessible subway stations.
 
 In referencing the *New York Times* article, there are aspects of the mapping that can be more specific and can better represent the situation on the ground. To begin, we should always highlight how we are estimating any metric that isn't already pre-defined. For example, the 10-minute walk is a somewhat arbitrary value--specifically how to measure distance over the course of 10-minutes. Thankfully, the U.S. Department of Transportation has a reference guide on calculating speeds of this sort. They indicate that for someone in a wheelchair, travel time in urban environments with crosswalks and stoplights is 1.1m/s. This translates to 66m/minute, or 660m/10 minutes. This is the metric we will use to calculate our buffer.
 
-![Service Area](/assets/tutorial_images/12_SpatialAnalysis_Q3/03.png)
+![Service Area](/assets/tutorial_images/12_SpatialAnalysis_Q3/GeoprocessingPanel.png)
 
-Navigate to `Processing` in the menubar and select `Toolbox`. Within the toolbox that appears on the right side of the workspace, expand `Network Analysis` and select `Service Area from Layer`. Here we will generate a service area, or a graph of streets from each accessible subway station based upon cost (time or distance). In our case, cost is equal to 660m. For the vector layer representing the network, select `PedestrianNetwork` and for the `Vector layer with start points` select `AccessibleMTAStations`. Set the travel cost to `660`, and make sure that `Path type to calculate` is set to Shortest (distance) and not Fastest (time). All other options can be left at their defaults. Select run, and let the algorithm process the network. This will generate a new temporary layer. Export this as an ESRI Shapefile and save it in your working directory. Repeat this step for your `AccessibleSIRStations` layer using the same network and cost settings. Save the output as a new ESRI Shapefile, as well.
+Navigate to `Processing` in the menubar and select `Toolbox`. Within the toolbox that appears on the right side of the workspace, expand `Network Analysis` and select `Service Area from Layer`. Here we will generate a service area, or a graph of streets from each accessible subway station based upon cost (time or distance). In our case, cost is equal to 660m. For the vector layer representing the network, select `PedestrianNetwork` and for the `Vector layer with start points` select `AccessibleMTAStations`. Set the travel cost to `660`, and make sure that `Path type to calculate` is set to Shortest (distance) and not Fastest (time). In addition, change the `Default speed (km/h)` to 5.0. All other options can be left at their defaults. Select run, and let the algorithm process the network. This will generate a new temporary layer. Export this as an ESRI Shapefile and save it in your working directory.
 
-![Service Area Settings](/assets/tutorial_images/12_SpatialAnalysis_Q3/06.png)
+![Service Area Settings](/assets/tutorial_images/12_SpatialAnalysis_Q3/NetworkAnalysisOptions.png)
 
 # Generating Bounding Geometry
-After running network analysis on the two point datasets (AccessibleMTAStations and AccessibleSIRStations), the output is insufficient for the representation and future analysis that we'd like to conduct. To begin, we need to turn this network of roads into a polygon. To do so, we need to perform two operations.
 
-![Service Area Settings](/assets/tutorial_images/12_SpatialAnalysis_Q3/09.png)
+After running network analysis on the `AccessibleMTAStations` the output is insufficient for the representation and future analysis that we'd like to conduct. To begin, we need to turn this network of roads into a polygon. To do so, we need to perform two operations.
 
-First, we need to generate vertices at each of the line (road) endpoints (nodes). To do so, navigate to the `Processing Toolbox` and expand `Vector geometry`. Select `Extract vertices`. In the algorithm parameter settings, set your input layer to the first of your network outputs (MTAServiceArea). Save the temporary vertices output file as a new ESRI Shapefile (MTAVertices). Re-run this process on your SIRServiceArea, the network output generated in the previous step. Save this file as a new ESRI Shapefile (SIRVertices), as well.
+![Service Area Settings](/assets/tutorial_images/12_SpatialAnalysis_Q3/ExtractVertices.png)
 
-![Query](/assets/tutorial_images/12_SpatialAnalysis_Q3/08.png)
+First, we need to generate vertices at each of the line (road) endpoints (nodes). To do so, navigate to the `Processing Toolbox` and expand `Vector geometry`. Select `Extract vertices`. In the algorithm parameter settings, set your input layer to the first of your network outputs (MTAServiceArea). Save the temporary vertices output file as a new ESRI Shapefile (MTAVertices).
 
-![Query](/assets/tutorial_images/12_SpatialAnalysis_Q3/07.png)
+![Query](/assets/tutorial_images/12_SpatialAnalysis_Q3/ExtractVerticesOptions.png)
 
-Now we are able to draw a polygon based on the newly generated vertices. Navigate to your `Processing Toolbox` and expand `Vector geometry`. Select `Minimum bounding geometry`. For your input layer, select `MTAVertices` and identify the field `objectid`. This makes sure that the geometry is bound to the vertices of each subway station, not the collective set of vertices. For *Geometry type*, select `Convex Hull`. Once you run this process, it will again generate a temporary layer. Save this layer as a new ESRI Shapefile (MTAServiceAreaBoundary). Repeat this process for the *SIRVertices* layer.
+Now we are able to draw a polygon based on the newly generated vertices. Navigate to your `Processing Toolbox` and expand `Vector geometry`. Select `Minimum bounding geometry`. For your input layer, select `Vertices` and identify the field `Station ID`. This makes sure that the geometry is bound to the vertices of each subway station, not the collective set of vertices. For *Geometry type*, select `Convex Hull`. Once you run this process, it will again generate a temporary layer. Save this layer as a new ESRI Shapefile (MTAServiceAreaBoundary).
 
-![Query](/assets/tutorial_images/12_SpatialAnalysis_Q3/11.png)
+![Query](/assets/tutorial_images/12_SpatialAnalysis_Q3/MinBoundingOptions.png)
 
-![Query](/assets/tutorial_images/12_SpatialAnalysis_Q3/10.png)
+Now you've generated 10-minute walking buffers around each of accessible MTA Subway station, and it is a great time to clean-up your workspace, removing any layers that won't be needed in our final analysis. A cleaned up workspace should include:
 
-Now you've generated 10-minute walking buffers around each of accessible MTA Subway station and accessible Staten Island Railway station. Unfortunately, to complete our analysis, we need these buffers in the same layer. To accomplish this, navigate to the menubar and select `Vector` -> `Data Management Tools` -> `Merge Vector Layers`. For the *Input Layers*, select the two newly generated boundary layers. Set the CRS to the shared layer CRS, and select `Run`. This will generate a new temporary layer. Like before, save this file as a new ESRI Shapefile (CombinedServiceBoundary).
+* Borough boundaries
 
-Now is a great time to clean-up your workspace, removing any layers that won't be needed in our final analysis. A cleaned up workspace should include:
+* Hydrography
 
-* Borough Boundaries
-    
-* NYC Hydropgraphic Polygons
-    
-* US Hydrographic Polygons
-    
-* NYC Census Tracts with Mobility Data (accessibility)
-    
-* US State Boundaries
-    
-* NYC Parks (as found in the Planimetrics Dataset)
-    
-* Staten Island Railway Stations
-    
-* MTA Subway Stations
-    
-* Transit Lines (as generated from LION)
-    
-* Pedestrian Road Network (as generated from LION)
-    
-* Service Area Boundary (as generated from our Vertices vector layer)
-    
-*Using layer groups can help keep your workspace clean.* Now we could style the map and be done, but this would result in a false picture of what the census tract populations actually are surrounding accesible subway/staten island railway stations.
+* Census mobility data
+
+* Subway stations
+
+* Subway lines
+
+* Pedestrian road network (as generated from LION)
+
+* Service area boundary (as generated from our Vertices vector layer)
+
+*Using layer groups can help keep your workspace clean.* Now we could style the map and be done, but this would result in a false picture of what the census tract populations actually are surrounding accessible subway/staten island railway stations.
 
 # Geoprocessing
+
 To properly communicate areas in which there exists a high count of mobility impaired and minors under the age of five, it is important to conduct basic geoprocessing. For instance, the Service Area Boundaries intersect many of the census tracts. For this reason, we should not show their mobility impaired population as the total population in that census tract. Instead, we should try and come up with a more accurate estimate based on the proportion of area. If we had more time, we would allocate population by building outline via the PLUTO dataset, but we will use proportion of area for this exercise.
 
 To begin, we need to add a new field to our *NYC Census Tracts with Mobility Data (accessibility)* layer. To do so, open the *Attribute Table* and select `Field Calulator`. In the query field, enter the value `$area`. The field name should be set to `Area` and the field type should be set to `Decimel Number Real`. Once you select `OK`, each row will gain a column with a value set to its polygonal area.
