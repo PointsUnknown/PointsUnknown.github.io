@@ -124,57 +124,48 @@ Now you've generated 10-minute walking buffers around each of accessible MTA Sub
 
 To properly communicate areas in which there exists a high count of mobility impaired and minors under the age of five, it is important to conduct basic geoprocessing. For instance, the Service Area Boundaries intersect many of the census tracts. For this reason, we should not show their mobility impaired population as the total population in that census tract. Instead, we should try and come up with a more accurate estimate based on the proportion of area. If we had more time, we would allocate population by building outline via the PLUTO dataset, but we will use proportion of area for this exercise.
 
-To begin, we need to add a new field to our *NYC Census Tracts with Mobility Data (accessibility)* layer. To do so, open the *Attribute Table* and select `Field Calulator`. In the query field, enter the value `$area`. The field name should be set to `Area` and the field type should be set to `Decimel Number Real`. Once you select `OK`, each row will gain a column with a value set to its polygonal area.
+To begin, we need to add a new field to our *Census mobility* layer. To do so, open the *Attribute Table* and select `Field Calulator`. In the query field, enter the value `$area`. The field name should be set to `Area` and the field type should be set to `Decimal Number (real)`. Once you select `OK`, each row will gain a column with a value set to its polygonal area.
 
-Now, we need to calculate overlap of the Service Boundary Area on our Census Tract layer. To start, we need to generate a single polygon for all service boundary areas that overlap. To do so, navigate to your menubar and select `Geoprocessing` -> `Dissolve`. Set your input layer to the Service Area Boundary layer (as generated from our Vertices vector layer). This will generate a new temporary layer. Save this as a new ESRI Shapefile.
+Now, we need to calculate overlap of the Service Boundary Area on our Census Tract layer. To start, we need to generate a single polygon for all service boundary areas that overlap. To do so, navigate to your menubar and select `Geoprocessing` / `Dissolve`. Set your input layer to the Service Area Boundary layer (as generated from our Vertices vector layer). This will generate a new temporary layer. Save this as a new ESRI Shapefile.
 
-![Service Area Settings](/assets/tutorial_images/12_SpatialAnalysis_Q3/12.png)
+![After dissolve operation](/assets/tutorial_images/12_SpatialAnalysis_Q3/AfterDissolve.png)
 
-Now we will breakup our census tracts by overlaps from this newly generated `JoinedServiceAreaBoundary` layer. Navigate to your menubar `Vector` -> `GeoProcessing Tools` -> `Union`. For your input layer, select your Census layer and for the overlay, select your Joined Service Area Boundary layer. Once you select run, this will generate a new temporary layer. Save this as an ESRI Shapefile, CensusSplitByBuffer.
+Now we will breakup our census tracts by overlaps from this newly generated `ServiceAreaBoundary` layer. Navigate to your menubar `Vector` / `GeoProcessing Tools` / `Union`. For your input layer, select your Census layer and for the overlay, select your Joined Service Area Boundary layer. Once you select run, this will generate a new temporary layer. Save this as an ESRI Shapefile, `CensusSplitByBuffer`.
 
-![Service Area Settings](/assets/tutorial_images/12_SpatialAnalysis_Q3/14.png)
+![Service Area Settings](/assets/tutorial_images/12_SpatialAnalysis_Q3/UnionOptions.png)
 
-Now we have the layers needed to run analysis that can generate an estimated population based on proportional area. To do so, open your attribute table of your newly generated Census layer and once again, navigate to the `Field Calculator`. Begin by navigating to the query field and entering the value `$area`. The field name should be set to `NewArea` and the field type should be set to `Decimel Number Real`. Once you select `OK`, each row will gain a column with a value set to its newly generated polygonal area based on the `Union` operation. In instances in which there was no overlap between the census tract and the buffer, the area will remain constant. Next, we will calculate the proportional population of the new area. To do so, once again enter the `Field Calculator`.
+Now we have the layers needed to run analysis that can generate an estimated population based on proportional area. To do so, open your attribute table of your newly generated Census layer and once again, navigate to the `Field Calculator`. Begin by navigating to the query field and entering the value `$area`. The field name should be set to `NewArea` and the field type should be set to `Decimal Number (real)`. Once you select `OK`, each row will gain a column with a value set to its newly generated polygonal area based on the `Union` operation. In instances in which there was no overlap between the census tract and the buffer, the area will remain constant. Next, we will calculate the proportional population of the new area. To do so, once again enter the `Field Calculator`.
 
-![Service Area Settings](/assets/tutorial_images/12_SpatialAnalysis_Q3/13.png)
+![Service Area Settings](/assets/tutorial_images/12_SpatialAnalysis_Q3/NewArea.png)
 
-Create a new field labled *NewImpPop* and set it to Whole Number (Integer). In the query, enter the following equation: (NewArea / Area) \* TotDiff. This will generate a new impaired population based on the proportional area of space remaining after removing any buffer overlap. Exit out of the *Attribute Table* and be sure to save your changes.
+Create a new field labled `NewImpPop` and set it to Whole Number (Integer). In the query, enter the following equation: `("NewArea" / "area") * "TotDiff"`. This will generate a new impaired population based on the proportional area of space remaining after removing any buffer overlap. Exit out of the *Attribute Table* and be sure to save your changes.
 
 # Visualizing the Mobility Analysis
+
 ![Final Map](/assets/tutorial_images/12_SpatialAnalysis_Q3/99-end.png)
 
 Now let's visualize our map. Below are settings that produce a quality map that is more indicative to a reader where there populations affected by the MTA's inadequate station access. Items are ordered as they should be layered, top to bottom, in QGIS.
 
-* MTA Stations: Simple Marker, .5mm, #000000, No Pen Stroke, 75% Opacity
-    
-* SIR Stations: Simple Marker, .5mm, #000000, No Pen Stroke, 75% Opacity
-    
-* Transit Lines: Simple Line, .2mm, #888888, 75% Opacity
-    
+* MTA Stations: Simple Marker, .5mm, #000000, No Pen Stroke
+
+* Transit Lines: Simple Line, .2mm, #888888
+
 * Borough Boundaries: Simple Fill, No Fill, Stroke width .15mm, #000000
-    
-* Hydrography NYC: Simple Fill, #e5e5e5, No Stroke
-    
-* Hydrography US: Simple Fill, #e5e5e5, No Stroke
-    
-* Hydrography US: Simple Fill, #e5e5e5, No Stroke
-    
-* Pedestrian Roads: Simple Line, .05mm, #888888, 50% Opacity
-    
+
+* Hydrography: Simple Fill, #ffffff, No Stroke
+
+* Pedestrian Roads: Simple Line, .05mm, #888888
+
 * Service Area Boundary: Simple Fill, #ffffff, .1mm Dashed Line
-    
+
 * Census Data: Graduated Ramp, Color Method, Oranges, Trim, Column: New Population:
 
   * 0-150: Simple Fill, #fff5eb, 90% Opacity, No Pen
-      
-  * 150-300: Simple Fill, #fed2a6, 90% Opacity, No Pen
-      
-  * 300-500: Simple Fill, #fd9243, 90% Opacity, No Pen
-      
-  * 500-850: Simple Fill, #df4f05, 90% Opacity, No Pen
-      
-  * 850+: Simple Fill, #7f2704, 90% Opacity, No Pen
 
-* NYC Parks: Simple Fill, #ffffff, No Stroke
-    
-* US States: Simple Fill, #ffffff, No Stroke
+  * 150-300: Simple Fill, #fed2a6, 90% Opacity, No Pen
+
+  * 300-500: Simple Fill, #fd9243, 90% Opacity, No Pen
+
+  * 500-900: Simple Fill, #df4f05, 90% Opacity, No Pen
+
+  * 900+: Simple Fill, #7f2704, 90% Opacity, No Pen
