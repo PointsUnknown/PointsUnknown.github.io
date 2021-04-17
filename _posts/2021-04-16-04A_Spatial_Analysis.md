@@ -30,11 +30,11 @@ To create these maps we will be using the following datasets:
 
 * NYC Subway stations. Download from the [MTA](https://atisdata.s3.amazonaws.com/Station/Stations.csv).
 
-A packaged file with the census and tract data can be found [here](https://brown-institute-assets.s3.amazonaws.com/Objects/pointsunknown/CensusMobilityData.zip). This assumes you will complete the generation of the *[Percentage of the population less than 5 years old or with ambulatory difficulties.]({% post_url 2019-10-30-02_Census_and_Joins %})* map. A package of the already prepared map (with layers), is available [here](https://brown-institute-assets.s3.amazonaws.com/Objects/pointsunknown/NetworkAnalysisData).
+A packaged file with the census and tract data can be found [here](https://brown-institute-assets.s3.amazonaws.com/Objects/pointsunknown/CensusMobilityData.zip). This assumes you will complete the generation of the *[Percentage of the population less than 5 years old or with ambulatory difficulties.]({% post_url 2019-10-30-02_Census_and_Joins %})* map. A package of the already prepared map (with layers), is available [here](https://brown-institute-assets.s3.amazonaws.com/Objects/pointsunknown/NetworkAnalysisData.zip).
 
 # Importing/Prepping Data in QGIS
 
-This tutorial builds largely upon the tutorial 2: *[Joins & Census Data]({% post_url 2019-10-30-02_Census_and_Joins %})*. If you have time, it is strongly recommended to complete this tutorial before moving on to this tutorial. If you completed Tutorial 2, please open up your QGIS workspace from that tutorial. Otherwise, please download a package of the already prepared map (with layers), available [here](https://brown-institute-assets.s3.amazonaws.com/Objects/pointsunknown/NetworkAnalysisData). Links to each of the datasets can be found above at the beginning of this tutorial.
+This tutorial builds largely upon the tutorial 2: *[Joins & Census Data]({% post_url 2019-10-30-02_Census_and_Joins %})*. If you have time, it is strongly recommended to complete this tutorial before moving on to this tutorial. If you completed Tutorial 2, please open up your QGIS workspace from that tutorial. Otherwise, please download a package of the already prepared map (with layers), available [here](https://brown-institute-assets.s3.amazonaws.com/Objects/pointsunknown/NetworkAnalysisData.zip). Links to each of the datasets can be found above at the beginning of this tutorial.
 
 Start by adding the following layers:
 
