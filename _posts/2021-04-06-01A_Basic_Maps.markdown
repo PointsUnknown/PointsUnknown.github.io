@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  01A - Creating Basics Maps (Covid-19)
+title:  01 - Creating Basics Maps (Covid-19)
 category: QGIS
 navigation_weight: 1.5
 description: "This tutorial will guide you through the necessary steps to create an incident-rate Covid-19 map of US counties."
