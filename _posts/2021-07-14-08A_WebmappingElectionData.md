@@ -126,6 +126,8 @@ countiesPoints.to_file('countiesPoints.geojson', driver='GeoJSON')
 
 # Setting Up the Base Map in Mapbox Studio
 
+Just as to show you what you can do in terms of styling your map, take a look at [these examples](https://www.mapbox.com/gallery/).
+
 Before setting up our mapping site we should style the basemap we will use. To do this, go to your [Mapbox Studio](https://studio.mapbox.com/) page and create a `New style`.
 
 * It is usually much easier to start from a template, otherwise you will have to add and style every single layer your map will use and do this for all zoom levels. The templates provided by Mapbox already include all this styling and have been tested and refined many many times.
