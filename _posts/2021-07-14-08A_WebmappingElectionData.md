@@ -1362,3 +1362,4 @@ map.on("mouseleave", "us_counties_centroids", function () {
 
 * How to use the [Albers USA projection in Mapbox](https://www.mapbox.com/elections/albers-usa-projection-style).
 * [Dirty Reprojections blog post](https://developmentseed.org/blog/2016-12-15-dirty-reprojectors) from Development Seed, and its [Github repository](https://github.com/developmentseed/dirty-reprojectors).
+* Adding a [raster image to a Mabox map](https://docs.mapbox.com/mapbox-gl-js/example/image-on-a-map/).
