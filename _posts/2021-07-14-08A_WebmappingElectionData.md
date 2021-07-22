@@ -1357,3 +1357,8 @@ map.on("mouseleave", "us_counties_centroids", function () {
 ```
 
 * Obviously, after finishing both of your web maps you need to add the rest of the content for the page. This should always include a legend for the map, as well as the sources for the data.
+
+# Useful links
+
+* How to use the [Albers USA projection in Mapbox](https://www.mapbox.com/elections/albers-usa-projection-style).
+* [Dirty Reprojections blog post](https://developmentseed.org/blog/2016-12-15-dirty-reprojectors) from Development Seed, and its [Github repository](https://github.com/developmentseed/dirty-reprojectors).
