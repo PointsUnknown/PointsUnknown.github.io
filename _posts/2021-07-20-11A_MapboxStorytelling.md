@@ -1153,3 +1153,7 @@ Lastly, since Glitch doesn't really have folders, the path to our `geojson` and 
 Once you've added all the files and corrected the paths click on the `Show` button at the top-left. Your project should open there.
 
 Finally, to invite others to collaborate on your project click on the `Share` dropdown menu and copy the URL under `Invite Others to Edit`.
+
+# Useful links
+
+* Mapbox scrollytelling template's [official documentation](https://labs.mapbox.com/education/impact-tools/interactive-storytelling/).
