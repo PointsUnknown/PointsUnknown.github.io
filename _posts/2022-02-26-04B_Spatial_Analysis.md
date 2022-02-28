@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  05 - Spatial Analysis
+title:  05 - Spatial Analysis (Updated - COVID-19)
 category: QGIS
-navigation_weight: 5
+navigation_weight: 5.2
 description: This tutorial will provide instruction on how to create a 10-minute driving buffer from dollar stores (Dollar General and Dollar Tree) in Georgia, and will then compare those driving buffers against vaccination sites, emphasizing the opportunity public health officials had in leveraging existing private infrastructure. The tutorial will then analyze general vulnerability of these areas.
 active: true
 ---

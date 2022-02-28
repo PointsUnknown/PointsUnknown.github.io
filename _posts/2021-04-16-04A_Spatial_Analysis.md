@@ -2,7 +2,7 @@
 layout: post
 title:  05 - Spatial Analysis (Updated)
 category: QGIS
-navigation_weight: 5.5
+navigation_weight: 5.1
 description: This tutorial will provide instruction on how to create a 10-minute walking buffer from each accessible subway station, and will then reanalyze a choropleth map from a previous session, emphasizing areas of the city that are outside this buffer. The result will be a more accurate picture of areas the MTA should address through accessibility enhancements.
 active: true
 ---
