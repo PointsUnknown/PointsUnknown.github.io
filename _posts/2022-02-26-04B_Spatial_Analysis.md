@@ -56,16 +56,7 @@ The next thing we want to do is filter down the SNAP retailer sites down to Doll
 
 Our goal here is to identify these stores, despite their listings including titles like Dollar Tree, DOLLAR TREE, dollar tree, DOLLARTREE and dollartree. So let's use the following filter to capture all of these:
 
-`"State" = 'GA' AND "Store_Name" LIKE '%DOLLAR GENERAL%' 
-OR "State" = 'GA' AND "Store_Name" LIKE '%Dollar General%' 
-OR "State" = 'GA' AND "Store_Name" LIKE '%dollar general%' 
-OR "State" = 'GA' AND "Store_Name" LIKE '%DOLLARGENERAL%' 
-OR "State" = 'GA' AND "Store_Name" LIKE '%dollargeneral%' 
-OR "State" = 'GA' AND "Store_Name" LIKE '%DOLLAR TREE%' 
-OR "State" = 'GA' AND "Store_Name" LIKE '%Dollar Tree%' 
-OR "State" = 'GA' AND "Store_Name" LIKE '%dollar tree%' 
-OR "State" = 'GA' AND "Store_Name" LIKE '%DOLLARTREE%' 
-OR "State" = 'GA' AND "Store_Name" LIKE '%dollartree%'`
+`"State" = 'GA' AND "Store_Name" ILIKE '%DOLLAR GENERAL%' OR "State" = 'GA' AND "Store_Name" ILIKE '%DOLLARGENERAL%' OR "State" = 'GA' AND "Store_Name" ILIKE '%DOLLAR TREE%' OR "State" = 'GA' AND "Store_Name" ILIKE '%DOLLARTREE%'`
 
 ![Advanced Query](/assets/tutorial_images/19_SpatialAnalysis_2/04_filter.png)
 
