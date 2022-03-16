@@ -13,6 +13,7 @@ In this tutorial we will use Mapbox GL JS to create an interactive webmap displa
 ![Change in MTA turnstile entries - The City](/assets/tutorial_images/17_WebmappingTurnstile/01_TheCityMap.png)
 
 # Other Mapping Libraries
+
 This tutorial uses [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/api/). However, this is by no means the only mapping library out there. Other notable libraries are:
 
 * [Tangram](https://github.com/tangrams/tangram) - Tangram is a JavaScript library for rendering 2D & 3D maps live in a web browser with WebGL. It is tuned for OpenStreetMap but supports any source of GeoJSON/TopoJSON or binary vector data, including tilesets and single files ([Documentation](https://tangrams.readthedocs.io/en/latest/)). Pairs well with [Nextzen Vector Tiles](https://www.nextzen.org/).
@@ -117,9 +118,9 @@ For this part of the process it is highly recommended to use an advanced text ed
 <head>
     <meta charset='utf-8' />
     <title>Subway Usage During the Covid-19 Outbreak</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -153,7 +154,7 @@ For this part of the process it is highly recommended to use an advanced text ed
 
 ~~~ js
 mapboxgl.accessToken = 'Add your access token here';
-var map = new mapboxgl.Map({
+const map = new mapboxgl.Map({
     container: 'map',
     style: 'Add your style URL here',
     zoom: 10,
@@ -346,8 +347,8 @@ If you look closely, you'll notice that our new layer is sitting on top of the c
 ~~~ js
 map.on('load', function () {
     // This is the function that finds the first symbol layer
-    var layers = map.getStyle().layers;
-    var firstSymbolId;
+    let layers = map.getStyle().layers;
+    let firstSymbolId;
     for (var i = 0; i < layers.length; i++) {
         if (layers[i].type === 'symbol') {
             firstSymbolId = layers[i].id;
@@ -395,7 +396,7 @@ This is quite easy, just update your `map` object (in your `map.js` file) in the
 
 ~~~ js
 mapboxgl.accessToken = 'Your access token here';
-var map = new mapboxgl.Map({
+const map = new mapboxgl.Map({
     container: 'map',
     style: 'Your Mapbox style URL here',
     zoom: 10,
@@ -420,8 +421,8 @@ To do this we will update the `map.on` function and add another interpolation --
 
 ~~~ js
 map.on('load', function () {
-    var layers = map.getStyle().layers;
-    var firstSymbolId;
+    let layers = map.getStyle().layers;
+    let firstSymbolId;
     for (var i = 0; i < layers.length; i++) {
         if (layers[i].type === 'symbol') {
             firstSymbolId = layers[i].id;
@@ -476,10 +477,10 @@ Interacting with the map usually happens in `map.on` functions. To set the popup
 ~~~ js
 // Create the popup
 map.on('click', 'turnstileData', function (e) {
-    var entriesDiff = e.features[0].properties.ENTRIES_DIFF;
-    var entries_06 = e.features[0].properties.ENTRIES_06;
-    var entries_20 = e.features[0].properties.ENTRIES_20;
-    var stationName = e.features[0].properties.stationName;
+    let entriesDiff = e.features[0].properties.ENTRIES_DIFF;
+    let entries_06 = e.features[0].properties.ENTRIES_06;
+    let entries_20 = e.features[0].properties.ENTRIES_20;
+    let stationName = e.features[0].properties.stationName;
     new mapboxgl.Popup()
         .setLngLat(e.lngLat)
         .setHTML(stationName + '<br>' + entriesDiff + '%' + '<br>' + entries_06 + '<br>' + entries_20)
@@ -516,10 +517,10 @@ The final popup JavaScript section should look like this:
 ~~~ js
 // Create the popup
 map.on('click', 'turnstileData', function (e) {
-    var entriesDiff = e.features[0].properties.ENTRIES_DIFF;
-    var entries_06 = e.features[0].properties.ENTRIES_06;
-    var entries_20 = e.features[0].properties.ENTRIES_20;
-    var stationName = e.features[0].properties.stationName;
+    let entriesDiff = e.features[0].properties.ENTRIES_DIFF;
+    let entries_06 = e.features[0].properties.ENTRIES_06;
+    let entries_20 = e.features[0].properties.ENTRIES_20;
+    let stationName = e.features[0].properties.stationName;
     new mapboxgl.Popup()
         .setLngLat(e.lngLat)
         .setHTML('<h4>' + stationName + '</h4>'
@@ -589,12 +590,18 @@ Here we are replicating the `addLayer` function we have above for the subway sta
 
 As you can see, the layer was added to the map under the turnstile data, which is correct, but census block groups actually go into the water, which doesn't make sense in the map. To correct this, we should instead add the layer underneath the water, but on top of the land so we can actually see it. We need then to figure out what the `id` of the water layer is, and specify that in the order attribute for the income layer.
 
-To figure this out we can write a short loop that prints the `id`s for every layer in our map. Add this snippet of code to the top of the `map.on('load')` function:
+To figure this out we can add one line of code to our loop at the top of the `map.on('load')` function that prints the `id`s for every layer in our map. Add this snippet of code to the top of the `map.on('load')` function:
 
 ~~~ js
-var layers = map.getStyle().layers;
-for (var i = 0; i < layers.length; i++) {
-    console.log(layers[i].id);
+// This is the function that finds the first symbol layer
+let layers = map.getStyle().layers;
+let firstSymbolId;
+    for (var i = 0; i < layers.length; i++) {
+    console.log(layers[i].id); // This is the line of code that we are adding
+    if (layers[i].type === 'symbol') {
+        firstSymbolId = layers[i].id;
+        break;
+    }
 }
 ~~~
 
@@ -661,9 +668,9 @@ If you'd like to stop at this stage, the final code for this interactive map is 
 <head>
     <meta charset='utf-8' />
     <title>Subway Usage During the Covid-19 Outbreak</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -710,7 +717,7 @@ body {
 
 ~~~ js
 mapboxgl.accessToken = 'Your access token here';
-var map = new mapboxgl.Map({
+const map = new mapboxgl.Map({
     container: 'map',
     style: 'Your Mapbox style URL here',
     zoom: 10,
@@ -722,8 +729,8 @@ var map = new mapboxgl.Map({
 
 map.on('load', function () {
     // This is the function that finds the first symbol layer
-    var layers = map.getStyle().layers;
-    var firstSymbolId;
+    let layers = map.getStyle().layers;
+    let firstSymbolId;
     for (var i = 0; i < layers.length; i++) {
         if (layers[i].type === 'symbol') {
             firstSymbolId = layers[i].id;
@@ -757,8 +764,7 @@ map.on('load', function () {
                 ]
             ],
         }
-    }, firstSymbolId); // Here's where we tell Mapbox where to slot this new layer
-
+    }, firstSymbolId);
     map.addLayer({
         'id': 'medianIncome',
         'type': 'fill',
@@ -781,10 +787,10 @@ map.on('load', function () {
 
 // Create the popup
 map.on('click', 'turnstileData', function (e) {
-    var entriesDiff = e.features[0].properties.ENTRIES_DIFF;
-    var entries_06 = e.features[0].properties.ENTRIES_06;
-    var entries_20 = e.features[0].properties.ENTRIES_20;
-    var stationName = e.features[0].properties.stationName;
+    let entriesDiff = e.features[0].properties.ENTRIES_DIFF;
+    let entries_06 = e.features[0].properties.ENTRIES_06;
+    let entries_20 = e.features[0].properties.ENTRIES_20;
+    let stationName = e.features[0].properties.stationName;
     new mapboxgl.Popup()
         .setLngLat(e.lngLat)
         .setHTML('<h4>' + stationName + '</h4>'
@@ -1246,7 +1252,7 @@ body {
 
 ``` js
 mapboxgl.accessToken = '[ENTER KEY FROM MAPBOX]';
-var map = new mapboxgl.Map({
+const map = new mapboxgl.Map({
     container: 'map',
     style: '[ENTER STYLE LINK FROM MAPBOX]',
     zoom: 10,
@@ -1261,8 +1267,8 @@ var map = new mapboxgl.Map({
 
 map.on('load', function() {
     // This is the function that finds the first symbol layer
-    var layers = map.getStyle().layers;
-    var firstSymbolId;
+    let layers = map.getStyle().layers;
+    let firstSymbolId;
     for (var i = 0; i < layers.length; i++) {
         if (layers[i].type === 'symbol') {
             firstSymbolId = layers[i].id;
@@ -1318,10 +1324,10 @@ map.on('load', function() {
 
 // Create the popup
 map.on('click', 'MTA Station Data', function(e) {
-    var entriesDiff = e.features[0].properties.ENTRIES_DIFF;
-    var entries_06 = e.features[0].properties.ENTRIES_06;
-    var entries_20 = e.features[0].properties.ENTRIES_20;
-    var stationName = e.features[0].properties.stationName;
+    let entriesDiff = e.features[0].properties.ENTRIES_DIFF;
+    let entries_06 = e.features[0].properties.ENTRIES_06;
+    let entries_20 = e.features[0].properties.ENTRIES_20;
+    let stationName = e.features[0].properties.stationName;
     new mapboxgl.Popup()
         .setLngLat(e.lngLat)
         .setHTML('<h4>' + stationName + '</h4>' +
