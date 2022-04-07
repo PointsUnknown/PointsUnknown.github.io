@@ -569,9 +569,8 @@ let divChapter5 =
   "<p>The South Bronx, perennially marred in social injustice, has also been hard hit during the current COVID-19 outbreak. The area's three main neighborhoods, Mott Haven, Melrose and Port Morris are mostly home to low-income families that have been forced to continue going to work, risking their health and that of their loved ones. Similarly to Jackson Heights in Queens, the areas subway stations have seen a smaller decrease in use than the rest of the city. Median household income in this area oscillates between $15,000 and $30,000.</p>";
 
 var config = {
-  style: "mapbox://styles/jfs2118/ckrc7wznz0mf818qwou9f42gy",
-  accessToken:
-    "pk.eyJ1IjoiamZzMjExOCIsImEiOiJjazJvdXZ2MnkxN2owM2Rwbm1wNWVpYXptIn0.pT-GXNoNxB7l1SMBh2Yjxg",
+  style: "*** Your Mapbox style URL here ***",
+  accessToken: "*** Your Mapbox access token here ***",
   showMarkers: false,
   markerColor: "#3FB1CE",
   theme: "light",
