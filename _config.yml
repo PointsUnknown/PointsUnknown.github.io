@@ -31,7 +31,7 @@ plugins:
   - jemoji
 
 # Required if you want to move pages into a a separate directory
-include: ['_pages']
+include: ['_pages', 'final_projects']
 relative_permalinks: false
 
 # Exclude from processing.
