@@ -10,11 +10,11 @@ Here you will find links to our student's final projects.
 
 ## GSAPP Spring 2022
 
-### [Migration 1](https://pointsunknown.nyc/final_projects/02_Scrollytelling/index.html)
+### [Migration 1]()
 
-![Image](/assets/finalProjectImages/gsappSpring2022/testImage.png)
+![Image]()
 
-This tutorial demonstrates how to use Mapbox Storytelling with our previous web mapping example. Here we will use Mapbox storytelling template to first, give an overview of the decrease in subway usage around the city, and second, zoom into three different locations that exemplify the diversity of conditions around New York.
+Brief description of the project.
 
 ### [Migration 2]()
 
@@ -34,11 +34,11 @@ Brief description of the project.
 
 Brief description of the project.
 
-### [Climate Change]()
+### [Climate Change](https://pointsunknown.nyc/final_projects/GSAPP-Spring-2022/Climate-Change/index.html)
 
-![Image]()
+![Image]((/assets/finalProjectImages/gsappSpring2022/climate-change.png)
 
-Brief description of the project.
+Investigating the drought in Central Valley, impact on almond growing, controversies in water policies and what’s next for the farmers?
 
 ### [Energy]()
 
