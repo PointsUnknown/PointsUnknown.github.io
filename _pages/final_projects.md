@@ -36,7 +36,7 @@ Brief description of the project.
 
 ### [Climate Change](https://pointsunknown.nyc/final_projects/GSAPP-Spring-2022/Climate-Change/index.html)
 
-![Image]((/assets/finalProjectImages/gsappSpring2022/climate-change.png)
+![Image](/assets/finalProjectImages/gsappSpring2022/climate-change.png)
 
 Investigating the drought in Central Valley, impact on almond growing, controversies in water policies and what’s next for the farmers?
 
