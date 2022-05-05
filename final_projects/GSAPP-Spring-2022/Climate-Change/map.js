@@ -265,7 +265,7 @@ map.addLayer({
   type: "line",
   source: {
     type: "geojson",
-    data: "Data/countiesData.geojson",
+    data: "data/countiesData.geojson",
   },
   paint: {
     "line-color": "#ffffff",
