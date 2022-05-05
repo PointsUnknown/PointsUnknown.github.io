@@ -14,7 +14,7 @@ var config = {
         {
             id: 'MapofNYS',
             alignment: 'left',
-            title: 'Buffalo, \n the second large city for refugee \'s resettlement  ',
+            title: 'Buffalo, \n a big city for refugee \'s resettlement  ',
             image: 'images/RefugeePopulation2016-01.jpg',
             imageCredit: '<a href="https://otda.ny.gov/programs/bria/">Refugee Services (RS) </a>',
             location: {
@@ -27,11 +27,115 @@ var config = {
                 {
                     layer: 'BuffaloPosition',
                     opacity: 1
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
                 }
             ],
             onChapterExit: [
                 {
                     layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
                     opacity: 0
                 }
             ]
@@ -50,13 +154,117 @@ var config = {
             },
             onChapterEnter: [
                 {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
                     layer: 'BuffaloOutline',
                     opacity: 1
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
                 }
             ],
             onChapterExit: [
                 {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
                     layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
                     opacity: 0
                 }
             ]
@@ -79,7 +287,6 @@ var config = {
         {
             id: 'Refugee distribution of NYS',
             alignment: 'full',
-            title: 'Refugee distribution of the NYS',
             image: 'images/Refugee_Scatterplot_Page.jpg',
             location: {
                 center: [-79,42.9],
@@ -104,24 +311,119 @@ var config = {
             },
             onChapterEnter: [
                 {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
                     layer: 'BuffaloOutline',
                     opacity: 1
                 },
                 {
                     layer: 'DemoMapofBuffalo1',
                     opacity: 0.4
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
                 }
             ],
             onChapterExit: [
                 {
-                    layer: 'DemoMapofBuffalo1',
+                    layer: 'BuffaloPosition',
                     opacity: 0
                 },
                 {
                     layer: 'BuffaloOutline',
                     opacity: 1
-                }
-            ]
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
+                }            ]
         },
 
             //Demographic Map 2 - Asian Race  
@@ -138,22 +440,117 @@ var config = {
                 },
                 onChapterEnter: [
                     {
-                        layer: 'DemoMapofBuffalo2',
-                        opacity: 0.4
-                    },
-                    {
-                        layer: 'BuffaloOutline',
-                        opacity: 1
-                    }
-                ],
-                onChapterExit: [
-                    {
-                        layer: 'DemoMapofBuffalo2',
+                        layer: 'BuffaloPosition',
                         opacity: 0
                     },
                     {
                         layer: 'BuffaloOutline',
                         opacity: 1
+                    },
+                    {
+                        layer: 'DemoMapofBuffalo1',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'DemoMapofBuffalo2',
+                        opacity: 0.4
+                    },
+                    {
+                        layer: 'DemoMapofBuffalo3',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'DemoMapofBuffalo4',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'HighlightedNeighborhood',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'FivePointsExtrusion',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'FivePointsLabel',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'EmersonExtrusion',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'EmersonLabel',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'BroadwayExtrusion',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'BroadwayLabel',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'CorridorLine',
+                        opacity: 0
+                    }                ],
+                onChapterExit: [
+                    {
+                        layer: 'BuffaloPosition',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'BuffaloOutline',
+                        opacity: 1
+                    },
+                    {
+                        layer: 'DemoMapofBuffalo1',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'DemoMapofBuffalo2',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'DemoMapofBuffalo3',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'DemoMapofBuffalo4',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'HighlightedNeighborhood',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'FivePointsExtrusion',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'FivePointsLabel',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'EmersonExtrusion',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'EmersonLabel',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'BroadwayExtrusion',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'BroadwayLabel',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'CorridorLine',
+                        opacity: 0
                     }
                 ]
             },
@@ -172,22 +569,118 @@ var config = {
                 },
                 onChapterEnter: [
                     {
-                        layer: 'DemoMapofBuffalo3',
-                        opacity: 0.4
-                    },
-                    {
-                        layer: 'BuffaloOutline',
-                        opacity: 1
-                    }
-                ],
-                onChapterExit: [
-                    {
-                        layer: 'DemoMapofBuffalo3',
+                        layer: 'BuffaloPosition',
                         opacity: 0
                     },
                     {
                         layer: 'BuffaloOutline',
                         opacity: 1
+                    },
+                    {
+                        layer: 'DemoMapofBuffalo1',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'DemoMapofBuffalo2',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'DemoMapofBuffalo3',
+                        opacity: 0.4
+                    },
+                    {
+                        layer: 'DemoMapofBuffalo4',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'HighlightedNeighborhood',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'FivePointsExtrusion',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'FivePointsLabel',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'EmersonExtrusion',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'EmersonLabel',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'BroadwayExtrusion',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'BroadwayLabel',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'CorridorLine',
+                        opacity: 0
+                    }
+                ],
+                onChapterExit: [
+                    {
+                        layer: 'BuffaloPosition',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'BuffaloOutline',
+                        opacity: 1
+                    },
+                    {
+                        layer: 'DemoMapofBuffalo1',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'DemoMapofBuffalo2',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'DemoMapofBuffalo3',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'DemoMapofBuffalo4',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'HighlightedNeighborhood',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'FivePointsExtrusion',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'FivePointsLabel',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'EmersonExtrusion',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'EmersonLabel',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'BroadwayExtrusion',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'BroadwayLabel',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'CorridorLine',
+                        opacity: 0
                     }
                 ]
             },
@@ -206,21 +699,117 @@ var config = {
                 },
                 onChapterEnter: [
                     {
-                        layer: 'DemoMapofBuffalo4',
-                        opacity: 0.4
+                        layer: 'BuffaloPosition',
+                        opacity: 0
                     },
                     {
                         layer: 'BuffaloOutline',
                         opacity: 1
+                    },
+                    {
+                        layer: 'DemoMapofBuffalo1',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'DemoMapofBuffalo2',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'DemoMapofBuffalo3',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'DemoMapofBuffalo4',
+                        opacity: 0.4
+                    },
+                    {
+                        layer: 'HighlightedNeighborhood',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'FivePointsExtrusion',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'FivePointsLabel',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'EmersonExtrusion',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'EmersonLabel',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'BroadwayExtrusion',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'BroadwayLabel',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'CorridorLine',
+                        opacity: 0
                     }
                 ],
                 onChapterExit: [
+                    {
+                        layer: 'BuffaloPosition',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'BuffaloOutline',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'DemoMapofBuffalo1',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'DemoMapofBuffalo2',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'DemoMapofBuffalo3',
+                        opacity: 0
+                    },
                     {
                         layer: 'DemoMapofBuffalo4',
                         opacity: 0
                     },
                     {
-                        layer: 'BuffaloOutline',
+                        layer: 'HighlightedNeighborhood',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'FivePointsExtrusion',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'FivePointsLabel',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'EmersonExtrusion',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'EmersonLabel',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'BroadwayExtrusion',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'BroadwayLabel',
+                        opacity: 0
+                    },
+                    {
+                        layer: 'CorridorLine',
                         opacity: 0
                     }
                 ]
@@ -241,6 +830,122 @@ var config = {
                 pitch: 0,
                 bearing: 0
             },
+            onChapterEnter: [
+                {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
+                }
+            ],
+            onChapterExit: [
+                {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
+                }
+            ]
         },       
         //Overall Language Stats (JIE)     
         {
@@ -254,6 +959,123 @@ var config = {
                 pitch: 0,
                 bearing: 0
             },
+            onChapterEnter: [
+                {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
+                }
+            ],
+            onChapterExit: [
+                {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
+                }
+            ]
+
         }, 
       
         //Personal Story (POLINA)      
@@ -267,6 +1089,122 @@ var config = {
                 pitch: 0,
                 bearing: 0
             },
+            onChapterEnter: [
+                {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
+                }
+            ],
+            onChapterExit: [
+                {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
+                }
+            ]
         },       
 
 
@@ -282,6 +1220,122 @@ var config = {
                 pitch: 0,
                 bearing: 0
             },
+            onChapterEnter: [
+                {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
+                }
+            ],
+            onChapterExit: [
+                {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
+                }
+            ]
         },       
 
         //Where are the highlighted neighborhood
@@ -298,16 +1352,120 @@ var config = {
             },
             onChapterEnter: [
                 {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
                     layer: 'HighlightedNeighborhood',
                     opacity: 1
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
                 }
-            ],
+        ],
             onChapterExit: [
+                {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
                 {
                     layer: 'HighlightedNeighborhood',
                     opacity: 0
                 },
-            ],
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
+                }
+        ],
         },
 
         // 1 - Five Points neighborhood - 1 (POLINA)
@@ -324,25 +1482,120 @@ var config = {
             },
             onChapterEnter: [
                 {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
                     layer: 'FivePointsExtrusion',
                     opacity: 1
                 },
                 {
                     layer: 'FivePointsLabel',
                     opacity: 1
-
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
                 }
-            ],
+        ],
             onChapterExit: [
                 {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
                     layer: 'FivePointsExtrusion',
                     opacity: 1
                 },
                 {
                     layer: 'FivePointsLabel',
                     opacity: 1
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
                 }
-            ]
+        ]
         },
         //
 
@@ -360,22 +1613,117 @@ var config = {
                     },
                     onChapterEnter: [
                         {
+                            layer: 'BuffaloPosition',
+                            opacity: 0
+                        },
+                        {
+                            layer: 'BuffaloOutline',
+                            opacity: 0
+                        },
+                        {
+                            layer: 'DemoMapofBuffalo1',
+                            opacity: 0
+                        },
+                        {
+                            layer: 'DemoMapofBuffalo2',
+                            opacity: 0
+                        },
+                        {
+                            layer: 'DemoMapofBuffalo3',
+                            opacity: 0
+                        },
+                        {
+                            layer: 'DemoMapofBuffalo4',
+                            opacity: 0
+                        },
+                        {
+                            layer: 'HighlightedNeighborhood',
+                            opacity: 0
+                        },
+                        {
                             layer: 'FivePointsExtrusion',
                             opacity: 1
                         },
                         {
                             layer: 'FivePointsLabel',
                             opacity: 1
-        
+                        },
+                        {
+                            layer: 'EmersonExtrusion',
+                            opacity: 0
+                        },
+                        {
+                            layer: 'EmersonLabel',
+                            opacity: 0
+                        },
+                        {
+                            layer: 'BroadwayExtrusion',
+                            opacity: 0
+                        },
+                        {
+                            layer: 'BroadwayLabel',
+                            opacity: 0
+                        },
+                        {
+                            layer: 'CorridorLine',
+                            opacity: 0
                         }
                     ],
                     onChapterExit: [
                         {
-                            layer: 'FivePointsExtrusion',
+                            layer: 'BuffaloPosition',
                             opacity: 0
                         },
                         {
+                            layer: 'BuffaloOutline',
+                            opacity: 0
+                        },
+                        {
+                            layer: 'DemoMapofBuffalo1',
+                            opacity: 0
+                        },
+                        {
+                            layer: 'DemoMapofBuffalo2',
+                            opacity: 0
+                        },
+                        {
+                            layer: 'DemoMapofBuffalo3',
+                            opacity: 0
+                        },
+                        {
+                            layer: 'DemoMapofBuffalo4',
+                            opacity: 0
+                        },
+                        {
+                            layer: 'HighlightedNeighborhood',
+                            opacity: 0
+                        },
+                        {
+                            layer: 'FivePointsExtrusion',
+                            opacity: 1
+                        },
+                        {
                             layer: 'FivePointsLabel',
+                            opacity: 1
+                        },
+                        {
+                            layer: 'EmersonExtrusion',
+                            opacity: 0
+                        },
+                        {
+                            layer: 'EmersonLabel',
+                            opacity: 0
+                        },
+                        {
+                            layer: 'BroadwayExtrusion',
+                            opacity: 0
+                        },
+                        {
+                            layer: 'BroadwayLabel',
+                            opacity: 0
+                        },
+                        {
+                            layer: 'CorridorLine',
                             opacity: 0
                         }
                     ]
@@ -396,16 +1744,120 @@ var config = {
             },
             onChapterEnter: [
                 {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
                     layer: 'FivePointsExtrusion',
+                    opacity: 1
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 1
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
                     opacity: 0
                 }
-            ],
+        ],
             onChapterExit: [
+                {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
                 {
                     layer: 'FivePointsExtrusion',
                     opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
                 }
-            ]
+        ]
         },
 
 
@@ -422,25 +1874,120 @@ var config = {
             },
             onChapterEnter: [
                 {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
                     layer: 'EmersonExtrusion',
                     opacity: 1
                 },
                 {
                     layer: 'EmersonLabel',
                     opacity: 1
-
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
                 }
-            ],
+        ],
             onChapterExit: [
                 {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
                     layer: 'EmersonExtrusion',
                     opacity: 1
                 },
                 {
                     layer: 'EmersonLabel',
                     opacity: 1
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
                 }
-            ]
+        ]
 },
 
         // MLK Park/Emerson neighborhood - 2 (JOAN)
@@ -456,25 +2003,120 @@ var config = {
             },
             onChapterEnter: [
                 {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
                     layer: 'EmersonExtrusion',
                     opacity: 1
                 },
                 {
                     layer: 'EmersonLabel',
                     opacity: 1
-
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
                 }
-            ],
+        ],
             onChapterExit: [
                 {
-                    layer: 'EmersonExtrusion',
+                    layer: 'BuffaloPosition',
                     opacity: 0
                 },
                 {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 1
+                },
+                {
                     layer: 'EmersonLabel',
+                    opacity: 1
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
                     opacity: 0
                 }
-            ]
+        ]
 },
 
         // Emerson neighborhood - 3 (Joan)
@@ -488,10 +2130,123 @@ var config = {
                 pitch: 50,
                 bearing: 30
             },
+            onChapterEnter: [
+                {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 1
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 1
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
+                }
+        ],
+            onChapterExit: [
+                {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
+                }
+        ]
         },
-
-
-
 
 
         // Broadway - Fillmore- Clinton Bailey Neighorhood (JIE)        
@@ -507,26 +2262,121 @@ var config = {
             },
             onChapterEnter: [
                 {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
                     layer: 'BroadwayExtrusion',
                     opacity: 1
                 },
                 {
                     layer: 'BroadwayLabel',
                     opacity: 1
-
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
                 }
-            ],
+        ],
             onChapterExit: [
                 {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
                     layer: 'BroadwayExtrusion',
                     opacity: 1
                 },
                 {
                     layer: 'BroadwayLabel',
                     opacity: 1
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
                 }
-            ]
-        },
+        ]
+    },
 
         // Broadway - Fillmore- Clinton Bailey Neighorhood (JIE)        
         {
@@ -541,26 +2391,121 @@ var config = {
             },
             onChapterEnter: [
                 {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
                     layer: 'BroadwayExtrusion',
                     opacity: 1
                 },
                 {
                     layer: 'BroadwayLabel',
                     opacity: 1
-
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
                 }
-            ],
+        ],
             onChapterExit: [
                 {
-                    layer: 'BroadwayExtrusion',
+                    layer: 'BuffaloPosition',
                     opacity: 0
                 },
                 {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 1
+                },
+                {
                     layer: 'BroadwayLabel',
+                    opacity: 1
+                },
+                {
+                    layer: 'CorridorLine',
                     opacity: 0
                 }
-            ]
-        },
+        ]
+    },
 
         // Broadway - Fillmore- Clinton Bailey Neighorhood (JIE)        
         {
@@ -573,6 +2518,122 @@ var config = {
                 pitch: 50,
                 bearing: 30
             },
+            onChapterEnter: [
+                {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 1
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 1
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
+                }
+        ],
+            onChapterExit: [
+                {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
+                }
+        ]
         },
 
 
@@ -589,7 +2650,39 @@ var config = {
             },
             onChapterEnter: [
                 {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
                     layer: 'FivePointsExtrusion',
+                    opacity: 1
+                },
+                {
+                    layer: 'FivePointsLabel',
                     opacity: 1
                 },
                 {
@@ -597,18 +2690,57 @@ var config = {
                     opacity: 1
                 },
                 {
+                    layer: 'EmersonLabel',
+                    opacity: 1
+                },
+                {
                     layer: 'BroadwayExtrusion',
+                    opacity: 1
+                },
+                {
+                    layer: 'BroadwayLabel',
                     opacity: 1
                 },
                 {
                     layer: 'CorridorLine',
                     opacity: 1
-                },
-            ],
+                }
+        ],
             onChapterExit: [
-                
+                {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
                 {
                     layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
                     opacity: 0
                 },
                 {
@@ -616,15 +2748,23 @@ var config = {
                     opacity: 0
                 },
                 {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
                     layer: 'BroadwayExtrusion',
                     opacity: 0
                 },
                 {
-                    layer: 'CorridorLine',
+                    layer: 'BroadwayLabel',
                     opacity: 0
                 },
-            ],
-        },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 1
+                }
+        ]
+    },
 
          {
             id: 'ConclusionofBuffalo - 2',
@@ -636,8 +2776,122 @@ var config = {
                 pitch: 0,
                 bearing: 0
             },
+            onChapterEnter: [
+                {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 1
+                }
+        ],
+            onChapterExit: [
+                {
+                    layer: 'BuffaloPosition',
+                    opacity: 0
+                },
+                {
+                    layer: 'BuffaloOutline',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo1',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo2',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo3',
+                    opacity: 0
+                },
+                {
+                    layer: 'DemoMapofBuffalo4',
+                    opacity: 0
+                },
+                {
+                    layer: 'HighlightedNeighborhood',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'FivePointsLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'EmersonLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayExtrusion',
+                    opacity: 0
+                },
+                {
+                    layer: 'BroadwayLabel',
+                    opacity: 0
+                },
+                {
+                    layer: 'CorridorLine',
+                    opacity: 0
+                }
+        ]
         }
-
-
     ]
 };
