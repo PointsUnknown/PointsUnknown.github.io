@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"features": [
+{"type": "Feature", "geometry": {"type": "Point", "coordinates": [-436.6446053981781, 39.303321183327455]}, "properties": { "title": "Start point"}},
+{"type": "Feature", "geometry": {"type": "Point", "coordinates": [-436.6387474536896, 39.30338759938258]}, "properties": { "title": "End point" }}
+]
+}

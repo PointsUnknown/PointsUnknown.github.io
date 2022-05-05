@@ -1,0 +1,6 @@
+{
+"type": "FeatureCollection",
+"features": [
+{"type": "Feature", "geometry": {"type": "Point", "coordinates": [-436.6426, 39.305]}, "properties": { "title": "Sandtown"}}
+]
+}

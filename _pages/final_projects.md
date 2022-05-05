@@ -10,25 +10,25 @@ Here you will find links to our student's final projects.
 
 ## GSAPP Spring 2022
 
-### [Migration 1]()
+### [Migration 1](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Migration-1/index.html)
 
 ![Image]()
 
 Brief description of the project.
 
-### [Migration 2]()
+### [Migration 2](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Migration-2/index.html)
 
 ![Image]()
 
 Brief description of the project.
 
-### [Justice 1]()
+### [Justice 1](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Justice-1/index.html)
 
 ![Image]()
 
 Brief description of the project.
 
-### [Justice 2]()
+### [Justice 2](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Justice-2/index.html)
 
 ![Image]()
 
@@ -40,7 +40,7 @@ Brief description of the project.
 
 Investigating the drought in Central Valley, impact on almond growing, controversies in water policies and what’s next for the farmers?
 
-### [Energy]()
+### [Energy](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Energy/index.html)
 
 ![Image]()
 
