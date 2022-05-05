@@ -44,4 +44,4 @@ Controversies surrounding the drought impacts on the almond industry in the Cent
 
 ![Image](/assets/finalProjectImages/gsappSpring2022/energy.png)
 
-Brief description of the project.
+Following the 2021 energy crisis, Houston seeks a major transition to renewable energy in order to achieve energy resiliency and combat climate change.
