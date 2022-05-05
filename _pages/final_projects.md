@@ -34,7 +34,7 @@ Brief description of the project.
 
 Brief description of the project.
 
-### [Climate Change](https://pointsunknown.nyc/final_projects/GSAPP-Spring-2022/Climate-Change/index.html)
+### [Climate Change](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Climate-Change/index.html)
 
 ![Image](/assets/finalProjectImages/gsappSpring2022/climate-change.png)
 
