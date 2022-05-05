@@ -220,6 +220,25 @@ map.on("load", function () {
   }
   
   map.addLayer({
+    'id': 'CentralValley',
+    'type': 'fill',
+    'source': {
+        'type': 'geojson',
+        'data': 'data/CentralValley.geojson'
+    },
+    'paint': {
+        'fill-color': ['step', ['get', 'SJV'],
+            '#ffffff',
+            0, '#ffd033',
+            1, '#ffb739'],
+        'fill-outline-color':'#4f97a3'
+      }
+      
+    },
+    "waterway-label"
+  );
+
+  map.addLayer({
     'id': 'Almond',
     'type': 'fill',
     'source': {
@@ -229,18 +248,82 @@ map.on("load", function () {
     'paint': {
         'fill-color': ['step', ['get', 'Ave_Lot_Size'],
             '#ffffff',
-            10, '#ccedf5',
-            25, '#99daea',
-            35, '#66c7e0',
-            45, '#33b5d5',
-            50, '#00a2ca'],
-        'fill-opacity': ['case', ['==', ['get', 'Ave_Lot_Size'], null], 0, 0.65],
+            10, '#FFF3E2',
+            25, '#FFDDA6',
+            35, '#FDBB65',
+            45, '#F9A027',
+            50, '#E48125'],
+        'fill-opacity': ['case', ['==', ['get', 'Ave_Lot_Size'], null], 0, 0],
         'fill-outline-color':'#4f97a3'
       }
       
     },
-    "waterway-shadow"
   );
+
+map.addLayer({
+  id: "counties_drought_outline",
+  type: "line",
+  source: {
+    type: "geojson",
+    data: "Data/countiesData.geojson",
+  },
+  paint: {
+    "line-color": "#ffffff",
+    "line-width": 0.7,
+  }
+},
+"waterway-label"
+);
+
+map.addLayer(
+  {
+    id: "counties_drought",
+    type: "fill",
+    source: {
+      type: "geojson",
+      data: "Data/countiesData.geojson",
+    },
+    paint: {
+      "fill-color": 
+      ["step",
+      ["get","DSCI"],
+      "#ffffff",
+      200, "#fadbd8",
+      250, "#f5b7b1",
+      300, "#f1948a",
+      350, "#ec7063",
+      400, "#e74c3c"
+  ],
+  "fill-outline-color": "#000000",
+      "fill-opacity": [
+        "case",
+        ['==', ["get", "DSCI"], null], 0, 0
+      ],
+    },
+  },
+  "counties_drought_outline");
+
+// Create the popup
+map.on('click', 'Almond', function (e) {
+  var county = e.features[0].properties.NAMELSAD;
+  var almondc = e.features[0].properties.Ave_Lot_Size;
+  county = county.toUpperCase();
+  new mapboxgl.Popup()
+      .setLngLat(e.lngLat)
+      .setHTML('<h4>'+ county +'</h4>'
+          + '<p>' + 'Average Almond Farm Size: ' + '</p>'
+          + '<p>' + almondc + '</p>')
+      .addTo(map);
+});
+
+// Change the cursor to a pointer when the mouse is over the layer.
+map.on('mouseenter', 'Almond', function () {
+  map.getCanvas().style.cursor = 'pointer';
+});
+// Change it back to a pointer when it leaves.
+map.on('mouseleave', 'Almond', function () {
+  map.getCanvas().style.cursor = '';
+});
 
   // Setup the instance, pass callback functions
   scroller
