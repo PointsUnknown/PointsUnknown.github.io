@@ -281,7 +281,7 @@ map.addLayer(
     type: "fill",
     source: {
       type: "geojson",
-      data: "Data/countiesData.geojson",
+      data: "data/countiesData.geojson",
     },
     paint: {
       "fill-color": 
