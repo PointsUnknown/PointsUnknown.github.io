@@ -12,25 +12,25 @@ Here you will find links to our student's final projects.
 
 ### [Migration 1](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Migration-1/index.html)
 
-![Image]()
+![Image](/assets/finalProjectImages/gsappSpring2022/migration-1.png)
 
-Brief description of the project.
+In the face of long-term population decline, climate change and other threats, Gullah Geechee return to Sapelo Island to shore up their land and protect their heritage.
 
 ### [Migration 2](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Migration-2/index.html)
 
-![Image]()
+![Image](/assets/finalProjectImages/gsappSpring2022/migration-2.png)
 
 Brief description of the project.
 
 ### [Justice 1](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Justice-1/index.html)
 
-![Image]()
+![Image](/assets/finalProjectImages/gsappSpring2022/justice-1.png)
 
 Brief description of the project.
 
 ### [Justice 2](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Justice-2/index.html)
 
-![Image]()
+![Image](/assets/finalProjectImages/gsappSpring2022/justice-2.png)
 
 Brief description of the project.
 
@@ -42,6 +42,6 @@ Controversies surrounding the drought impacts on the almond industry in the Cent
 
 ### [Energy](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Energy/index.html)
 
-![Image]()
+![Image](/assets/finalProjectImages/gsappSpring2022/energy.png)
 
 Brief description of the project.

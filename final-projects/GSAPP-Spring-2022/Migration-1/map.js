@@ -196,10 +196,10 @@ scrolling to the chapters and move the map from one location to another
 while changing the zoom level, pitch and bearing */
 
 map.on("load", function () {
-//     let layers = map.getStyle().layers;
-// for (var i = 0; i < layers.length; i++) {
-//     console.log(layers[i].id)
-// }
+    let layers = map.getStyle().layers;
+for (var i = 0; i < layers.length; i++) {
+    console.log(layers[i].id)
+}
   // Add 3d terrain if necessary
   if (config.use3dTerrain) {
     map.addSource("mapbox-dem", {
@@ -222,49 +222,49 @@ map.on("load", function () {
       },
     });
   }
-  // map.addLayer(
-  //   {
-  //     id: "map",
-  //     type: "circle",
-  //     source: {
-  //       type: "geojson",
-  //       data: "data/map.geojson",
-  //     },
-  //     paint: {
-  //       "circle-color": [
-  //         "interpolate",
-  //         ["linear"],
-  //         ["get", "ENTRIES_DIFF"],
-  //         -1,
-  //         "#ff4400",
-  //         -0.7,
-  //         "#ffba31",
-  //         -0.4,
-  //         "#ffffff",
-  //       ],
-  //       "circle-stroke-color": "#4d4d4d",
-  //       "circle-stroke-width": 0.5,
-  //       "circle-radius": [
-  //         "interpolate",
-  //         ["exponential", 2],
-  //         ["zoom"],
-  //         10,
-  //         ["interpolate", ["linear"], ["get", "ENTRIES_DIFF"], -1, 10, -0.4, 1],
-  //         15,
-  //         [
-  //           "interpolate",
-  //           ["linear"],
-  //           ["get", "ENTRIES_DIFF"],
-  //           -1,
-  //           25,
-  //           -0.4,
-  //           12,
-  //         ],
-  //       ],
-  //     },
-  //   },
-  //   "sapelo_communities"
-  // );
+  map.addLayer(
+    {
+      id: "map",
+      type: "circle",
+      source: {
+        type: "geojson",
+        data: "data/map.geojson",
+      },
+      paint: {
+        "circle-color": [
+          "interpolate",
+          ["linear"],
+          ["get", "ENTRIES_DIFF"],
+          -1,
+          "#ff4400",
+          -0.7,
+          "#ffba31",
+          -0.4,
+          "#ffffff",
+        ],
+        "circle-stroke-color": "#4d4d4d",
+        "circle-stroke-width": 0.5,
+        "circle-radius": [
+          "interpolate",
+          ["exponential", 2],
+          ["zoom"],
+          10,
+          ["interpolate", ["linear"], ["get", "ENTRIES_DIFF"], -1, 10, -0.4, 1],
+          15,
+          [
+            "interpolate",
+            ["linear"],
+            ["get", "ENTRIES_DIFF"],
+            -1,
+            25,
+            -0.4,
+            12,
+          ],
+        ],
+      },
+    },
+    "sapelo_communities"
+  );
   map.addLayer(
     {
       id: "medianIncome",
