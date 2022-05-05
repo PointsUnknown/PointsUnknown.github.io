@@ -38,7 +38,7 @@ Brief description of the project.
 
 ![Image](/assets/finalProjectImages/gsappSpring2022/climate-change.png)
 
-Investigating the drought in Central Valley, impact on almond growing, controversies in water policies and what’s next for the farmers?
+Controversies surrounding the drought impacts on the almond industry in the Central Valley, CA.
 
 ### [Energy](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Energy/index.html)
 
