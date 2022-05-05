@@ -1,0 +1,476 @@
+{
+    "type": "FeatureCollection",
+    "name": "Emerson",
+    "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+    "features": [
+        
+    { "type": "Feature", "properties": { 
+        "base_bbl": "1007630018", 
+        "bin": 1013681.0, 
+        "cnstrct_yr": 1929.0, 
+        "doitt_id": 134000.0, 
+        "feat_code": 2100.0, 
+        "geomsource": "Photogramm", 
+        "groundelev": 37.0, 
+        "heightroof": 6000, 
+        "date_lstmo": "2017-08-22", 
+        "time_lstmo": "00:00:00.000", 
+        "lststatype": "Constructed", 
+        "mpluto_bbl": "1007630018", 
+        "name": null, 
+        "shape_area": 7452.5376775406803, 
+        "shape_len": 348.99573327226, 
+        "index_righ": 33.0, 
+        "Company": "Ladies of Charity", 
+        "address": "333 W. 39th Street, Suite 602, New York, NY 10018", 
+        "businessTy": "Association or organization", 
+        "numberAffe": "110", 
+        "totalEmplo": "----", 
+        "union": "Teamsters Local 272, Teamsters Local 917, SEIU Local 32BJ", 
+        "noticeDate": "4\/20\/2020", 
+        "closingDat": "----", 
+        "reasonDisl": "Unforeseeable business circumstances prompted by COVID-19.", 
+        "reason": "Temporay Plant Layoff\/Plant Layoff", 
+        "url": "https:\/\/labor.ny.gov\/app\/warn\/details.asp?id=9440", 
+        "location": "333 W 39th St #602, New York, NY 10018, USA", 
+        "point": "(42.894331, -78.833314, 0.0)", 
+        "longitude": 42.894331, 
+        "latitude": -78.833314, "z": 0.0 }, 
+        "geometry": { 
+            "type": "MultiPolygon", 
+                    "coordinates": [[
+                        [
+                            [
+                                -78.833314,
+                                42.894331
+                              ],
+                              [
+                                -78.8332,
+                                42.894357
+                              ],
+                              [
+                                -78.833203,
+                                42.894602
+                              ],
+                              [
+                                -78.833314,
+                                42.894602
+                              ],
+                              [
+                                -78.833314,
+                                42.894331
+                              ]
+                            ]
+                      ] ]
+        } 
+    },
+    { "type": "Feature", "properties": { 
+        "base_bbl": "1007630018", 
+        "bin": 1013681.0, 
+        "cnstrct_yr": 1929.0, 
+        "doitt_id": 134000.0, 
+        "feat_code": 2100.0, 
+        "geomsource": "Photogramm", 
+        "groundelev": 37.0, 
+        "heightroof": 4000, 
+        "date_lstmo": "2017-08-22", 
+        "time_lstmo": "00:00:00.000", 
+        "lststatype": "Constructed", 
+        "mpluto_bbl": "1007630018", 
+        "name": null, 
+        "shape_area": 7452.5376775406803, 
+        "shape_len": 348.99573327226, 
+        "index_righ": 33.0, 
+        "Company": "Clinton Bailey Farmers Market", 
+        "address": "333 W. 39th Street, Suite 602, New York, NY 10018", 
+        "businessTy": "Farmers' market", 
+        "numberAffe": "110", 
+        "totalEmplo": "----", 
+        "union": "Teamsters Local 272, Teamsters Local 917, SEIU Local 32BJ", 
+        "noticeDate": "4\/20\/2020", 
+        "closingDat": "----", 
+        "reasonDisl": "Unforeseeable business circumstances prompted by COVID-19.", 
+        "reason": "Temporay Plant Layoff\/Plant Layoff", 
+        "url": "https:\/\/labor.ny.gov\/app\/warn\/details.asp?id=9440", 
+        "location": "333 W 39th St #602, New York, NY 10018, USA", 
+        "point": "(42.8726, -78.821934, 0.0)", 
+        "longitude":42.8726, 
+        "latitude": -78.821934, "z": 0.0 }, 
+        "geometry": { 
+            "type": "MultiPolygon", 
+                    "coordinates": [[
+                        [
+                            [
+                                -78.821934,
+                                42.8726
+                              ],
+                              [
+                                -78.82217,
+                                42.872206
+                              ],
+                              [
+                                -78.822007,
+                                42.872149
+                              ],
+                              [
+                                -78.821779,
+                                42.872543
+                              ],
+                              [
+                                -78.821934,
+                                42.8726
+                              ]
+                                          ]
+                      ] ]
+        } 
+    },
+        { "type": "Feature", "properties": { 
+        "base_bbl": "1007630018", 
+        "bin": 1013681.0, 
+        "cnstrct_yr": 1929.0, 
+        "doitt_id": 134000.0, 
+        "feat_code": 2100.0, 
+        "geomsource": "Photogramm", 
+        "groundelev": 37.0, 
+        "heightroof": 6000, 
+        "date_lstmo": "2017-08-22", 
+        "time_lstmo": "00:00:00.000", 
+        "lststatype": "Constructed", 
+        "mpluto_bbl": "1007630018", 
+        "name": null, 
+        "shape_area": 7452.5376775406803, 
+        "shape_len": 348.99573327226, 
+        "index_righ": 33.0, 
+        "Company": "St. Nicholas Ukrainian Catholic Church", 
+        "address": "333 W. 39th Street, Suite 602, New York, NY 10018", 
+        "businessTy": "Catholic church", 
+        "numberAffe": "110", 
+        "totalEmplo": "----", 
+        "union": "Teamsters Local 272, Teamsters Local 917, SEIU Local 32BJ", 
+        "noticeDate": "4\/20\/2020", 
+        "closingDat": "----", 
+        "reasonDisl": "Unforeseeable business circumstances prompted by COVID-19.", 
+        "reason": "Temporay Plant Layoff\/Plant Layoff", 
+        "url": "https:\/\/labor.ny.gov\/app\/warn\/details.asp?id=9440", 
+        "location": "333 W 39th St #602, New York, NY 10018, USA", 
+        "point": "(42.881549, -78.839736, 0.0)", 
+        "longitude":42.881549, 
+        "latitude": -78.839736, "z": 0.0 }, 
+        "geometry": { 
+            "type": "MultiPolygon", 
+                    "coordinates": [[
+                        [
+                            [
+                                -78.839736,
+                                42.881549
+                              ],
+                              [
+                                -78.839458,
+                                42.881505
+                              ],
+                              [
+                                -78.83944,
+                                42.881576
+                              ],
+                              [
+                                -78.839502,
+                                42.881585
+                              ],
+                              [
+                                -78.8395,
+                                42.881607
+                              ],
+                              [
+                                -78.839707,
+                                42.88164
+                              ],
+                              [
+                                -78.839736,
+                                42.881549
+                              ]
+                                          ]
+                      ] ]
+        } 
+    },
+    { "type": "Feature", "properties": { 
+        "base_bbl": "1007630018", 
+        "bin": 1013681.0, 
+        "cnstrct_yr": 1929.0, 
+        "doitt_id": 134000.0, 
+        "feat_code": 2100.0, 
+        "geomsource": "Photogramm", 
+        "groundelev": 37.0, 
+        "heightroof": 6000, 
+        "date_lstmo": "2017-08-22", 
+        "time_lstmo": "00:00:00.000", 
+        "lststatype": "Constructed", 
+        "mpluto_bbl": "1007630018", 
+        "name": null, 
+        "shape_area": 7452.5376775406803, 
+        "shape_len": 348.99573327226, 
+        "index_righ": 33.0, 
+        "Company": "Buffalo Fresh halal", 
+        "address": "333 W. 39th Street, Suite 602, New York, NY 10018", 
+        "businessTy": "Supermarket", 
+        "numberAffe": "110", 
+        "totalEmplo": "----", 
+        "union": "Teamsters Local 272, Teamsters Local 917, SEIU Local 32BJ", 
+        "noticeDate": "4\/20\/2020", 
+        "closingDat": "----", 
+        "reasonDisl": "Unforeseeable business circumstances prompted by COVID-19.", 
+        "reason": "Temporay Plant Layoff\/Plant Layoff", 
+        "url": "https:\/\/labor.ny.gov\/app\/warn\/details.asp?id=9440", 
+        "location": "333 W 39th St #602, New York, NY 10018, USA", 
+        "point": "(42.89402, -78.837087, 0.0)", 
+        "longitude":42.89402, 
+        "latitude": -78.837087, "z": 0.0 }, 
+        "geometry": { 
+            "type": "MultiPolygon", 
+                    "coordinates": [[
+                        [
+                            [
+                                -78.837087,
+                                42.89402
+                              ],
+                              [
+                                -78.837089,
+                                42.89368
+                              ],
+                              [
+                                -78.836715,
+                                42.893682
+                              ],
+                              [
+                                -78.836715,
+                                42.893979
+                              ],
+                              [
+                                -78.836869,
+                                42.893981
+                              ],
+                              [
+                                -78.836872,
+                                42.894022
+                              ],
+                              [
+                                -78.837087,
+                                42.89402
+                              ]
+                                          ]
+                      ] ]
+        } 
+    },
+    { "type": "Feature", "properties": { 
+        "base_bbl": "1007630018", 
+        "bin": 1013681.0, 
+        "cnstrct_yr": 1929.0, 
+        "doitt_id": 134000.0, 
+        "feat_code": 2100.0, 
+        "geomsource": "Photogramm", 
+        "groundelev": 37.0, 
+        "heightroof": 6000, 
+        "date_lstmo": "2017-08-22", 
+        "time_lstmo": "00:00:00.000", 
+        "lststatype": "Constructed", 
+        "mpluto_bbl": "1007630018", 
+        "name": null, 
+        "shape_area": 7452.5376775406803, 
+        "shape_len": 348.99573327226, 
+        "index_righ": 33.0, 
+        "Company": "Buffalo Wire Works Co Inc", 
+        "address": "333 W. 39th Street, Suite 602, New York, NY 10018", 
+        "businessTy": "Manufacturer", 
+        "numberAffe": "110", 
+        "totalEmplo": "----", 
+        "union": "Teamsters Local 272, Teamsters Local 917, SEIU Local 32BJ", 
+        "noticeDate": "4\/20\/2020", 
+        "closingDat": "----", 
+        "reasonDisl": "Unforeseeable business circumstances prompted by COVID-19.", 
+        "reason": "Temporay Plant Layoff\/Plant Layoff", 
+        "url": "https:\/\/labor.ny.gov\/app\/warn\/details.asp?id=9440", 
+        "location": "333 W 39th St #602, New York, NY 10018, USA", 
+        "point": "(42.876084, -78.83297, 0.0)", 
+        "longitude":42.876084, 
+        "latitude": -78.83297, "z": 0.0 }, 
+        "geometry": { 
+            "type": "MultiPolygon", 
+                    "coordinates": [[
+                        [
+                            [
+                                -78.83297,
+                                42.876084
+                              ],
+                              [
+                                -78.833979,
+                                42.87453
+                              ],
+                              [
+                                -78.834331,
+                                42.874649
+                              ],
+                              [
+                                -78.834076,
+                                42.875018
+                              ],
+                              [
+                                -78.83438,
+                                42.875119
+                              ],
+                              [
+                                -78.834042,
+                                42.875625
+                              ],
+                              [
+                                -78.833934,
+                                42.875589
+                              ],
+                              [
+                                -78.833763,
+                                42.875822
+                              ],
+                              [
+                                -78.833567,
+                                42.875765
+                              ],
+                              [
+                                -78.833391,
+                                42.876008
+                              ],
+                              [
+                                -78.833186,
+                                42.875947
+                              ],
+                              [
+                                -78.833068,
+                                42.876138
+                              ],
+                              [
+                                -78.83297,
+                                42.876084
+                              ]
+                                          ]
+                      ] ]
+        } 
+    },
+    { "type": "Feature", "properties": { 
+        "base_bbl": "1007630018", 
+        "bin": 1013681.0, 
+        "cnstrct_yr": 1929.0, 
+        "doitt_id": 134000.0, 
+        "feat_code": 2100.0, 
+        "geomsource": "Photogramm", 
+        "groundelev": 37.0, 
+        "heightroof": 6000, 
+        "date_lstmo": "2017-08-22", 
+        "time_lstmo": "00:00:00.000", 
+        "lststatype": "Constructed", 
+        "mpluto_bbl": "1007630018", 
+        "name": null, 
+        "shape_area": 7452.5376775406803, 
+        "shape_len": 348.99573327226, 
+        "index_righ": 33.0, 
+        "Company": "The Broadway Market", 
+        "address": "333 W. 39th Street, Suite 602, New York, NY 10018", 
+        "businessTy": "Market", 
+        "numberAffe": "110", 
+        "totalEmplo": "----", 
+        "union": "Teamsters Local 272, Teamsters Local 917, SEIU Local 32BJ", 
+        "noticeDate": "4\/20\/2020", 
+        "closingDat": "----", 
+        "reasonDisl": "Unforeseeable business circumstances prompted by COVID-19.", 
+        "reason": "Temporay Plant Layoff\/Plant Layoff", 
+        "url": "https:\/\/labor.ny.gov\/app\/warn\/details.asp?id=9440", 
+        "location": "333 W 39th St #602, New York, NY 10018, USA", 
+        "point": "(42.89312, -78.838028, 0.0)", 
+        "longitude":42.89312, 
+        "latitude": -78.838028, "z": 0.0 }, 
+        "geometry": { 
+            "type": "MultiPolygon", 
+                    "coordinates": [[
+                        [
+                            [
+                                -78.838028,
+                                42.89312
+                              ],
+                              [
+                                -78.83802,
+                                42.891045
+                              ],
+                              [
+                                -78.837207,
+                                42.891021
+                              ],
+                              [
+                                -78.837207,
+                                42.893325
+                              ],
+                              [
+                                -78.838028,
+                                42.89312
+                              ]
+                                          ]
+                      ] ]
+        } 
+    },
+    { "type": "Feature", "properties": { 
+        "base_bbl": "1007630018", 
+        "bin": 1013681.0, 
+        "cnstrct_yr": 1929.0, 
+        "doitt_id": 134000.0, 
+        "feat_code": 2100.0, 
+        "geomsource": "Photogramm", 
+        "groundelev": 37.0, 
+        "heightroof": 4000, 
+        "date_lstmo": "2017-08-22", 
+        "time_lstmo": "00:00:00.000", 
+        "lststatype": "Constructed", 
+        "mpluto_bbl": "1007630018", 
+        "name": null, 
+        "shape_area": 7452.5376775406803, 
+        "shape_len": 348.99573327226, 
+        "index_righ": 33.0, 
+        "Company": "Alibaba Kebab", 
+        "address": "333 W. 39th Street, Suite 602, New York, NY 10018", 
+        "businessTy": "Halal restaurant", 
+        "numberAffe": "110", 
+        "totalEmplo": "----", 
+        "union": "Teamsters Local 272, Teamsters Local 917, SEIU Local 32BJ", 
+        "noticeDate": "4\/20\/2020", 
+        "closingDat": "----", 
+        "reasonDisl": "Unforeseeable business circumstances prompted by COVID-19.", 
+        "reason": "Temporay Plant Layoff\/Plant Layoff", 
+        "url": "https:\/\/labor.ny.gov\/app\/warn\/details.asp?id=9440", 
+        "location": "333 W 39th St #602, New York, NY 10018, USA", 
+        "point": "(42.885211, -78.838262, 0.0)", 
+        "longitude":42.885211, 
+        "latitude": -78.838262, "z": 0.0 }, 
+        "geometry": { 
+            "type": "MultiPolygon", 
+                    "coordinates": [[
+                        [
+                            [
+                                -78.838262,
+                                42.885211
+                              ],
+                              [
+                                -78.838264,
+                                42.88509
+                              ],
+                              [
+                                -78.838154,
+                                42.885088
+                              ],
+                              [
+                                -78.838157,
+                                42.885209
+                              ],
+                              [
+                                -78.838262,
+                                42.885211
+                              ]
+                                              ]
+                      ] ]
+        } 
+    }
+ ]
+}

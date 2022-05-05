@@ -1,0 +1,50 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Five Points Neighborhood",
+        "Number": "#1"
+      },
+      "geometry": {
+        "coordinates": [
+          -78.891943,
+          42.915185
+        ],
+        "type": "Point"
+      },
+      "id": "9ded91b786d6b6cf0105c9bb660a1d6d"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Broadway - Fillmore- Clinton Bailey Neighorhood",
+        "Number": "#3"
+      },
+      "geometry": {
+        "coordinates": [
+          -78.854428,
+          42.88195
+        ],
+        "type": "Point"
+      },
+      "id": "d69505f85e3f5366e857da236519d4d4"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Emerson Neighborhood",
+        "Number": "#2"
+      },
+      "geometry": {
+        "coordinates": [
+          -78.845656,
+          42.890643
+        ],
+        "type": "Point"
+      },
+      "id": "e2a576482e5d74d4ba2cbd051834a495"
+    }
+  ],
+  "type": "FeatureCollection"
+}

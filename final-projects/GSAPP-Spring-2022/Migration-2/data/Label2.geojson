@@ -1,0 +1,718 @@
+{
+    "type": "FeatureCollection",
+    "name": "Emerson",
+    "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+    "features": [
+        
+    { "type": "Feature", "properties": { 
+        "base_bbl": "1007630018", 
+        "bin": 1013681.0, 
+        "cnstrct_yr": 1929.0, 
+        "doitt_id": 134000.0, 
+        "feat_code": 2100.0, 
+        "geomsource": "Photogramm", 
+        "groundelev": 37.0, 
+        "heightroof": 7000, 
+        "date_lstmo": "2017-08-22", 
+        "time_lstmo": "00:00:00.000", 
+        "lststatype": "Constructed", 
+        "mpluto_bbl": "1007630018", 
+        "name": null, 
+        "shape_area": 7452.5376775406803, 
+        "shape_len": 348.99573327226, 
+        "index_righ": 33.0, 
+        "Company": "Madinah Masjid", 
+        "address": "333 W. 39th Street, Suite 602, New York, NY 10018", 
+        "businessTy": "Mosque", 
+        "numberAffe": "110", 
+        "totalEmplo": "----", 
+        "union": "Teamsters Local 272, Teamsters Local 917, SEIU Local 32BJ", 
+        "noticeDate": "4\/20\/2020", 
+        "closingDat": "----", 
+        "reasonDisl": "Unforeseeable business circumstances prompted by COVID-19.", 
+        "reason": "Temporay Plant Layoff\/Plant Layoff", 
+        "url": "https:\/\/labor.ny.gov\/app\/warn\/details.asp?id=9440", 
+        "location": "333 W 39th St #602, New York, NY 10018, USA", 
+        "point": "(42.890501, -78.810145, 0.0)", 
+        "longitude": 42.890501, 
+        "latitude": -78.810145, "z": 0.0 }, 
+        "geometry": { 
+            "type": "MultiPolygon", 
+                    "coordinates": [[
+                        [
+                            [
+                                -78.810145,
+                                42.890501
+                              ],
+                              [
+                                -78.810145,
+                                42.890345
+                              ],
+                              [
+                                -78.809748,
+                                42.890342
+                              ],
+                              [
+                                -78.809743,
+                                42.8905
+                              ],
+                              [
+                                -78.810145,
+                                42.890501
+                              ]
+                        ]
+                      ] ]
+        } 
+    },
+    { "type": "Feature", "properties": { 
+        "base_bbl": "1007630018", 
+        "bin": 1013681.0, 
+        "cnstrct_yr": 1929.0, 
+        "doitt_id": 134000.0, 
+        "feat_code": 2100.0, 
+        "geomsource": "Photogramm", 
+        "groundelev": 37.0, 
+        "heightroof": 5000, 
+        "date_lstmo": "2017-08-22", 
+        "time_lstmo": "00:00:00.000", 
+        "lststatype": "Constructed", 
+        "mpluto_bbl": "1007630018", 
+        "name": null, 
+        "shape_area": 7452.5376775406803, 
+        "shape_len": 348.99573327226, 
+        "index_righ": 33.0, 
+        "Company": "Downtown Islamic Center", 
+        "address": "333 W. 39th Street, Suite 602, New York, NY 10018", 
+        "businessTy": "Mosque", 
+        "numberAffe": "110", 
+        "totalEmplo": "----", 
+        "union": "Teamsters Local 272, Teamsters Local 917, SEIU Local 32BJ", 
+        "noticeDate": "4\/20\/2020", 
+        "closingDat": "----", 
+        "reasonDisl": "Unforeseeable business circumstances prompted by COVID-19.", 
+        "reason": "Temporay Plant Layoff\/Plant Layoff", 
+        "url": "https:\/\/labor.ny.gov\/app\/warn\/details.asp?id=9440", 
+        "location": "333 W 39th St #602, New York, NY 10018, USA", 
+        "point": "(42.890917, -78.848298, 0.0)", 
+        "longitude":42.890917, 
+        "latitude": -78.848298, "z": 0.0 }, 
+        "geometry": { 
+            "type": "MultiPolygon", 
+                    "coordinates": [[
+                        [
+                            [
+                                -78.848298,
+                                42.890917
+                              ],
+                              [
+                                -78.848295,
+                                42.890686
+                              ],
+                              [
+                                -78.848213,
+                                42.890686
+                              ],
+                              [
+                                -78.848213,
+                                42.890921
+                              ],
+                              [
+                                -78.848298,
+                                42.890917
+                              ]
+                        ]
+                      ] ]
+        } 
+    },
+        { "type": "Feature", "properties": { 
+        "base_bbl": "1007630018", 
+        "bin": 1013681.0, 
+        "cnstrct_yr": 1929.0, 
+        "doitt_id": 134000.0, 
+        "feat_code": 2100.0, 
+        "geomsource": "Photogramm", 
+        "groundelev": 37.0, 
+        "heightroof": 6000, 
+        "date_lstmo": "2017-08-22", 
+        "time_lstmo": "00:00:00.000", 
+        "lststatype": "Constructed", 
+        "mpluto_bbl": "1007630018", 
+        "name": null, 
+        "shape_area": 7452.5376775406803, 
+        "shape_len": 348.99573327226, 
+        "index_righ": 33.0, 
+        "Company": "Buffalo Muslim Center", 
+        "address": "333 W. 39th Street, Suite 602, New York, NY 10018", 
+        "businessTy": "Mosque", 
+        "numberAffe": "110", 
+        "totalEmplo": "----", 
+        "union": "Teamsters Local 272, Teamsters Local 917, SEIU Local 32BJ", 
+        "noticeDate": "4\/20\/2020", 
+        "closingDat": "----", 
+        "reasonDisl": "Unforeseeable business circumstances prompted by COVID-19.", 
+        "reason": "Temporay Plant Layoff\/Plant Layoff", 
+        "url": "https:\/\/labor.ny.gov\/app\/warn\/details.asp?id=9440", 
+        "location": "333 W 39th St #602, New York, NY 10018, USA", 
+        "point": "(42.900469, -78.839019, 0.0)", 
+        "longitude":42.900469, 
+        "latitude": -78.839019, "z": 0.0 }, 
+        "geometry": { 
+            "type": "MultiPolygon", 
+                    "coordinates": [[
+                        [
+                            [
+                                -78.839019,
+                                42.900469
+                              ],
+                              [
+                                -78.839017,
+                                42.900313
+                              ],
+                              [
+                                -78.838565,
+                                42.900315
+                              ],
+                              [
+                                -78.838565,
+                                42.90047
+                              ],
+                              [
+                                -78.839019,
+                                42.900469
+                              ]
+                        ]
+                      ] ]
+        } 
+    },
+    { "type": "Feature", "properties": { 
+        "base_bbl": "1007630018", 
+        "bin": 1013681.0, 
+        "cnstrct_yr": 1929.0, 
+        "doitt_id": 134000.0, 
+        "feat_code": 2100.0, 
+        "geomsource": "Photogramm", 
+        "groundelev": 37.0, 
+        "heightroof": 3000, 
+        "date_lstmo": "2017-08-22", 
+        "time_lstmo": "00:00:00.000", 
+        "lststatype": "Constructed", 
+        "mpluto_bbl": "1007630018", 
+        "name": null, 
+        "shape_area": 7452.5376775406803, 
+        "shape_len": 348.99573327226, 
+        "index_righ": 33.0, 
+        "Company": "Lovejoy Masjid", 
+        "address": "333 W. 39th Street, Suite 602, New York, NY 10018", 
+        "businessTy": "Mosque", 
+        "numberAffe": "110", 
+        "totalEmplo": "----", 
+        "union": "Teamsters Local 272, Teamsters Local 917, SEIU Local 32BJ", 
+        "noticeDate": "4\/20\/2020", 
+        "closingDat": "----", 
+        "reasonDisl": "Unforeseeable business circumstances prompted by COVID-19.", 
+        "reason": "Temporay Plant Layoff\/Plant Layoff", 
+        "url": "https:\/\/labor.ny.gov\/app\/warn\/details.asp?id=9440", 
+        "location": "333 W 39th St #602, New York, NY 10018, USA", 
+        "point": "(42.889671, -78.807367, 0.0)", 
+        "longitude":42.889671, 
+        "latitude": -78.807367, "z": 0.0 }, 
+        "geometry": { 
+            "type": "MultiPolygon", 
+                    "coordinates": [[
+                        [
+                            [
+                                -78.807367,
+                                42.889671
+                              ],
+                              [
+                                -78.807365,
+                                42.889486
+                              ],
+                              [
+                                -78.807232,
+                                42.889486
+                              ],
+                              [
+                                -78.807232,
+                                42.88967
+                              ],
+                              [
+                                -78.807367,
+                                42.889671
+                              ]                                
+                        ]
+                      ] ]
+        } 
+    },
+    { "type": "Feature", "properties": { 
+        "base_bbl": "1007630018", 
+        "bin": 1013681.0, 
+        "cnstrct_yr": 1929.0, 
+        "doitt_id": 134000.0, 
+        "feat_code": 2100.0, 
+        "geomsource": "Photogramm", 
+        "groundelev": 37.0, 
+        "heightroof": 6000, 
+        "date_lstmo": "2017-08-22", 
+        "time_lstmo": "00:00:00.000", 
+        "lststatype": "Constructed", 
+        "mpluto_bbl": "1007630018", 
+        "name": null, 
+        "shape_area": 7452.5376775406803, 
+        "shape_len": 348.99573327226, 
+        "index_righ": 33.0, 
+        "Company": "Masjid Daru-s Salaam", 
+        "address": "333 W. 39th Street, Suite 602, New York, NY 10018", 
+        "businessTy": "Mosque", 
+        "numberAffe": "110", 
+        "totalEmplo": "----", 
+        "union": "Teamsters Local 272, Teamsters Local 917, SEIU Local 32BJ", 
+        "noticeDate": "4\/20\/2020", 
+        "closingDat": "----", 
+        "reasonDisl": "Unforeseeable business circumstances prompted by COVID-19.", 
+        "reason": "Temporay Plant Layoff\/Plant Layoff", 
+        "url": "https:\/\/labor.ny.gov\/app\/warn\/details.asp?id=9440", 
+        "location": "333 W 39th St #602, New York, NY 10018, USA", 
+        "point": "(42.905519, -78.835309, 0.0)", 
+        "longitude":42.905519, 
+        "latitude": -78.835309, "z": 0.0 }, 
+        "geometry": { 
+            "type": "MultiPolygon", 
+                    "coordinates": [[
+                        [
+                            [
+                                -78.835309,
+                                42.905519
+                              ],
+                              [
+                                -78.835598,
+                                42.905517
+                              ],
+                              [
+                                -78.835599,
+                                42.905453
+                              ],
+                              [
+                                -78.835311,
+                                42.905454
+                              ],
+                              [
+                                -78.835309,
+                                42.905519
+                              ]
+                        ]
+                      ] ]
+        } 
+    },
+    { "type": "Feature", "properties": { 
+        "base_bbl": "1007630018", 
+        "bin": 1013681.0, 
+        "cnstrct_yr": 1929.0, 
+        "doitt_id": 134000.0, 
+        "feat_code": 2100.0, 
+        "geomsource": "Photogramm", 
+        "groundelev": 37.0, 
+        "heightroof": 6000, 
+        "date_lstmo": "2017-08-22", 
+        "time_lstmo": "00:00:00.000", 
+        "lststatype": "Constructed", 
+        "mpluto_bbl": "1007630018", 
+        "name": null, 
+        "shape_area": 7452.5376775406803, 
+        "shape_len": 348.99573327226, 
+        "index_righ": 33.0, 
+        "Company": "Islamic Da'wah Center of Buffalo", 
+        "address": "333 W. 39th Street, Suite 602, New York, NY 10018", 
+        "businessTy": "Mosque", 
+        "numberAffe": "110", 
+        "totalEmplo": "----", 
+        "union": "Teamsters Local 272, Teamsters Local 917, SEIU Local 32BJ", 
+        "noticeDate": "4\/20\/2020", 
+        "closingDat": "----", 
+        "reasonDisl": "Unforeseeable business circumstances prompted by COVID-19.", 
+        "reason": "Temporay Plant Layoff\/Plant Layoff", 
+        "url": "https:\/\/labor.ny.gov\/app\/warn\/details.asp?id=9440", 
+        "location": "333 W 39th St #602, New York, NY 10018, USA", 
+        "point": "(42.908854, -78.824126, 0.0)", 
+        "longitude":42.908854, 
+        "latitude": -78.824126, "z": 0.0 }, 
+        "geometry": { 
+            "type": "MultiPolygon", 
+                    "coordinates": [[
+                        [
+                            [
+                                -78.824126,
+                                42.908854
+                              ],
+                              [
+                                -78.824127,
+                                42.908819
+                              ],
+                              [
+                                -78.824155,
+                                42.908809
+                              ],
+                              [
+                                -78.824152,
+                                42.908595
+                              ],
+                              [
+                                -78.824146,
+                                42.908584
+                              ],
+                              [
+                                -78.824127,
+                                42.908582
+                              ],
+                              [
+                                -78.824028,
+                                42.90862
+                              ],
+                              [
+                                -78.824028,
+                                42.908854
+                              ],
+                              [
+                                -78.824126,
+                                42.908854
+                              ]
+                        ]
+                      ] ]
+        } 
+    },
+    { "type": "Feature", "properties": { 
+        "base_bbl": "1007630018", 
+        "bin": 1013681.0, 
+        "cnstrct_yr": 1929.0, 
+        "doitt_id": 134000.0, 
+        "feat_code": 2100.0, 
+        "geomsource": "Photogramm", 
+        "groundelev": 37.0, 
+        "heightroof": 7000, 
+        "date_lstmo": "2017-08-22", 
+        "time_lstmo": "00:00:00.000", 
+        "lststatype": "Constructed", 
+        "mpluto_bbl": "1007630018", 
+        "name": null, 
+        "shape_area": 7452.5376775406803, 
+        "shape_len": 348.99573327226, 
+        "index_righ": 33.0, 
+        "Company": "Masjid Zakariya", 
+        "address": "333 W. 39th Street, Suite 602, New York, NY 10018", 
+        "businessTy": "Mosque", 
+        "numberAffe": "110", 
+        "totalEmplo": "----", 
+        "union": "Teamsters Local 272, Teamsters Local 917, SEIU Local 32BJ", 
+        "noticeDate": "4\/20\/2020", 
+        "closingDat": "----", 
+        "reasonDisl": "Unforeseeable business circumstances prompted by COVID-19.", 
+        "reason": "Temporay Plant Layoff\/Plant Layoff", 
+        "url": "https:\/\/labor.ny.gov\/app\/warn\/details.asp?id=9440", 
+        "location": "333 W 39th St #602, New York, NY 10018, USA", 
+        "point": "(42.899223, -78.833375, 0.0)", 
+        "longitude":42.899223, 
+        "latitude": -78.833375, "z": 0.0 }, 
+        "geometry": { 
+            "type": "MultiPolygon", 
+                    "coordinates": [[
+                        [
+                            [
+                                -78.833375,
+                                42.899223
+                              ],
+                              [
+                                -78.833377,
+                                42.899136
+                              ],
+                              [
+                                -78.833467,
+                                42.899138
+                              ],
+                              [
+                                -78.833467,
+                                42.899026
+                              ],
+                              [
+                                -78.833369,
+                                42.899023
+                              ],
+                              [
+                                -78.833369,
+                                42.898963
+                              ],
+                              [
+                                -78.832826,
+                                42.898954
+                              ],
+                              [
+                                -78.832822,
+                                42.899218
+                              ],
+                              [
+                                -78.833375,
+                                42.899223
+                              ]
+                            ]
+                      ] ]
+        } 
+    },
+    { "type": "Feature", "properties": { 
+        "base_bbl": "1007630018", 
+        "bin": 1013681.0, 
+        "cnstrct_yr": 1929.0, 
+        "doitt_id": 134000.0, 
+        "feat_code": 2100.0, 
+        "geomsource": "Photogramm", 
+        "groundelev": 37.0, 
+        "heightroof": 6000, 
+        "date_lstmo": "2017-08-22", 
+        "time_lstmo": "00:00:00.000", 
+        "lststatype": "Constructed", 
+        "mpluto_bbl": "1007630018", 
+        "name": null, 
+        "shape_area": 7452.5376775406803, 
+        "shape_len": 348.99573327226, 
+        "index_righ": 33.0, 
+        "Company": "Buffalo Islamic Center", 
+        "address": "333 W. 39th Street, Suite 602, New York, NY 10018", 
+        "businessTy": "Mosque", 
+        "numberAffe": "110", 
+        "totalEmplo": "----", 
+        "union": "Teamsters Local 272, Teamsters Local 917, SEIU Local 32BJ", 
+        "noticeDate": "4\/20\/2020", 
+        "closingDat": "----", 
+        "reasonDisl": "Unforeseeable business circumstances prompted by COVID-19.", 
+        "reason": "Temporay Plant Layoff\/Plant Layoff", 
+        "url": "https:\/\/labor.ny.gov\/app\/warn\/details.asp?id=9440", 
+        "location": "333 W 39th St #602, New York, NY 10018, USA", 
+        "point": "(42.892159, -78.842624, 0.0)", 
+        "longitude":42.892159, 
+        "latitude": -78.842624, "z": 0.0 }, 
+        "geometry": { 
+            "type": "MultiPolygon", 
+                    "coordinates": [[
+                        [
+                            [
+                                -78.842624,
+                                42.892159
+                              ],
+                              [
+                                -78.842622,
+                                42.891902
+                              ],
+                              [
+                                -78.842525,
+                                42.891903
+                              ],
+                              [
+                                -78.842525,
+                                42.892065
+                              ],
+                              [
+                                -78.842514,
+                                42.892064
+                              ],
+                              [
+                                -78.842514,
+                                42.892159
+                              ],
+                              [
+                                -78.842624,
+                                42.892159
+                              ]
+                            ]
+                      ]]
+        } 
+    },
+    { "type": "Feature", "properties": { 
+        "base_bbl": "1007630018", 
+        "bin": 1013681.0, 
+        "cnstrct_yr": 1929.0, 
+        "doitt_id": 134000.0, 
+        "feat_code": 2100.0, 
+        "geomsource": "Photogramm", 
+        "groundelev": 37.0, 
+        "heightroof": 9000, 
+        "date_lstmo": "2017-08-22", 
+        "time_lstmo": "00:00:00.000", 
+        "lststatype": "Constructed", 
+        "mpluto_bbl": "1007630018", 
+        "name": null, 
+        "shape_area": 7452.5376775406803, 
+        "shape_len": 348.99573327226, 
+        "index_righ": 33.0, 
+        "Company": "Buffalo Islamic Cultural Center At Masjid Baitul Aman", 
+        "address": "333 W. 39th Street, Suite 602, New York, NY 10018", 
+        "businessTy": "Mosque", 
+        "numberAffe": "110", 
+        "totalEmplo": "----", 
+        "union": "Teamsters Local 272, Teamsters Local 917, SEIU Local 32BJ", 
+        "noticeDate": "4\/20\/2020", 
+        "closingDat": "----", 
+        "reasonDisl": "Unforeseeable business circumstances prompted by COVID-19.", 
+        "reason": "Temporay Plant Layoff\/Plant Layoff", 
+        "url": "https:\/\/labor.ny.gov\/app\/warn\/details.asp?id=9440", 
+        "location": "333 W 39th St #602, New York, NY 10018, USA", 
+        "point": "(42.904959, -78.812543, 0.0)", 
+        "longitude":42.904959, 
+        "latitude": -78.812543, "z": 0.0 }, 
+        "geometry": { 
+            "type": "MultiPolygon", 
+                    "coordinates": [[
+                        [
+                            [
+                                -78.812543,
+                                42.904959
+                              ],
+                              [
+                                -78.812543,
+                                42.904749
+                              ],
+                              [
+                                -78.812233,
+                                42.904749
+                              ],
+                              [
+                                -78.812233,
+                                42.904959
+                              ],
+                              [
+                                -78.812543,
+                                42.904959
+                              ]
+                        ]
+                      ]]
+        } 
+    },
+    { "type": "Feature", "properties": { 
+        "base_bbl": "1007630018", 
+        "bin": 1013681.0, 
+        "cnstrct_yr": 1929.0, 
+        "doitt_id": 134000.0, 
+        "feat_code": 2100.0, 
+        "geomsource": "Photogramm", 
+        "groundelev": 37.0, 
+        "heightroof": 5000, 
+        "date_lstmo": "2017-08-22", 
+        "time_lstmo": "00:00:00.000", 
+        "lststatype": "Constructed", 
+        "mpluto_bbl": "1007630018", 
+        "name": null, 
+        "shape_area": 7452.5376775406803, 
+        "shape_len": 348.99573327226, 
+        "index_righ": 33.0, 
+        "Company": "Jamiaashrafia", 
+        "address": "333 W. 39th Street, Suite 602, New York, NY 10018", 
+        "businessTy": "Mosque", 
+        "numberAffe": "110", 
+        "totalEmplo": "----", 
+        "union": "Teamsters Local 272, Teamsters Local 917, SEIU Local 32BJ", 
+        "noticeDate": "4\/20\/2020", 
+        "closingDat": "----", 
+        "reasonDisl": "Unforeseeable business circumstances prompted by COVID-19.", 
+        "reason": "Temporay Plant Layoff\/Plant Layoff", 
+        "url": "https:\/\/labor.ny.gov\/app\/warn\/details.asp?id=9440", 
+        "location": "333 W 39th St #602, New York, NY 10018, USA", 
+        "point": "(42.901449, -78.834905, 0.0)", 
+        "longitude":42.901449, 
+        "latitude": -78.834905, "z": 0.0 }, 
+        "geometry": { 
+            "type": "MultiPolygon", 
+                    "coordinates": [[
+                        [
+                            [
+                                -78.834905,
+                                42.901449
+                              ],
+                              [
+                                -78.834905,
+                                42.901389
+                              ],
+                              [
+                                -78.834609,
+                                42.901389
+                              ],
+                              [
+                                -78.834609,
+                                42.901448
+                              ],
+                              [
+                                -78.834905,
+                                42.901449
+                              ]
+                        ]
+                      ]]
+        } 
+    },
+    { "type": "Feature", "properties": { 
+        "base_bbl": "1007630018", 
+        "bin": 1013681.0, 
+        "cnstrct_yr": 1929.0, 
+        "doitt_id": 134000.0, 
+        "feat_code": 2100.0, 
+        "geomsource": "Photogramm", 
+        "groundelev": 37.0, 
+        "heightroof": 9000, 
+        "date_lstmo": "2017-08-22", 
+        "time_lstmo": "00:00:00.000", 
+        "lststatype": "Constructed", 
+        "mpluto_bbl": "1007630018", 
+        "name": null, 
+        "shape_area": 7452.5376775406803, 
+        "shape_len": 348.99573327226, 
+        "index_righ": 33.0, 
+        "Company": "Baitul Mamoor Jam-E-Masjid", 
+        "address": "333 W. 39th Street, Suite 602, New York, NY 10018", 
+        "businessTy": "Mosque", 
+        "numberAffe": "110", 
+        "totalEmplo": "----", 
+        "union": "Teamsters Local 272, Teamsters Local 917, SEIU Local 32BJ", 
+        "noticeDate": "4\/20\/2020", 
+        "closingDat": "----", 
+        "reasonDisl": "Unforeseeable business circumstances prompted by COVID-19.", 
+        "reason": "Temporay Plant Layoff\/Plant Layoff", 
+        "url": "https:\/\/labor.ny.gov\/app\/warn\/details.asp?id=9440", 
+        "location": "333 W 39th St #602, New York, NY 10018, USA", 
+        "point": "(42.901449, -78.834905, 0.0)", 
+        "longitude":42.901449, 
+        "latitude": -78.834905, "z": 0.0 }, 
+        "geometry": { 
+            "type": "MultiPolygon", 
+                    "coordinates": [[
+                        [
+                            [
+                                -78.823281,
+                                42.897953
+                              ],
+                              [
+                                -78.823281,
+                                42.897914
+                              ],
+                              [
+                                -78.823354,
+                                42.897913
+                              ],
+                              [
+                                -78.823352,
+                                42.897785
+                              ],
+                              [
+                                -78.822933,
+                                42.897785
+                              ],
+                              [
+                                -78.822935,
+                                42.897955
+                              ],
+                              [
+                                -78.823281,
+                                42.897953
+                              ]
+                            ]
+                      ]]
+        } 
+    }
+
+
+ ]
+}

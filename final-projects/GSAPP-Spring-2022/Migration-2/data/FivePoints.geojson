@@ -1,0 +1,368 @@
+{
+  "type": "FeatureCollection",
+  "name": "FivePoints",
+  "crs": { "type": "name",
+       "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+  "features": [
+  {"type": "Feature",
+       "properties":{
+        "Company": "Jericho Road Community Health Center",
+        "Type": "Non-profit organization",
+        "Height": 6000, 
+        "base_bbl": "1007630018",
+         "bin": 1013681.0, 
+         "cnstrct_yr": 1929.0,
+          "doitt_id": 134000.0,
+           "feat_code": 2100.0,
+            "geomsource": "Photogramm",
+             "groundelev": 37.0, 
+             "heightroof": 182.37028,
+              "date_lstmo": "2017-08-22", 
+              "time_lstmo": "00:00:00.000", 
+              "lststatype": "Constructed",
+               "mpluto_bbl": "1007630018", 
+               "shape_area": 7452.5376775406803, 
+               "shape_len": 348.99573327226, 
+               "index_righ": 33.0, 
+        "point": "(42.918074, -78.894625, 0.0)", 
+        "longitude": 42.918074,
+        "latitude": -78.894625, 
+        "z": 0.0 }, 
+        "geometry": {"type": "MultiPolygon", 
+        "coordinates": [[[
+            [-78.894625,42.918074],
+            [-78.894626,42.917991],
+            [-78.895087,42.917994],
+            [-78.895087,42.917812],
+            [-78.895206,42.917811],
+            [-78.895208,42.917749],
+            [-78.89491,42.917749],
+            [-78.894907,42.917787],
+            [-78.89444,42.917783],
+            [-78.894439,42.918071],
+            [-78.894625,42.918074]
+                                ]]]}}
+  ]
+  }
+
+
+  {
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "Name": "Jericho Road Community Health Center",
+          "Type": "Non-profit organization",
+          "Height": 6000
+        },
+        "geometry": {
+          "coordinates": [
+            [
+              
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "id": "04ab80fcce088f756e6b45c94e028f2e"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Name": "Masjid Al-Eiman Mosque | ICAWNY",
+          "Type": "Mosque",
+          "Height": 5000
+        },
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                -78.885299,
+                42.907562
+              ],
+              [
+                -78.885072,
+                42.907297
+              ],
+              [
+                -78.884941,
+                42.907354
+              ],
+              [
+                -78.885169,
+                42.90762
+              ],
+              [
+                -78.885299,
+                42.907562
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "id": "12a513d043aebd9bebee62a94c795b74"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Name": "Burmese Muslim Community",
+          "Type": "Community center",
+          "Height": 6000
+        },
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                -78.897572,
+                42.910546
+              ],
+              [
+                -78.897762,
+                42.910452
+              ],
+              [
+                -78.897712,
+                42.910398
+              ],
+              [
+                -78.897524,
+                42.910497
+              ],
+              [
+                -78.897572,
+                42.910546
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "id": "555afab7e3d0224239ddb88dd453341e"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Name": "Somali Bantu Community Org",
+          "Type": "Association or organization",
+          "Height": 6000
+        },
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                -78.890423,
+                42.916342
+              ],
+              [
+                -78.890413,
+                42.91621
+              ],
+              [
+                -78.890185,
+                42.916215
+              ],
+              [
+                -78.890194,
+                42.916351
+              ],
+              [
+                -78.890423,
+                42.916342
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "id": "890d0470653e339dcf32da84ff1d9c86"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Name": "Burmese Community Services, Inc.",
+          "Type": "Non-profit organization",
+          "Height": 5000
+        },
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                -78.898729,
+                42.912872
+              ],
+              [
+                -78.898724,
+                42.912743
+              ],
+              [
+                -78.898642,
+                42.912745
+              ],
+              [
+                -78.898649,
+                42.912873
+              ],
+              [
+                -78.898729,
+                42.912872
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "id": "9fa309a6885c37895de85f266bcdf43b"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Name": "Win Asian Market",
+          "Type": "Asian grocery store",
+          "Height": 6000
+        },
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                -78.890374,
+                42.917144
+              ],
+              [
+                -78.890368,
+                42.917059
+              ],
+              [
+                -78.890498,
+                42.917055
+              ],
+              [
+                -78.890503,
+                42.917139
+              ],
+              [
+                -78.890374,
+                42.917144
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "id": "c4b3d895a4f988ff6f7f1782444694d4"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Name": "West Side Bazaar",
+          "Type": "Non-profit organization",
+          "Height": 3000
+        },
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                -78.890257,
+                42.914908
+              ],
+              [
+                -78.890247,
+                42.914831
+              ],
+              [
+                -78.890119,
+                42.91484
+              ],
+              [
+                -78.890129,
+                42.914919
+              ],
+              [
+                -78.890257,
+                42.914908
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "id": "cfda3ffbe942526913911c0fec407b1c"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Name": "Hope Refugee Drop-In Center",
+          "Type": "Non-profit organization",
+          "Height": 3000
+        },
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                -78.892499,
+                42.915701
+              ],
+              [
+                -78.892511,
+                42.915318
+              ],
+              [
+                -78.892347,
+                42.915313
+              ],
+              [
+                -78.892339,
+                42.915583
+              ],
+              [
+                -78.892386,
+                42.915583
+              ],
+              [
+                -78.892381,
+                42.915699
+              ],
+              [
+                -78.892499,
+                42.915701
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "id": "d9ccfd9bc68605b4149deefe9b296f1f"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Name": "Abyssinia Ethiopian Cuisine",
+          "Type": "Ethiopian restaurant",
+          "Height": 3000
+        },
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                -78.890263,
+                42.914964
+              ],
+              [
+                -78.890256,
+                42.914912
+              ],
+              [
+                -78.89013,
+                42.914922
+              ],
+              [
+                -78.890136,
+                42.914976
+              ],
+              [
+                -78.890263,
+                42.914964
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "id": "f74a1c7f469276f69df8277f4b091db2"
+      }
+    ],
+    "type": "FeatureCollection"
+  }
+
+
