@@ -10,37 +10,49 @@ Here you will find links to our student's final projects.
 
 ## GSAPP Spring 2022
 
-### [Migration 1](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Migration-1/index.html)
+### [Voices of the GullahGeechee - Protecting Ancestral Land From Erasure](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Migration-1/index.html)
+
+By Galina Novikova and Linru Wang
 
 ![Image](/assets/finalProjectImages/gsappSpring2022/migration-1.png)
 
 In the face of long-term population decline, climate change and other threats, Gullah Geechee return to Sapelo Island to shore up their land and protect their heritage.
 
-### [Migration 2](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Migration-2/index.html)
+### [The Recent Refugee Renaissance in Buffalo Has Totally Changed the City's Streetscape. Here is How](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Migration-2/index.html)
+
+By Polina Stepanova, Joan Du and Jie Kong
 
 ![Image](/assets/finalProjectImages/gsappSpring2022/migration-2.png)
 
-Brief description of the project.
+A closer examination of how Buffalo became a blooming flower of cultural intersections, and how refugees from all over the world embellish the streets of this northern city.
 
-### [Justice 1](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Justice-1/index.html)
+### [Food Justice, Sandtown Baltimore](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Justice-1/index.html)
 
-![Image](/assets/finalProjectImages/gsappSpring2022/justice-1.png)
+By Haotong Xia, Leon Duval, Ruben Gomez Ganan
 
-Brief description of the project.
+![Image](/assets/finalProjectImages/gsappSpring2022/justice-1.jpg)
 
-### [Justice 2](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Justice-2/index.html)
+Food Desert in Sandtown, Baltimore, is struggling with an already postponed community.
+
+### [Body Worn Cameras offer hope and reveal strain of police accountability efforts in New Orleans](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Justice-2/index.html)
+
+By Nicholas Shannon & Santiago Alvarez
 
 ![Image](/assets/finalProjectImages/gsappSpring2022/justice-2.png)
 
 Brief description of the project.
 
-### [Climate Change](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Climate-Change/index.html)
+### [In California's Heartland, Small-Time Almond Farmers Face a Dry Future](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Climate-Change/index.html)
+
+By Yi Hyun Kim, Shen Xin, Jackson Fordham
 
 ![Image](/assets/finalProjectImages/gsappSpring2022/climate-change.png)
 
 Controversies surrounding the drought impacts on the almond industry in the Central Valley, CA.
 
-### [Energy](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Energy/index.html)
+### [Renewable energy - Pathway to Texas's energy resiliency](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Energy/index.html)
+
+By Francesca Doumet, Rotina Tian, Mingxun Zou
 
 ![Image](/assets/finalProjectImages/gsappSpring2022/energy.png)
 
