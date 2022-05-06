@@ -49,11 +49,12 @@ body {
 }
 #header h1 {
     font-weight: 700;
+    font-size: 5em;
     text-transform: uppercase;
     font-family: 'Merriweather', serif;
-    text-align: left;
+    text-align: center;
     margin: auto;
-    max-width: 600px;
+    max-width: 1200px;
 }
 #header h4 {
     font-family: 'Roboto Condensed', sans-serif;
@@ -61,19 +62,20 @@ body {
     margin-bottom: 0.6em;
     margin-left: auto;
     margin-right: auto;
-    text-align: left;
+    text-align: center;
     max-width: 600px;
 }
 #header p.byline {
     font-weight: 300;
+    text-align: center;
     font-size: 0.9em;
     margin: 0.5em auto 0.8em auto;
 }
 #header p {
-    font-family: 'Roboto Condensed', sans-serif;
-    font-weight: 400;
-    text-align: left;
-    font-size: 1.2em;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-weight: 200;
+    text-align: center;
+    font-size: 1.1em;
     max-width: 600px;
     margin: 1em auto 1em auto;
 }
@@ -85,7 +87,8 @@ body {
     max-width: 50vw;
 }
 #features p {
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-weight: 200;
     text-align: left;
     font-size: 1.2em;
     max-width: 50vw;

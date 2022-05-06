@@ -218,7 +218,7 @@ map.on("load", function () {
       },
     });
   }
-  
+
   map.addLayer({
     'id': 'CentralValley',
     'type': 'fill',
@@ -237,6 +237,8 @@ map.on("load", function () {
     },
     "waterway-label"
   );
+
+
 
   map.addLayer({
     'id': 'Almond',
@@ -258,7 +260,9 @@ map.on("load", function () {
       }
       
     },
-  );
+);
+
+
 
 map.addLayer({
   id: "counties_drought_outline",
