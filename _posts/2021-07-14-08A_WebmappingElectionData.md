@@ -1,14 +1,14 @@
 ---
 layout: post
-title:  08 - Introduction to Web Mapping with Election Data (Updated)
+title:  08 - Introduction to Web Mapping with Election Data
 category: [Web Mapping, Mapbox, Python, Pandas, Geopandas]
 navigation_weight: 8.5
-description: This tutorial will guide you through the basic steps in creating an interactive web map displaying 2016 presidential election data. In this process we will use Mapbox GL JS as the main JavaScript library powering the interactive map.
+description: This tutorial will guide you through the basic steps in creating an interactive web map displaying 2020 presidential election data. In this process we will use Mapbox GL JS as the main JavaScript library powering the interactive map.
 active: true
 ---
 # Introduction
 
-In this tutorial we will use Mapbox GL JS to create an interactive webmap of 2016 presidential election results at the state and county levels. We will recreate the style used by the New York Times in their [election results maps](https://www.nytimes.com/interactive/2019/11/05/us/elections/results-kentucky-governor-general-election.html).
+In this tutorial we will use Mapbox GL JS to create an interactive web map of 2020 presidential election results at the state and county levels. We will recreate the style used by the New York Times in their [election results maps](https://www.nytimes.com/interactive/2019/11/05/us/elections/results-kentucky-governor-general-election.html).
 
 ![New York Times Kentucky Governor Election Results Map](/assets/tutorial_images/15_Webmapping/03_NYT_KentuckyMap.png)
 
@@ -56,8 +56,8 @@ Before beginning with the web map we need to prepare the election data and the s
   * `State`: State name
   * `GeoID`: Geographic identifiers to match the county and state shapefiles downloaded from the U.S. Census Bureau
   * `Trump`: Number of votes for Donald Trump
-  * `Clinton`: Number of votes for Hillary Clinton
-  * `Other`: Number of votes for other candidates 
+  * `Biden`: Number of votes for Joe Biden
+  * `Other`: Number of votes for other candidates
   * `Total`: Number of total votes for the state or county
   * `Winner`: Winning candidate for the state or county
   * `WnrPerc`: Percentage of votes out of the total for the winning candidate<br><br>
@@ -71,26 +71,28 @@ import pandas as pd
 
 # Loading base dataset
 electionData = pd.read_csv('https://raw.githubusercontent.com/browninstitute/pointsunknowndata/main/presidentialElectionData/countypres_2000-2020.csv')
-electionData2016 = electionData[electionData['year'] == 2016].copy(deep=True)
+electionData2020 = electionData[electionData['year'] == 2020].copy(deep=True)
 
 # Creating the states dataset
-statesData = pd.pivot_table(electionData2016, index='state', values='candidatevotes', columns='candidate', aggfunc=np.sum).reset_index()
+statesData = pd.pivot_table(electionData2020, index='state', values='candidatevotes', columns='candidate', aggfunc=np.sum).reset_index()
 statesData = statesData.rename_axis(None, axis=1)
-statesData['Total'] = statesData['DONALD TRUMP'] + statesData['HILLARY CLINTON'] + statesData['OTHER']
-statesData['Winner'] = statesData[['DONALD TRUMP','HILLARY CLINTON','OTHER']].idxmax(axis=1)
+statesData.fillna(0, inplace=True)
+statesData['Total'] = statesData['DONALD J TRUMP'] + statesData['JOSEPH R BIDEN JR'] + statesData['JO JORGENSEN'] + statesData['OTHER']
+statesData['Winner'] = statesData[['DONALD J TRUMP','JOSEPH R BIDEN JR','JO JORGENSEN','OTHER']].idxmax(axis=1)
 statesData['Winner'] = statesData['Winner'].str.title()
-statesData['WnrPerc'] = np.where(statesData['Winner']=='Donald Trump', statesData['DONALD TRUMP']/statesData['Total'], statesData['HILLARY CLINTON']/statesData['Total'])
+statesData['WnrPerc'] = np.where(statesData['Winner']=='Donald J Trump', statesData['DONALD J TRUMP']/statesData['Total'], statesData['JOSEPH R BIDEN JR']/statesData['Total'])
 
 # Creating the counties dataset
-electionData2016.dropna(subset=['county_fips'], inplace=True)
-electionData2016['county_fips'] = electionData2016['county_fips'].astype('int').astype('str').str.zfill(5)
-electionData2016.rename(columns={'county_fips':'GEOID'}, inplace=True)
-countiesData = pd.pivot_table(electionData2016, index='GEOID', values='candidatevotes', columns='candidate', aggfunc=np.sum).reset_index()
+electionData2020.dropna(subset=['county_fips'], inplace=True)
+electionData2020['county_fips'] = electionData2020['county_fips'].astype('int').astype('str').str.zfill(5)
+electionData2020.rename(columns={'county_fips':'GEOID'}, inplace=True)
+countiesData = pd.pivot_table(electionData2020, index='GEOID', values='candidatevotes', columns='candidate', aggfunc=np.sum).reset_index()
 countiesData = countiesData.rename_axis(None, axis=1)
-countiesData['Total'] = countiesData['DONALD TRUMP'] + countiesData['HILLARY CLINTON'] + countiesData['OTHER']
-countiesData['Winner'] = countiesData[['DONALD TRUMP','HILLARY CLINTON','OTHER']].idxmax(axis=1)
+countiesData.fillna(0, inplace=True)
+countiesData['Total'] = countiesData['DONALD J TRUMP'] + countiesData['JOSEPH R BIDEN JR'] + countiesData['JO JORGENSEN'] + countiesData['OTHER']
+countiesData['Winner'] = countiesData[['DONALD J TRUMP','JOSEPH R BIDEN JR','JO JORGENSEN','OTHER']].idxmax(axis=1)
 countiesData['Winner'] = countiesData['Winner'].str.title()
-countiesData['WnrPerc'] = np.where(countiesData['Winner']=='Donald Trump', countiesData['DONALD TRUMP']/countiesData['Total'], countiesData['HILLARY CLINTON']/countiesData['Total'])
+countiesData['WnrPerc'] = np.where(countiesData['Winner']=='Donald J Trump', countiesData['DONALD J TRUMP']/countiesData['Total'], countiesData['JOSEPH R BIDEN JR']/countiesData['Total'])
 
 # Loading the state and county shapefiles
 # !pip install geopandas # Use this if you are working on Google Colab
@@ -104,13 +106,13 @@ statesData['state'] = statesData['state'].str.title()
 states['NAME'] = states['NAME'].str.title()
 statesData.rename(columns={'state':'NAME'}, inplace=True)
 statesElections = states.merge(statesData, on='NAME')
-statesElections = statesElections[['NAME','geometry','DONALD TRUMP','HILLARY CLINTON','OTHER','Total','Winner','WnrPerc']].copy(deep=True)
-statesElections.rename(columns={'NAME':'State','DONALD TRUMP':'Trump','HILLARY CLINTON':'Clinton','OTHER':'Other'}, inplace=True)
+statesElections = statesElections[['NAME','geometry','DONALD J TRUMP','JOSEPH R BIDEN JR','JO JORGENSEN','OTHER','Total','Winner','WnrPerc']].copy(deep=True)
+statesElections.rename(columns={'NAME':'State','DONALD J TRUMP':'Trump','JOSEPH R BIDEN JR':'Biden','JO JORGENSEN':'Jorgensen','OTHER':'Other'}, inplace=True)
 
 # Merging the counties datasets
 countiesElections = counties.merge(countiesData, on='GEOID')
-countiesElections = countiesElections[['NAME','STATE_NAME','geometry','DONALD TRUMP','HILLARY CLINTON','OTHER','Total','Winner','WnrPerc']].copy(deep=True)
-countiesElections.rename(columns={'NAME':'County','STATE_NAME':'State','DONALD TRUMP':'Trump','HILLARY CLINTON':'Clinton','OTHER':'Other'}, inplace=True)
+countiesElections = countiesElections[['NAME','STATE_NAME','geometry','DONALD J TRUMP','JOSEPH R BIDEN JR','JO JORGENSEN','OTHER','Total','Winner','WnrPerc']].copy(deep=True)
+countiesElections.rename(columns={'NAME':'County','STATE_NAME':'State','DONALD J TRUMP':'Trump','JOSEPH R BIDEN JR':'Biden','JO JORGENSEN':'Jorgensen','OTHER':'Other'}, inplace=True)
 
 # Creating the county points dataset
 countiesPoints = countiesElections.copy(deep=True)
@@ -128,7 +130,7 @@ countiesPoints.to_file('countiesPoints.geojson', driver='GeoJSON')
 
 Just as to show you what you can do in terms of styling your map, take a look at [these examples](https://www.mapbox.com/gallery/).
 
-Before setting up our mapping site we should style the basemap we will use. To do this, go to your [Mapbox Studio](https://studio.mapbox.com/) page and create a `New style`.
+Before setting up our mapping site we should style the base map we will use. To do this, go to your [Mapbox Studio](https://studio.mapbox.com/) page and create a `New style`.
 
 * It is usually much easier to start from a template, otherwise you will have to add and style every single layer your map will use and do this for all zoom levels. The templates provided by Mapbox already include all this styling and have been tested and refined many many times.
 
@@ -237,10 +239,10 @@ For this part of the process it is highly recommended to use an advanced text ed
 <html>
 <head>
     <meta charset='utf-8' />
-    <title>2016 Election Results Map</title>
+    <title>2020 Election Results Map</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -387,6 +389,18 @@ To style the states layer based on who won we need to modify the attributes of t
 ``` js
 map.on("load", function () {
   map.addLayer({
+    id: "us_states_elections_outline",
+    type: "line",
+    source: {
+      type: "geojson",
+      data: "data/statesElections.geojson",
+    },
+    paint: {
+      "line-color": "#ffffff",
+      "line-width": 0.7,
+    },
+  });
+  map.addLayer({
     id: "us_states_elections",
     type: "fill",
     source: {
@@ -397,24 +411,12 @@ map.on("load", function () {
       "fill-color": [
         "match",
         ["get", "Winner"],
-        "Donald Trump", "#cf635d",
-        "Hillary Clinton", "#6193c7",
+        "Donald J Trump", "#cf635d",
+        "Joseph R Biden Jr", "#6193c7",
         "Other", "#91b66e",
         "#ffffff",
       ],
       "fill-outline-color": "#ffffff",
-    },
-  });
-  map.addLayer({
-    id: "us_states_elections_outline",
-    type: "line",
-    source: {
-      type: "geojson",
-      data: "data/statesElections.geojson",
-    },
-    paint: {
-      "line-color": "#ffffff",
-      "line-width": 0.7,
     },
   });
 });
@@ -443,11 +445,10 @@ If you look closely, you'll notice that our new layer is sitting on top of the s
 * Modify your `map.on` function to the following:
 
 ``` js
-mapboxgl.accessToken =
-  "pk.eyJ1IjoiamZzMjExOCIsImEiOiJjazJvdXZ2MnkxN2owM2Rwbm1wNWVpYXptIn0.pT-GXNoNxB7l1SMBh2Yjxg";
+mapboxgl.accessToken = 'Add your access token here';
 var map = new mapboxgl.Map({
-  container: "map",
-  style: "mapbox://styles/jfs2118/ckr518s5x0zvi17ls8dijm0k7",
+    container: 'map',
+    style: 'Add your style URL here',
   zoom: 6.5,
   center: [-85.5, 37.7],
 });
@@ -480,18 +481,15 @@ map.on("load", function () {
         "fill-color": [
           "match",
           ["get", "Winner"],
-          "Donald Trump",
-          "#cf635d",
-          "Hillary Clinton",
-          "#6193c7",
-          "Other",
-          "#91b66e",
+          "Donald J Trump", "#cf635d",
+          "Joseph R Biden Jr", "#6193c7",
+          "Other", "#91b66e",
           "#ffffff",
         ],
         "fill-outline-color": "#ffffff",
       },
     },
-    "us_states_elections_outline" // Here's where we tell Mapbox where to slot this new layer
+   "us_states_elections_outline" // Here's where we tell Mapbox where to slot this new layer
   );
 });
 ```
@@ -519,26 +517,23 @@ map.addLayer(
         "fill-color": [
           "match",
           ["get", "Winner"],
-          "Donald Trump",
-          "#cf635d",
-          "Hillary Clinton",
-          "#6193c7",
-          "Other",
-          "#91b66e",
+          "Donald J Trump", "#cf635d",
+          "Joseph R Biden Jr", "#6193c7",
+          "Other", "#91b66e",
           "#ffffff",
         ],
-        "fill-outline-color": "#000000",
+        "fill-outline-color": "#ffffff",
         "fill-opacity": [
-          "step",
-          ["get", "WnrPerc"],
-          0.3,
-          0.4,
-          0.5,
-          0.5,
-          0.7,
-          0.6,
-          0.9,
-        ],
+            "step",
+            ["get", "WnrPerc"],
+            0.3,
+            0.4,
+            0.5,
+            0.5,
+            0.7,
+            0.6,
+            0.9,
+          ],
       },
     },
     "us_states_elections_outline"
@@ -585,9 +580,9 @@ The overall idea with this map is to have the state level data show up at a zoom
         "fill-color": [
           "match",
           ["get", "Winner"],
-          "Donald Trump",
+          "Donald J Trump",
           "#cf635d",
-          "Hillary Clinton",
+          "Joseph R Biden Jr",
           "#6193c7",
           "Other",
           "#91b66e",
@@ -786,10 +781,10 @@ The final code for this interactive map is as follows:
 <html>
 <head>
     <meta charset='utf-8' />
-    <title>2016 Election Results Map</title>
+    <title>2020 Election Results Map</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -839,34 +834,32 @@ body {
 * `map.js`:
 
 ``` js
-mapboxgl.accessToken =
-  "Your access token here";
+mapboxgl.accessToken = "Your access token here";
 var map = new mapboxgl.Map({
   container: "map",
-  style: "Your Mapbox style URL here",
-  zoom: 3,
+  style:  "Your Mapbox style URL here",
+  zoom: 6.5,
   maxZoom: 9,
-  minZoom: 3.5,
-  center: [-99, 38],
-  maxBounds: [[-180, 15], [-30, 72]]
+  minZoom: 3,
+  center: [-85.5, 37.7],
 });
 
 map.on("load", function () {
-  map.addLayer(
-    {
-      id: "us_states_elections_outline",
-      type: "line",
-      source: {
-        type: "geojson",
-        data: "data/statesElections.geojson",
-      },
-      paint: {
-        "line-color": "#ffffff",
-        "line-width": 0.7,
-      },
-    },
-    "waterway-label"
-  ); 
+    map.addLayer(
+        {
+          id: "us_states_elections_outline",
+          type: "line",
+          source: {
+            type: "geojson",
+            data: "data/statesElections.geojson",
+          },
+          paint: {
+            "line-color": "#ffffff",
+            "line-width": 0.7,
+          },
+        },
+        "waterway-label" // Here's where we tell Mapbox where to slot this new layer
+      );
   map.addLayer(
     {
       id: "us_states_elections",
@@ -880,15 +873,15 @@ map.on("load", function () {
         "fill-color": [
           "match",
           ["get", "Winner"],
-          "Donald Trump",
+          "Donald J Trump",
           "#cf635d",
-          "Hillary Clinton",
+          "Joseph R Biden Jr",
           "#6193c7",
-          "OTHER",
+          "Other",
           "#91b66e",
           "#ffffff",
         ],
-        "fill-outline-color": "#000000",
+        "fill-outline-color": "#ffffff",
         "fill-opacity": [
           "step",
           ["get", "WnrPerc"],
@@ -902,7 +895,7 @@ map.on("load", function () {
         ],
       },
     },
-    "us_states_elections_outline"
+    "us_states_elections_outline" // Here's where we tell Mapbox where to slot this new layer
   );
   map.addLayer(
     {
@@ -933,11 +926,11 @@ map.on("load", function () {
         "fill-color": [
           "match",
           ["get", "Winner"],
-          "Donald Trump",
+          "Donald J Trump",
           "#cf635d",
-          "Hillary Clinton",
+          "Joseph R Biden Jr",
           "#6193c7",
-          "OTHER",
+          "Other",
           "#91b66e",
           "#ffffff",
         ],
@@ -959,53 +952,74 @@ map.on("load", function () {
   );
 });
 
-// Create the popup
-map.on('click', 'us_states_elections', function (e) {
-    var stateName = e.features[0].properties.State;
-    var winner = e.features[0].properties.Winner;
-    var wnrPerc = e.features[0].properties.WnrPerc;
-    var totalVotes = e.features[0].properties.Total;
-    wnrPerc = (wnrPerc * 100).toFixed(0);
-    totalVotes = totalVotes.toLocaleString();
-    stateName = stateName.toUpperCase();
-    new mapboxgl.Popup()
-        .setLngLat(e.lngLat)
-        .setHTML('<h4>'+stateName+'</h4>'
-            +'<h2>'+winner+'</h2>'
-            + '<p>'+wnrPerc+'% - ('+totalVotes+' votes)</p>')
-        .addTo(map);
+map.on("click", "us_states_elections", function (e) {
+  var stateName = e.features[0].properties.State;
+  var winner = e.features[0].properties.Winner;
+  var wnrPerc = e.features[0].properties.WnrPerc;
+  var totalVotes = e.features[0].properties.Total;
+  wnrPerc = (wnrPerc * 100).toFixed(0);
+  totalVotes = totalVotes.toLocaleString();
+  stateName = stateName.toUpperCase();
+  new mapboxgl.Popup()
+    .setLngLat(e.lngLat)
+    .setHTML(
+      "<h4>" +
+        stateName +
+        "</h4>" +
+        "<h2>" +
+        winner +
+        "</h2>" +
+        "<p>" +
+        wnrPerc +
+        "% - (" +
+        totalVotes +
+        " votes)</p>"
+    )
+    .addTo(map);
 });
 // Change the cursor to a pointer when the mouse is over the us_states_elections layer.
-map.on('mouseenter', 'us_states_elections', function () {
-    map.getCanvas().style.cursor = 'pointer';
+map.on("mouseenter", "us_states_elections", function () {
+  map.getCanvas().style.cursor = "pointer";
 });
 // Change it back to a pointer when it leaves.
-map.on('mouseleave', 'us_states_elections', function () {
-    map.getCanvas().style.cursor = '';
+map.on("mouseleave", "us_states_elections", function () {
+  map.getCanvas().style.cursor = "";
 });
 
-map.on('click', 'us_counties_elections', function (e) {
-    var stateName = e.features[0].properties.State;
-    var countyName = e.features[0].properties.County;
-    var winner = e.features[0].properties.Winner;
-    var wnrPerc = e.features[0].properties.WnrPerc;
-    var totalVotes = e.features[0].properties.Total;
-    wnrPerc = (wnrPerc * 100).toFixed(0);
-    totalVotes = totalVotes.toLocaleString();
-    stateName = stateName.toUpperCase();
-    countyName = countyName.toUpperCase();
-    new mapboxgl.Popup()
-        .setLngLat(e.lngLat)
-        .setHTML('<h4>' + countyName + ' - ' + stateName + '</h4>'
-            + '<h2>' + winner + '</h2>'
-            + '<p>' + wnrPerc + '% - (' + totalVotes + ' votes)</p>')
-        .addTo(map);
+map.on("click", "us_counties_elections", function (e) {
+  var stateName = e.features[0].properties.State;
+  var countyName = e.features[0].properties.County;
+  var winner = e.features[0].properties.Winner;
+  var wnrPerc = e.features[0].properties.WnrPerc;
+  var totalVotes = e.features[0].properties.Total;
+  wnrPerc = (wnrPerc * 100).toFixed(0);
+  totalVotes = totalVotes.toLocaleString();
+  stateName = stateName.toUpperCase();
+  countyName = countyName.toUpperCase();
+  new mapboxgl.Popup()
+    .setLngLat(e.lngLat)
+    .setHTML(
+      "<h4>" +
+        countyName +
+        " - " +
+        stateName +
+        "</h4>" +
+        "<h2>" +
+        winner +
+        "</h2>" +
+        "<p>" +
+        wnrPerc +
+        "% - (" +
+        totalVotes +
+        " votes)</p>"
+    )
+    .addTo(map);
 });
-map.on('mouseenter', 'us_counties_elections', function () {
-    map.getCanvas().style.cursor = 'pointer';
+map.on("mouseenter", "us_counties_elections", function () {
+  map.getCanvas().style.cursor = "pointer";
 });
-map.on('mouseleave', 'us_counties_elections', function () {
-    map.getCanvas().style.cursor = '';
+map.on("mouseleave", "us_counties_elections", function () {
+  map.getCanvas().style.cursor = "";
 });
 ```
 
@@ -1038,9 +1052,9 @@ Our map will use the same base map we configured above, but instead of the state
                 "circle-color": [
                 "match",
                 ["get", "Winner"],
-                "Donald Trump",
+                "Donald J Trump",
                 "#cf635d",
-                "Hillary Clinton",
+                "Joseph R Biden Jr",
                 "#6193c7",
                 "Other",
                 "#91b66e",
@@ -1103,7 +1117,7 @@ Our map will use the same base map we configured above, but instead of the state
 
 ![Dot layer loaded](/assets/tutorial_images/15_Webmapping/17_LoadedDots.png)
 
-* Next, we need to tie the size of the dots to the difference in votes between Trump and Clinton. To make this tutorial a bit simpler we will ignore the counties were someone other than Trump or Clinton won. Modify your `map.addLayer` function to this:
+* Next, we need to tie the size of the dots to the difference in votes between Trump and Biden. To make this tutorial a bit simpler we will ignore the counties were someone other than Trump or Biden won. Modify your `map.addLayer` function to this:
 
 ``` js
 map.addLayer(
@@ -1119,7 +1133,7 @@ map.addLayer(
           "max",
           [
             "/",
-            ["sqrt", ["abs", ["-", ["get", "Trump"], ["get", "Clinton"]]]],
+            ["sqrt", ["abs", ["-", ["get", "Trump"], ["get", "Biden"]]]],
             40,
           ],
           1,
@@ -1127,9 +1141,9 @@ map.addLayer(
         "circle-color": [
           "match",
           ["get", "Winner"],
-          "Donald Trump",
+          "Donald J Trump",
           "#cf635d",
-          "Hillary Clinton",
+          "Joseph R Biden Jr",
           "#6193c7",
           "Other",
           "#91b66e",
@@ -1155,7 +1169,7 @@ map.addLayer(
   );
 ```
 
-* The important line here is `'circle-radius': ['max', ['/', ['sqrt', ['abs', ['-', ['get', 'Trump'], ['get', 'Clinton']]]], 40], 1],` which gets the difference between Clinton and Trump votes, in absolute values (`abs`), takes the square root of that value (`sqrt`), divides that value by 40, and then if that value is less than 1, makes it equal to 1 using the `max` expression.
+* The important line here is `'circle-radius': ['max', ['/', ['sqrt', ['abs', ['-', ['get', 'Trump'], ['get', 'Biden']]]], 40], 1],` which gets the difference between Biden and Trump votes, in absolute values (`abs`), takes the square root of that value (`sqrt`), divides that value by 40, and then if that value is less than 1, makes it equal to 1 using the `max` expression.
 
 * Your map should now look something like this:
 
@@ -1166,8 +1180,8 @@ map.addLayer(
 ``` js
 'circle-radius':
     ['interpolate', ['linear'], ['zoom'],
-        3, ['max', ['/', ['sqrt', ['abs', ['-', ['get', 'Trump'], ['get', 'Clinton']]]], 35], 1],
-        9, ['max', ['/', ['sqrt', ['abs', ['-', ['get', 'Trump'], ['get', 'Clinton']]]], 15], 5],
+        3, ['max', ['/', ['sqrt', ['abs', ['-', ['get', 'Trump'], ['get', 'Biden']]]], 40], 1],
+        9, ['max', ['/', ['sqrt', ['abs', ['-', ['get', 'Trump'], ['get', 'Biden']]]], 15], 5],
     ],
 ```
 
@@ -1201,9 +1215,44 @@ map.on('mouseleave', 'us_counties_centroids', function () {
 });
 ```
 
-* Your final map should look something like this:
+* Your map should now look something like this:
 
 ![Final circle map](/assets/tutorial_images/15_Webmapping/19_FinalCircleMap.png)
+
+## Changing the map projection
+
+After many requests by the mapping community, Mapbox has finally updated their library to allow for different projections. To change your maps projection, simply add a `projection` property in the main `map` variable like this:
+
+```js
+mapboxgl.accessToken = "Your access token here";
+var map = new mapboxgl.Map({
+  container: "map",
+  style: "Your Mapbox style URL here",
+  zoom: 3,
+  maxZoom: 9,
+  minZoom: 3.5,
+  center: [-99, 38],
+  maxBounds: [
+    [-180, 15],
+    [-30, 72],
+  ],
+  projection: 'albers',
+});
+```
+
+Available projections include:
+
+* [Albers](https://en.wikipedia.org/wiki/Albers_projection) - equal-area conic projection as `albers`
+* [Equal Earth](https://en.wikipedia.org/wiki/Equal_Earth_projection) - equal-area pseudocylindrical projection as `equalEarth`
+* [Equirectangular](https://en.wikipedia.org/wiki/Equirectangular_projection) - (Plate Carrée/WGS84) as `equirectangular`
+* [Lambert Conformal Conic](https://en.wikipedia.org/wiki/Lambert_conformal_conic_projection) - as `lambertConformalConic`
+* [Mercator](https://en.wikipedia.org/wiki/Mercator_projection) - cylindrical map projection as `mercator`
+* [Natural Earth](https://en.wikipedia.org/wiki/Natural_Earth_projection) - pseudocylindrical map projection as `naturalEarth`
+* [Winkel Tripel](https://en.wikipedia.org/wiki/Winkel_tripel_projection) - azimuthal map projection as `winkelTripel`
+
+After you change the projection your map should look like this at the most zoomed-out level:
+
+![Map with projection](/assets/tutorial_images/15_Webmapping/20_MapWithProjection.png)
 
 * The final `map.js` file is as follows:
 
@@ -1220,6 +1269,7 @@ var map = new mapboxgl.Map({
     [-180, 15],
     [-30, 72],
   ],
+  projection: "albers",
 });
 
 map.on("load", function () {
@@ -1241,8 +1291,8 @@ map.on("load", function () {
             "max",
             [
               "/",
-              ["sqrt", ["abs", ["-", ["get", "Trump"], ["get", "Clinton"]]]],
-              35,
+              ["sqrt", ["abs", ["-", ["get", "Trump"], ["get", "Biden"]]]],
+              40,
             ],
             1,
           ],
@@ -1251,7 +1301,7 @@ map.on("load", function () {
             "max",
             [
               "/",
-              ["sqrt", ["abs", ["-", ["get", "Trump"], ["get", "Clinton"]]]],
+              ["sqrt", ["abs", ["-", ["get", "Trump"], ["get", "Biden"]]]],
               15,
             ],
             5,
@@ -1260,16 +1310,15 @@ map.on("load", function () {
         "circle-color": [
           "match",
           ["get", "Winner"],
-          "Donald Trump",
+          "Donald J Trump",
           "#cf635d",
-          "Hillary Clinton",
+          "Joseph R Biden Jr",
           "#6193c7",
           "Other",
           "#91b66e",
           "#ffffff",
         ],
-        "circle-stroke-color": "#ffffff",
-        "circle-stroke-width": 0.5,
+        "circle-stroke-color": "#000000",
         "circle-opacity": [
           "step",
           ["get", "WnrPerc"],
@@ -1319,7 +1368,6 @@ map.on("load", function () {
   );
 });
 
-// Create the popup
 map.on("click", "us_counties_centroids", function (e) {
   var stateName = e.features[0].properties.State;
   var countyName = e.features[0].properties.County;
@@ -1362,6 +1410,5 @@ map.on("mouseleave", "us_counties_centroids", function () {
 
 # Useful links
 
-* How to use the [Albers USA projection in Mapbox](https://www.mapbox.com/elections/albers-usa-projection-style).
 * [Dirty Reprojections blog post](https://developmentseed.org/blog/2016-12-15-dirty-reprojectors) from Development Seed, and its [Github repository](https://github.com/developmentseed/dirty-reprojectors).
 * Adding a [raster image to a Mabox map](https://docs.mapbox.com/mapbox-gl-js/example/image-on-a-map/).
