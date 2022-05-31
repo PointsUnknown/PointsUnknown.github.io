@@ -4,7 +4,7 @@ title:  08 - Introduction to Web Mapping with Election Data
 category: [QGIS, Web Mapping, Mapbox]
 navigation_weight: 8
 description: This tutorial will guide you through the basic steps in creating an interactive web map displaying 2016 presidential election data. In this process we will use Mapbox GL JS as the main JavaScript library powering the interactive map.
-active: true
+active: false
 ---
 # Introduction
 In this tutorial we will use Mapbox GL JS to create an interactive webmap of 2016 presidential election results at the state and county levels. We will recreate the style used by the New York Times in their [election results maps](https://www.nytimes.com/interactive/2019/11/05/us/elections/results-kentucky-governor-general-election.html).
