@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  10 - Setting up a Story Map with Mapbox Storytelling (Updated)
+title:  10 - Setting up a Story Map with Mapbox Storytelling
 category: [Web Mapping, Mapbox]
-navigation_weight: 10.5
+navigation_weight: 10
 description: This tutorial will guide you through the basic steps to setup a story map using Mapbox's storytelling template. We will use the previous web map displaying MTA turnstile data as the basis for our story. In this process we will use Mapbox GL JS, as well as Intersection Observer and Scrollama as our main JavaScript libraries.
 active: true
 ---
