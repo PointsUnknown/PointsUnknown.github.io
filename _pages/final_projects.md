@@ -10,11 +10,19 @@ Here you will find links to our student's final projects.
 
 ## J-School Summer 2022
 
+### [New York's Offshore Wind Projects Carry Both Good and Bad News for the City](https://pointsunknown.nyc/final-projects/JSchool-Summer-2022/Energy-2/index.html)
+
+By Prinz Magtulis, Richard Abbey and Sarah Grevy Gotfredsen
+
+![Thumbnail](/assets/finalProjectImages/jschoolSummer2022/energy-2.png)
+
 ### [Food Deserts Emerge in Detroit As Grocery Stores Close](https://pointsunknown.nyc/final-projects/JSchool-Summer-2022/Justice/index.html)
 
 ![Image](/assets/finalProjectImages/jschoolSummer2022/justice.png)
 
 ### [What Does it Take to Vote](https://pointsunknown.nyc/final-projects/JSchool-Summer-2022/Voting/index.html)
+
+By Nao Kato, Misha Vaid, and Vincent Van Buskirk
 
 ![Image](/assets/finalProjectImages/jschoolSummer2022/voting.png)
 
