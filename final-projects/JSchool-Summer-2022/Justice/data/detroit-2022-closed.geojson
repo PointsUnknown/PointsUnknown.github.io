@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Food 4 Less", "Address": "14020 GRAND RIVER AVE", "STATUS_2013": "OPEN", "STATUS_2015": "OPEN", "STATUS_2017": "OPEN", "STATUS_2019": "OPEN", "Current Status (2022)": "CLOSED", "Latitude": 42.387181, "Longitude": -83.1824285 }, "geometry": { "type": "Point", "coordinates": [ -83.1824285, 42.387181 ] } },
+{ "type": "Feature", "properties": { "Name": "GLORY FOODS TELEGRAPH", "Address": "19150 TELEGRAPH RD", "STATUS_2013": "CLOSED", "STATUS_2015": "OPEN", "STATUS_2017": "OPEN", "STATUS_2019": "OPEN", "Current Status (2022)": "CLOSED", "Latitude": 42.4297818, "Longitude": -83.2762551 }, "geometry": { "type": "Point", "coordinates": [ -83.2762551, 42.4297818 ] } },
+{ "type": "Feature", "properties": { "Name": "RYANS FOODS", "Address": "5858 W VERNOR", "STATUS_2013": "OPEN", "STATUS_2015": "OPEN", "STATUS_2017": "OPEN", "STATUS_2019": "CLOSED COVID", "Current Status (2022)": "CLOSED", "Latitude": 42.3168459, "Longitude": -83.1049201 }, "geometry": { "type": "Point", "coordinates": [ -83.1049201, 42.3168459 ] } },
+{ "type": "Feature", "properties": { "Name": "SAVE A LOT", "Address": "13750 FENKELL", "STATUS_2013": "OPEN", "STATUS_2015": "OPEN", "STATUS_2017": "OPEN", "STATUS_2019": "CLOSED COVID", "Current Status (2022)": "CLOSED", "Latitude": 42.4023154, "Longitude": -83.1813576 }, "geometry": { "type": "Point", "coordinates": [ -83.1813576, 42.4023154 ] } },
+{ "type": "Feature", "properties": { "Name": "SAVE A LOT #977 4592", "Address": "20427 PLYMOUTH RD", "STATUS_2013": null, "STATUS_2015": "OPEN", "STATUS_2017": "OPEN", "STATUS_2019": "CLOSED COVID", "Current Status (2022)": "CLOSED", "Latitude": 42.3714311, "Longitude": -83.2405292 }, "geometry": { "type": "Point", "coordinates": [ -83.2405292, 42.3714311 ] } },
+{ "type": "Feature", "properties": { "Name": "SAVE-A-LOT", "Address": "8000 SCHAEFER HIGHWAY", "STATUS_2013": "CLOSED", "STATUS_2015": "OPEN", "STATUS_2017": "OPEN", "STATUS_2019": "CLOSED COVID", "Current Status (2022)": "CLOSED", "Latitude": 42.3515971, "Longitude": -83.1768492 }, "geometry": { "type": "Point", "coordinates": [ -83.1768492, 42.3515971 ] } },
+{ "type": "Feature", "properties": { "Name": "SAVEWAY SUPERMARKET", "Address": "13233 E Seven Mile", "STATUS_2013": null, "STATUS_2015": null, "STATUS_2017": "OPEN", "STATUS_2019": "OPEN", "Current Status (2022)": "CLOSED", "Latitude": 42.4352004, "Longitude": -82.9894485 }, "geometry": { "type": "Point", "coordinates": [ -82.9894485, 42.4352004 ] } }
+]
+}

@@ -10,6 +10,10 @@ Here you will find links to our student's final projects.
 
 ## J-School Summer 2022
 
+### [Food Deserts Emerge in Detroit As Grocery Stores Close](https://pointsunknown.nyc/final-projects/JSchool-Summer-2022/Justice/index.html)
+
+![Image](/assets/finalProjectImages/jschoolSummer2022/justice.png)
+
 ### [What Does it Take to Vote](https://pointsunknown.nyc/final-projects/JSchool-Summer-2022/Voting/index.html)
 
 ![Image](/assets/finalProjectImages/jschoolSummer2022/voting.png)

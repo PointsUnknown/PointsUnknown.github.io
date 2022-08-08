@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "FOOD TOWN MARKET", "Address": "7811 GRATIOT AVE", "STATUS_2013": "OPEN", "STATUS_2015": "OPEN", "STATUS_2017": "OPEN", "STATUS_2019": "CLOSED", "Current Status (2022)": "CLOSED", "Latitude": 42.3782224, "Longitude": -83.015551 }, "geometry": { "type": "Point", "coordinates": [ -83.015551, 42.3782224 ] } },
+{ "type": "Feature", "properties": { "Name": "HARPER FOOD CENTER", "Address": "13999 Harper Ave", "STATUS_2013": "CLOSED", "STATUS_2015": "CLOSED", "STATUS_2017": "OPEN", "STATUS_2019": "CLOSED", "Current Status (2022)": "CLOSED", "Latitude": 42.4037224, "Longitude": -82.967806 }, "geometry": { "type": "Point", "coordinates": [ -82.967806, 42.4037224 ] } },
+{ "type": "Feature", "properties": { "Name": "KIT KAT MARKET", "Address": "8330 HARPER", "STATUS_2013": "OPEN", "STATUS_2015": "OPEN", "STATUS_2017": "OPEN", "STATUS_2019": "CLOSED", "Current Status (2022)": "OPEN", "Latitude": 42.3892874, "Longitude": -83.0175509 }, "geometry": { "type": "Point", "coordinates": [ -83.0175509, 42.3892874 ] } },
+{ "type": "Feature", "properties": { "Name": "METRO FOOD CENTER", "Address": "6461 W WARREN", "STATUS_2013": "OPEN", "STATUS_2015": "OPEN", "STATUS_2017": "OPEN", "STATUS_2019": "CLOSED", "Current Status (2022)": "CLOSED", "Latitude": 42.344163, "Longitude": -83.132352 }, "geometry": { "type": "Point", "coordinates": [ -83.132352, 42.344163 ] } }
+]
+}
