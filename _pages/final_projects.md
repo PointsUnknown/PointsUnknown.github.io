@@ -10,6 +10,12 @@ Here you will find links to our student's final projects.
 
 ## J-School Summer 2022
 
+### [Critical Habitats in Question](https://pointsunknown.nyc/final-projects/JSchool-Summer-2022/Climate-2/index.html)
+
+By Jessie Blaeser, Julia Ingram, Tanaz Meghjani, and Susan Merriam
+
+![Thumbnail](/assets/finalProjectImages/jschoolSummer2022/climate-2.png)
+
 ### [The Deliveristas: Food Delivery Workers on Ground Zero](https://pointsunknown.nyc/final-projects/JSchool-Summer-2022/Justice-2/index.html)
 
 By Patricia Martínez Sastre, Ilena Peng, Luiz Fernando Toledo and Joel Konopo
