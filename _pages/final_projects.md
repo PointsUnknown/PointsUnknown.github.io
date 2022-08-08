@@ -10,6 +10,12 @@ Here you will find links to our student's final projects.
 
 ## J-School Summer 2022
 
+### [Climate Change is Threatening Agricultural Stability in the Country’s Most Productive County](https://pointsunknown.nyc/final-projects/JSchool-Summer-2022/Climate/index.html)
+
+By Areena Arora, Kunle Falayi and Chuqin Jiang
+
+![Thumbnail](/assets/finalProjectImages/jschoolSummer2022/climate.png)
+
 ### [New York's Offshore Wind Projects Carry Both Good and Bad News for the City](https://pointsunknown.nyc/final-projects/JSchool-Summer-2022/Energy-2/index.html)
 
 By Prinz Magtulis, Richard Abbey and Sarah Grevy Gotfredsen
@@ -17,6 +23,8 @@ By Prinz Magtulis, Richard Abbey and Sarah Grevy Gotfredsen
 ![Thumbnail](/assets/finalProjectImages/jschoolSummer2022/energy-2.png)
 
 ### [Food Deserts Emerge in Detroit As Grocery Stores Close](https://pointsunknown.nyc/final-projects/JSchool-Summer-2022/Justice/index.html)
+
+By Sriharsha Devulapalli, Shelby Jouppi, Jui Sarwate, Stephen Anti
 
 ![Image](/assets/finalProjectImages/jschoolSummer2022/justice.png)
 
