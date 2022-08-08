@@ -8,6 +8,12 @@ permalink: /final-projects/
 ---
 Here you will find links to our student's final projects.
 
+## J-School Summer 2022
+
+### [What Does it Take to Vote](https://pointsunknown.nyc/final-projects/JSchool-Summer-2022/Voting/index.html)
+
+![Image](/assets/finalProjectImages/jschoolSummer2022/voting.png)
+
 ## GSAPP Spring 2022
 
 ### [Voices of the GullahGeechee - Protecting Ancestral Land From Erasure](https://pointsunknown.nyc/final-projects/GSAPP-Spring-2022/Migration-1/index.html)
