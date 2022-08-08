@@ -1,0 +1,425 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.983836,
+                    40.765011,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "918 8th Ave",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "48999a20",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.9849363,
+                    40.7644561,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "891 8th Ave",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "48999a20",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.9887836,
+                    40.7538568,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "526 Fashion Ave",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "48999a20",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.9861264,
+                    40.7578135,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "1515 Broadway",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "48999a20",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.9827924,
+                    40.7671423,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "979 8th Ave",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "48999a20",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.983197,
+                    40.7649713,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "250 W 55th St",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "48999a20",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.9666419,
+                    40.7639108,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "801 Lexington Ave",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "48999a20",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.9625052,
+                    40.7668083,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "1159 3rd Ave",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "48999a20",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.9848128,
+                    40.7626911,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "241 W 51st St",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "48999a20",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.9809368,
+                    40.7558462,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "24 W 45th St",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "48999a20",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.9823202,
+                    40.7521111,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "452 5th Ave",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "48999a20",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.985356,
+                    40.7515045,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "47 W 37th St",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "48999a20",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.9631939,
+                    40.761569,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "300 E 61st St",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "48999a20",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.9626462,
+                    40.7633347,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "1201 2nd Ave",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "48999a20",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.9855993,
+                    40.762538,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "840 8th Ave",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "48999a20",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.95127,
+                    40.7737528,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "1564 1st Ave.",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "48999a20",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.9528672,
+                    40.7807599,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "1582 3rd Ave",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "48999a20",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.9528732,
+                    40.7807697,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "1582 3rd Ave",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "48999a20",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.9773555,
+                    40.7543343,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "52 Vanderbilt Ave",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "48999a20",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.9523604,
+                    40.7691351,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "1413 York Ave",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "48999a20",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        }
+    ]
+}

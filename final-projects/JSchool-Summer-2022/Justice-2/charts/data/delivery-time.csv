@@ -1,0 +1,6 @@
+time,count,percent
+<15 minutes,122,19.67741935
+15 - 30 minutes,214,34.51612903
+30 minutes - 1 hour,248,40
+1 hour - 1.5 hours,31,5
+>1.5 hours,5,0.8064516129

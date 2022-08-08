@@ -10,6 +10,12 @@ Here you will find links to our student's final projects.
 
 ## J-School Summer 2022
 
+### [The Deliveristas: Food Delivery Workers on Ground Zero](https://pointsunknown.nyc/final-projects/JSchool-Summer-2022/Justice-2/index.html)
+
+By Patricia Martínez Sastre, Ilena Peng, Luiz Fernando Toledo and Joel Konopo
+
+![Thumbnail](/assets/finalProjectImages/jschoolSummer2022/justice-2.png)
+
 ### [Climate Change is Threatening Agricultural Stability in the Country’s Most Productive County](https://pointsunknown.nyc/final-projects/JSchool-Summer-2022/Climate/index.html)
 
 By Areena Arora, Kunle Falayi and Chuqin Jiang
