@@ -78,7 +78,7 @@ var config = {
         {
             id: 'drive-slide-02',
             title: '10:11 AM | Health King | 526 Fashion Ave #1',
-            image: 'images/_MG_3366.jpg',
+            image: 'https://raw.githubusercontent.com/ilenapeng/nyc-delivery-cyclists/main/images/_MG_3366.jpg',
             description: 
                 '<p>Delivery pay: $2.77</p>' + 
                 '<p>Mileage: $0.23 for biking 0.958 miles</p>' + 
@@ -92,7 +92,7 @@ var config = {
         {
             id: 'drive-slide-03',
             title: "10:20 AM | Junior's Restaurant | 1515 Broadway @, W 45th St",
-            image: 'images/_MG_3378.jpg',
+            image: 'https://raw.githubusercontent.com/ilenapeng/nyc-delivery-cyclists/main/images/_MG_3378.jpg',
             description: 
                 '<p>Delivery pay: $2.51</p>' + 
                 '<p>Mileage: $0.21 for biking 0.875 miles</p>' + 
@@ -119,7 +119,7 @@ var config = {
         {
             id: 'drive-slide-05',
             title: '11:00 AM | Le Pain Quotidien | 250 W 55th Street',
-            image: 'images/_MG_3343.jpg',
+            image: 'https://raw.githubusercontent.com/ilenapeng/nyc-delivery-cyclists/main/images/_MG_3343.jpg',
             description: 
                 '<p>Delivery pay: $2.14</p>' + 
                 '<p>Mileage: $0.16 for biking 0.667 miles</p>' + 
@@ -210,7 +210,7 @@ var config = {
         {
             id: 'drive-slide-11',
             title: '12:46 PM | Cafe 37 | 47 W 37th St',
-            image: 'images/_MG_3409.jpg',
+            image: 'https://raw.githubusercontent.com/ilenapeng/nyc-delivery-cyclists/main/images/_MG_3409.jpg',
             description: 
                 '<p>Delivery pay: $2.79</p>' + 
                 '<p>Mileage: $0.26 for biking 1.083 miles</p>' + 

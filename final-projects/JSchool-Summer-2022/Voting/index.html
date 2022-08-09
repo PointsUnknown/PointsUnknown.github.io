@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset='utf-8' />
-    <title>Mapbox Storytelling</title>
+    <title>NYC Voting</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/mapbox/assembly/publisher-staging/src/svgs/mapbox.svg">
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
@@ -18,12 +18,42 @@
         a, a:hover, a:visited {
             color: #0071bc;
         }
+
+        .legend {
+            background-color: #fff;
+            border-radius: 3px;
+            bottom: 30px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            padding: 10px;
+            position: fixed;
+            right: 10px;
+            z-index: 5;
+            /* visibility: hidden; */
+        }
+ 
+        .legend h4 {
+            margin: 0 0 10px;
+        }
+
+        .circle {
+            border-radius: 50%;
+        }
+ 
+        .legend div span {
+            display: inline-block;
+            height: 10px;
+            margin-right: 5px;
+            width: 10px;
+        }
+
         #map {
             top:0;
             height: 100vh;
             width:100vw;
             position: fixed;
         }
+        
         #mapInset {
             bottom:50px;
             right:30px;
@@ -115,6 +145,10 @@
             opacity: 0.9;
         }
 
+        #ninth-chapter {
+            opacity: 0.9
+        }
+
         .step div {
             padding:  25px 50px;
             line-height: 25px;
@@ -147,6 +181,30 @@
 <div id="map"></div>
 <div id="mapInset"></div>
 <div id="story"></div>
+
+<div style="visibility: hidden;" id="polling-legend" class="legend">
+    <h4>Polling Stations</h4>
+    <div><span class="circle" style="background-color: #d91229"></span>Individual Locations</div>
+</div>
+
+<div style="visibility: hidden;" id="walkability-legend" class="legend">
+    <h4>Walkability To Polling Station</h4>
+    <div><span style="background-color: #20971a"></span>Most walkable</div>
+    <div><span style="background-color: #cdfcc3"></span>Least walkable</div>
+</div>
+
+<div style="visibility: hidden;" id="vehicle-legend" class="legend">
+    <h4>Vehicle Ownership</h4>
+    <div><span style="background-color: #ba2525"></span>Highest Non-Vehicle Percentage</div>
+    <div><span style="background-color: #fde2e1"></span>Lowest Non-Vehicle Percentage</div>
+</div>
+
+<div style="visibility: hidden;" id="senior-legend" class="legend">
+    <h4>Senior Citizen Share of Population</h4>
+    <div><span style="background-color: #5a4bdf"></span>Highest Senior Percentage</div>
+    <div><span style="background-color: #e9e8fa"></span>Lowest Senior Percentage</div>
+</div>
+
 
 <script src="./config.js"></script>
 <script>
@@ -360,8 +418,6 @@ map.on("load", function() {
         response.element.classList.add('active');
         map[chapter.mapAnimation || 'flyTo'](chapter.location);
 
-        console.log(chapter, "CHAPTER")
-
         // Incase you do not want to have a dynamic inset map,
         // rather want to keep it a static view but still change the
         // bbox as main map move: comment out the below if section.
@@ -377,11 +433,10 @@ map.on("load", function() {
             marker.setLngLat(chapter.location.center);
         }
         if (chapter.onChapterEnter.length > 0) {
-            console.log(chapter.onChapterEnter, "ENTERRR")
             chapter.onChapterEnter.forEach(setLayerOpacity);
         }
         if (chapter.callback) {
-            window[chapter.callback]();
+            chapter.callback();
         }
         if (chapter.rotateAnimation) {
             map.once('moveend', () => {
@@ -483,8 +538,6 @@ function addInsetLayer(bounds) {
 function updateInsetLayer(bounds) {
     insetMap.getSource('boundsSource').setData(bounds);
 }
-
-
 
 // setup resize event
 window.addEventListener('resize', scroller.resize);

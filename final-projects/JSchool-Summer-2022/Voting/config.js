@@ -4,17 +4,16 @@ var config = {
     markerColor: '#3FB1CE',
     projection: 'equirectangular',
     theme: 'light',
-    use3dTerrain: false, //set true for enabling 3D maps.
     title: 'WHAT DOES IT TAKE TO VOTE?',
     subtitle: "An examination of voting stations in New York City",
     byline: "By Nao Kato, Misha Vaid, and Vincent Van Buskirk",
-    footer: 'Source: source citations, etc. <br> Created using <a href="https://github.com/mapbox/storytelling" target="_blank">Mapbox Storytelling</a> template.',
+    footer: 'Created using <a href="https://github.com/mapbox/storytelling" target="_blank">Mapbox Storytelling</a> template.',
     chapters: [
         {
             id: 'opening',
             alignment: 'left',
             hidden: false,
-            title: 'Setting the stage',
+            title: 'Setting The Stage',
             tweet: '<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">My father tried to vote today.. he lives in queens, NYC .. a friend drove him to the voting station... the line was 5 city blocks long out the door.. he was told the wait was several hours.. he went home..how is a 75 yr old man suppose to stand in line for 3/4 hours</p>&mdash; 🌹🥀🙏Cat (@sugarfreecat1) <a href="https://twitter.com/sugarfreecat1/status/1320541077716246528?ref_src=twsrc%5Etfw">October 26, 2020</a></blockquote>',
             description: 'The 2022 United States elections will be held on November 8. A considerable number of registered voters in New York City will visit voting stations for the first time since 2020. During the last presidential election in 2020, many registered voters had to wait hours to vote. Voting was particularly challenging for those who didn\'t live near a polling place.',
             location: {
@@ -23,10 +22,17 @@ var config = {
                 pitch: 0,
                 bearing: 0.00
             },
+            callback: () => {
+                document.getElementById("polling-legend").style.visibility = "hidden";
+            },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
-            callback: "",
-            onChapterEnter: [],
+            onChapterEnter: [
+                {
+                    layer: 'polling-stations',
+                    opacity: 0.0
+                }
+            ],
             onChapterExit: []
         },
         {
@@ -39,6 +45,10 @@ var config = {
                 zoom: 10.5,
                 pitch: 0,
                 bearing: 0.00
+            },
+            callback: () => {
+                document.getElementById("polling-legend").style.visibility = "visible";
+                document.getElementById("walkability-legend").style.visibility = "hidden";
             },
             mapAnimation: 'flyTo',
             image: './images/voting_line.jpeg',
@@ -65,6 +75,11 @@ var config = {
                 zoom: 10.5,
                 pitch: 0,
                 bearing: 0.00
+            },
+            callback: () => {
+                document.getElementById("polling-legend").style.visibility = "hidden";
+                document.getElementById("walkability-legend").style.visibility = "visible";
+                document.getElementById("vehicle-legend").style.visibility = "hidden";
             },
             mapAnimation: 'flyTo',
             image: './images/voting_booths.jpg',
@@ -101,7 +116,10 @@ var config = {
                 bearing: 0.00
             },
             mapAnimation: 'flyTo',
-            callback: '',
+            callback: () => {
+                document.getElementById("walkability-legend").style.visibility = "hidden";
+                document.getElementById("vehicle-legend").style.visibility = "visible";
+            },
             onChapterEnter: [
                 {
                     layer: 'congressional-district-walkability',
@@ -110,6 +128,10 @@ var config = {
                 {
                     layer: 'non-vehicle-percentage',
                     opacity: 0.9
+                },
+                {
+                    layer: 'census-tract-25',
+                    opacity: 0.0
                 }
             ],
             onChapterExit: []
@@ -129,7 +151,16 @@ var config = {
             mapAnimation: 'flyTo',
             rotateAnimation: false,
             callback: '',
-            onChapterEnter: [],
+            onChapterEnter: [
+                {
+                    layer: 'census-tract-25',
+                    opacity: 1.0
+                },
+                {
+                    layer: 'census-tract-276',
+                    opacity: 0.0
+                }
+            ],
             onChapterExit: [],
         },
         {
@@ -145,16 +176,27 @@ var config = {
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
-            callback: '',
+            callback: () => {
+                document.getElementById("senior-legend").style.visibility = "hidden";
+                document.getElementById("vehicle-legend").style.visibility = "visible";
+            },
             onChapterEnter: [
+                {
+                    layer: 'non-vehicle-percentage',
+                    opacity: 0.9
+                },
+                {
+                    layer: 'census-tract-25',
+                    opacity: 0.0
+                },
+                {
+                    layer: 'census-tract-276',
+                    opacity: 1.0
+                },
                 {
                     layer: '65-population-percentage',
                     opacity: 0.0
                 },
-                {
-                    layer: 'non-vehicle-percentage',
-                    opacity: 0.9
-                }
             ],
             onChapterExit: []
         },
@@ -171,7 +213,11 @@ var config = {
                 bearing: 0.00
             },
             mapAnimation: 'flyTo',
-            callback: '',
+            callback: () => {
+                console.log("IN HEEEERE");
+                document.getElementById("vehicle-legend").style.visibility = "hidden";
+                document.getElementById("senior-legend").style.visibility = "visible";
+            },
             onChapterEnter: [
                 {
                     layer: 'non-vehicle-percentage',
@@ -180,6 +226,14 @@ var config = {
                 {
                     layer: '65-population-percentage',
                     opacity: 0.9
+                },
+                {
+                    layer: 'census-tract-276',
+                    opacity: 0.0
+                },
+                {
+                    layer: 'census-tract-309',
+                    opacity: 0.0
                 }
             ],
             onChapterExit: []
@@ -197,11 +251,17 @@ var config = {
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
-            callback: '',
+            callback: () => {
+                document.getElementById("senior-legend").style.visibility = "visible";
+            },            
             onChapterEnter: [
                 {
                     layer: '65-population-percentage',
                     opacity: 0.9
+                },
+                {
+                    layer: 'census-tract-309',
+                    opacity: 1.0
                 }
             ],
             onChapterExit: []
@@ -221,11 +281,18 @@ var config = {
             tweet: '<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">I tried to vote today in NYC. I found a very long line (many blocks long) in the rain &amp; cold. In the end, I failed to vote because I had to leave for a meeting. Inspiring to see so many voting but dispiriting to see how hard it is. Will try again tomorrow. Open more locations! <a href="https://t.co/QfcH0wvn3T">pic.twitter.com/QfcH0wvn3T</a></p>&mdash; Sue Mi Terry (@SueMiTerry) <a href="https://twitter.com/SueMiTerry/status/1322282840286023684?ref_src=twsrc%5Etfw">October 30, 2020</a></blockquote>',
             mapAnimation: 'flyTo',
             rotateAnimation: false,
-            callback: '',
+            callback: () => {
+                document.getElementById("ninth-chapter").setAttribute('style', 'opacity: 0.9 !important')
+                document.getElementById("senior-legend").style.visibility = "visible";
+            },
             onChapterEnter: [
                 {
                     layer: '65-population-percentage',
                     opacity: 0.9
+                },
+                {
+                    layer: 'census-tract-309',
+                    opacity: 0.0
                 }
             ],
             onChapterExit: []
