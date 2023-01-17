@@ -33,17 +33,17 @@ This tutorial will walk you through the installation of the following pieces of 
 
 # Installing QGIS (3.x) on a Mac
 
-* Go to [Download QGIS for your platform](https://qgis.org/en/site/forusers/download.html) and choose the right version for your operating system.  
+* Go to [Download QGIS for your platform](https://qgis.org/en/site/forusers/download.html) and choose the right version for your operating system. We highly recommend installing the long-term release (LTR) version of the software, which is available as a link under the main green download button on the QGIS site.    
 
     ![QGIS 1](/assets/tutorial_images/00_Installation/QGIS_01.png)
 
 * Locate and open the `qgis-macos-pr.dmg` file to install QGIS and all its components.
 
-* Drag the `QGIS3.10.app` to your `Applications` folder.
+* Drag the `QGIS3.xx.app` to your `Applications` folder.
 
 * Previously, installing QGIS meant you also had to install multiple other programs, including Python. However, with this latest update, all the necessary components have been included in the main package and there is nothing else to do.
 
-* *Note*: if you get a message that says QGIS can't be opened because Apple cannot check it for malicious software, click on `Show in Finder` and then right-click on the QGIS3.10.app icon and click `Open` in the subsequent menu.
+* *Note*: macOS High Sierra (10.13) or newer is required for QGIS. QGIS is not yet notarized as required by macOS Catalina (10.15) security rules. On first launch, please right-click on the QGIS app icon, hold down the Option key, then choose Open. This should resolve all errors associated with launching the application.
 
 # Installing Adobe Illustrator on a Mac
 
@@ -76,7 +76,7 @@ This tutorial will walk you through the installation of the following pieces of 
 
 * Go to [Download QGIS for your platform](https://qgis.org/en/site/forusers/download.html) and choose the right version for your operating system.  
     
-* Download QGIS Standalone Installer Version 3.4 (64 bit)
+* Download QGIS Standalone Installer Version 3.xx (64 bit)
     
     ![QGIS Windows 1](/assets/tutorial_images/00_Installation/QGIS_Windows_01.png)
 
