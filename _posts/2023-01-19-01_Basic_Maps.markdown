@@ -96,7 +96,7 @@ Symbology is one of the most important concepts in mapping. At its most basic le
   
 As you may have seen, QGIS assigns random colors to each of the layers you add. To change the appearance of each layer do the following:
 
-* First, since we are interested in creating a housing change map of a part of New York, you should zoom in into our target area. To do this, right-click on the Lots layer and click `Zoom to Layer`. This is also very useful when for some reason you've panned away from your layers and you can't find them on your map. Just right-click on any of them and select `Zoom to Layer` to go back to them.
+* First, since we are interested in creating a housing change map of a part of New York, you should zoom in into our target area. To do this, right-click on the HousingChange_CT layer and click `Zoom to Layer`. This is also very useful when for some reason you've panned away from your layers and you can't find them on your map. Just right-click on any of them and select `Zoom to Layer` to go back to them.
 
 * There are multiple ways of changing the appearance of a layer. The easiest (and simplest) is to double-click on the icon (point, line or polygon) next to the layer name, or on the actual layer name on the layer panel. This brings up the `Layer Properties` panel. There, select the `Symbology` tab. In this tab, you are able to alter the fill (color), stroke weight and fill (outline) and the size of the icon (if using points or icons).
 
@@ -169,7 +169,7 @@ Once you confirm in the attribute table that your new field has been correctly c
 # Classification by Value
 Now that we have calculated the total change in housing units per census tract from 2010-2019, we will symbolize the housing change layer. However, since we want to differentiate the various levels of change, instead of simply symbolizing all the features in the layer with the same color, we will classify the data into a graduated color scale based on different values in its attribute table.
 
-* Just like for the other layers, right-click on the Lots layer and choose `Properties`. Go to the `Symbology` tab. Here, however, choose `Graduated` instead of `Single symbol` in the drop-down menu at the top.
+* Just like for the other layers, right-click on the HousingChange layer and choose `Properties`. Go to the `Symbology` tab. Here, however, choose `Graduated` instead of `Single symbol` in the drop-down menu at the top.
 
 * Next, choose the `Change1019` field in the `Value` option.
 
@@ -258,17 +258,17 @@ The Print Composer is where you will format your map for its final output. Here 
 
   ![thumb](/assets/tutorial_images/01B_BasicMap/19_MoveMap.png)
 
-* Next, you need to center and zoom in the map on the area you want to focus on. For the purposes of this tutorial, we will center around downtown Manhattan and downtown Brooklyn. To do this, move the content of the map to this area and on the right-hand panel, under `Main properties`, adjust your `Scale` to 70,145.
+* Next, you need to center and zoom in the map on the area you want to focus on. For the purposes of this tutorial, we will center around downtown Manhattan and downtown Brooklyn. To do this, move the content of the map to this area and on the right-hand panel, under `Item properties`, adjust your `Scale` to 70,145.
 
 * If any of the colors or line weights seem too big or two small or not correct, you can always go back to the Project and change them there. When you return to your Print Composer you can update your preview and the changes will be reflected. For instance, the NTA Labels seem too large, so we can adjust the point of those labels to `8` and refresh our map in the print composer.
 
 * Next, let's add a scale bar by going to `Add Item` `Add scale bar` and clicking on the map.
 
-* The default scale bar is too big. To change this, go to the right-hand panel, in the top part make sure you select the `Scale bar`, and adjust its properties in the `Main Properties` panel. You can also adjust its units, its colors and even its font.
+* The default scale bar is too big. To change this, go to the right-hand panel, in the top part make sure you select the `Scale bar`, and adjust its properties in the `Item Properties` panel. You can also adjust its units, its colors and even its font.
 
 * To add a legend click on `Add Item` `Add legend` and then click on the map. You will notice that QGIS automatically generates a line in the legend for every layer in the map. We only need the land use ones, so we need to customize the legend:
 
-* On the right-hand panel, under Legend items uncheck `Auto update` and then select the layers that you don't want in the legend and remove them with the 'minus' button. Do the same thing inside the Lots layer with the categories you don't want to display.
+* On the right-hand panel, under Legend items uncheck `Auto update` and then select the layers that you don't want in the legend and remove them with the 'minus' button.
 
 * Since we did not rotate the map we don't need to add a north arrow. If you rotate your map you **must** add a north arrow. If you wanted to, you could add a north arrow by clicking on `Add Item` `Add arrow`.
 
